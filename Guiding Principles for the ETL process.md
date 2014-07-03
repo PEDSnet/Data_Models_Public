@@ -1,5 +1,5 @@
 ######Guiding Principles for the ETL process
-===================
+
 <ol>
 <li>  Don't impute things to appear in the data model (e.g. linkages that don't exist in the source data).  Stay true to source data</li>
 <li>  Create a defined common list of minimum data elements to be included -- Lowest common denominator. </li>
