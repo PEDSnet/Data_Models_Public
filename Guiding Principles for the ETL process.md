@@ -39,7 +39,7 @@ PEDSnet Sites Architecture
 <li>Other Notes: </li></ul>
 ##Nationwide
 <ul><li>Data Model: i2b2</li>
-<li>EHR/EDW: </li>
+<li>EHR/EDW: Clarity</li>
 <li>Other Notes: </li></ul>
 ##Colorado
 <ul><li>Data Model: OMOP</li>
