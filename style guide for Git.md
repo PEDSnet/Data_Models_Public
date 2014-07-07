@@ -4,6 +4,8 @@
 
 When creating a new repository, follow the recommendations below to keep your issue labels consistent across all PEDSnet sites and projects.
 
+Here are further details/instructions on ['mastering issues in GitHub'](https://guides.github.com/features/issues/)
+
 #### Prefixes
 
 Labels should begin with one of the following prefixes:
