@@ -1,4 +1,4 @@
-== Determining person inclusion criteria
+## Determining person inclusion criteria
 
 The goal of this effort is to reach a common set of criteria for identifying persons
 from within the overall populations represented in member institutions' health records
