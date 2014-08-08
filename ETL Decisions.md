@@ -151,36 +151,4 @@ RACE | TEXT(2) | 1=American Indian/Alaska Native 2=Asian 3=Black or African Amer
 8. Non-EPIC Sites Rule: Map care site to department level (will update with specific table/variable name)
 9. Completion Date: 8/6/14
 
-##Visit-end-date for inpatients currently in hospital
-1. Issue Domain: Encounters
-2. Description of the issue: For patients currently in the hospital, they don't have a "visit-end-date" as they are currently still here. Since this field is a "not null" constraint, should we make it the current date of the ETL pull?
-3. Issue # (in GitHub): [#29](https://github.com/PEDSnet/Data_Models/issues/29)
-4. Decision: Let it be null (patients may seem to be frozen in time until the next submission).  We will adjust accordingly as we move through the process.
-5. OMOP Rule: N/A
-6. i2B2 Rule: N/A
-7. Completion date (if needed): 8/6/14
-
-
-##Vital Signs from Source EMR Systems
-1. Issue Domain: Vital Signs
-2. Description of the issue: In EPIC, vital signs are stored in a number of places. E.g. PAT_ENC table (better place for Outpatient or Office Visits) and "Vitals" (may be named differently at different institutes) Flowsheet for Inpatient Data. The question would be if we have multiple recordings of vitals signs in flowsheet for the same encounter, then should we load only most recent values? or all the values?
-3. Issue # (in GitHub): [#23](https://github.com/PEDSnet/Data_Models/issues/23)
-4. Decision: Pull Vitals from Flowsheet rows. We want as much detail as possible. We will use SI units for PEDSnet (and then we can extract/convert to PCORnet model which uses American English units).
-5. OMOP Rule: N/A
-6. i2B2 Rule: N/A
-7. EPIC sites Rule: Pull Vitals from Flowsheet rows. We want as much detail as possible. We will use SI units for PEDSnet (and then we can extract/convert to PCORnet model which uses American English units).
-8. Non-Epic sites Rule: TBD
-9. Completion date (if needed): 8/6/14
-
-
-##Populating care-site-id for inpatient visits
-1. Issue Domain: Encounters
-2. Description of the issue: For patients who are transferred to different departments throughout their hospital encounter, what care site are you mapping that encounter to? Are you creating an "encounter" for each transfer to different departments?
-3. Issue # (in GitHub): [#30](https://github.com/PEDSnet/Data_Models/issues/30)
-4. Decision: Map CARE-SITE to CLARITY-DEP. We can always incorporate CLARITY-LOC in the new v5 model for the CARE-SITE Table (Can roll up departments). Going with CLARITY_DEP makes the assumption that we can distinguish between two specialty clinics in two different locations.
-5. OMOP Rule: N/A
-6. i2B2 Rule: N/A
-7. EPIC sites Rule: Map CARE-SITE to CLARITY-DEP.
-8. Non-Epic sites Rule: TBD
-9. Completion date (if needed): 8/6/14
 
