@@ -122,12 +122,21 @@ RACE | TEXT(2) | 1=American Indian/Alaska Native 2=Asian 3=Black or African Amer
 1. Issue Domain: Vital Signs
 2. Description of the issue: In EPIC, vital signs are stored in a number of places. E.g. PAT_ENC table (better place for Outpatient or Office Visits) and "Vitals" (may be named differently at different institutes) Flowsheet for Inpatient Data.  The question would be if we have multiple recordings of vitals signs in flowsheet for same encounter, then should we load only most recent values? or all the values?
 3. Issue # (in GitHub): [#23](https://github.com/PEDSnet/Data_Models/issues/23)
-4. Decision: Pull Vitals from Flowsheet rows. We want as much detail as possible. We will use SI units for PEDSnet (and then we can extract/convert to PCORnet model which uses American English units).
+4. Decision: Pull Vitals from Flowsheet rows. We want as much detail as possible. We will use SI (metric) units for PEDSnet (and then we can extract/convert to PCORnet model which uses American English units).
 5. OMOP Rule: N/A
 6. i2B2 Rule: N/A
 7. EPIC Sites Rules: Pull Vitals from Flowsheet rows
 8. Non-EPIC Sites Rules: TBD
 9. Completion date (if needed): 8/6/14
+
+###Use these units for these metrics for both OMOP and i2b2
+| Anthropometric metric | Unit name | Data Type | Notes|
+| --------------------- | -------------- | --------- | --------------------------------|
+| Height | centimeters (cm) | NUMBER(8) | Decimals are permissable, out to 3 decimals places |
+| Weight | kilograms (kg) | NUMBER(8) | Decimals are permissable, out to 3 decimals places |
+| Diastolic | millimeters of mercury (mmHg) | NUMBER(4) | Only populate if measure was taken on this date; If missing, leave blank; Only report one reading per encounter - where multiple readings are present, chose the last if sequencing by time is possible, else choose the lowest. |
+| Systolic | millimeters of mercury (mmHg) | NUMBER(4) | Only populate if measure was taken on this date; If missing, leave blank; Only report one reading per encounter - where multiple readings are present, chose the last if sequencing by time is possible, else choose the lowest. |
+
 
 ##Visit-end-date for inpatients currently in hospital
 1. Issue Domain: Encounters
