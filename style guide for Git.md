@@ -6,6 +6,14 @@ When creating a new repository, follow the recommendations below to keep your is
 
 Here are further details/instructions on ['mastering issues in GitHub'](https://guides.github.com/features/issues/)
 
+####Definitions
+- For each issue, please use a label to indicate whether this issue is/will create a stop gap in your workflow (i.e. you can't move on until this issue gets resolved.
+- Each of these levels indicate the level of urgency that accompanies the identified issue:
+    - `STOP GAP ISSUE:REQUIRES IMMEDIATE ATTENTION` (pink) _Needs a resolution ASAP_
+    - `urgency:days` (red) _Needs to be resolved quickly, i.e. in the next couple of days_
+    - `urgency:weeks` (yellow) _Needs to be addressed relatively soon after identification, however not as urgent_
+    - `urgency:months` (green) _Needs to be addressed eventually, but can be 'put on the back burner' if needed_
+
 #### Prefixes
 
 Labels should begin with one of the following prefixes:
