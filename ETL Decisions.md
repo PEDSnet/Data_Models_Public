@@ -160,4 +160,14 @@ RACE | TEXT(2) | 1=American Indian/Alaska Native 2=Asian 3=Black or African Amer
 8. Non-EPIC Sites Rule: Map care site to department level (will update with specific table/variable name)
 9. Completion Date: 8/6/14
 
+##Providers to include
+1. Issue Domain: Providers/Institutions
+2. Description of Issue: - What providers should be included? - How are sites determining specialty? - Are sites mapping based on the department where the provider has the most of their encounters? - How are providers being assigned to an observation?  - Are you considering nurses or meical assistants as providers?
+3. Issue # (in GitHub): [#20](https://github.com/PEDSnet/Data_Models/issues/20)
+4. Decision: **FOR NOW** - remove specialty values from provider table.  We will wait until we have a more specific use case scenario spelled out, then make a final decision. - remove provider from the observation table.  The associated provider ID will not be populated for rows in this table.
+5. OMOP Rule: TBD
+6. i2b2 Rule: TBD
+7. EPIC Sites Rule: TBD
+8. Non-EPIC Sites Rule: TBD
+9. Completion Date: **NOT COMPLETE (Still waiting on 'final, final' decision on this)**
 
