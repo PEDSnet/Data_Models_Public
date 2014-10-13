@@ -1,4 +1,15 @@
 
+CREATE TABLE cohort (
+	cohort_id BIGINT NOT NULL IDENTITY(1,1), 
+	cohort_concept_id INTEGER NOT NULL, 
+	cohort_start_date DATE NOT NULL, 
+	cohort_end_date DATE NULL, 
+	subject_id BIGINT NOT NULL, 
+	stop_reason VARCHAR(100) NULL, 
+	CONSTRAINT cohort_pkey PRIMARY KEY (cohort_id)
+)
+
+
 CREATE TABLE location (
 	location_id BIGINT NOT NULL IDENTITY(1,1), 
 	state VARCHAR(2) NULL, 
@@ -9,17 +20,6 @@ CREATE TABLE location (
 	county VARCHAR(50) NULL, 
 	location_source_value VARCHAR(300) NULL, 
 	CONSTRAINT location_pkey PRIMARY KEY (location_id)
-)
-
-
-CREATE TABLE cohort (
-	cohort_id BIGINT NOT NULL IDENTITY(1,1), 
-	cohort_concept_id INTEGER NOT NULL, 
-	cohort_start_date DATE NOT NULL, 
-	cohort_end_date DATE NULL, 
-	subject_id BIGINT NOT NULL, 
-	stop_reason VARCHAR(100) NULL, 
-	CONSTRAINT cohort_pkey PRIMARY KEY (cohort_id)
 )
 
 
@@ -85,20 +85,6 @@ CREATE TABLE person (
 )
 
 
-CREATE TABLE visit_occurrence (
-	visit_occurrence_id BIGINT NOT NULL IDENTITY(1,1), 
-	person_id BIGINT NOT NULL, 
-	visit_start_date DATE NOT NULL, 
-	visit_end_date DATE NULL, 
-	visit_type_concept_id INTEGER NOT NULL, 
-	provider_id BIGINT NULL, 
-	care_site_id BIGINT NULL, 
-	visit_source_value VARCHAR(100) NULL, 
-	CONSTRAINT visit_occurrence_pkey PRIMARY KEY (visit_occurrence_id), 
-	CONSTRAINT visit_occurrence_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
-)
-
-CREATE INDEX visit_occurrence_person_date ON visit_occurrence (person_id, visit_start_date)
 CREATE TABLE payer_plan_period (
 	payer_plan_period_id BIGINT NOT NULL IDENTITY(1,1), 
 	person_id BIGINT NOT NULL, 
@@ -112,19 +98,16 @@ CREATE TABLE payer_plan_period (
 )
 
 
-CREATE TABLE condition_era (
-	condition_era_id BIGINT NOT NULL IDENTITY(1,1), 
+CREATE TABLE observation_period (
+	observation_period_id BIGINT NOT NULL IDENTITY(1,1), 
 	person_id BIGINT NOT NULL, 
-	condition_concept_id INTEGER NOT NULL, 
-	condition_era_start_date DATE NOT NULL, 
-	condition_era_end_date DATE NOT NULL, 
-	condition_type_concept_id INTEGER NOT NULL, 
-	condition_occurrence_count INTEGER NULL, 
-	CONSTRAINT condition_era_pkey PRIMARY KEY (condition_era_id), 
-	CONSTRAINT condition_era_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
+	observation_period_start_date DATE NOT NULL, 
+	observation_period_end_date DATE NOT NULL, 
+	CONSTRAINT observation_period_pkey PRIMARY KEY (observation_period_id), 
+	CONSTRAINT observation_period_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
 )
 
-
+CREATE UNIQUE INDEX observation_period_person ON observation_period (person_id, observation_period_start_date)
 CREATE TABLE drug_era (
 	drug_era_id BIGINT NOT NULL IDENTITY(1,1), 
 	person_id BIGINT NOT NULL, 
@@ -138,16 +121,6 @@ CREATE TABLE drug_era (
 )
 
 
-CREATE TABLE observation_period (
-	observation_period_id BIGINT NOT NULL IDENTITY(1,1), 
-	person_id BIGINT NOT NULL, 
-	observation_period_start_date DATE NOT NULL, 
-	observation_period_end_date DATE NOT NULL, 
-	CONSTRAINT observation_period_pkey PRIMARY KEY (observation_period_id), 
-	CONSTRAINT observation_period_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
-)
-
-CREATE UNIQUE INDEX observation_period_person ON observation_period (person_id, observation_period_start_date)
 CREATE TABLE death (
 	person_id BIGINT NOT NULL, 
 	death_date DATE NOT NULL, 
@@ -156,6 +129,50 @@ CREATE TABLE death (
 	cause_of_death_source_value VARCHAR(100) NULL, 
 	CONSTRAINT death_pkey PRIMARY KEY (person_id, death_type_concept_id), 
 	CONSTRAINT death_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
+)
+
+
+CREATE TABLE visit_occurrence (
+	visit_occurrence_id BIGINT NOT NULL IDENTITY(1,1), 
+	person_id BIGINT NOT NULL, 
+	visit_start_date DATE NOT NULL, 
+	visit_end_date DATE NULL, 
+	place_of_service_concept_id INTEGER NOT NULL, 
+	provider_id BIGINT NULL, 
+	care_site_id BIGINT NULL, 
+	place_of_service_source_value VARCHAR(100) NULL, 
+	CONSTRAINT visit_occurrence_pkey PRIMARY KEY (visit_occurrence_id), 
+	CONSTRAINT visit_occurrence_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
+)
+
+CREATE INDEX visit_occurrence_person_date ON visit_occurrence (person_id, visit_start_date)
+CREATE TABLE condition_era (
+	condition_era_id BIGINT NOT NULL IDENTITY(1,1), 
+	person_id BIGINT NOT NULL, 
+	condition_concept_id INTEGER NOT NULL, 
+	condition_era_start_date DATE NOT NULL, 
+	condition_era_end_date DATE NOT NULL, 
+	condition_type_concept_id INTEGER NOT NULL, 
+	condition_occurrence_count INTEGER NULL, 
+	CONSTRAINT condition_era_pkey PRIMARY KEY (condition_era_id), 
+	CONSTRAINT condition_era_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id)
+)
+
+
+CREATE TABLE procedure_occurrence (
+	procedure_occurrence_id BIGINT NOT NULL IDENTITY(1,1), 
+	person_id BIGINT NOT NULL, 
+	procedure_concept_id INTEGER NOT NULL, 
+	procedure_date DATE NOT NULL, 
+	procedure_type_concept_id INTEGER NOT NULL, 
+	associated_provider_id BIGINT NULL, 
+	visit_occurrence_id BIGINT NULL, 
+	relevant_condition_concept_id INTEGER NULL, 
+	procedure_source_value VARCHAR(100) NULL, 
+	CONSTRAINT procedure_occurrence_pkey PRIMARY KEY (procedure_occurrence_id), 
+	CONSTRAINT procedure_occurrence_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id), 
+	CONSTRAINT procedure_provider_fk FOREIGN KEY(associated_provider_id) REFERENCES provider (provider_id), 
+	CONSTRAINT procedure_visit_fk FOREIGN KEY(visit_occurrence_id) REFERENCES visit_occurrence (visit_occurrence_id)
 )
 
 
@@ -182,6 +199,31 @@ CREATE TABLE drug_exposure (
 )
 
 
+CREATE TABLE observation (
+	observation_id BIGINT NOT NULL IDENTITY(1,1), 
+	person_id BIGINT NOT NULL, 
+	observation_concept_id INTEGER NOT NULL, 
+	observation_date DATE NOT NULL, 
+	observation_time TIME NULL, 
+	observation_type_concept_id INTEGER NOT NULL, 
+	value_as_number NUMERIC(14, 3) NULL, 
+	value_as_string VARCHAR(60) NULL, 
+	value_as_concept_id INTEGER NULL, 
+	unit_concept_id INTEGER NULL, 
+	associated_provider_id BIGINT NULL, 
+	visit_occurrence_id BIGINT NULL, 
+	relevant_condition_concept_id INTEGER NULL, 
+	observation_source_value VARCHAR(100) NULL, 
+	units_source_value VARCHAR(100) NULL, 
+	range_low NUMERIC(14, 3) NULL, 
+	range_high NUMERIC(14, 3) NULL, 
+	CONSTRAINT observation_pkey PRIMARY KEY (observation_id), 
+	CONSTRAINT observation_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id), 
+	CONSTRAINT observation_provider_fk FOREIGN KEY(associated_provider_id) REFERENCES provider (provider_id), 
+	CONSTRAINT observation_visit_fk FOREIGN KEY(visit_occurrence_id) REFERENCES visit_occurrence (visit_occurrence_id)
+)
+
+CREATE INDEX observation_person_idx ON observation (person_id, observation_concept_id)
 CREATE TABLE condition_occurrence (
 	condition_occurrence_id BIGINT NOT NULL IDENTITY(1,1), 
 	person_id BIGINT NOT NULL, 
@@ -200,48 +242,6 @@ CREATE TABLE condition_occurrence (
 )
 
 
-CREATE TABLE procedure_occurrence (
-	procedure_occurrence_id BIGINT NOT NULL IDENTITY(1,1), 
-	person_id BIGINT NOT NULL, 
-	procedure_concept_id INTEGER NOT NULL, 
-	procedure_date DATE NOT NULL, 
-	procedure_type_concept_id INTEGER NOT NULL, 
-	associated_provider_id BIGINT NULL, 
-	visit_occurrence_id BIGINT NULL, 
-	relevant_condition_concept_id INTEGER NULL, 
-	procedure_source_value VARCHAR(100) NULL, 
-	CONSTRAINT procedure_occurrence_pkey PRIMARY KEY (procedure_occurrence_id), 
-	CONSTRAINT procedure_occurrence_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id), 
-	CONSTRAINT procedure_provider_fk FOREIGN KEY(associated_provider_id) REFERENCES provider (provider_id), 
-	CONSTRAINT procedure_visit_fk FOREIGN KEY(visit_occurrence_id) REFERENCES visit_occurrence (visit_occurrence_id)
-)
-
-
-CREATE TABLE observation (
-	observation_id BIGINT NOT NULL IDENTITY(1,1), 
-	person_id BIGINT NOT NULL, 
-	observation_concept_id INTEGER NOT NULL, 
-	observation_date DATE NOT NULL, 
-	observation_time TIME NULL, 
-	observation_type_concept_id INTEGER NOT NULL, 
-	value_as_number NUMERIC(14, 3) NULL, 
-	value_as_string VARCHAR(60) NULL, 
-	value_as_concept_id INTEGER NULL, 
-	unit_concept_id INTEGER NULL, 
-	associated_provider_id BIGINT NULL, 
-	visit_occurrence_id BIGINT NULL, 
-	relevant_condition_concept_id INTEGER NULL, 
-	observation_source_value VARCHAR(100) NULL, 
-	unit_source_value VARCHAR(100) NULL, 
-	range_low NUMERIC(14, 3) NULL, 
-	range_high NUMERIC(14, 3) NULL, 
-	CONSTRAINT observation_pkey PRIMARY KEY (observation_id), 
-	CONSTRAINT observation_person_fk FOREIGN KEY(person_id) REFERENCES person (person_id), 
-	CONSTRAINT observation_provider_fk FOREIGN KEY(associated_provider_id) REFERENCES provider (provider_id), 
-	CONSTRAINT observation_visit_fk FOREIGN KEY(visit_occurrence_id) REFERENCES visit_occurrence (visit_occurrence_id)
-)
-
-CREATE INDEX observation_person_idx ON observation (person_id, observation_concept_id)
 CREATE TABLE drug_cost (
 	drug_cost_id BIGINT NOT NULL IDENTITY(1,1), 
 	drug_exposure_id BIGINT NOT NULL, 

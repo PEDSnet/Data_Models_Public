@@ -57,7 +57,7 @@ class Observation(Base):
     visit_occurrence_id = Column('visit_occurrence_id', BigInteger())
     relevant_condition_concept_id = Column('relevant_condition_concept_id', Integer())
     observation_source_value = Column('observation_source_value', String(length=100))
-    unit_source_value = Column('unit_source_value', String(length=100))
+    units_source_value = Column('units_source_value', String(length=100))
     range_low = Column('range_low', Numeric(precision=14, scale=3))
     range_high = Column('range_high', Numeric(precision=14, scale=3))
 
@@ -125,10 +125,10 @@ class VisitOccurrence(Base):
     person_id = Column('person_id', BigInteger(), nullable=False)
     visit_start_date = Column('visit_start_date', Date(), nullable=False)
     visit_end_date = Column('visit_end_date', Date())
-    visit_type_concept_id = Column('visit_type_concept_id', Integer(), nullable=False)
+    place_of_service_concept_id = Column('place_of_service_concept_id', Integer(), nullable=False)
     provider_id = Column('provider_id', BigInteger())
     care_site_id = Column('care_site_id', BigInteger())
-    visit_source_value = Column('visit_source_value', String(length=100))
+    place_of_service_source_value = Column('place_of_service_source_value', String(length=100))
 
 
 class ProcedureCost(Base):

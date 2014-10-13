@@ -6,8 +6,7 @@ The PEDSnet common data model is based on the OMOP CDM V4. A full description of
 
 1. Add `pn_time_of_birth` and `pn_gestational_age` fields to the `person` table.
 2. Add `year_of_birth` field to the `provider` table.
-3. Remove `place_of_service_concept_id` and `place_of_service_source_value` from the `visit_occurrence` table.
-4. Add `provider_id`, `visit_type_concept_id` and `visit_source_value` to the `visit_occurrence` table.
+4. Add `provider_id` field to the `visit_occurrence` table.
 5. Rename `units_source_value` to `unit_source_value` on the `observation` table.
 6. Change field orders within some tables.
 

@@ -56,10 +56,10 @@ COMMENT ON COLUMN visit_occurrence.visit_occurrence_id IS 'A system-generated un
 COMMENT ON COLUMN visit_occurrence.person_id IS 'A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.';
 COMMENT ON COLUMN visit_occurrence.visit_start_date IS 'The start date of the visit.';
 COMMENT ON COLUMN visit_occurrence.visit_end_date IS 'The end date of the visit. If this is a one-day visit the end date should match the start date.';
-COMMENT ON COLUMN visit_occurrence.visit_type_concept_id IS 'A foreign key to the predefined concept identifier in the vocabulary reflecting the type of source data from which the visit record is derived.';
+COMMENT ON COLUMN visit_occurrence.place_of_service_concept_id IS 'A foreign key to the predefined concept identifier in the vocabulary reflecting the type of source data from which the visit record is derived.';
 COMMENT ON COLUMN visit_occurrence.provider_id IS 'A foreign key to the provider in the provider table who was associated with the visit.';
 COMMENT ON COLUMN visit_occurrence.care_site_id IS 'A foreign key to the care site in the care site table that was visited.';
-COMMENT ON COLUMN visit_occurrence.visit_source_value IS 'The source data for the visit type.';
+COMMENT ON COLUMN visit_occurrence.place_of_service_source_value IS 'The source data for the visit type.';
 COMMENT ON TABLE condition_occurrence IS 'A diagnosis or condition that has been recorded about a person at a certain time.';
 COMMENT ON COLUMN condition_occurrence.condition_occurrence_id IS 'A system-generated unique identifier for each condition occurrence event.';
 COMMENT ON COLUMN condition_occurrence.person_id IS 'A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.';
@@ -98,7 +98,7 @@ COMMENT ON COLUMN observation.associated_provider_id IS 'A foreign key to the pr
 COMMENT ON COLUMN observation.visit_occurrence_id IS 'A foreign key to the visit in the visit table during which the observation was recorded.';
 COMMENT ON COLUMN observation.relevant_condition_concept_id IS 'A foreign key to the predefined concept identifier in the vocabulary reflecting the condition that was associated with the observation. Note that this is not a direct reference to a specific condition record in the condition table, but rather a condition concept in the vocabulary.';
 COMMENT ON COLUMN observation.observation_source_value IS 'The observation code as it appears in the source data. This code is mapped to a standard concept in the vocabulary and the original code is stored here for reference.';
-COMMENT ON COLUMN observation.unit_source_value IS 'The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the vocabulary and the original code is stored here for reference.';
+COMMENT ON COLUMN observation.units_source_value IS 'The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the vocabulary and the original code is stored here for reference.';
 COMMENT ON TABLE cohort IS 'Person, provider or visit cohorts.';
 COMMENT ON COLUMN cohort.cohort_id IS 'A system-generated unique identifier for each cohort record.';
 COMMENT ON COLUMN cohort.cohort_concept_id IS 'A foreign key to a standard cohort concept identifier in the vocabulary. Cohort concepts identify the cohorts: whether they are defined through persons, providers or visits, or any combination thereof.';
