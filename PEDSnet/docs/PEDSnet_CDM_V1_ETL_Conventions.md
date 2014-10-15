@@ -1,8 +1,5 @@
 **ETL Conventions for use with PEDSnet CDM V1.0**
 
-Revision Date: October 29, 2014
-
-
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
 Version 1 of the PEDSnet CDM reflects the ETL processes developed during the first six months of network development. As such, it closely follows version 1 of the PCORnet CDM. We anticipate that the PEDSnet CDM will expand to include additional data domains such as medication usage, laboratory testing, and other types of clinical observations. However, in order to minimize discordance with the PCORnet CDM, specification of these domains has been deferred until the cognate portion of the PCORnet CDM is developed, or active research in one of the PEDSnet cohorts requires those data types.

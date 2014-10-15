@@ -5,24 +5,23 @@ The PEDSnet common data model is based on the OMOP CDM V4. A full description of
 #### Field additions and deletions
 
 1. Add `pn_time_of_birth` and `pn_gestational_age` fields to the `person` table.
-2. Add `year_of_birth` field to the `provider` table.
-4. Add `provider_id` field to the `visit_occurrence` table.
-5. Rename `units_source_value` to `unit_source_value` on the `observation` table.
-6. Change field orders within some tables.
+2. Add `provider_id` field to the `visit_occurrence` table.
+3. Change field orders within some tables.
 
 #### Null constraint changes
 
-1. Make `care_site_id` on the `person` table `NOT NULL` for consistency in updates based on organization.
+1. Make `person_source_value` on the `person` table `NOT NULL` for consistency in updates.
 2. Make `care_site_source_value` on the `care_site` table `NOT NULL` for consistency in updates.
-3. Make `organization_source_value` on the `organization` table `NOT NULL` for consistency in updates.
-4. Make `provider_source_value` on the `provider` table `NOT NULL` for consistency in updates.
-5. Make `visit_end_date` on the `visit_occurrence` table nullable to allow for visits which are ongoing at time of data extraction.
+3. Make `provider_source_value` on the `provider` table `NOT NULL` for consistency in updates.
+4. Make `care_site_id` on the `person` table `NOT NULL` for consistency in updates based on organization.
+5. Make `organization_source_value` on the `organization` table `NOT NULL` for consistency in updates.
+6. Make `visit_end_date` on the `visit_occurrence` table nullable to allow for visits which are ongoing at time of data extraction.
 
 #### Data type changes
 
 1. Increase many `VARCHAR` (or equivalent) max values to allow for more verbose data.
-2. Change primary keys from `INTEGER` to `BIGINT` (or equivalent) to accomodate more data and automatically generate sequential values.
-3. Change foreign keys from `INTEGER` to `BIGINT` (or equivalent) to match the `BIGINT` primary key data type.
+2. Change most primary keys (except on `organization` and `care_site`) from `INTEGER` to `BIGINT` (or equivalent) to accomodate more data.
+3. Change foreign keys from `INTEGER` to `BIGINT` (or equivalent) to match the new `BIGINT` primary key data type.
 4. Make primary keys auto-incrementing (except in Oracle) to emphasize that the values in those fields should not have any inherent meaning.
 5. Interpret `DATE` types as strictly for storing dates without times.
 
