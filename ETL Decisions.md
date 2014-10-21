@@ -171,3 +171,12 @@ RACE | TEXT(2) | 1=American Indian/Alaska Native 2=Asian 3=Black or African Amer
 8. Non-EPIC Sites Rule: TBD
 9. Completion Date: **NOT COMPLETE (Still waiting on 'final, final' decision on this)**
 
+##Handling Diagnosis codes that don't map to OMOP
+1. Issue Domain: Diagnoses (but could apply to other domains)
+2. Description of the issue: It appears that not all ICD9 codes are covered in the OMOP source to concept mapping.
+An example is V49.86 which is Do not resuscitate status. How should we deal with these occurrences?
+3. Issue # (in GitHub):[#40](https://github.com/PEDSnet/Data_Models/issues/41)
+4. Decision: Make sure you are using the most recent version of the OMOP terminology, [found here](http://omop.org/node/655)
+5. OMOP Rule: use OMOP vocabulary 4.5
+6. i2B2 Rule: N/A
+7. Completion date (if needed): 10/21/14
