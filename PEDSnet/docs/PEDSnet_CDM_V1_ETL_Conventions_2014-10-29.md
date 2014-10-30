@@ -93,7 +93,7 @@ DEATH
 
 The death domain contains the clinical event for how and when a person dies. Living patients should not contain any information in the death table.
 
-| Field | Required | Description | PEDSnet Conventions |
+| **Field** | **Required** | **Description**| **PEDSnet Conventions** |
 |---------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | person\_id | Yes | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person\_id (primary key) |
 | death\_date | Yes | The date the person was deceased. | If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased. When the date of death is not present in the source data, use the date the source record was created. |
@@ -132,7 +132,7 @@ CARE\_SITE
 
 The Care Site table contains a list of uniquely identified physical or organizational units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.). Future definitions of PEDSnet CDM will more precisely define the fields in this table. The most important field in this table is organization\_id, which is the tie back to the contributing PEDSnet data partner (CHOP versus Colorado versus St. Louis).
 
-| Field | Required | Description | PEDSnet Conventions |
+| **Field** | **Required** | **Description**| **PEDSnet Conventions** |
 |-----------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | care\_site\_id | Yes | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field |
 | place\_of\_service\_concept\_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept\_ids found in CONCEPT table where vocabulary\_id = 24 and vocabulary 60 where noted) select \* from concept where vocabulary\_id = 24 yields 4 valid concept\_ids. If none are correct, use concept\_id = 0 Inpatient Hospital Stay: concept\_id = 9201 Ambulatory Visit: concept\_id = 9202 Emergency Department: concept\_id = 9203  Non-Acute Institutional Stay: concept\_id = 42898160 (vocabulary 60) Unknown: concept\_id = 44814713 (vocabulary 60) Other: concept\_id = 44814711 (vocabulary 60) No information: concept\_id = 44814712 (vocabulary 60) |
@@ -154,7 +154,7 @@ ORGANIZATION
 
 Note: This table will be incorporated into CARE SITE in OMOP CDM V5/PEDSnet CDM V2
 
-| Field | Required | Description | PEDSnet Conventions |
+| **Field** | **Required** | **Description**| **PEDSnet Conventions** |
 |-----------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | organization\_id | Yes | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field                                                           |
 | place\_of\_service\_concept\_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept\_ids found in CONCEPT table where vocabulary\_id = 14) select \* from concept where vocabulary\_id = 14 yields 49 valid concept\_ids. If none are correct, use concept\_id = 0 Make a best-guess mapping. |
@@ -169,11 +169,11 @@ The Provider table contains a list of uniquely identified health care providers.
 
 | **Fie|d** | **Required** | **Description** | **PEDSnet Conventions** |
 |--------------------------|--------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| provider\_id | Yes  | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data.  | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.  See bAdditional Commentsb below. Sites should document who they have included as a provider.|
-| specialty\_concept\_id   | No           | A foreign key to a standard provider's specialty concept identifier in the Vocabulary.                    | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept\_ids found in CONCEPT table where vocabulary\_id = 48) select \* from concept where vocabulary\_id = 48 yields 111 valid concept\_ids. If none are correct, use concept\_id = 0  For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.  |
+| provider\_id | Yes  | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data.  | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.  See Additional Comments below. Sites should document who they have included as a provider.|
+| specialty\_concept\_id   | No | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept\_ids found in CONCEPT table where vocabulary\_id = 48) select \* from concept where vocabulary\_id = 48 yields 111 valid concept\_ids. If none are correct, use concept\_id = 0  For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.  |
 | care\_site\_id | Yes | A foreign key to the main care site where the provider is practicing. | See CARE\_SITE.care\_site\_id (primary key) |
 | NPI   | No | Optional - Do not transmit to DCC.  The National Provider Identifier (NPI) of the provider. |
-| DEA  | No | Optional - Do not transmit to DCC.  The Drug Enforcement Administration (DEA) number of the provider. |       |
+| DEA  | No | Optional - Do not transmit to DCC.  The Drug Enforcement Administration (DEA) number of the provider. |   |
 | provider\_source\_value  | No | The identifier used for the provider in the source data, stored here for reference.  | Insert a pseudo-identifier (random number, encrypted identifier) into the field. Do not insert the actual PROVIDER\_ID from your site. A mapping from the pseudo-identifier for provider\_source\_value in this field to a real provider ID from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review. Sites may consider using the provider\_id field value in this table as the pseudo-identifier as long as a local mapping from provider\_id to the real site identifier is maintained. |
 | specialty\_source\_value | No | The source code for the provider specialty as it appears in the source data, stored here for reference.   | Optional. May be obfuscated if deemed sensitive by local site. |
 
@@ -226,7 +226,7 @@ Conditions are recorded in different sources and levels of standardization. For 
 
 -   EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
 
-| Field | Required | Description | PEDSnet Conventions |
+| **Field** | **Required** | **Description**| **PEDSnet Conventions** |
 |----------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | condition\_occurrence\_id  | Yes  | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field |
 | person\_id | Yes | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table. |    |
@@ -329,7 +329,7 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 
 Table 1: Observation concept IDs for PCORnet concepts. Concept\_ids from vocabulary\_id 99 are non-standard codes.
 
-| Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID |
+| **Concept Name** | **Observation concept ID** | **Vocab ID** | **Value as concept ID** | **Concept description** | **Vocab ID** |
 |------------------------------------|------------------------|----------|---------------------|-------------------------------------|----------|
 | Biobank flag (see Note 5) | 4001345 |          | 4188539 | Yes |          |
 | Biobank flag | 4001345 |          | 4188540   | No| |
@@ -448,7 +448,7 @@ In addition, the following observations are derived via the DCC (concept\_ids to
 
 **Note 6:** Discharge disposition and discharge status appear only once per visit\_occurence. These vales can change across different visit\_occurrences. Use the visit\_occurrence\_id to tie these observations to the corresponding visit.
 
-| Field | Required | Description | PEDSnet Conventions |
+| **Field** | **Required** | **Description** | **PEDSnet Conventions** |
 |-----------------------------------------------------------------------------------------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | observation\_id | Yes  | A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field |
 | person\_id | Yes | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table. | |
@@ -485,7 +485,7 @@ The observation period table is designed to capture the time intervals in which 
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
 
-| Field | Required | Data Type | Description | PEDSnet Conventions |
+| **Field** |** Required** | **Data Type** | **Description** | **PEDSnet Conventions** |
 |----------------------------------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Observation\_period\_id | Yes | Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. |
 | person\_id | Yes | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table. | |
@@ -504,7 +504,7 @@ While analytic methods can be used to calculate gaps in observation periods that
 
 **Elements for future versions**
 
-| Date requested | Requestor | Data request | Target PEDSnet DM Version |
+| **Date requested** | **Requestor** | **Data request** | **Target PEDSnet DM Version** |
 |----------------|---------------|-----------------------------------------------------|----------------|
 | 10/24/2014 | Chris Forrest | Prescription meds | 2 |
 | 10/24/2014 | Chris Forrest | Lab results: A1C, TC, HDL, TG, LDL, glucose insulin | 2  |
