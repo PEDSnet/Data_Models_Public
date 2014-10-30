@@ -483,7 +483,7 @@ The observation period table is designed to capture the time intervals in which 
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
 
-| **Field** |** Required** | **Data Type** | **Description** | **PEDSnet Conventions** |
+| **Field** |**Required** | **Data Type** | **Description** | **PEDSnet Conventions** |
 |----------------------------------|----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Observation\_period\_id | Yes | Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. |
 | person\_id | Yes | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table. | |
