@@ -26,7 +26,7 @@ Comments on this specification and ETL rules are welcome. Please send email to <
 
 5.  The data elements classified as PDEs and those included in the PCDM will be approved by the PEDSnet Executive Committee (comprised of each PEDSnet institutionbs site principal investigator).
 
-6.  Concept IDs are taken from OMOP v4.5 vocabularies for PEDSnet CDM v1, using the complete (brestrictedb) version that includes licensed terminologies such as CPT and others.
+6.  Concept IDs are taken from OMOP v4.5 vocabularies for PEDSnet CDM v1, using the complete (restricted) version that includes licensed terminologies such as CPT and others.
 
 7. PCORnet CDM V1.0 requires data elements that are not currently considered "standard concepts". Vocabulary version 4.5 has a new vocabulary (vocabulary\_id = 60) that was added by OMOP to capture all of the PCORnet concepts that are not in the standard terminologies. We use concept\_ids from vocabulary\_id 60 where there are no existing standard concepts. We highlight where we are pulling concept\_ids from vocabulary\_id 60 in the tables. While terms from vocabulary\_id = 60 violates the OMOP rule to use only concept_ids from standard vocabularies (vocabulary 60 is a non-standard vocabulary), this convention enables a clean extraction from PEDSnet CDM to PCORnet CDM.
 
@@ -42,12 +42,10 @@ Comments on this specification and ETL rules are welcome. Please send email to <
 
 | **Null Name**       | **Definition of each field**                                                                           |
 |---------------------|--------------------------------------------------------------------------------------------------------|
-| NULL                | A data field is not present in the source system                                                       |
-| NI = No Information | A data field is present in the source system, but the source value is null or blank                    |
-| UN = Unknown        | A data field is present in the source system, but the source value explicitly denotes an unknown value |
-| OT = Other          | A data field is present in the source system, but the source value cannot be mapped to the CDM         |
-
-<span id="_Toc394268574" class="anchor"></span>
+| NULL | A data field is not present in the source system |
+| NI = No Information | A data field is present in the source system, but the source value is null or blank | 
+| UN = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value |
+| OT = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM |
 
 ***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, organization, care\_site, provider, person, visit\_occurrence, condition\_occurrence, observation, procedure\_occurrence, and observation\_period
 
@@ -61,13 +59,13 @@ PEDSnet uses a specific definition of an active PEDSnet patient. Only patients w
 
 -   Has a unique identifier AND
 
--   At least 1 bin personb clinical encounter on or after January 1, 2009 AND
+-   At least 1 in person clinical encounter on or after January 1, 2009 AND
 
 -   At least 1 coded diagnoses recorded on or after January 1, 2009 AND
 
 -   Is not a test patient or a research-only patient
 
-The definition of an bin personb clinical encounter remains heuristic bany encounter type that involves a meaningful \*\*physical\*\* interaction with a clinician that involved clinical content. An encounter for a suture removal or a telephone encounter or a lab blood draw does not meet this definition.
+The definition of an in person clinical encounter remains heuristic any encounter type that involves a meaningful **physical** interaction with a clinician that involved clinical content. An encounter for a suture removal or a telephone encounter or a lab blood draw does not meet this definition.
 
 **NOTE: While the 1/1/2009 date and bin personb clinical encounter restrictions apply to defining an active PEDSnet patient, once a patient has met this criteria, PEDSnet will extract \*\*\*ALL\*\*\* available clinical encounters/clinical data of any type across all available dates. That is, b1/1/2009 and 1 bin personb clinical encounterb applies only to defining the active patient cohort. It does NOT apply to data extraction on active patients.**
 
