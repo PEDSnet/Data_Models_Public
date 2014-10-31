@@ -6,12 +6,12 @@ import re
 import sqlalchemy as sa
 
 # Read in config file
-with open('config.json', 'r') as f:
+with open('cdm_config.json', 'r') as f:
     config = json.loads(f.read())
 
 # Get metadata from sqlalchemy_tables.py
 os.sys.path.append(os.path.abspath('.'))
-from sqlalchemy_tables import Base
+from sqlalchemy_cdm_tables import Base
 meta = Base.metadata
 
 # Factory to configure an engine 'executor' function that dumps into the passed
@@ -26,12 +26,13 @@ for dialect in config['dialects']:
     f = open(dialect['outfile'], 'w')
     # Create an executor function that dumps to the output file
     dump = dump_gen(f)
-    # Create an engine with the conn_str stub (which defines the dialect) the
-    # mock strategy which passes all statements to the executor, and the dump
-    # executor function
-    engine = sa.create_engine(dialect['conn_str'], strategy='mock', executor=dump)
-    # Set MS-SQL server version to 2008 to generate DATE and TIME data types for
-    # more specificity (MS-SQL 2005 only has DATETIME).
+    # Create an engine with the conn_str stub (which defines the dialect)
+    # the mock strategy which passes all statements to the executor, and
+    # the dump executor function
+    engine = sa.create_engine(dialect['conn_str'], strategy='mock',
+                              executor=dump)
+    # Set MS-SQL server version to 2008 to generate DATE and TIME data
+    # types for more specificity (MS-SQL 2005 only has DATETIME).
     if dialect['conn_str'] == 'mssql://':
         MS_2008_VERSION = (10,)
         engine.dialect.server_version_info = MS_2008_VERSION
@@ -43,7 +44,8 @@ for dialect in config['dialects']:
     # Hack to fix up Oracle data types by search and replace. This avoids
     # subclassing the actual interpreter, which would be more work.
     # Replace the to-be-depreciated INTEGER data type with NUMBER(10) and
-    # replace TIME data types, which are incorrectly generated, with TIMESTAMP.
+    # replace TIME data types, which are incorrectly generated, with
+    # TIMESTAMP.
     if dialect['conn_str'] == 'oracle://':
         # Make a temp file
         with NamedTemporaryFile(delete=False) as tmpf:
