@@ -1,0 +1,21 @@
+{
+    "sconn_str": "",
+    "dialects": [
+        {
+            "outfile": "OMOP_Vocabulary_V4_mysql.ddl",
+            "conn_str": "mysql://"
+        },
+        {
+            "outfile": "OMOP_Vocabulary_V4_pgsql.ddl",
+            "conn_str": "postgres://"
+        },
+        {
+            "outfile": "OMOP_Vocabulary_V4_mssql.ddl",
+            "conn_str": "mssql://"
+        },
+        {
+            "outfile": "OMOP_Vocabulary_V4_oracle.ddl",
+            "conn_str": "oracle://"
+        }
+    ]
+}

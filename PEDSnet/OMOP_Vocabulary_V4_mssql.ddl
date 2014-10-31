@@ -2,7 +2,7 @@
 CREATE TABLE drug_approval (
 	ingredient_concept_id INTEGER NOT NULL, 
 	approval_date DATE NOT NULL, 
-	approved_by VARCHAR(20) DEFAULT 'FDA' NOT NULL, 
+	approved_by VARCHAR(20) NOT NULL DEFAULT 'FDA', 
 	CONSTRAINT xpkdrug_approval PRIMARY KEY (ingredient_concept_id)
 )
 
@@ -18,14 +18,14 @@ CREATE TABLE vocabulary (
 CREATE TABLE drug_strength (
 	drug_concept_id INTEGER NOT NULL, 
 	ingredient_concept_id INTEGER NOT NULL, 
-	amount_value NUMERIC(38), 
-	amount_unit VARCHAR(60), 
-	concentration_value NUMERIC(38), 
-	concentration_enum_unit VARCHAR(60), 
-	concentration_denom_unit VARCHAR(60), 
+	amount_value NUMERIC(38) NULL, 
+	amount_unit VARCHAR(60) NULL, 
+	concentration_value NUMERIC(38) NULL, 
+	concentration_enum_unit VARCHAR(60) NULL, 
+	concentration_denom_unit VARCHAR(60) NULL, 
 	valid_start_date DATE NOT NULL, 
 	valid_end_date DATE NOT NULL, 
-	invalid_reason VARCHAR(1) CHECK (invalid_reason IN ('D', 'U')), 
+	invalid_reason VARCHAR(1) NULL CHECK (invalid_reason IN ('D', 'U')), 
 	CONSTRAINT xpkdrug_strength PRIMARY KEY (drug_concept_id, ingredient_concept_id, valid_end_date)
 )
 
@@ -34,8 +34,8 @@ CREATE TABLE relationship (
 	relationship_id INTEGER NOT NULL, 
 	relationship_name VARCHAR(256) NOT NULL, 
 	is_hierarchical INTEGER NOT NULL, 
-	defines_ancestry INTEGER DEFAULT '1' NOT NULL, 
-	reverse_relationship INTEGER, 
+	defines_ancestry INTEGER NOT NULL DEFAULT '1', 
+	reverse_relationship INTEGER NULL, 
 	CONSTRAINT xpkrelationship_type PRIMARY KEY (relationship_id)
 )
 
@@ -48,8 +48,8 @@ CREATE TABLE concept (
 	vocabulary_id INTEGER NOT NULL, 
 	concept_code VARCHAR(40) NOT NULL, 
 	valid_start_date DATE NOT NULL, 
-	valid_end_date DATE DEFAULT '31-Dec-2099' NOT NULL, 
-	invalid_reason VARCHAR(1) CHECK (invalid_reason IN ('D', 'U')), 
+	valid_end_date DATE NOT NULL DEFAULT '31-Dec-2099', 
+	invalid_reason VARCHAR(1) NULL CHECK (invalid_reason IN ('D', 'U')), 
 	CONSTRAINT xpkconcept PRIMARY KEY (concept_id), 
 	CONSTRAINT concept_vocabulary_ref_fk FOREIGN KEY(vocabulary_id) REFERENCES vocabulary (vocabulary_id)
 )
@@ -58,14 +58,14 @@ CREATE TABLE concept (
 CREATE TABLE source_to_concept_map (
 	source_code VARCHAR(40) NOT NULL, 
 	source_vocabulary_id INTEGER NOT NULL, 
-	source_code_description VARCHAR(256), 
+	source_code_description VARCHAR(256) NULL, 
 	target_concept_id INTEGER NOT NULL, 
 	target_vocabulary_id INTEGER NOT NULL, 
-	mapping_type VARCHAR(20), 
-	primary_map VARCHAR(1) CHECK (primary_map IN ('Y')), 
+	mapping_type VARCHAR(20) NULL, 
+	primary_map VARCHAR(1) NULL CHECK (primary_map IN ('Y')), 
 	valid_start_date DATE NOT NULL, 
-	valid_end_date DATE DEFAULT '31-Dec-2099' NOT NULL, 
-	invalid_reason VARCHAR(1) CHECK (invalid_reason IN ('D', 'U')), 
+	valid_end_date DATE NOT NULL DEFAULT '31-Dec-2099', 
+	invalid_reason VARCHAR(1) NULL CHECK (invalid_reason IN ('D', 'U')), 
 	CONSTRAINT xpksource_to_concept_map PRIMARY KEY (source_vocabulary_id, target_concept_id, source_code, valid_end_date), 
 	CONSTRAINT source_to_concept_concept FOREIGN KEY(target_concept_id) REFERENCES concept (concept_id), 
 	CONSTRAINT source_to_concept_source_vocab FOREIGN KEY(source_vocabulary_id) REFERENCES vocabulary (vocabulary_id), 
@@ -85,8 +85,8 @@ CREATE TABLE concept_synonym (
 CREATE TABLE concept_ancestor (
 	ancestor_concept_id INTEGER NOT NULL, 
 	descendant_concept_id INTEGER NOT NULL, 
-	max_levels_of_separation NUMERIC(38), 
-	min_levels_of_separation NUMERIC(38), 
+	max_levels_of_separation NUMERIC(38) NULL, 
+	min_levels_of_separation NUMERIC(38) NULL, 
 	CONSTRAINT xpkconcept_ancestor PRIMARY KEY (ancestor_concept_id, descendant_concept_id), 
 	CONSTRAINT concept_ancestor_fk FOREIGN KEY(ancestor_concept_id) REFERENCES concept (concept_id), 
 	CONSTRAINT concept_descendant_fk FOREIGN KEY(descendant_concept_id) REFERENCES concept (concept_id)
@@ -98,8 +98,8 @@ CREATE TABLE concept_relationship (
 	concept_id_2 INTEGER NOT NULL, 
 	relationship_id INTEGER NOT NULL, 
 	valid_start_date DATE NOT NULL, 
-	valid_end_date DATE DEFAULT '31-Dec-2099' NOT NULL, 
-	invalid_reason VARCHAR(1) CHECK (invalid_reason IN ('D', 'U')), 
+	valid_end_date DATE NOT NULL DEFAULT '31-Dec-2099', 
+	invalid_reason VARCHAR(1) NULL CHECK (invalid_reason IN ('D', 'U')), 
 	CONSTRAINT xpkconcept_relationship PRIMARY KEY (concept_id_1, concept_id_2, relationship_id), 
 	CONSTRAINT concept_rel_child_fk FOREIGN KEY(concept_id_2) REFERENCES concept (concept_id), 
 	CONSTRAINT concept_rel_parent_fk FOREIGN KEY(concept_id_1) REFERENCES concept (concept_id), 
