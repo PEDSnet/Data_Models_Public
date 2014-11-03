@@ -20,7 +20,7 @@ Comments on this specification, whether providing critique of the existing data 
 7. Regarding the nullability of all source value (string) fields only, in the presence of a missing or unmapped value in source data, one of the following values must be used:
 
 Null Name | Definition of each field
---|--
+ --- | ---
 NULL | A data field is not present in the source system
 NI = No Information | A data field is present in the source system, but the source value is null or blank
 UN = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value
@@ -34,8 +34,8 @@ The following tables are included in the CDM:
 
 The person domain contains records that uniquely identify each patient in the source data who meets the network definition of a "PEDSnet Patient". See ETL conventions document for the current definition of a "PEDSnet Patient." Each person record has associated demographic attributes, which represent constant or summarized values for the patient throughout the course of their periods of observation. All other patient-related data domains have a foreign-key reference to the person domain.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 person_id | Yes | integer | A unique identifier for each person; this is created by each contributing site. Note: This is not a value found in the EHR. However, a map to patient ID or MRN from the EHR must be kept at the site and not shared with the data coordinating center for re-identification in the future.
 gender_concept_id | Yes | integer | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person.
 year_of_birth | Yes | integer | The year of birth of the person. For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.
@@ -64,8 +64,8 @@ ethnicity_source_value | No | varchar | The source code for the ethnicity of the
 
 The death domain contains the clinical event for how and when a person dies. Living patients should not contain any information in the death table.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 person_id | Yes | integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.
 death_date | Yes | date | The date the person was deceased. If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.
 death_type_concept_id | Yes | integer | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data.
@@ -81,8 +81,8 @@ cause_of_death_source_value | No | varchar | The source code for the cause of de
 
 The Location table represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons, Providers, and Care Sites.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 location_id | Yes | integer | A unique identifier for each geographic location.
 state | No | varchar | The state field as it appears in the source data.
 zip | No | varchar | The zip code. For US addresses, valid zip codes can be 3, 5 or 9 digits long, depending on the source data.
@@ -100,8 +100,8 @@ county | No | varchar | Optional - Do not transmit to DCC
 
 The Care Site table contains a list of uniquely identified physical or organizational units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.).
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 care_site_id | Yes | integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database.
 place_of_service_concept_id | No | integer | A foreign key that refers to a place of service concept identifier in the Vocabulary
 location_id | No | integer | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
@@ -117,8 +117,8 @@ organization_id | Yes | Integer | A foreign key to the organization record.
 
 ## 1.5 ORGANIZATION
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 organization_id | Yes | Integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database.
 place_of_service_concept_id | No | Integer | A foreign key that refers to a place of service concept identifier in the Vocabulary
 location_id | No | Integer | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
@@ -129,8 +129,8 @@ organization_source_value | Yes | Integer | The identifier for the organization 
 
 The Provider table contains a list of uniquely identified health care providers. These are typically physicians, nurses, etc.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 provider_id | Yes | Integer | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data.
 specialty_concept_id | No | Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. This is an optional field. PEDSnet has not yet defined an ETL convention for selecting one specialty code for providers who have multiple specialties.
 care_site_id | Yes | Integer | A foreign key to the main care site where the provider is practicing. This field is required in PEDSnet, which is a deviation from OMOP CDM V4.
@@ -148,8 +148,8 @@ specialty_source_value | No | varchar | The source code for the provider special
 
 The visit domain contains the spans of time a person continuously receives medical services from one or more providers at a care site in a given setting within the health care system. Visits are classified into 4 settings: outpatient care, inpatient confinement, emergency room, and long-term care
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 visit_occurrence_id | Yes | integer | A unique identifier for each person’s visits or encounter at a healthcare provider. Sites can provide whatever integers (DCC will replace the value).
 person_id | Yes | integer | A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.
 visit_start_date | Yes | date | The start date of the visit.
@@ -176,8 +176,8 @@ Conditions are recorded in different sources and levels of standardization. For 
 - Medical claims data include ICD-9-CM diagnosis codes that are submitted as part of a claim for health services and procedures.
 - EHRs may capture a person’s conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 condition_occurrence_id | Yes | integer | A unique identifier for each condition occurrence event.
 person_id | Yes | integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 condition_concept_id | Yes | integer | A foreign key that refers to a standard condition concept identifier in the Vocabulary.
@@ -202,8 +202,8 @@ The procedure domain contains records of significant activities or processes ord
 
 Procedures records are extracted from structured data in Electronic Health Records that capture CPT-4, ICD-9-CM (Procedures), HCPCS or OPCS-4 procedures as orders.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 procedure_occurrence_id | Yes | integer | A system-generated unique identifier for each procedure occurrence. Sites can use any integer- DCC will do a substitution.
 person_id | Yes | integer | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
 procedure_concept_id | Yes | integer | A foreign key that refers to a standard procedure concept identifier in the Vocabulary.
@@ -241,8 +241,8 @@ In addition, the following observations are derived via the DCC:
 - Systolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 observation_id | Yes | integer | A unique identifier for each observation.
 person_id | Yes | integer | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.
 observation_concept_id | Yes | integer | A foreign key to the standard observation concept identifier in the Vocabulary.
@@ -273,8 +273,8 @@ The observation period table is designed to capture the time intervals in which 
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
 
-**Field** | **Required** | **Type** | **Description**
---|--|--|--
+Field | Required | Type | Description
+ --- | --- | --- | ---
 observation_period_id | Yes | Integer | A system-generate unique identifier for each observation period
 person_id | Yes | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source
