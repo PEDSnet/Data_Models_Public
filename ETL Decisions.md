@@ -186,18 +186,16 @@ An example is V49.86 which is Do not resuscitate status. How should we deal with
 2. Description of the issue: What are we using as pragmatic inclusion criteria to say that 'this person is a member of your data set?
 3. Issue # (in GitHub):[#5](https://github.com/PEDSnet/Data_Models/issues/5)
 4. Decision: Please reference PEDSnet ETL Convention document for definition of an active patient, [found here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_V1_ETL_Conventions.md) and specified below.
-
-*Pedsnet Active Patient Definitions:*
-<li> Has a unique identifier</li>
-AND
-<li>At least one 'in person' clinical encounter on or after 1/1/2009 </li>
-AND
-<li>At least one coded diagnoses recorded on or after 1/1/2009</li>
-AND
-<li>Is not a test patient or research-only patient</li>
 5. OMOP Rule: N/A
 6. i2B2 Rule: N/A
 7. Completion date (if needed): 11/3/14
+
+**Pedsnet Active Patient Definitions:** 
+*Has a unique identifier
+AND *At least one 'in person' clinical encounter on or after 1/1/2009
+AND *At least one coded diagnoses recorded on or after 1/1/2009
+AND *Is not a test patient or research-only patient.
+
 
 ##Procedures that occur on different dates
 1. Issue Domain: Procedures
