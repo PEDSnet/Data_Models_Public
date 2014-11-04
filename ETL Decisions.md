@@ -180,3 +180,67 @@ An example is V49.86 which is Do not resuscitate status. How should we deal with
 5. OMOP Rule: use OMOP vocabulary 4.5
 6. i2B2 Rule: N/A
 7. Completion date (if needed): 10/21/14
+
+##Inclusion Criteria
+1. Issue Domain: Demographics
+2. Description of the issue: What are we using as pragmatic inclusion criteria to say that 'this person is a member of your data set?
+3. Issue # (in GitHub):[#5](https://github.com/PEDSnet/Data_Models/issues/5)
+4. Decision: Please reference PEDSnet ETL Convention document for definition of an active patient, [found here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_V1_ETL_Conventions.md) and specified below.
+
+*Pedsnet Active Patient Definitions:*
+<li> Has a unique identifier</li>
+AND
+<li>At least one 'in person' clinical encounter on or after 1/1/2009 </li>
+AND
+<li>At least one coded diagnoses recorded on or after 1/1/2009</li>
+AND
+<li>Is not a test patient or research-only patient</li>
+5. OMOP Rule: N/A
+6. i2B2 Rule: N/A
+7. Completion date (if needed): 11/3/14
+
+##Procedures that occur on different dates
+1. Issue Domain: Procedures
+2. Description of the issue: How to handle procedures that occur on a date different than the date of the associated visit/_occurrence/_id?
+3. Issue # (in GitHub):[#18](https://github.com/PEDSnet/Data_Models/issues/18)
+4. Decision: It would be reasonable to connect to Visit/_occurence/_ID if possible. Otherwise, record date of the procedure rather than substituting the date of the visit.
+5. OMOP Rule: Follow convention as listed above
+6. i2B2 Rule: Follow convention as listed above
+7. Completion date (if needed): 11/3/14
+
+##Free text with Diagnosis
+1. Issue Domain: Diagnosis
+2. Description of the issue: How to handle diagnoses with free-text fields?
+3. Issue # (in GitHub):[#17](https://github.com/PEDSnet/Data_Models/issues/17)
+4. Decision: _Do not_ process free text.
+5. OMOP Rule: Follow convention as listed above
+6. i2B2 Rule: Follow convention as listed above
+7. Completion date (if needed): 11/3/14
+
+##Merged Encounters
+1. Issue Domain: Encounters
+2. Description of the issue: Where there are merged encounters under a single merged HAR, which visit should be coded in PROCEDURE/_OCCURENCE.VISIT/_OCCURENCE_ID? If there was a procedure done during the first visit, and the merged HAR only links to the second visit, where are pre-surgical labs tied to encounter?
+3. Issue # (in GitHub):[#15](https://github.com/PEDSnet/Data_Models/issues/15)
+4. Decision: Use the CSN to differentiate each visit, then associate other facts via the CSN where possible.  However, this approach only works for EPIC/CLARITY sites.  Non-EPIC sites should use similar approaches, and document what their site did.
+5. OMOP Rule: Follow convention as listed above
+6. i2B2 Rule: Follow convention as listed above
+7. Completion date (if needed): 11/3/14
+
+##Procedure Definition
+1. Issue Domain: Procedures
+2. Description of the issue: What constitutes a procedure?
+3. Issue # (in GitHub):[#19](https://github.com/PEDSnet/Data_Models/issues/19)
+4. Decision: Start with all billed procedures (i.e. anything that results in an ICD9-Proc or CPT code, or other terminologies).  For medications and labs, use CPT codes.
+5. OMOP Rule: Follow convention as listed above
+6. i2B2 Rule: Follow convention as listed above
+7. Completion date (if needed): 11/3/14
+
+##Separating ED and Inpatient Encounters in Clarity (and other EHRs)
+1. Issue Domain: Encounters
+2. Description of the issue: PCORnet data model wants to split out ED from Inpatient visits. The draft specs say we are supposed to split that into two encounters - ED and Inpatient.
+3. Issue # (in GitHub):[#14](https://github.com/PEDSnet/Data_Models/issues/14)
+4. Decision: **SITES - Please document your site specific decisions in the ETL conventions branches.**
+ <li>* Recommendations from CHOP and Colorado - this is one admission under one encounter so now we need to split up the encounters that were done so they fall into the appropriate "buckets" - ED or Inpatient. Greg (Colorado) wrote the code to split the encounters so that when the patient is discharged from ED, or transferred to inpatient, that is the end of the ED encounter. Then, by taking the time when the patient was transferred into Inpatient - or there is an ADT record of admission for inpatient, and using that as the start time for the Inpatient encounter. However, splitting out the visit occurence ID is tricky. Both encounters will have the same CSN ID.  For the time stamp, CHOP will use Event time; Colorado will use the effective time.</li>
+5. OMOP Rule: Follow convention as listed above
+6. i2B2 Rule: Follow convention as listed above
+7. Completion date (if needed): 11/3/14
