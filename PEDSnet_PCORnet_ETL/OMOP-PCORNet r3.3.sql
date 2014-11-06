@@ -24,7 +24,7 @@ insert into pcornet.demographic (patid, birth_date, birth_time, sex, hispanic, r
 select distinct 
 	cast(p.person_id as text) as pat_id,
 	cast(year_of_birth as text)||(case when month_of_birth is null OR day_of_birth is null then '' else '-'||lpad(cast(month_of_birth as text),2,'0')||'-'||lpad(cast(day_of_birth as text),2,'0') end) as birth_date,	
-	null as birth_time,
+	pn_birth_time as birth_time,
 	coalesce (m1.target_concept,'OT') as Sex,
 	coalesce (m2.target_concept,'OT') as Hispanic,
 	coalesce (m3.target_concept,'OT') as Race,
@@ -67,7 +67,7 @@ select distinct
 	null as admit_time,
 	cast(date_part('year', visit_end_date) as text)||'-'||lpad(cast(date_part('month', visit_end_date) as text),2,'0')||'-'||lpad(cast(date_part('day', visit_end_date) as text),2,'0') as discharge_date,
 	null as discharge_time,
-	null as providerid,
+	v.provider_id as providerid,
 	left(l.zip,3) as facility_location,
 	coalesce(m1.target_concept,'OT') as enc_type,
 	v.care_site_id as facilityid,
