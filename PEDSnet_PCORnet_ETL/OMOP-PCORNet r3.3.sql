@@ -139,7 +139,7 @@ select distinct
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
-	join rz.concept c on po.procedure_concept_id=c.concept_id and vocabulary_id=1;
+	join rz.concept c on po.procedure_concept_id=c.concept_id;
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
