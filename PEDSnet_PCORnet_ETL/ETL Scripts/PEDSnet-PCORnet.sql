@@ -1,34 +1,15 @@
 ﻿=======
--- Person -> Demographic WITHOUT Biobank_flag
-insert into pcornet.demographic (patid, birth_date, birth_time, sex, hispanic, race, biobank_flag, raw_sex, raw_hispanic, raw_race)
-select distinct 
-	cast(p.person_id as text) as pat_id,
-	cast(year_of_birth as text)||(case when month_of_birth is null OR day_of_birth is null then '' else '-'||lpad(cast(month_of_birth as text),2,'0')||'-'||lpad(cast(day_of_birth as text),2,'0') end) as birth_date,	
-	null as birth_time,
-	coalesce (m1.target_concept,'OT') as Sex,
-	coalesce (m2.target_concept,'OT') as Hispanic,
-	coalesce (m3.target_concept,'OT') as Race,
-	null,
-	gender_source_value,
-	ethnicity_source_value,
-	race_source_value
-from
-	omop.person p
-	left join cz.cz_omop_pcornet_concept_map m1 on case when p.gender_concept_id is null AND m1.source_concept_id is null then true else p.gender_concept_id = m1.source_concept_id end and m1.source_concept_class='Gender'
-	left join cz.cz_omop_pcornet_concept_map m2 on case when p.ethnicity_concept_id is null AND m2.source_concept_id is null then true else p.ethnicity_concept_id = m2.source_concept_id end and m2.source_concept_class='Hispanic'
-	left join cz.cz_omop_pcornet_concept_map m3 on case when p.race_concept_id is null AND m3.source_concept_id is null then true else p.race_concept_id = m3.source_concept_id end and m3.source_concept_class = 'Race';
->>>>>>> FETCH_HEAD
 
--- Person -> Demographic WITH Biobank_flag
+-- Person 
 insert into pcornet.demographic (patid, birth_date, birth_time, sex, hispanic, race, biobank_flag, raw_sex, raw_hispanic, raw_race)
 select distinct 
 	cast(p.person_id as text) as pat_id,
 	cast(year_of_birth as text)||(case when month_of_birth is null OR day_of_birth is null then '' else '-'||lpad(cast(month_of_birth as text),2,'0')||'-'||lpad(cast(day_of_birth as text),2,'0') end) as birth_date,	
-	pn_birth_time as birth_time,
+	pn_time_of_birth as birth_time,
 	coalesce (m1.target_concept,'OT') as Sex,
 	coalesce (m2.target_concept,'OT') as Hispanic,
 	coalesce (m3.target_concept,'OT') as Race,
-	coalesce (m4.target_concept,'OT') as Biobank_flag,
+	case when o.person_id is null then 'NI' else coalesce (m4.target_concept,'OT') end as Biobank_flag,
 	gender_source_value,
 	ethnicity_source_value,
 	race_source_value
@@ -46,7 +27,7 @@ select distinct
 	cast(op.person_id as text) as pat_id,
 	cast(date_part('year', observation_period_start_date) as text)||'-'||lpad(cast(date_part('month', observation_period_start_date) as text),2,'0')||'-'||lpad(cast(date_part('day', observation_period_start_date) as text),2,'0') as enr_start_date,
 	cast(date_part('year', observation_period_end_date) as text)||'-'||lpad(cast(date_part('month', observation_period_end_date) as text),2,'0')||'-'||lpad(cast(date_part('day', observation_period_end_date) as text),2,'0') as enr_end_date,
-	coalesce(m1.target_concept,'OT') as chart_avaiability,
+	case when o.person_id is null then 'NI' else coalesce(m1.target_concept,'OT') end as chart_avaiability,
 	'E' as ENR_basis
 from
 	omop.observation_period op
@@ -80,10 +61,10 @@ select distinct
 	case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else case when visit_start_date<'2007-10-01' then '01' else '02' end end as drg_type,
 	coalesce(m4.target_concept,'OT') as admitting_source,
 	v.place_of_service_concept_id as raw_enc_type,
-	o1.value_as_concept_id as raw_discharge_disposition,
-	o3.value_as_concept_id as raw_discharge_status,
+	case when o1.person_id is null then 'NI' else o1.value_as_concept_id end as raw_discharge_disposition,
+	case when o3.person_id is null then 'NI' else o3.value_as_concept_id end as raw_discharge_status,
 	null as raw_drg_type,
-	o4.value_as_concept_id as raw_admitting_source
+	case when o4.person_id is null then 'NI' else o4.value_as_concept_id as raw_admitting_source
 from
 	omop.visit_occurrence v
 	--left join omop.person p on v.person_id = p.person_id
@@ -198,7 +179,7 @@ select distinct
 	ob_dia.value_as_number as diastolic,
 	ob_sys.value_as_number as systolic,
 	ob_bmi.value_as_number as original_bmi,
-	coalesce(ob_bp.target_concept,'OT') as bp_position,
+	case when ob_bp.visit_occurrence_id is null then 'NI' else coalesce(ob_bp.target_concept,'OT') end as bp_position,
 	null as raw_vital_source,
 	null as raw_diastolic,
 	null as raw_systolic,
@@ -216,9 +197,9 @@ from
 	left join omop.observation ob_bmi on ob.visit_occurrence_id = ob_bmi.visit_occurrence_id 
 		and ob.observation_date = ob_bmi.observation_date and ob.observation_time = ob_bmi.observation_time and ob_bmi.observation_concept_id='3038553'
 	left join 
-	(select distinct visit_occurrence_id, observation_date, observation_time, target_concept from 
+	(select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id target_concept from 
 	omop.observation ob_sub inner join cz.cz_omop_pcornet_concept_map m on ob_sub.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') ob_bp
-	on ob.visit_occurrence_id = ob_bp.visit_occurrence_id AND trim(ob_bp.value_as_concept_id) = trim(ob_sys.value_as_concept_id)
+	on ob.visit_occurrence_id = ob_bp.visit_occurrence_id AND ob_bp.value_as_concept_id = ob_sys.value_as_concept_id
 	where ob.observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')
 	AND coalesce(ob_ht.value_as_number, ob_wt.value_as_number, ob_dia.value_as_number, 
 	ob_sys.value_as_number, ob_bmi.value_as_number) is not null;
