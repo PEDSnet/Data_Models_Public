@@ -18,7 +18,7 @@ meta = Base.metadata
 # file output object.
 def dump_gen(f):
     def dump(sql, *multiparams, **params):
-        f.write(str(sql.compile(dialect=engine.dialect)))
+        f.write(str(sql.compile(dialect=engine.dialect)) + ';\n')
     return dump
 
 for dialect in config['dialects']:
