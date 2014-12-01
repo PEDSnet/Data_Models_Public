@@ -5,6 +5,7 @@ COMMENT ON COLUMN person.year_of_birth IS 'The year of birth of the person. For 
 COMMENT ON COLUMN person.month_of_birth IS 'The month of birth of the person. For data sources that provide the precise date of birth, the month is extracted and stored in this field.';
 COMMENT ON COLUMN person.day_of_birth IS 'The day of the month of birth of the person. For data sources that provide the precise date of birth, the day is extracted and stored in this field.';
 COMMENT ON COLUMN person.pn_time_of_birth IS 'The time of birth of the person. For data sources that provide the precise date of birth, the time is extracted and stored in this field (assumed UTC or translated to UTC if the provided date/time has a timezone).';
+COMMENT ON COLUMN person.pn_gestational_age IS 'The post-menstrual age in weeks of the person at birth, if known.';
 COMMENT ON COLUMN person.race_concept_id IS 'A foreign key that refers to a standard concept identifier in the vocabulary for the race of the person.';
 COMMENT ON COLUMN person.ethnicity_concept_id IS 'A foreign key that refers to the standard concept identifier in the vocabulary for the ethnicity of the person.';
 COMMENT ON COLUMN person.location_id IS 'A foreign key to the place of residency for the person in the location table, where the detailed address information is stored.';
@@ -46,7 +47,6 @@ COMMENT ON TABLE provider IS 'Information about health care providers.';
 COMMENT ON COLUMN provider.provider_id IS 'A system-generated unique identifier for each provider.';
 COMMENT ON COLUMN provider.NPI IS 'The National Provider Identifier (NPI) of the provider.';
 COMMENT ON COLUMN provider.DEA IS 'The Drug Enforcement Administration (DEA) number of the provider.';
-COMMENT ON COLUMN provider.year_of_birth IS 'The year of birth of the provider.';
 COMMENT ON COLUMN provider.specialty_concept_id IS 'A foreign key to a standard provider''s specialty concept identifier in the vocabulary.';
 COMMENT ON COLUMN provider.care_site_id IS 'A foreign key to the main care site where the provider is practicing.';
 COMMENT ON COLUMN provider.provider_source_value IS 'The identifier used for the provider in the source data. Information that is used to uniquely identify the provider as it appears in the source data is stored here for reference.';

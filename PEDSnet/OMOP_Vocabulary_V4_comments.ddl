@@ -9,13 +9,11 @@ COMMENT ON COLUMN concept.valid_start_date IS 'The date when the was first recor
 COMMENT ON COLUMN concept.valid_end_date IS 'The date when the concept became invalid because it was deleted or superseded (updated) by a new concept. The default value is 31-Dec-2099.';
 COMMENT ON COLUMN concept.invalid_reason IS 'Concepts that are replaced with a new concept are designated "Updated" (U) and concepts that are removed without replacement are "Deprecated" (D).';
 COMMENT ON TABLE concept_ancestor IS 'A specialized table containing only hierarchical relationship between concepts that may span several generations.';
-COMMENT ON COLUMN concept_ancestor.ancestry_id IS 'CBMi added single serial unique identifer for records in the concept_ancestor table.';
 COMMENT ON COLUMN concept_ancestor.ancestor_concept_id IS 'A foreign key to the concept code in the concept table for the higher-level concept that forms the ancestor in the relationship.';
 COMMENT ON COLUMN concept_ancestor.descendant_concept_id IS 'A foreign key to the concept code in the concept table for the lower-level concept that forms the descendant in the relationship.';
 COMMENT ON COLUMN concept_ancestor.max_levels_of_separation IS 'The maximum separation in number of levels of hierarchy between ancestor and descendant concepts. This is an optional attribute that is used to simplify hierarchic analysis. ';
 COMMENT ON COLUMN concept_ancestor.min_levels_of_separation IS 'The minimum separation in number of levels of hierarchy between ancestor and descendant concepts. This is an optional attribute that is used to simplify hierarchic analysis.';
 COMMENT ON TABLE concept_relationship IS 'A list of relationship between concepts. Some of these relationships are generic (e.g. ''Subsumes'' relationship), others are domain-specific.';
-COMMENT ON COLUMN concept_relationship.concept_relationship_id IS 'CBMi added single serial unique identifer for records in the concept_relationship table.';
 COMMENT ON COLUMN concept_relationship.concept_id_1 IS 'A foreign key to the concept in the concept table associated with the relationship. Relationships are directional, and this field represents the source concept designation.';
 COMMENT ON COLUMN concept_relationship.concept_id_2 IS 'A foreign key to the concept in the concept table associated with the relationship. Relationships are directional, and this field represents the destination concept designation.';
 COMMENT ON COLUMN concept_relationship.relationship_id IS 'The type of relationship as defined in the relationship table.';
@@ -26,7 +24,6 @@ COMMENT ON TABLE concept_synonym IS 'A table with synonyms for concepts that hav
 COMMENT ON COLUMN concept_synonym.concept_synonym_id IS 'A system-generated unique identifier for each concept synonym.';
 COMMENT ON COLUMN concept_synonym.concept_id IS 'A foreign key to the concept in the concept table. ';
 COMMENT ON COLUMN concept_synonym.concept_synonym_name IS 'The alternative name for the concept.';
-COMMENT ON COLUMN drug_strength.drug_strength_id IS 'CBMi added single serial unique identifer for records in the drug_strength table.';
 COMMENT ON TABLE relationship IS 'A list of relationship between concepts. Some of these relationships are generic (e.g. "Subsumes" relationship), others are domain-specific.';
 COMMENT ON COLUMN relationship.relationship_id IS 'The type of relationship captured by the relationship record.';
 COMMENT ON COLUMN relationship.relationship_name IS 'The text that describes the relationship type.';
@@ -34,7 +31,6 @@ COMMENT ON COLUMN relationship.is_hierarchical IS 'Defines whether a relationshi
 COMMENT ON COLUMN relationship.defines_ancestry IS 'Defines whether a hierarchical relationship contributes to the concept_ancestor table. These are subsets of the hierarchical relationships. Valid values are Y or NULL.';
 COMMENT ON COLUMN relationship.reverse_relationship IS 'Relationship ID of the reverse relationship to this one. Corresponding records of reverse relationships have their concept_id_1 and concept_id_2 swapped.';
 COMMENT ON TABLE source_to_concept_map IS 'A map between commonly used terminologies and the CDM Standard Vocabulary. For example, drugs are often recorded as NDC, while the Standard Vocabulary for drugs is RxNorm.';
-COMMENT ON COLUMN source_to_concept_map.source_to_concept_map_id IS 'CBMi added single serial unique identifer for records in the source_to_concept_map table.';
 COMMENT ON COLUMN source_to_concept_map.source_code IS 'The source code being translated into a standard concept.';
 COMMENT ON COLUMN source_to_concept_map.source_vocabulary_id IS 'A foreign key to the vocabulary table defining the vocabulary of the source code that is being mapped to the standard vocabulary.';
 COMMENT ON COLUMN source_to_concept_map.source_code_description IS 'An optional description for the source code. This is included as a convenience to compare the description of the source code to the name of the concept.';
