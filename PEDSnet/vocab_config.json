@@ -1,5 +1,4 @@
 {
-    "sconn_str": "",
     "dialects": [
         {
             "outfile": "OMOP_Vocabulary_V4_mysql.ddl",

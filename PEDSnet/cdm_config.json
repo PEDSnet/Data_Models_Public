@@ -1,5 +1,4 @@
 {
-    "sconn_str": "",
     "dialects": [
         {
             "outfile": "PEDSnet_CDM_V1_mysql.ddl",
