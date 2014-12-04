@@ -42,7 +42,7 @@ insert into pcornet.encounter (
             raw_discharge_disposition, raw_discharge_status, raw_drg_type, 
             raw_admitting_source)
 select distinct 
-	cast(v.person_id as text) as pat_id,
+ 	cast(v.person_id as text) as pat_id,
 	cast(v.visit_occurrence_id as text) as encounterid,
 	cast(date_part('year', visit_start_date) as text)||'-'||lpad(cast(date_part('month', visit_start_date) as text),2,'0')||'-'||lpad(cast(date_part('day', visit_start_date) as text),2,'0') as admit_date,
 	null as admit_time,
@@ -114,13 +114,13 @@ select distinct
 	enc.admit_date,
 	enc.providerid,
 	c.concept_code as px,
-	'SM' as px_type,
+	'C4' as px_type,
 	null as raw_px,
 	null as raw_px_type
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
-	join rz.concept c on po.procedure_concept_id=c.concept_id;
+	join rz.concept c on po.procedure_concept_id=c.concept_id and vocabulary_id=4;
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
