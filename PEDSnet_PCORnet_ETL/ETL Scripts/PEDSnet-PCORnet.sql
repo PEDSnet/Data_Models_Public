@@ -61,10 +61,10 @@ select distinct
 	case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else case when visit_start_date<'2007-10-01' then '01' else '02' end end as drg_type,
 	coalesce(m4.target_concept,'OT') as admitting_source,
 	v.place_of_service_concept_id as raw_enc_type,
-	case when o1.person_id is null then 'NI' else o1.value_as_concept_id end as raw_discharge_disposition,
-	case when o3.person_id is null then 'NI' else o3.value_as_concept_id end as raw_discharge_status,
+	case when o1.person_id is null then 'NI' else cast(o1.value_as_concept_id as text) end as raw_discharge_disposition,
+	case when o3.person_id is null then 'NI' else cast(o3.value_as_concept_id as text) end as raw_discharge_status,
 	null as raw_drg_type,
-	case when o4.person_id is null then 'NI' else o4.value_as_concept_id as raw_admitting_source
+	case when o4.person_id is null then 'NI' else cast(o4.value_as_concept_id as text) end as raw_admitting_source
 from
 	omop.visit_occurrence v
 	--left join omop.person p on v.person_id = p.person_id
