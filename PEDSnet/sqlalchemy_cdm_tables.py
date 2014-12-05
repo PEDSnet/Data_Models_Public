@@ -106,7 +106,7 @@ class Provider(Base):
     npi = Column('npi', String(length=20))
     dea = Column('dea', String(length=20))
     provider_source_value = Column('provider_source_value', String(length=100), nullable=False)
-    specialty_source_value = Column('specialty_source_value', String(length=50))
+    specialty_source_value = Column('specialty_source_value', String(length=300))
 
 
 class VisitOccurrence(Base):
@@ -185,7 +185,7 @@ class Observation(Base):
     observation_time = Column('observation_time', Time())
     observation_type_concept_id = Column('observation_type_concept_id', Integer(), nullable=False)
     value_as_number = Column('value_as_number', Numeric(precision=14, scale=3))
-    value_as_string = Column('value_as_string', String(length=60))
+    value_as_string = Column('value_as_string', String(length=4000))
     value_as_concept_id = Column('value_as_concept_id', Integer())
     unit_concept_id = Column('unit_concept_id', Integer())
     associated_provider_id = Column('associated_provider_id', BigInteger())
