@@ -59,12 +59,12 @@ select distinct
 	--case when drg.concept_id is null then 'OT' else drg.concept_code end as drg,
 	case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else o2.value_as_string end as drg,
 	case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else case when visit_start_date<'2007-10-01' then '01' else '02' end end as drg_type,
-	coalesce(m4.target_concept,'OT') as admitting_source,
+	case when o4.person_id is null then 'NI' else coalesce(m4.target_concept,'OT') end as admitting_source,
 	v.place_of_service_concept_id as raw_enc_type,
-	case when o1.person_id is null then 'NI' else cast(o1.value_as_concept_id as text) end as raw_discharge_disposition,
-	case when o3.person_id is null then 'NI' else cast(o3.value_as_concept_id as text) end as raw_discharge_status,
+	case when o1.person_id is null then null else cast(o1.value_as_concept_id as text) end as raw_discharge_disposition,
+	case when o3.person_id is null then null else cast(o3.value_as_concept_id as text) end as raw_discharge_status,
 	null as raw_drg_type,
-	case when o4.person_id is null then 'NI' else cast(o4.value_as_concept_id as text) end as raw_admitting_source
+	case when o4.person_id is null then null else cast(o4.value_as_concept_id as text) end as raw_admitting_source
 from
 	omop.visit_occurrence v
 	--left join omop.person p on v.person_id = p.person_id
@@ -94,8 +94,8 @@ select distinct
 	'SM' as dx_type,
 	null as dx_source,
 	null as pdx,
-	null as raw_dx,
-	null as raw_dx_type,
+	condition_source_value as raw_dx,
+	'ICD-9' as raw_dx_type,
 	null as raw_dx_source,
 	null as raw_pdx
 from
@@ -113,7 +113,7 @@ select distinct
 	enc.enc_type,
 	enc.admit_date,
 	enc.providerid,
-	c.concept_code as px,
+	case when c.concept_code = 'No Matching Concept' then 'OT' else c.concept_code as px,
 	'C4' as px_type,
 	null as raw_px,
 	null as raw_px_type

@@ -1,0 +1,93 @@
+Y|Biobank flag|4001345|4188539|Yes
+N|Biobank flag|4001345|4188540|No
+N|Biobank flag|4001345|NULL|No information
+N|Biobank flag|4001345|0|Unknown
+N|Hispanic|38003564|NULL|No
+Y|Hispanic|38003563|NULL|Yes
+OT|Hispanic|44814649|NULL|Other
+UN|Hispanic|44814653|NULL|Unknown
+NI|Hispanic|44814650|NULL|No information
+NULL|Hispanic|NULL|NULL|NULL
+01|Race|8657|NULL|American Indian or Alaska Native
+02|Race|8515|NULL|Asian
+03|Race|8516|NULL|Black or African American
+04|Race|8557|NULL|Native Hawaiian or Other Pacific Islander
+05|Race|8527|NULL|White
+06|Race|44814659|NULL|Multiple race
+07|Race|44814660|NULL|Refuse to answer
+UN|Race|8552|NULL|Unknown 
+OT|Race|8522|NULL|Other
+NULL|Race|NULL|NULL|NULL
+NI|Race|44814661|NULL|No information
+F|Gender|8532|NULL|Female
+M|Gender|8507|NULL|Male
+A|Gender|8570|NULL|Ambiguous
+UN|Gender|8551|NULL|Unknown 
+NULL|Gender|NULL|NULL|NULL
+NI|Gender|44814667|NULL|No information
+OT|Gender|8521|NULL|Other
+AF|Admitting source|4145666|38004205|Adult Foster Home 
+AL|Admitting source|4145666|38004301|Assisted Living Facility 
+AV|Admitting source|4145666|38004207|Ambulatory Visit 
+ED|Admitting source|4145666|8870|Emergency Department 
+HH|Admitting source|4145666|38004195|Home Health 
+HO|Admitting source|4145666|8536|Home / Self Care 
+HS|Admitting source|4145666|8546|Hospice 
+IP|Admitting source|4145666|38004279|Other Acute Inpatient Hospital 
+NH|Admitting source|4145666|8676|Nursing Home (Includes ICF) 
+RH|Admitting source|4145666|8920|Rehabilitation Facility 
+RS|Admitting source|4145666|44814680|Residential Facility 
+SN|Admitting source|4145666|8863|Skilled Nursing Facility 
+NULL|Admitting source|4145666|NULL|NULL
+NI|Admitting source|4145666|44814682|No information 
+UN|Admitting source|4145666|44814683|Unknown 
+OT|Admitting source|4145666|44814684|Other
+A|Discharge disposition|44813951|4161979|Discharged alive 
+E|Discharge disposition|44813951|4216643|Expired 
+NI|Discharge disposition|44813951|44814687|No information
+NULL|Discharge disposition|44813951|NULL|NULL
+UN|Discharge disposition|44813951|44814688|Unknown 
+OT|Discharge disposition|44813951|44814689|Other
+AF|Discharge status|4137274|38004205|Adult Foster Home 
+AL|Discharge status|4137274|38004301|Assisted Living Facility 
+AM|Discharge status|4137274|4021968|Against Medical Advice 
+AW|Discharge status|4137274|44814693|Absent without leave 
+EX|Discharge status|4137274|4216643|Expired 
+HH|Discharge status|4137274|38004195|Home Health 
+HO|Discharge status|4137274|8536|Home / Self Care 
+HS|Discharge status|4137274|8546|Hospice 
+IP|Discharge status|4137274|38004279|Other Acute Inpatient Hospital 
+NH|Discharge status|4137274|8676|Nursing Home (Includes ICF) 
+RH|Discharge status|4137274|8920|Rehabilitation Facility 
+RS|Discharge status|4137274|44814701|Residential Facility 
+SH|Discharge status|4137274|8717|Still In Hospital 
+SN|Discharge status|4137274|8863|Skilled Nursing Facility 
+UN|Discharge status|4137274|0|Unknown 
+NULL|Discharge status|4137274|NULL|NULL
+NI|Discharge status|4137274|44814704|No information
+UN|Discharge status|4137274|44814705|Unknown
+OT|Discharge status|4137274|44814706|Other
+IP|Encounter type|9201|NULL|Inpatient Hospital Stay 
+AV|Encounter type|9202|NULL|Ambulatory Visit
+ED|Encounter type|9203|NULL|Emergency Department 
+IS|Encounter type|42898160|NULL|Non-Acute Institutional Stay 
+UN|Encounter type|44814713|NULL|Unknown 
+NI|Encounter type|44814712|NULL|No information
+NULL|Encounter type|NULL|NULL|NULL
+OT|Encounter type|44814711|NULL|Other
+Y|Chart availability|4030450|4188539|Yes
+N|Chart availability|4030450|4188540|No
+N|Chart availability|4030450|0|Unknown
+N|Chart availability|4030450|NULL|No information
+1|BP Position|3018586|NULL|Sitting
+2|BP Position|3035856|NULL|Standing
+3|BP Position|3009395|NULL|Supine
+NI|BP Position|3004249|NULL|No information
+2|BP Position|3035856|NULL|Standing
+3|BP Position|3009395|NULL|Supine
+UN|BP Position|NULL|NULL|Unknown
+NULL|BP Position|NULL|NULL|NULL
+PR|Vital source|4481472|NULL|Patient reported
+HC|Vital source|38000280|NULL|Healthcare delivery setting
+NULL|Vital source|NULL|NULL|NULL
+OT|Vital source|0|NULL|Other
