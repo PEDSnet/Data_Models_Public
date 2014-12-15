@@ -91,3 +91,4 @@ PR|Vital source|4481472|NULL|Patient reported
 HC|Vital source|38000280|NULL|Healthcare delivery setting
 NULL|Vital source|NULL|NULL|NULL
 OT|Vital source|0|NULL|Other
+09|Procedure Code Type|2|NULL|ICD-9-CM10|Procedure Code Type|70|NULL|ICD-10-PCS11|Procedure Code Type|-1|NULL|ICD-11-PCS (N/A)C2|Procedure Code Type|-1|NULL|CPT Category IIC3|Procedure Code Type|-1|NULL|CPT Category IIIC4|Procedure Code Type|4|NULL|CPT-4 (i.e., HCPCS Level I)H3|Procedure Code Type|-1|NULL|HCPCS Level IIIHC|Procedure Code Type|5|NULL|HCPCS (i.e., HCPCS Level II)LC|Procedure Code Type|6|NULL|LOINCND|Procedure Code Type|9|NULL|NDCRE|Procedure Code Type|43|NULL|Revenue

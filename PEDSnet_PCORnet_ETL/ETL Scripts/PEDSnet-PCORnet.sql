@@ -90,8 +90,8 @@ select distinct
 	enc.enc_type,
 	enc.admit_date,
 	enc.providerid,
-	c.concept_code as dx,
-	'SM' as dx_type,
+	case when c.concept_code = 'No Matching Concept' then 'OT' else c.concept_code as dx,
+	case when c.concept_code = 'No Matching Concept' then 'OT' else 'SM' as dx_type,
 	null as dx_source,
 	null as pdx,
 	condition_source_value as raw_dx,
@@ -114,13 +114,14 @@ select distinct
 	enc.admit_date,
 	enc.providerid,
 	case when c.concept_code = 'No Matching Concept' then 'OT' else c.concept_code as px,
-	'C4' as px_type,
+	case when c.concept_code = 'No Matching Concept' then 'OT' else coalesce(m1.target_concept,'NI') as px_type,
 	null as raw_px,
 	null as raw_px_type
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
-	join rz.concept c on po.procedure_concept_id=c.concept_id and vocabulary_id=4;
+	join rz.concept c on po.procedure_concept_id=c.concept_id
+	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = m1.source_concept_id AND m1.source_concept_class='Procedure Code Type' 
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
