@@ -67,7 +67,7 @@ class Encounter(Base):
 class Diagnosis(Base):
     __tablename__ = 'diagnosis'
     __table_args__ = (
-        PrimaryKeyConstraint('patid', 'encounterid', 'dx', 'dx_type', name='diagnosis_pkey'),
+        PrimaryKeyConstraint('patid', 'encounterid', 'dx', 'dx_type', 'raw_dx', name='diagnosis_pkey'),
     )
 
     patid = Column('patid', String(length=1028))
@@ -75,7 +75,7 @@ class Diagnosis(Base):
     enc_type = Column('enc_type', String(length=2))
     admit_date = Column('admit_date', String(length=10))
     providerid = Column('providerid', String(length=1028))
-    dx = Column('dx', String(length=5))
+    dx = Column('dx', String(length=18))
     dx_type = Column('dx_type', String(length=2))
     dx_source = Column('dx_source', String(length=2))
     pdx = Column('pdx', String(length=2))
@@ -89,7 +89,7 @@ class Diagnosis(Base):
 class Procedure(Base):
     __tablename__ = 'procedure'
     __table_args__ = (
-        PrimaryKeyConstraint('patid', 'encounterid', 'px', 'px_type', name='procedure_pkey'),
+        PrimaryKeyConstraint('patid', 'encounterid', 'px', 'px_type', 'raw_px', name='procedure_pkey'),
     )
 
     patid = Column('patid', String(length=1028))
@@ -97,7 +97,7 @@ class Procedure(Base):
     enc_type = Column('enc_type', String(length=2))
     admit_date = Column('admit_date', String(length=10))
     providerid = Column('providerid', String(length=1028))
-    px = Column('px', String(length=5))
+    px = Column('px', String(length=11))
     px_type = Column('px_type', String(length=2))
     raw_px = Column('raw_px', String(length=1028))
     raw_px_type = Column('raw_px_type', String(length=1028))

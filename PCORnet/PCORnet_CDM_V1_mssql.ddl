@@ -1,40 +1,4 @@
 
-CREATE TABLE diagnosis (
-	patid VARCHAR(1028) NOT NULL, 
-	encounterid VARCHAR(1028) NOT NULL, 
-	enc_type VARCHAR(2) NULL, 
-	admit_date VARCHAR(10) NULL, 
-	providerid VARCHAR(1028) NULL, 
-	dx VARCHAR(5) NOT NULL, 
-	dx_type VARCHAR(2) NOT NULL, 
-	dx_source VARCHAR(2) NULL, 
-	pdx VARCHAR(2) NULL, 
-	raw_dx VARCHAR(1028) NULL, 
-	raw_dx_type VARCHAR(1028) NULL, 
-	raw_dx_source VARCHAR(1028) NULL, 
-	raw_hispanic VARCHAR(1028) NULL, 
-	raw_pdx VARCHAR(1028) NULL, 
-	CONSTRAINT diagnosis_pkey PRIMARY KEY (patid, encounterid, dx, dx_type)
-)
-
-;
-
-CREATE TABLE demographic (
-	patid VARCHAR(1028) NOT NULL, 
-	birth_date VARCHAR(10) NULL, 
-	birth_time VARCHAR(5) NULL, 
-	sex VARCHAR(2) NULL, 
-	hispanic VARCHAR(2) NULL, 
-	race VARCHAR(2) NULL, 
-	biobank_flag VARCHAR(1) NULL, 
-	raw_sex VARCHAR(1028) NULL, 
-	raw_hispanic VARCHAR(1028) NULL, 
-	raw_race VARCHAR(1028) NULL, 
-	CONSTRAINT demographic_pkey PRIMARY KEY (patid)
-)
-
-;
-
 CREATE TABLE encounter (
 	patid VARCHAR(1028) NOT NULL, 
 	encounterid VARCHAR(1028) NOT NULL, 
@@ -72,17 +36,37 @@ CREATE TABLE enrollment (
 
 ;
 
+CREATE TABLE diagnosis (
+	patid VARCHAR(1028) NOT NULL, 
+	encounterid VARCHAR(1028) NOT NULL, 
+	enc_type VARCHAR(2) NULL, 
+	admit_date VARCHAR(10) NULL, 
+	providerid VARCHAR(1028) NULL, 
+	dx VARCHAR(18) NOT NULL, 
+	dx_type VARCHAR(2) NOT NULL, 
+	dx_source VARCHAR(2) NULL, 
+	pdx VARCHAR(2) NULL, 
+	raw_dx VARCHAR(1028) NOT NULL, 
+	raw_dx_type VARCHAR(1028) NULL, 
+	raw_dx_source VARCHAR(1028) NULL, 
+	raw_hispanic VARCHAR(1028) NULL, 
+	raw_pdx VARCHAR(1028) NULL, 
+	CONSTRAINT diagnosis_pkey PRIMARY KEY (patid, encounterid, dx, dx_type, raw_dx)
+)
+
+;
+
 CREATE TABLE [procedure] (
 	patid VARCHAR(1028) NOT NULL, 
 	encounterid VARCHAR(1028) NOT NULL, 
 	enc_type VARCHAR(2) NULL, 
 	admit_date VARCHAR(10) NULL, 
 	providerid VARCHAR(1028) NULL, 
-	px VARCHAR(5) NOT NULL, 
+	px VARCHAR(11) NOT NULL, 
 	px_type VARCHAR(2) NOT NULL, 
-	raw_px VARCHAR(1028) NULL, 
+	raw_px VARCHAR(1028) NOT NULL, 
 	raw_px_type VARCHAR(1028) NULL, 
-	CONSTRAINT procedure_pkey PRIMARY KEY (patid, encounterid, px, px_type)
+	CONSTRAINT procedure_pkey PRIMARY KEY (patid, encounterid, px, px_type, raw_px)
 )
 
 ;
@@ -104,6 +88,22 @@ CREATE TABLE vital (
 	raw_systolic VARCHAR(1028) NULL, 
 	raw_bp_position VARCHAR(1028) NULL, 
 	CONSTRAINT vital_pkey PRIMARY KEY (patid, measure_date, measure_time)
+)
+
+;
+
+CREATE TABLE demographic (
+	patid VARCHAR(1028) NOT NULL, 
+	birth_date VARCHAR(10) NULL, 
+	birth_time VARCHAR(5) NULL, 
+	sex VARCHAR(2) NULL, 
+	hispanic VARCHAR(2) NULL, 
+	race VARCHAR(2) NULL, 
+	biobank_flag VARCHAR(1) NULL, 
+	raw_sex VARCHAR(1028) NULL, 
+	raw_hispanic VARCHAR(1028) NULL, 
+	raw_race VARCHAR(1028) NULL, 
+	CONSTRAINT demographic_pkey PRIMARY KEY (patid)
 )
 
 ;
