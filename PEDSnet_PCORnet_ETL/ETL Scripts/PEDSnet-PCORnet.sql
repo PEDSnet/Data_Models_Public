@@ -90,8 +90,8 @@ select distinct
 	enc.enc_type,
 	enc.admit_date,
 	enc.providerid,
-	case when c.concept_code = 'No Matching Concept' then 'OT' else c.concept_code as dx,
-	case when c.concept_code = 'No Matching Concept' then 'OT' else 'SM' as dx_type,
+	case when c.concept_name = 'No matching concept' then 'No Match' else c.concept_code end as dx,
+	case when c.concept_name = 'No matching concept' then 'OT' else 'SM' end as dx_type,
 	null as dx_source,
 	null as pdx,
 	condition_source_value as raw_dx,
@@ -101,9 +101,9 @@ select distinct
 from
 	omop.condition_occurrence co
 	join pcornet.encounter enc on cast(co.visit_occurrence_id as text)=enc.encounterid
-	join rz.concept c on co.condition_concept_id=c.concept_id and vocabulary_id=1; 
+	join rz.concept c on co.condition_concept_id=c.concept_id; 
 
--- procedure_occurrence -> procedure
+-- procedure_occurrence -> Procedure
 insert into pcornet.procedure(
             patid, encounterid, enc_type, admit_date, providerid, px, px_type, 
             raw_px, raw_px_type)
@@ -113,8 +113,8 @@ select distinct
 	enc.enc_type,
 	enc.admit_date,
 	enc.providerid,
-	case when c.concept_code = 'No Matching Concept' then 'OT' else c.concept_code as px,
-	case when c.concept_code = 'No Matching Concept' then 'OT' else coalesce(m1.target_concept,'NI') as px_type,
+	case when c.concept_name = 'No matching concept' then 'No Match' else c.concept_code end as px,
+	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
 	null as raw_px,
 	null as raw_px_type
 from
