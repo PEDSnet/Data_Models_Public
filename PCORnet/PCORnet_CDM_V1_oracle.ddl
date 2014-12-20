@@ -46,12 +46,12 @@ CREATE TABLE diagnosis (
 	dx_type VARCHAR2(2 CHAR) NOT NULL, 
 	dx_source VARCHAR2(2 CHAR), 
 	pdx VARCHAR2(2 CHAR), 
-	raw_dx VARCHAR2(1028 CHAR) NOT NULL, 
+	raw_dx VARCHAR2(1028 CHAR), 
 	raw_dx_type VARCHAR2(1028 CHAR), 
 	raw_dx_source VARCHAR2(1028 CHAR), 
 	raw_hispanic VARCHAR2(1028 CHAR), 
 	raw_pdx VARCHAR2(1028 CHAR), 
-	CONSTRAINT diagnosis_pkey PRIMARY KEY (patid, encounterid, dx, dx_type, raw_dx)
+	CONSTRAINT diagnosis_pkey PRIMARY KEY (patid, encounterid, dx, dx_type)
 )
 
 ;
@@ -64,9 +64,9 @@ CREATE TABLE procedure (
 	providerid VARCHAR2(1028 CHAR), 
 	px VARCHAR2(11 CHAR) NOT NULL, 
 	px_type VARCHAR2(2 CHAR) NOT NULL, 
-	raw_px VARCHAR2(1028 CHAR) NOT NULL, 
+	raw_px VARCHAR2(1028 CHAR), 
 	raw_px_type VARCHAR2(1028 CHAR), 
-	CONSTRAINT procedure_pkey PRIMARY KEY (patid, encounterid, px, px_type, raw_px)
+	CONSTRAINT procedure_pkey PRIMARY KEY (patid, encounterid, px, px_type)
 )
 
 ;
