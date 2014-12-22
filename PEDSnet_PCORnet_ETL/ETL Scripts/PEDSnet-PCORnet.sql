@@ -110,18 +110,20 @@ insert into pcornet.procedure(
 select distinct 
 	cast(person_id as text) as patid,
 	cast(visit_occurrence_id as text) as encounterid,
-	enc.enc_type,
-	enc.admit_date,
-	enc.providerid,
+	enc.enc_type as enc_type,
+	enc.admit_date as admit_date,
+	enc.providerid as providerid,
 	case when c.concept_name = 'No matching concept' then 'No Match' else c.concept_code end as px,
 	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
-	null as raw_px,
-	null as raw_px_type
+	string_agg(split_part(procedure_source_value,'|||',1),',') as raw_px,
+	string_agg(split_part(m2.target_concept,'|||',2),',') as raw_px_type
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
 	join rz.concept c on po.procedure_concept_id=c.concept_id
-	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = m1.source_concept_id AND m1.source_concept_class='Procedure Code Type' 
+	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = m1.source_concept_id AND m1.source_concept_class='Procedure Code Type'
+	left join cz.cz_omop_pcornet_concept_map m2 on case when split_part(procedure_source_value,'|||',2) is null AND m2.source_concept_id is null then true else split_part(procedure_source_value,'|||',2) = m2.source_concept_id end AND m2.source_concept_class ='Source Coding System'	
+group by  patid, encounterid, enc_type, admit_date, providerid, px, px_type;
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
