@@ -79,14 +79,7 @@ Y|Chart availability|4030450|4188539|Yes
 N|Chart availability|4030450|4188540|No
 N|Chart availability|4030450|0|Unknown
 N|Chart availability|4030450|NULL|No information
-1|BP Position|3018586|NULL|Sitting
-2|BP Position|3035856|NULL|Standing
-3|BP Position|3009395|NULL|Supine
-NI|BP Position|3004249|NULL|No information
-2|BP Position|3035856|NULL|Standing
-3|BP Position|3009395|NULL|Supine
-UN|BP Position|NULL|NULL|Unknown
-NULL|BP Position|NULL|NULL|NULL
+01|BP Position|3018586|NULL|Sitting (Systolic)02|BP Position|3035856|NULL|Standing (Systolic)03|BP Position|3009395|NULL|Supine (Systolic)UN|BP Position|3004249|NULL|Unknown (Systolic)01|BP Position|3034703|NULL|Sitting (Diastolic)02|BP Position|3019962|NULL|Standing (Diastolic)03|BP Position|3013940|NULL|Supine (Diastolic)UN|BP Position|3012888|NULL|Unknown (Diastolic)NI|BP Position|NULL|NULL|NULL
 PR|Vital source|4481472|NULL|Patient reported
 HC|Vital source|38000280|NULL|Healthcare delivery setting
 NULL|Vital source|NULL|NULL|NULL
