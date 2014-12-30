@@ -242,6 +242,12 @@ visit_occurrence_id | No | A foreign key to the visit in the visit table during 
 relevant_condition_concept_id | No | A foreign key to the predefined concept identifier in the vocabulary reflecting the condition that was the cause for initiation of the procedure. | <p>Note that this is not a direct reference to a specific condition record in the condition table, but rather a condition concept in the vocabulary.</p> Use OMOP vocabulary_id = 1
 procedure_source_value | No | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
 
+**Table 1: Standard Procedure concept IDs.**
+
+Concept Name | Procedure concept ID | Vocab ID | Vocab Name
+ --- | --- | --- | ---
+Completed early periodic screening diagnosis and treatment (epsdt) service (list in addition to code for appropriate evaluation and management service)| 2721031 |5 | HCPCS
+
 #### 1.9.1 Additional notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to procedure_occurrence. All procedures are included for an active patient. For PEDSnet CDM V1, we limit procedures_occurrences to billing procedures only (not surgical diagnoses).
@@ -276,7 +282,7 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 
 Use the following table to populate observation_concept_ids and (where applicable) value_as_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary 39 and 60 and one newly added standard concept from vocabulary 1.
 
-**Table 1: Observation concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
+**Table 2: Observation concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
  --- | --- | --- | --- | --- | ---
