@@ -41,7 +41,7 @@ NI = No Information | A data field is present in the source system, but the sour
 UN = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value
 OT = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM
 
-***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, organization, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence, and observation_period
+***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, organization, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure and observation_period
 
 * * *
 
