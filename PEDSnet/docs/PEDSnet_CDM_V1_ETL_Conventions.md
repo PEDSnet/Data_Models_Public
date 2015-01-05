@@ -41,7 +41,7 @@ NI = No Information | A data field is present in the source system, but the sour
 UN = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value
 OT = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM
 
-***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, organization, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure and observation_period
+***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, organization, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence, and observation_period
 
 * * *
 
@@ -252,16 +252,27 @@ procedure_source_value | No | The source code for the procedure as it appears in
 
 ## 1.10 OBSERVATION
 
-The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. The observation domain supports capture of data not represented by other domains, including unstructored measurements, medical history and family history. For the PEDSnet CDM version 1, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id = 60). ~~See Appendix for SQL INSERT statements that add the necessary rows in the CONCEPT table to support PCORnet CDM V1.0.~~
+The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. For the PEDSnet CDM version 1, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id = 60). ~~See Appendix for SQL INSERT statements that add the necessary rows in the CONCEPT table to support PCORnet CDM V1.0.~~
 
 NOTE: DRG and DRG Type require special logic/processing described below.
 
+- Height/length in cm (use numeric precision as recorded in EHR)
+- Height/length type
+- Weight in kg (use numeric precision as recorded in EHR)
+- Body mass index in kg/m<sup>2</sup> (extracted only if height and weight are not present)
+- Systolic blood pressure in mmHg
+    - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
+- Diastolic blood pressure in mmHg
+    - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
+- Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Biobank availability
 - Admitting source
 - Discharge disposition
 - Discharge status
 - Chart availability
-- DRG (requires special logic - see Note 1 below)
+- Vital source
+- DRG (requires special logic - see Note 4 below)
+- Vital source (not captured in PEDSnet CDM 1.0)
 
 Use the following table to populate observation_concept_ids and (where applicable) value_as_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary 39 and 60 and one newly added standard concept from vocabulary 1.
 
@@ -269,7 +280,7 @@ Use the following table to populate observation_concept_ids and (where applicabl
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
  --- | --- | --- | --- | --- | ---
-Biobank flag (see Note 2) | 4001345 | | 4188539 | Yes
+Biobank flag (see Note 5) | 4001345 | | 4188539 | Yes
 Biobank flag | 4001345 | | 4188540 | No
 Biobank flag | 4001345 | | NULL | No information
 Biobank flag | 4001345 | | 0 | Unknown/Other
@@ -288,12 +299,12 @@ Admitting source | 4145666 | | 8863 | Skilled Nursing Facility
 Admitting source | 4145666 | | 44814682 | No information | 60
 Admitting source | 4145666 | | 44814683 | Unknown | 60
 Admitting source | 4145666 | | 44814684 | Other | 60
-Discharge disposition (See Note 3) | 44813951 | 1 | 4161979 | Discharged alive
+Discharge disposition (See Note 6) | 44813951 | 1 | 4161979 | Discharged alive
 Discharge disposition | 44813951 | 1 | 4216643 | Expired
 Discharge disposition | 44813951 | 1 | 44814687 | No information | 60
 Discharge disposition | 44813951 | 1 | 44814688 | Unknown | 60
 Discharge disposition | 44813951 | 1 | 44814689 | Other | 60
-Discharge status (see Note 3) | 4137274 | | 38004205 | Adult Foster Home
+Discharge status (see Note 6) | 4137274 | | 38004205 | Adult Foster Home
 Discharge status | 4137274 | | 38004301 | Assisted Living Facility
 Discharge status | 4137274 | | 4021968 | Against Medical Advice
 Discharge status | 4137274 | | 44814693 | Absent without leave | 60
@@ -310,127 +321,10 @@ Discharge status | 4137274 | | 8863 | Skilled Nursing Facility
 Discharge status | 4137274 | | 44814705 | Unknown
 Discharge status | 4137274 | | 44814706 | Other
 Discharge status | 4137274 | | 44814704 | No information
-Chart availability (See Note 2) | 4030450 | | 4188539 | Yes
+Chart availability (See Note 5) | 4030450 | | 4188539 | Yes
 Chart availability | 4030450 | | 4188540 | No
 Chart availability | 4030450 | | 0 | Unknown/Other
 Chart availability | 4030450 | | NULL | No information
-
-**Note 1**: For DRG, use the following logic (must use vocabulary version 4.5):
-
-- The DRG value must be three digits as text. Put into value_as_string in observation
-- For all DRGs, set observation_concept_id = 3040464 (hospital discharge DRG)
-- To obtain correct value_as_concept_id for the DRG:
-    - If the date for the DRG \< 10/1/2007, use concept_class = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
-    - If the date for the DRG \>=10/1/2007, use concept_class = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
-
-**Note 2**: In the Observation table, the biobank flag and chart availability concept_ids can appear multiple times capturing changes in patient consent over time. The temporally most recent observation will be used to determine the current consent status.
-
-**Note 3:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
-
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
-observation_id | Yes | A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
-person_id | Yes | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.
-observation_concept_id | Yes | A foreign key to the standard observation concept identifier in the Vocabulary. | Lab results and vitals are not stored in this table in V5 but are stored in the Measurement table.
-observation_date | Yes | The date of the observation (UTC). | No date shifting
-observation_time | No | The time of the observation (UTC). | No date shifting
-observation_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the observation. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 39)</p> <p>select \* from concept where vocabulary_id = 39 yields 7 valid concept_ids.</p> FOR PEDSnet CDM V1, all of our observations are coming from electronic health records so *set this field to concept_id = 38000280* (observation recorded from EMR). When we get data from patients, we will include the non-standard concept_id = 44814721 from vocabulary 99
-value_as_number | No\* (see convention) | The observation result stored as a number. This is applicable to observations where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
-value_as_string | No\* (see convention) | The observation result stored as a string. This is applicable to observations where the result is expressed as verbatim text. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
-value_as_concept_id | No\* (see convention) | A foreign key to an observation result stored as a concept identifier. This is applicable to observations where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
-qualifier_concept_id | No | A foreign key to standard concept identifier for a qualifier (e.g severity of drug-drug interaction alert)
-unit_concept_id | No | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 11)</p> <p>select \* from concept where vocabulary_id = 11 yields 766 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
-provider_id | No | A foreign key to the provider in the provider table who was responsible for making the observation.
-visit_occurrence_id | No | A foreign key to the visit in the visit table during which the observation was recorded.
-observation_source_value | No | The observation code as it appears in the source data. This code is mapped to a standard concept in the Vocabulary and the original code is, stored here for reference.
-observation_source_concept_id| No | A foreign key to a concept that refers
-unit_source_value | No | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Vocabulary and the original code is, stored here for reference.
-qualifier_source_value |No | The source value associated with a qualifier to characterize the observation
-
-#### 1.10.1 Additional Notes
-
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to observations. All observations are included for an active patient. For PEDSnet CDM V1, we limit observations to only those that appear in Table 1.
-- Observations have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
-- The Visit during which the observation was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
-- The Provider making the observation is recorded through a reference to the PROVIDER table. This information is not always available.
-- Observations obtained using standardized methods (e.g. laboratory assays) that produce discrete results are recorded by preference in the MEASUREMENT table.
-
-## 1.11 OBSERVATION PERIOD
-
-The observation period table is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have the potential of drug and condition information recorded. This table is used to generate the PCORnet CDM enrollment table.
-
-While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
-
-Field |Required | Data Type | Description | PEDSnet Conventions
- --- | --- | --- | --- | ---
-Observation_period_id | Yes | Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
-person_id | Yes | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-Observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source | <p>Use the earliest encounter date available for this patient.</p> No date shifting
-Observation_period_end_date | No | Date | The end date of the observation period for which data are available from the source. | <p>Use the last encounter date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.
-
-#### 1.11.1 Additional Notes
-
-- Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
-
-## 1.12 DRUG EXPOSURE
-
-The drug exposure table captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
-
-EHRs may store medications in different vocabularies (GPI,NDC etc). Please use the cross-walk in the source_to_concept_map to map to RxNorm codes.
-
-Field |Required | Description | PEDSnet Conventions
- --- | --- | --- | --- | ---
- drug_exposure_id | Yes | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
-person_id | Yes | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-drug_concept_id| Yes | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target)
-drug_exposure_start_date| Yes | date |The start date of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting
-drug_exposure_end_date| Yes | The end date of the utilization of the drug | No date shifting
-drug_type_concept_id| Yes | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represeneted in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 36)</p> <p>select \* from concept where vocabulary_id = 36 yields 12 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written (outpatient med): concept_id = 8000177</li></ul>
-stop_reason| No | The reason, if available, where the medication was stopped, as indicated in the source data. | <p>Valid values include therapy completed, changed, removed, side effects, etc. Note that a stop_reason does not necessarily imply that the medication is no longer being used at all, and therefore does not mandate that the end date be assigned.</p>
-refills| No | The number of refills after the initial prescrition||
-quantity| No | The quantity of the drugs as recorded in the original prescription or dispensing record||
-days_supply| No | The number of days of supply the meidcation as recorded in the original prescription or dispensing record||
-sig| No | The directions on the drug prescription as recorded in the original prescription (and printed on the container) or the dispensing record||
-route_concept_id| No | A foreign key that refers to a standard administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id='Dose Form')</p> <p>select * from omop5.concept where concept_class_id='Dose Form' yields 357 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
-effective_drug_dose| No | Numerical value of drug dose for this drug_exposure record||
-dose_unit_concept_id| No | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the effective drug_dose value is expressed||
-lot_number| No | An identifer to determine where the product originated||
-provider_id| No | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
-visit_occurrence_id| No | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
-drug_source_value| No| The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.
-drug_source_concept_id| No | A foreign key to a drug concept that refers to the code used in the source | Sites are to map this to the type of value in the source (GPI, NDC, etc)
-route_source_value| The information about the route of adminsitration as detailed in the source ||
-dose_unit_source_value| The information about the does unit as detailed in the source ||
-
-#### 1.12.1 Additional Notes
-
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to drug exposures. All drug exposures are included for an active patient. 
-- The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
-- The Provider initating th drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
-
-## 1.13 MEASUREMENT
-
-The measurement table captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
-
-Specifically this table includes:
-- Height/length in cm (use numeric precision as recorded in EHR)
-- Height/length type
-- Weight in kg (use numeric precision as recorded in EHR)
-- Body mass index in kg/m<sup>2</sup> (extracted only if height and weight are not present)
-- Systolic blood pressure in mmHg
-    - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
-- Diastolic blood pressure in mmHg
-    - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
-- Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
-- Vital source
-- PCORI Mandated Labs
-- Cohort specific Labs
-- Top 100 Labs of insitution
-
-**Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
-
-Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
- --- | --- | --- | --- | --- | ---
 Vital | 3013762 | | See Note 1 | Weight
 Vital | 3023540 | | See Note 1 | Height
 Vital | 3034703 | | See Note 2 | Diastolic Blood Pressure - Sitting
@@ -445,7 +339,8 @@ Vital | 3038553 | | See Note 1 | BMI
 Vital source | 4481472 | 39 | See Note 3 | Patient reported
 Vital source | 38000280 | | See Note 3 | Healthcare delivery setting
 
-**Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_number field.
+**Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_numeric field.
+
 **Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together, use the observation_id assigned to the ***systolic*** blood pressure measurement and insert into the value_as_concept_id field of both observations records (the systolic BP measurement and the diastolic BP measurement records). This will provide a direct linkage between the SBP measurement and its associated DBP measurement.
 
 Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood pressure measurements performed as follows:
@@ -455,20 +350,29 @@ Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood
 
 Four rows will be inserted into the observation table. Showing only the relevant columns:
 
-Observation_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_String | Value_as_Concept_ID
+Observation_id | Person_id | Visit_occurrence_id | Observation_concept_id | Observation_type_concept_id | Value_as_Number | Value_as_String | Value_as_Concept_ID
  --- | --- | --- | --- | --- | --- | --- | ---
 66661 | 12345 | 678910 | 3009395 | 38000280 | 120 | | 66661
 66662 | 12345 | 678910 | 3013940 | 38000280 | 60 | | 66661
 66663 | 12345 | 678910 | 3035856 | 38000280 | 144 | | 66663
 66664 | 12345 | 678910 | 3019962 | 38000280 | 72 | | 66663
 
-- Measurement_concept_id = 3009395 = systolic BP - supine; measurement_concept_id = 3013940 = diastolic BP supine
-- Measurement_concept_id = 3035856 = systolic BP standing; measurement_concept_id = 3019962 = diastolic BP standing
-- measurement_type_concept_id = 38000280 (observation recorded from EMR).
+- Observation_concept_id = 3009395 = systolic BP - supine; observation_concept_id = 3013940 = diastolic BP supine
+- Observation_concept_id = 3035856 = systolic BP standing; observation_concept_id = 3019962 = diastolic BP standing
+- Observation_type_concept_id = 38000280 (observation recorded from EMR).
 - Value_as_concept_id = 66661 links two observations for *supine* BPs to the observation ID of the supine systolic BP.
 - Value_as_concept_id = 66663 links two observations for *standing* BPs to the observation ID of the standing systolic BP.
 
-**Note 3**: Vital source concept_ids are used as values for the measurement_type_concept_id field
+**Note 3**: Vital source concept_ids are used as values for the observation_type_concept_id field
+
+**Note 4**: For DRG, use the following logic (must use vocabulary version 4.5):
+
+- The DRG value must be three digits as text. Put into value_as_string in observation
+- For all DRGs, set observation_concept_id = 3040464 (hospital discharge DRG)
+- To obtain correct value_as_concept_id for the DRG:
+    - If the date for the DRG \< 10/1/2007, use concept_class = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
+    - If the date for the DRG \>=10/1/2007, use concept_class = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
+
 In addition, the following observations are derived via the DCC (concept_ids to be assigned in future version of this document. However, concept_ids are not needed for ETL since these observations will be derived/calculated using scripts developed by DCC):
 
 - Body mass index in kg/m<sup>2</sup> if not directly extracted
@@ -478,36 +382,53 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 - Systolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
+**Note 5**: In the Observation table, the biobank flag and chart availability concept_ids can appear multiple times capturing changes in patient consent over time. The temporally most recent observation will be used to determine the current consent status.
 
-Field |Required | Description | PEDSnet Conventions
- --- | --- | --- | --- | ---
-measurement_id | Yes | A system-generated unique identifier for each measurement | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
-person_id| Yes integer A foreign key identifier to the person about
-person_id | Yes | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-measurement_concept_id | Yes | A foreign key to the standard measurement concept identifier in the Vocabulary. | <p>Valid Measurement Concepts belong to the "Measurement" domain. Measurement Concepts are based mostly on the LOINC vocabulary, with some additions from SNOMED-CT.</p> <p>Measurement must have an object represented as a concept, and a finding. A finding (see below) is represented as a concept, a numerical value or a verbatim string or more than one of these.</p> <p>There are three Standard Vocabularies defined for measurements:</p> <p>Laboratory tests and values: Logical Observation Identifiers Names and Codes (**LOINC**) (vocabulary_id 6).</p> <p>(FYI: Regenstrief also maintains the **"LOINC Multidimensional Classification"** vocabulary_id 49)</p> <p>Qualitative lab results: A set of SNOMED-CT Qualifier Value concepts (vocabulary_id 1)</p> <p>Laboratory units: Unified Code for Units of Measure (**UCUM**( )vocabulary_id 11)</p> <p>All other findings and observables: SNOMED-CT (vocabulary_id 1).</p> For vital signs, pull information from flow sheet rows (EPIC sites only)
-measurement_date| Yes | The date of the measurement (UTC). | No date shifting
-measurement_time| No| The time of the measurement (UTC). | No date shifting
-measurement_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the measurement. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 39)</p> <p>select \* from concept where vocabulary_id = 39 yields 7 valid concept_ids.</p> FOR PEDSnet CDM V1, all of our observations are coming from electronic health records so *set this field to concept_id = 38000280* (measurement recorded from EMR). When we get data from patients, we will include the non-standard concept_id = 44814721 from vocabulary 99
-operator_concept_id| No| A foreign key identifier to the mathematical operator that is applied to the value_as_number.Operators are <, ≤, =, ≥, >||
-value_as_number | No\* (see convention) | The measurement result stored as a number. This is applicable to measurements where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
+**Note 6:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
+
+Field | Required | Description | PEDSnet Conventions
+ --- | --- | --- | ---
+observation_id | Yes | A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
+person_id | Yes | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.
+observation_concept_id | Yes | A foreign key to the standard observation concept identifier in the Vocabulary. | <p>Valid Observation Concepts belong to the "Observation" domain. Observation Concepts are based mostly on the LOINC vocabulary, with some additions from SNOMED-CT.</p> <p>Observations must have an object represented as a concept, and a finding. A finding (see below) is represented as a concept, a numerical value or a verbatim string or more than one of these.</p> <p>There are three Standard Vocabularies defined for observations:</p> <p>Laboratory tests and values: Logical Observation Identifiers Names and Codes (**LOINC**) (vocabulary_id 6).</p> <p>(FYI: Regenstrief also maintains the **"LOINC Multidimensional Classification"** vocabulary_id 49)</p> <p>Qualitative lab results: A set of SNOMED-CT Qualifier Value concepts (vocabulary_id 1)</p> <p>Laboratory units: Unified Code for Units of Measure (**UCUM**( )vocabulary_id 11)</p> <p>All other findings and observables: SNOMED-CT (vocabulary_id 1).</p> For vital signs, pull information from flow sheet rows (EPIC sites only)
+observation_date | Yes | The date of the observation (UTC). | No date shifting
+observation_time | No | The time of the observation (UTC). | No date shifting
+observation_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the observation. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 39)</p> <p>select \* from concept where vocabulary_id = 39 yields 7 valid concept_ids.</p> FOR PEDSnet CDM V1, all of our observations are coming from electronic health records so *set this field to concept_id = 38000280* (observation recorded from EMR). When we get data from patients, we will include the non-standard concept_id = 44814721 from vocabulary 99
+value_as_number | No\* (see convention) | The observation result stored as a number. This is applicable to observations where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
+value_as_string | No\* (see convention) | The observation result stored as a string. This is applicable to observations where the result is expressed as verbatim text. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
 value_as_concept_id | No\* (see convention) | A foreign key to an observation result stored as a concept identifier. This is applicable to observations where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id 99 where all three value_as_\* fields are NULL.
 unit_concept_id | No | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 11)</p> <p>select \* from concept where vocabulary_id = 11 yields 766 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li></ul>
-range_low | No | <p>Optional - Do not transmit to DCC</p> The lower limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
-range_high | No | <p>Optional - Do not transmit to DCC.</p> The upper limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
-provider_id | No | A foreign key to the provider in the provider table who was responsible for making the measurement.
+associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for making the observation.
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the observation was recorded.
-measurement_source_value | No | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| For example this will recorded 'LOINC', 'SNOMED-CT' etc
-measurement_source_concept_id| No|A foreign key to a concept that refers to the code used in the source.| 'LOINC' = 49, 'SNOMED-CT' = 1 etc
-unit_source_value| No| The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| 'UCUM' in most cases.
-value_source_value| No| The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed| 
+relevant_condition_concept_id | No | A foreign key to the condition concept related to this observation, if this relationship exists in the source data (*e.g.* indication for a diagnostic test).
+observation_source_value | No | The observation code as it appears in the source data. This code is mapped to a standard concept in the Vocabulary and the original code is, stored here for reference.
+unit_source_value | No | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Vocabulary and the original code is, stored here for reference.
+range_low | No | <p>Optional - Do not transmit to DCC</p> The lower limit of the normal range of the observation. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the observation value.
+range_high | No | <p>Optional - Do not transmit to DCC.</p> The upper limit of the normal range of the observation. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the observation value.
 
-#### 1.13.1 Additional Notes
+#### Additional Notes
 
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to measurements. All measurements are included for an active patient. For PEDSnet CDM V1, we limit measurements to only those that appear in Table 3 (for vital signs).
-- Measurement have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
-- The Visit during which the measurement was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
-- The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
+- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to observations. All observations are included for an active patient. For PEDSnet CDM V1, we limit observations to only those that appear in Table 1.
+- Observations have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
+- The Visit during which the observation was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
+- The Provider making the observation is recorded through a reference to the PROVIDER table. This information is not always available.
 
+## OBSERVATION PERIOD
+
+The observation period table is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have the potential of drug and condition information recorded. This table is used to generate the PCORnet CDM enrollment table.
+
+While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
+
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
+Observation_period_id | Yes | Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+person_id | Yes | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
+Observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source | <p>Use the earliest encounter date available for this patient.</p> No date shifting
+Observation_period_end_date | No | Date | The end date of the observation period for which data are available from the source. | <p>Use the last encounter date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.
+
+#### Additional Notes
+
+- Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
 
 * * *
 
