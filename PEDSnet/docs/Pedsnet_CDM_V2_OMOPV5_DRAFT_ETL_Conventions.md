@@ -378,6 +378,10 @@ The drug exposure table captures any biochemical substance that is introduced in
 
 EHRs may store medications in different vocabularies (GPI,NDC etc). Please use the cross-walk in the source_to_concept_map to map to RxNorm codes.
 
+Exclusions:
+1. Cancelled Medication Orders
+2. Missed Medication administrations
+
 Field |Required | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
  drug_exposure_id | Yes | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
@@ -478,6 +482,9 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 - Systolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
+Exclusions:
+1. Cancelled Lab orders
+2. Lab orders that are 'NOT DONE' or 'INCOMPLETE'
 
 Field |Required | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
