@@ -93,6 +93,7 @@ death_date | Yes | The date the person was deceased. | <p>If the precise date in
 death_type_concept_id | Yes | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 45)</p> <p>select \* from concept where vocabulary_id = 45 yields 8 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("Recorded from EHR")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
 cause_of_death_concept_id | No | A foreign referring to a standard concept identifier in the Vocabulary for conditions.
 cause_of_death_source_value | No | The source code for the cause of death as it appears in the source. This code is mapped to a standard concept in the Vocabulary and the original code is stored here for reference.
+cause_source_concept_id | No | A foreign key to the concept that refers to the code used in the source. Note, this variable name is abbreviated to ensure it will be allowable across database platforms.
 
 #### 1.2.1 Additional Notes
 
@@ -127,29 +128,16 @@ Field | Required | Description | PEDSnet Conventions
 care_site_id | Yes | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 place_of_service_concept_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 24 and vocabulary 60 where noted)</p> <p>select \* from concept where vocabulary_id = 24 yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160 (vocabulary 60)</li> <li>Unknown: concept_id = 44814713 (vocabulary 60)</li> <li>Other: concept_id = 44814711 (vocabulary 60)</li> <li>No information: concept_id = 44814712 (vocabulary 60)</li></ul>
 location_id | No | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
-care_site_source_value | Yes | The identifier for the organization in the source data, stored here for reference. | <p>If care site source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate care site_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> <p>For EPIC EHRs, map care_site_id to Clarity Department.</p> Sites may consider using the care_site_id field value in this table as the pseudo-identifier as long as a local mapping from care_site_id to the real site identifier is maintained.
+care_site_source_value | Yes | The identifier for the organization in the source data, stored here for reference. | <p>If care site source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate care site_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> <p>For EPIC EHRs, map care_site_id to Clarity Department.</p> Sites may consider using the care_site_id field value in this table as the pseudo-identifier as long as a local mapping from care_site_id to the real site identifier is maintained. For OMOP v5, we will need to append Organization Name/ID to the source value.
 place_of_service_source_value | No | The source code for the place of service as it appears in the source data, stored here for reference.
-organization_id | Yes | A foreign key to the organization record. | See ORGANIZATION.organization_id (primary key)
 
 #### 1.4.1 Additional Notes
 
 - Care sites are primarily identified based on the specialty or type of care provided, and secondarily on physical location, if available (e.g. North Satellite Endocrinology Clinic)
-- The Care Site Source Value typically contains the name of the Care Site.
+- The Care Site Source Value typically contains the name of the Care Site with the Organization Prefix.
 - The Place of Service Concepts are based on a catalog maintained by the CMS (see vocabulary for values)
 
-## 1.5 ORGANIZATION
-
-Note: This table will be incorporated into CARE SITE in OMOP CDM V5/PEDSnet CDM V2
-
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
-organization_id | Yes | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
-place_of_service_concept_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 14)</p> <p>select \* from concept where vocabulary_id = 14 yields 49 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> Make a best-guess mapping.
-location_id | No | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.| See LOCATION.location_id (primary key)
-place_of_service_source_value | No | The source code for the place of service as it appears in the source data, stored here for reference.
-organization_source_value | Yes | A foreign key to the organization record, stored here for reference. | In PEDSnet, expected organizations are Boston, CCHMC, CHOP, Colorado, Nationwide, Nemours, Seattle, and St. Louis.
-
-## 1.6 PROVIDER
+## 1.5 PROVIDER
 
 The Provider table contains a list of uniquely identified health care providers. These are typically physicians, nurses, etc.
 
@@ -163,12 +151,12 @@ DEA | No | <p>Optional - Do not transmit to DCC.</p> The Drug Enforcement Admini
 provider_source_value | Yes | The identifier used for the provider in the source data, stored here for reference. | <p>Insert a pseudo-identifier (random number, encrypted identifier) into the field. Do not insert the actual PROVIDER_ID from your site. A mapping from the pseudo-identifier for provider_source_value in this field to a real provider ID from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p> Sites may consider using the provider_id field value in this table as the pseudo-identifier as long as a local mapping from provider_id to the real site identifier is maintained.
 specialty_source_value | No | The source code for the provider specialty as it appears in the source data, stored here for reference. | Optional. May be obfuscated if deemed sensitive by local site.
 
-#### 1.6.1 Additional Notes
+#### 1.5.1 Additional Notes
 
 - For PEDSnet, a provider is any individual (MD, DO, NP, PA, RN, etc) who is authorized to document care.
 - Providers are not duplicated in the table.
 
-## 1.7 VISIT_OCCURRENCE
+## 1.6 VISIT_OCCURRENCE
 
 The visit domain contains the spans of time a person continuously receives medical services from one or more providers at a care site in a given setting within the health care system.
 
@@ -180,20 +168,21 @@ visit_start_date | Yes | The start date of the visit. | No date shifting
 visit_end_date | No | The end date of the visit. | <p>No date shifting.</p> <p>If this is a one-day visit the end date should match the start date.</p> If the encounter is on-going at the time of ETL, this should be null.
 provider_id | No | A foreign key to the provider in the provider table who was associated with the visit. | <p>Use attending or billing provider for this field if available, even if multiple providers were involved in the visit. Otherwise, make site-specific decision on which provider to associate with visits and document.</p> **NOTE: this is NOT in OMOP CDM v4, but appears in OMOP CDMv5.**
 care_site_id | No | A foreign key to the care site in the care site table that was visited. | See CARE_SITE.care_site_id (primary key)
-place_of_service_concept_id | Yes | A foreign key that refers to a place of service concept identifier in the vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 24).</p> <p>select \* from concept where vocabulary_id = 24 yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160</li> <li>Unknown: concept_id = 44814713</li> <li>Other: concept_id = 44814711 (vocabulary 60)</li> <li>No information: concept_id = 44814712 (vocabulary 60)</li></ul>
-place_of_service_source_value | No | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
+visit_concept_id | Yes | A foreign key that refers to a place of service concept identifier in the vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 24).</p> <p>select \* from concept where vocabulary_id = 24 yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160</li> <li>Unknown: concept_id = 44814713</li> <li>Other: concept_id = 44814711 (vocabulary 60)</li> <li>No information: concept_id = 44814712 (vocabulary 60)</li></ul>
+place_of_service_source_value | No | varchar | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
+visit_source_concept_id | No | A foreign key to a concept that refers to the code used in the source.
 
-#### 1.7.1 Additional Notes
+#### 1.6.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is **NOT** applied to visit_occurrence. All visits, of all types (physical and virtual) are included for an active patient.
 - A Visit Occurrence is recorded for each visit to a healthcare facility.
-- If a visit includes moving between different place_of_service_concepts (ED -\> inpatient) this should be split into separate visit_occurrences to meet PCORnet's definitions
+- If a visit includes moving between different visit_concepts (ED -\> inpatient) this should be split into separate visit_occurrences to meet PCORnet's definitions
 - Each Visit is standardized by assigning a corresponding Concept Identifier based on the type of facility visited and the type of services rendered.
 - At any one day, there could be more than one visit.
 - One visit may involve multiple attending or billing providers (e.g. billing, attending, etc), in which case the ETL must specify how a single provider id is selected or leave the provider_id field null.
 - One visit may involve multiple care sites, in which case the ETL must specify how a single care_site id is selected or leave the care_site_id field null.
 
-## 1.8 CONDITION_OCCURRENCE
+## 1.7 CONDITION_OCCURRENCE
 
 The condition occurrence domain captures records of a disease or a medical condition based on diagnoses, signs and/or symptoms observed by a provider or reported by a patient.
 
@@ -214,8 +203,10 @@ stop_reason | No | The reason, if available, that the condition was no longer re
 associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Make a best-guess and document method used. Or leave blank
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
 condition_source_value | No | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.
+condition_source_concept_id | No | A foreign key to a condition concept that refers to the
+code used in the source (Eg. to denote ICD9)
 
-#### 1.8.1 Additional Notes
+#### 1.7.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to condition_occurrence. All conditions are included for an active patient. For PEDSnet CDM V1, we limit condition_occurrences to final diagnoses only (not reason-for-visit, , and provisional surgical diagnoses such as those recored in EPIC OPTIME). In EPIC, final diagnoses includes both encounter diagnoses and billing diagnoses, problem lists (all problems, not filtered on "chronic" versus "provisional" unless local practices use this flag as intended).
 - Condition records are inferred from diagnostic codes recorded in the source data by a clinician or abstractionist for a specific visit. In the current version of the CDM, problem list entries are not used, nor are diagnoses extracted from unstructured data, such as notes.
@@ -224,7 +215,7 @@ condition_source_value | No | The source code for the condition as it appears in
 - When the source code cannot be translated into a Standard Concept, a CONDITION_OCCURRENCE entry is stored with only the corresponding source_value and a condition_concept_id of 0.
 - Codes written in the process of establishing the diagnosis, such as "question of" of and "rule out", are not represented here.
 
-## 1.9 PROCEDURE_OCCURRENCE
+## 1.8 PROCEDURE_OCCURRENCE
 
 The procedure domain contains records of significant activities or processes ordered by and/or carried out by a healthcare provider on the patient to have a diagnostic and/or therapeutic purpose that are not fully captured in another table (e.g. drug_exposure).
 
@@ -235,14 +226,18 @@ Field | Required | Description | PEDSnet Conventions
 procedure_occurrence_id | Yes | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
 procedure_concept_id | Yes | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id = 1), ICD-9-Procedures (vocabulary_id = 3), CPT-4 (vocabulary_id = 4), and HCPCS (vocabulary_id = 5)</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
+modifier_concept_id | No | A foreign key to a standard concept identifier for a modifier to the procedure (e.g. bilateral)
+quantity | No | The quantity of procedures ordered or administered.
 procedure_date | Yes | The date on which the procedure was performed.
 procedure_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of source data from which the procedure record is derived. (OMOP vocabulary_id = 38) | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 38)</p> <p>select \* from concept where vocabulary_id = 38 yields 33 valid concept_ids.</p> If none are correct, use concept_id = 0
 associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for carrying out the procedure. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
 relevant_condition_concept_id | No | A foreign key to the predefined concept identifier in the vocabulary reflecting the condition that was the cause for initiation of the procedure. | <p>Note that this is not a direct reference to a specific condition record in the condition table, but rather a condition concept in the vocabulary.</p> Use OMOP vocabulary_id = 1
 procedure_source_value | No | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
+procedure_source_concept_id | No | A foreign key to a procedure concept that refers to the code used in the source. (eg CPT, ICD9, HCPCS etc)
+qualifier_source_value | No | The source code for the qualifier as it appears in the source data.
 
-#### 1.9.1 Additional notes
+#### 1.8.1 Additional notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to procedure_occurrence. All procedures are included for an active patient. For PEDSnet CDM V1, we limit procedures_occurrences to billing procedures only (not surgical diagnoses).
 - Procedure Concepts are based on a variety of vocabularies: SNOMED-CT, ICD-9-Proc, CPT-4, HCPCS and OPCS-4.
@@ -250,7 +245,7 @@ procedure_source_value | No | The source code for the procedure as it appears in
 - The Visit during which the procedure was performed is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider carrying out the procedure is recorded through a reference to the PROVIDER table. This information is not always available.
 
-## 1.10 OBSERVATION
+## 1.9 OBSERVATION
 
 The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. The observation domain supports capture of data not represented by other domains, including unstructored measurements, medical history and family history. For the PEDSnet CDM version 2, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id = 60). ~~See Appendix for SQL INSERT statements that add the necessary rows in the CONCEPT table to support PCORnet CDM V2.0.~~
 
@@ -347,7 +342,7 @@ observation_source_concept_id| No | A foreign key to a concept that refers
 unit_source_value | No | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Vocabulary and the original code is, stored here for reference.
 qualifier_source_value |No | The source value associated with a qualifier to characterize the observation
 
-#### 1.10.1 Additional Notes
+#### 1.9.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to observations. All observations are included for an active patient. For PEDSnet CDM V1, we limit observations to only those that appear in Table 1.
 - Observations have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
@@ -355,7 +350,7 @@ qualifier_source_value |No | The source value associated with a qualifier to cha
 - The Provider making the observation is recorded through a reference to the PROVIDER table. This information is not always available.
 - Observations obtained using standardized methods (e.g. laboratory assays) that produce discrete results are recorded by preference in the MEASUREMENT table.
 
-## 1.11 OBSERVATION PERIOD
+## 1.10 OBSERVATION PERIOD
 
 The observation period table is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have the potential of drug and condition information recorded. This table is used to generate the PCORnet CDM enrollment table.
 
@@ -368,11 +363,11 @@ person_id | Yes | Integer | A foreign key identifier to the person who is experi
 Observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source | <p>Use the earliest encounter date available for this patient.</p> No date shifting
 Observation_period_end_date | No | Date | The end date of the observation period for which data are available from the source. | <p>Use the last encounter date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.
 
-#### 1.11.1 Additional Notes
+#### 1.10.1 Additional Notes
 
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
 
-## 1.12 DRUG EXPOSURE
+## 1.11 DRUG EXPOSURE
 
 The drug exposure table captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
@@ -406,13 +401,13 @@ drug_source_concept_id| No | A foreign key to a drug concept that refers to the 
 route_source_value| The information about the route of adminsitration as detailed in the source ||
 dose_unit_source_value| The information about the does unit as detailed in the source ||
 
-#### 1.12.1 Additional Notes
+#### 1.11.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to drug exposures. All drug exposures are included for an active patient. 
 - The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider initating th drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
 
-## 1.13 MEASUREMENT
+## 1.12 MEASUREMENT
 
 The measurement table captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
 
@@ -508,7 +503,7 @@ measurement_source_concept_id| No|A foreign key to a concept that refers to the 
 unit_source_value| No| The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| 'UCUM' in most cases.
 value_source_value| No| The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed| 
 
-#### 1.13.1 Additional Notes
+#### 1.12.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to measurements. All measurements are included for an active patient. For PEDSnet CDM V1, we limit measurements to only those that appear in Table 3 (for vital signs).
 - Measurement have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
