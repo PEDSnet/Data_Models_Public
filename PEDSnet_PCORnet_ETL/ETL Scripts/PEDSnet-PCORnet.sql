@@ -254,7 +254,7 @@ FROM
 --- Vital with CTE with fields
 
 WITH
-	ob as (select visit_occurrence_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
+	ob as (select person_id, visit_occurrence_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
 	ob_ht as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3023540'),
 	ob_wt as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3013762'),
 	ob_bmi as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3038553'),
