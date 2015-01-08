@@ -1,4 +1,4 @@
-from sqlalchemy import Column, BigInteger, Integer, Date, String, Numeric, Time
+from sqlalchemy import Column, Integer, Date, String, Numeric, Time
 from sqlalchemy.schema import PrimaryKeyConstraint, ForeignKeyConstraint, Index
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -14,7 +14,7 @@ class Person(Base):
         ForeignKeyConstraint(['provider_id'], ['provider.provider_id'], name='person_provider_fk')
     )
 
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     gender_concept_id = Column('gender_concept_id', Integer(), nullable=False)
     year_of_birth = Column('year_of_birth', Integer(), nullable=False)
     month_of_birth = Column('month_of_birth', Integer())
@@ -22,8 +22,8 @@ class Person(Base):
     pn_time_of_birth = Column('pn_time_of_birth', Time())
     race_concept_id = Column('race_concept_id', Integer())
     ethnicity_concept_id = Column('ethnicity_concept_id', Integer())
-    location_id = Column('location_id', BigInteger())
-    provider_id = Column('provider_id', BigInteger())
+    location_id = Column('location_id', Integer())
+    provider_id = Column('provider_id', Integer())
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     pn_gestational_age = Column('pn_gestational_age', Numeric(precision=4, scale=2))
     person_source_value = Column('person_source_value', String(length=100), nullable=False)
@@ -39,7 +39,7 @@ class Death(Base):
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='death_person_fk')
     )
 
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     death_date = Column('death_date', Date(), nullable=False)
     death_type_concept_id = Column('death_type_concept_id', Integer(), nullable=False, autoincrement=False)
     cause_of_death_concept_id = Column('cause_of_death_concept_id', Integer())
@@ -52,7 +52,7 @@ class Location(Base):
         PrimaryKeyConstraint('location_id', name='location_pkey'),
     )
 
-    location_id = Column('location_id', BigInteger(), nullable=False)
+    location_id = Column('location_id', Integer(), nullable=False)
     state = Column('state', String(length=2))
     zip = Column('zip', String(length=9))
     location_source_value = Column('location_source_value', String(length=300))
@@ -72,7 +72,7 @@ class CareSite(Base):
 
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     place_of_service_concept_id = Column('place_of_service_concept_id', Integer())
-    location_id = Column('location_id', BigInteger())
+    location_id = Column('location_id', Integer())
     care_site_source_value = Column('care_site_source_value', String(length=100), nullable=False)
     place_of_service_source_value = Column('place_of_service_source_value', String(length=100))
     organization_id = Column('organization_id', Integer(), nullable=False)
@@ -88,7 +88,7 @@ class Organization(Base):
 
     organization_id = Column('organization_id', Integer(), nullable=False)
     place_of_service_concept_id = Column('place_of_service_concept_id', Integer())
-    location_id = Column('location_id', BigInteger())
+    location_id = Column('location_id', Integer())
     place_of_service_source_value = Column('place_of_service_source_value', String(length=100))
     organization_source_value = Column('organization_source_value', String(length=50), nullable=False)
 
@@ -100,7 +100,7 @@ class Provider(Base):
         ForeignKeyConstraint(['care_site_id'], ['care_site.care_site_id'], name='provider_care_site_fk')
     )
 
-    provider_id = Column('provider_id', BigInteger(), nullable=False)
+    provider_id = Column('provider_id', Integer(), nullable=False)
     specialty_concept_id = Column('specialty_concept_id', Integer())
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     npi = Column('npi', String(length=20))
@@ -117,11 +117,11 @@ class VisitOccurrence(Base):
         Index('visit_occurrence_person_date', 'person_id', 'visit_start_date')
     )
 
-    visit_occurrence_id = Column('visit_occurrence_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    visit_occurrence_id = Column('visit_occurrence_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     visit_start_date = Column('visit_start_date', Date(), nullable=False)
     visit_end_date = Column('visit_end_date', Date())
-    provider_id = Column('provider_id', BigInteger())
+    provider_id = Column('provider_id', Integer())
     care_site_id = Column('care_site_id', Integer())
     place_of_service_concept_id = Column('place_of_service_concept_id', Integer(), nullable=False)
     place_of_service_source_value = Column('place_of_service_source_value', String(length=100))
@@ -136,15 +136,15 @@ class ConditionOccurrence(Base):
         ForeignKeyConstraint(['visit_occurrence_id'], ['visit_occurrence.visit_occurrence_id'], name='condition_visit_fk')
     )
 
-    condition_occurrence_id = Column('condition_occurrence_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    condition_occurrence_id = Column('condition_occurrence_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     condition_concept_id = Column('condition_concept_id', Integer(), nullable=False)
     condition_start_date = Column('condition_start_date', Date(), nullable=False)
     condition_end_date = Column('condition_end_date', Date())
     condition_type_concept_id = Column('condition_type_concept_id', Integer(), nullable=False)
     stop_reason = Column('stop_reason', String(length=100))
-    associated_provider_id = Column('associated_provider_id', BigInteger())
-    visit_occurrence_id = Column('visit_occurrence_id', BigInteger())
+    associated_provider_id = Column('associated_provider_id', Integer())
+    visit_occurrence_id = Column('visit_occurrence_id', Integer())
     condition_source_value = Column('condition_source_value', String(length=100))
 
 
@@ -157,13 +157,13 @@ class ProcedureOccurrence(Base):
         ForeignKeyConstraint(['visit_occurrence_id'], ['visit_occurrence.visit_occurrence_id'], name='procedure_visit_fk')
     )
 
-    procedure_occurrence_id = Column('procedure_occurrence_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    procedure_occurrence_id = Column('procedure_occurrence_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     procedure_concept_id = Column('procedure_concept_id', Integer(), nullable=False)
     procedure_date = Column('procedure_date', Date(), nullable=False)
     procedure_type_concept_id = Column('procedure_type_concept_id', Integer(), nullable=False)
-    associated_provider_id = Column('associated_provider_id', BigInteger())
-    visit_occurrence_id = Column('visit_occurrence_id', BigInteger())
+    associated_provider_id = Column('associated_provider_id', Integer())
+    visit_occurrence_id = Column('visit_occurrence_id', Integer())
     relevant_condition_concept_id = Column('relevant_condition_concept_id', Integer())
     procedure_source_value = Column('procedure_source_value', String(length=100))
 
@@ -178,8 +178,8 @@ class Observation(Base):
         Index('observation_person_idx', 'person_id', 'observation_concept_id')
     )
 
-    observation_id = Column('observation_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    observation_id = Column('observation_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     observation_concept_id = Column('observation_concept_id', Integer(), nullable=False)
     observation_date = Column('observation_date', Date(), nullable=False)
     observation_time = Column('observation_time', Time())
@@ -188,8 +188,8 @@ class Observation(Base):
     value_as_string = Column('value_as_string', String(length=4000))
     value_as_concept_id = Column('value_as_concept_id', Integer())
     unit_concept_id = Column('unit_concept_id', Integer())
-    associated_provider_id = Column('associated_provider_id', BigInteger())
-    visit_occurrence_id = Column('visit_occurrence_id', BigInteger())
+    associated_provider_id = Column('associated_provider_id', Integer())
+    visit_occurrence_id = Column('visit_occurrence_id', Integer())
     relevant_condition_concept_id = Column('relevant_condition_concept_id', Integer())
     observation_source_value = Column('observation_source_value', String(length=100))
     unit_source_value = Column('units_source_value', String(length=100))
@@ -205,8 +205,8 @@ class ObservationPeriod(Base):
         Index('observation_period_person', 'person_id', 'observation_period_start_date', unique=True)
     )
 
-    observation_period_id = Column('observation_period_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    observation_period_id = Column('observation_period_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     observation_period_start_date = Column('observation_period_start_date', Date(), nullable=False)
     observation_period_end_date = Column('observation_period_end_date', Date())
 
@@ -218,8 +218,8 @@ class ConditionEra(Base):
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='condition_era_person_fk')
     )
 
-    condition_era_id = Column('condition_era_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    condition_era_id = Column('condition_era_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     condition_concept_id = Column('condition_concept_id', Integer(), nullable=False)
     condition_era_start_date = Column('condition_era_start_date', Date(), nullable=False)
     condition_era_end_date = Column('condition_era_end_date', Date(), nullable=False)
@@ -236,8 +236,8 @@ class DrugExposure(Base):
         ForeignKeyConstraint(['visit_occurrence_id'], ['visit_occurrence.visit_occurrence_id'], name='drug_visit_fk')
     )
 
-    drug_exposure_id = Column('drug_exposure_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    drug_exposure_id = Column('drug_exposure_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     drug_concept_id = Column('drug_concept_id', Integer(), nullable=False)
     drug_exposure_start_date = Column('drug_exposure_start_date', Date(), nullable=False)
     drug_exposure_end_date = Column('drug_exposure_end_date', Date())
@@ -247,8 +247,8 @@ class DrugExposure(Base):
     quantity = Column('quantity', Integer())
     days_supply = Column('days_supply', Integer())
     sig = Column('sig', String(length=500))
-    prescribing_provider_id = Column('prescribing_provider_id', BigInteger())
-    visit_occurrence_id = Column('visit_occurrence_id', BigInteger())
+    prescribing_provider_id = Column('prescribing_provider_id', Integer())
+    visit_occurrence_id = Column('visit_occurrence_id', Integer())
     relevant_condition_concept_id = Column('relevant_condition_concept_id', Integer())
     drug_source_value = Column('drug_source_value', String(length=100))
 
@@ -260,8 +260,8 @@ class DrugEra(Base):
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='drug_era_person_fk')
     )
 
-    drug_era_id = Column('drug_era_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    drug_era_id = Column('drug_era_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     drug_concept_id = Column('drug_concept_id', Integer(), nullable=False)
     drug_era_start_date = Column('drug_era_start_date', Date(), nullable=False)
     drug_era_end_date = Column('drug_era_end_date', Date(), nullable=False)
@@ -276,8 +276,8 @@ class PayerPlanPeriod(Base):
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='payer_plan_period_person_fk')
     )
 
-    payer_plan_period_id = Column('payer_plan_period_id', BigInteger(), nullable=False)
-    person_id = Column('person_id', BigInteger(), nullable=False)
+    payer_plan_period_id = Column('payer_plan_period_id', Integer(), nullable=False)
+    person_id = Column('person_id', Integer(), nullable=False)
     payer_plan_period_start_date = Column('payer_plan_period_start_date', Date(), nullable=False)
     payer_plan_period_end_date = Column('payer_plan_period_end_date', Date(), nullable=False)
     payer_source_value = Column('payer_source_value', String(length=100))
@@ -293,8 +293,8 @@ class ProcedureCost(Base):
         ForeignKeyConstraint(['procedure_occurrence_id'], ['procedure_occurrence.procedure_occurrence_id'], name='procedure_cost_procedure_fk')
     )
 
-    procedure_cost_id = Column('procedure_cost_id', BigInteger(), nullable=False)
-    procedure_occurrence_id = Column('procedure_occurrence_id', BigInteger(), nullable=False)
+    procedure_cost_id = Column('procedure_cost_id', Integer(), nullable=False)
+    procedure_occurrence_id = Column('procedure_occurrence_id', Integer(), nullable=False)
     paid_copay = Column('paid_copay', Numeric(precision=8, scale=2))
     paid_coinsurance = Column('paid_coinsurance', Numeric(precision=8, scale=2))
     paid_toward_deductible = Column('paid_toward_deductible', Numeric(precision=8, scale=2))
@@ -304,7 +304,7 @@ class ProcedureCost(Base):
     total_paid = Column('total_paid', Numeric(precision=8, scale=2))
     disease_class_concept_id = Column('disease_class_concept_id', Integer())
     revenue_code_concept_id = Column('revenue_code_concept_id', Integer())
-    payer_plan_period_id = Column('payer_plan_period_id', BigInteger())
+    payer_plan_period_id = Column('payer_plan_period_id', Integer())
     disease_class_source_value = Column('disease_class_source_value', String(length=100))
     revenue_code_source_value = Column('revenue_code_source_value', String(length=100))
 
@@ -317,8 +317,8 @@ class DrugCost(Base):
         ForeignKeyConstraint(['payer_plan_period_id'], ['payer_plan_period.payer_plan_period_id'], name='drug_cost_payer_plan_period_fk')
     )
 
-    drug_cost_id = Column('drug_cost_id', BigInteger(), nullable=False)
-    drug_exposure_id = Column('drug_exposure_id', BigInteger(), nullable=False)
+    drug_cost_id = Column('drug_cost_id', Integer(), nullable=False)
+    drug_exposure_id = Column('drug_exposure_id', Integer(), nullable=False)
     paid_copay = Column('paid_copay', Numeric(precision=8, scale=2))
     paid_coinsurance = Column('paid_coinsurance', Numeric(precision=8, scale=2))
     paid_toward_deductible = Column('paid_toward_deductible', Numeric(precision=8, scale=2))
@@ -329,7 +329,7 @@ class DrugCost(Base):
     ingredient_cost = Column('ingredient_cost', Numeric(precision=8, scale=2))
     dispensing_fee = Column('dispensing_fee', Numeric(precision=8, scale=2))
     average_wholesale_price = Column('average_wholesale_price', Numeric(precision=8, scale=2))
-    payer_plan_period_id = Column('payer_plan_period_id', BigInteger())
+    payer_plan_period_id = Column('payer_plan_period_id', Integer())
 
 
 class Cohort(Base):
@@ -338,9 +338,9 @@ class Cohort(Base):
         PrimaryKeyConstraint('cohort_id', name='cohort_pkey'),
     )
 
-    cohort_id = Column('cohort_id', BigInteger(), nullable=False)
+    cohort_id = Column('cohort_id', Integer(), nullable=False)
     cohort_concept_id = Column('cohort_concept_id', Integer(), nullable=False)
     cohort_start_date = Column('cohort_start_date', Date(), nullable=False)
     cohort_end_date = Column('cohort_end_date', Date())
-    subject_id = Column('subject_id', BigInteger(), nullable=False)
+    subject_id = Column('subject_id', Integer(), nullable=False)
     stop_reason = Column('stop_reason', String(length=100))
