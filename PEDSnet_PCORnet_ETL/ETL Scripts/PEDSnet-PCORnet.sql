@@ -254,14 +254,14 @@ FROM
 --- Vital with CTE with fields
 
 WITH
-	ob as (select person_id, visit_occurrence_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
+	ob as (select person_id, visit_occurrence_id, observation_concept_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
 	ob_ht as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3023540'),
 	ob_wt as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3013762'),
 	ob_bmi as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3038553'),
 	ob_sys as (select visit_occurrence_id, observation_date, observation_time, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3018586','3035856','3009395','3004249')),
 	ob_dia as (select visit_occurrence_id, observation_date, observation_time, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3034703','3019962','3013940','3012888')), 
-	ob_bp as (select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id target_concept 
-	from ob inner join cz.cz_omop_pcornet_concept_map m on ob.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') as 
+	ob_bp as (select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id, target_concept 
+	from ob inner join cz.cz_omop_pcornet_concept_map m on ob.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') 
 SELECT distinct 
 	cast(ob.person_id as text) as patid,
 	cast(ob.visit_occurrence_id as text) as encounterid,
