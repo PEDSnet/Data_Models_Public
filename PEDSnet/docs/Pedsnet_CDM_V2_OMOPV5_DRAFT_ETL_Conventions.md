@@ -203,8 +203,7 @@ stop_reason | No | The reason, if available, that the condition was no longer re
 associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Make a best-guess and document method used. Or leave blank
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
 condition_source_value | No | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.
-condition_source_concept_id | No | A foreign key to a condition concept that refers to the
-code used in the source (Eg. to denote ICD9)
+condition_source_concept_id | No | A foreign key to a condition concept that refers to the code used in the source (Eg. to denote ICD9)|
 
 #### 1.7.1 Additional Notes
 
@@ -230,7 +229,7 @@ modifier_concept_id | No | A foreign key to a standard concept identifier for a 
 quantity | No | The quantity of procedures ordered or administered.
 procedure_date | Yes | The date on which the procedure was performed.
 procedure_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of source data from which the procedure record is derived. (OMOP vocabulary_id = 38) | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 38)</p> <p>select \* from concept where vocabulary_id = 38 yields 33 valid concept_ids.</p> If none are correct, use concept_id = 0
-associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for carrying out the procedure. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
+provider_id | No | A foreign key to the provider in the provider table who was responsible for carrying out the procedure. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
 relevant_condition_concept_id | No | A foreign key to the predefined concept identifier in the vocabulary reflecting the condition that was the cause for initiation of the procedure. | <p>Note that this is not a direct reference to a specific condition record in the condition table, but rather a condition concept in the vocabulary.</p> Use OMOP vocabulary_id = 1
 procedure_source_value | No | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
@@ -325,7 +324,7 @@ Chart availability | 4030450 | | NULL | No information
 Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 observation_id | Yes | A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
-person_id | Yes | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.
+person_id | Yes | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.|
 observation_concept_id | Yes | A foreign key to the standard observation concept identifier in the Vocabulary. | Lab results and vitals are not stored in this table in V5 but are stored in the Measurement table.
 observation_date | Yes | The date of the observation (UTC). | No date shifting
 observation_time | No | The time of the observation (UTC). | No date shifting
@@ -393,13 +392,13 @@ sig| No | The directions on the drug prescription as recorded in the original pr
 route_concept_id| No | A foreign key that refers to a standard administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id='Dose Form')</p> <p>select * from omop5.concept where concept_class_id='Dose Form' yields 357 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
 effective_drug_dose| No | Numerical value of drug dose for this drug_exposure record||
 dose_unit_concept_id| No | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the effective drug_dose value is expressed||
-lot_number| No | An identifer to determine where the product originated||
+lot_number| No | An identifier to determine where the product originated||
 provider_id| No | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
-visit_occurrence_id| No | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
+visit_occurrence_id| No | A foreign key to the visit in the visit table during which the drug exposure initiated. | See VISIT.visit_occurrence_id (primary key)
 drug_source_value| No| The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.
 drug_source_concept_id| No | A foreign key to a drug concept that refers to the code used in the source | Sites are to map this to the type of value in the source (GPI, NDC, etc)
-route_source_value| The information about the route of adminsitration as detailed in the source ||
-dose_unit_source_value| The information about the does unit as detailed in the source ||
+route_source_value| No|The information about the route of administration as detailed in the source ||
+dose_unit_source_value| No| The information about the dose unit as detailed in the source ||
 
 #### 1.11.1 Additional Notes
 
@@ -424,7 +423,7 @@ Specifically this table includes:
 - Vital source
 - PCORI Mandated Labs
 - Cohort specific Labs
-- Top 100 Labs of insitution
+- Top 100 Labs of institution
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
