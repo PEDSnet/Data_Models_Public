@@ -505,10 +505,25 @@ value_source_value| No| The source value associated with the structured value st
 #### 1.12.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to measurements. All measurements are included for an active patient. For PEDSnet CDM V1, we limit measurements to only those that appear in Table 3 (for vital signs).
-- Measurement have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
+- Measurements have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
 - The Visit during which the measurement was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
 
+## 1.13 FACT RELATIONSHIP
+
+The fact relationship table contains records to detail the relationships between facts within one domain or across two domains, and the nature of the relationship. Examples of types of fact relationships include: person relationships (mother-child linkage), care site relationships (representing the hierarchical organization structure of facilities within health systems), drug exposures provided due to associated indicated condition, devices used during the course of an associated procedure, and measurements derived from an associated specimen. All relationships are directional, and each relationship is represented twice symmetrically within the fact relationship table. 
+
+Field |Required | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
+Domain_concept_id_1|Yes|	The concept representing the domain of fact one, from which the corresponding table can be inferred
+Fact_id_1|	Yes |The unique identifier in the table corresponding to the domain of fact one.
+Domain_concept_id_2|Yes|	The concept representing the domain of fact two, from which the corresponding table can be inferred.
+Fact_id_2 |	Yes |	The unique identifier in the table corresponding to the domain of fact two.
+Relationship_concept_id	|Yes|A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.
+
+#### 1.13.1 Additional Notes
+
+-The Fact relationship table will be used to establish relationships between the organization and care site. (TBD)
 
 * * *
 
