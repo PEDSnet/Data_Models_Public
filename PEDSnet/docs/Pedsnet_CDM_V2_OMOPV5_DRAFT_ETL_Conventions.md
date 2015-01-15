@@ -523,7 +523,11 @@ Relationship_concept_id	|Yes|A foreign key to a standard concept identifier of r
 
 #### 1.13.1 Additional Notes
 
--The Fact relationship table will be used to establish relationships between the organization and care site. (TBD)
+-The Fact relationship table will be used to establish relationships between the organization and care site. Sites should make the document the following relationships for care site in this table:
+
+Organization -> Care Site Specialty 
+Organization -> Care Site
+Care Site Specialty -> Care Site
 
 * * *
 
