@@ -114,7 +114,7 @@ select distinct
 	enc.providerid as providerid,
 	case when c.concept_name = 'No matching concept' then 'No Match' else c.concept_code end as px,
 	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
-	string_agg(split_part(procedure_source_value,'|||',1),',') as raw_px,
+	string_agg(split_part(split_part(procedure_source_value,'|||',1),'.',1),',') as raw_px,
 	string_agg(case when m2.target_concept IS Null then 'Other' else m2.target_concept end,',') as raw_px_type
 from
 	omop.procedure_occurrence po
