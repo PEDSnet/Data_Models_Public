@@ -112,17 +112,19 @@ select distinct
 	enc.enc_type as enc_type,
 	enc.admit_date as admit_date,
 	enc.providerid as providerid,
-	case when c.concept_name = 'No matching concept' then 'NM--'||cast(round(random()*10000+1) as string) else c.concept_code end as px,
+	case when c.concept_name = 'No matching concept' then 'NM--'||cast(round(random()*10000+1) as text) else c.concept_code end as px,
 	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
-	string_agg(split_part(split_part(procedure_source_value,'|||',1),'.',1),',') as raw_px,
-	string_agg(case when m2.target_concept IS Null then 'Other' else m2.target_concept end,',') as raw_px_type
+	split_part(split_part(procedure_source_value,'|||',1),'.',1) as raw_px,
+	case when m2.target_concept IS Null then 'Other' else m2.target_concept end as raw_px_type
+	--string_agg(split_part(split_part(procedure_source_value,'|||',1),'.',1),',') as raw_px,
+	--string_agg(case when m2.target_concept IS Null then 'Other' else m2.target_concept end,',') as raw_px_type
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
 	join rz.concept c on po.procedure_concept_id=c.concept_id
 	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = cast(m1.source_concept_id as text) AND m1.source_concept_class='Procedure Code Type'
 	left join cz.cz_omop_pcornet_concept_map m2 on case when split_part(procedure_source_value,'|||',2) is null AND m2.source_concept_id is null then true else split_part(procedure_source_value,'|||',2) = cast(m2.source_concept_id as text) end AND m2.source_concept_class ='Source Coding System'	
-group by  person_id, visit_occurrence_id, enc_type, admit_date, providerid, px, px_type;
+--group by  person_id, visit_occurrence_id, enc_type, admit_date, providerid, px, px_type;
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
