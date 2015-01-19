@@ -67,7 +67,7 @@ class Encounter(Base):
 class Diagnosis(Base):
     __tablename__ = 'diagnosis'
     __table_args__ = (
-        PrimaryKeyConstraint('patid', 'encounterid', 'dx', 'dx_type', 'raw_dx', name='diagnosis_pkey'),
+        PrimaryKeyConstraint('patid', 'encounterid', 'dx', 'dx_type', name='diagnosis_pkey'),
     )
 
     patid = Column('patid', String(length=1028))
@@ -89,7 +89,7 @@ class Diagnosis(Base):
 class Procedure(Base):
     __tablename__ = 'procedure'
     __table_args__ = (
-        PrimaryKeyConstraint('patid', 'encounterid', 'px', 'px_type', 'raw_px', name='procedure_pkey'),
+        PrimaryKeyConstraint('patid', 'encounterid', 'px', 'px_type', name='procedure_pkey'),
     )
 
     patid = Column('patid', String(length=1028))
