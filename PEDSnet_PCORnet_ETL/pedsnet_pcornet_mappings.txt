@@ -19,6 +19,59 @@ UN|Race|8552|NULL|Unknown
 OT|Race|8522|NULL|Other
 NULL|Race|NULL|NULL|NULL
 NI|Race|44814661|NULL|No information
+OT|Race|9178|NULL|Non-white
+OT|Race|38003600|NULL|African
+OT|Race|38003601|NULL|Bahamian
+OT|Race|38003602|NULL|Barbadian
+OT|Race|38003603|NULL|Dominican
+OT|Race|38003604|NULL|Dominica Islander
+OT|Race|38003605|NULL|Haitian
+OT|Race|38003606|NULL|Jamaican
+OT|Race|38003607|NULL|Tobagoan
+OT|Race|38003608|NULL|Trinidadian
+OT|Race|38003609|NULL|West Indian
+OT|Race|38003610|NULL|Polynesian
+OT|Race|38003611|NULL|Micronesian
+OT|Race|38003612|NULL|Melanesian
+04|Race|38003613|NULL|Other Pacific Islander
+OT|Race|38003614|NULL|European
+OT|Race|38003615|NULL|Middle Eastern or North African
+OT|Race|38003616|NULL|Arab
+01|Race|38003572|NULL|American Indian
+01|Race|38003573|NULL|Alaska Native
+02|Race|38003574|NULL|Asian Indian
+02|Race|38003575|NULL|Bangladeshi
+02|Race|38003576|NULL|Bhutanese
+02|Race|38003577|NULL|Burmese
+02|Race|38003578|NULL|Cambodian
+02|Race|38003579|NULL|Chinese
+02|Race|38003580|NULL|Taiwanese
+02|Race|38003581|NULL|Filipino
+02|Race|38003582|NULL|Hmong
+02|Race|38003583|NULL|Indonesian
+02|Race|38003584|NULL|Japanese
+02|Race|38003585|NULL|Korean
+02|Race|38003586|NULL|Laotian
+02|Race|38003587|NULL|Malaysian
+02|Race|38003588|NULL|Okinawan
+02|Race|38003589|NULL|Pakistani
+02|Race|38003590|NULL|Sri Lankan
+02|Race|38003591|NULL|Thai
+02|Race|38003592|NULL|Vietnamese
+02|Race|38003593|NULL|Iwo Jiman
+02|Race|38003594|NULL|Maldivian
+02|Race|38003595|NULL|Nepalese
+02|Race|38003596|NULL|Singaporean
+OT|Race|38003597|NULL|Madagascar
+03|Race|38003598|NULL|Black
+03|Race|38003599|NULL|African American
+01|Race|44814654|NULL|American Indian or Alaska Native
+02|Race|44814655|NULL|Asian
+03|Race|44814656|NULL|Black or African American
+04|Race|44814657|NULL|Native Hawaiian or Other Pacific Islander
+05|Race|44814658|NULL|White
+UN|Race|44814662|NULL|Unknown
+OT|Race|44814663|NULL|Other
 F|Gender|8532|NULL|Female
 M|Gender|8507|NULL|Male
 A|Gender|8570|NULL|Ambiguous

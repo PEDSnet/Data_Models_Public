@@ -112,7 +112,7 @@ select distinct
 	enc.enc_type as enc_type,
 	enc.admit_date as admit_date,
 	enc.providerid as providerid,
-	case when c.concept_name = 'No matching concept' then 'NM--'||cast(round(random()*10000+1) as text) else c.concept_code end as px,
+	case when c.concept_name = 'No matching concept' then 'NM'||cast(round(random()*1000000000) as text) else c.concept_code end as px,
 	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
 	split_part(split_part(procedure_source_value,'|||',1),'.',1) as raw_px,
 	case when m2.target_concept IS Null then 'Other' else m2.target_concept end as raw_px_type
