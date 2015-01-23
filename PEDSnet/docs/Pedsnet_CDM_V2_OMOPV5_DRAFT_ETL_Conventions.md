@@ -377,6 +377,12 @@ Exclusions:
 1. Cancelled Medication Orders
 2. Missed Medication administrations
 
+**Note 1**: The effective_dose_drug is the dose basis. This is a calcualted value done by computing the total amount taken by multiplying the quantity * days supply. (Eg. 45 mg/kg/dose)
+**Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient)
+**Note 3**: The dose_unit_concept_id is the unit of the effective dose.
+**Note 4**: For dispensing records, compute the dose basis by looking for a weight observation +/- 60 days of the dispensed date.
+**Note 5:**: For the sig, encode the value using XML. <ul> <li> Element 1: Actual SIG from source data </li> <li> Element 2: Raw Supply/Quantity (Examples: "1 bottle" "10 ml Bottle" "1 pack"</li> </ul> the raw "supply/quantity"
+
 Field |Required | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
  drug_exposure_id | Yes | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
@@ -387,12 +393,12 @@ drug_exposure_end_date| Yes | The end date of the utilization of the drug | No d
 drug_type_concept_id| Yes | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represeneted in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 36)</p> <p>select \* from concept where vocabulary_id = 36 yields 12 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written (outpatient med): concept_id = 8000177</li></ul>
 stop_reason| No | The reason, if available, where the medication was stopped, as indicated in the source data. | <p>Valid values include therapy completed, changed, removed, side effects, etc. Note that a stop_reason does not necessarily imply that the medication is no longer being used at all, and therefore does not mandate that the end date be assigned.</p>
 refills| No | The number of refills after the initial prescrition||
-quantity| No | The quantity of the drugs as recorded in the original prescription or dispensing record||
+quantity| No | The quantity of the drugs as recorded in the original prescription or dispensing record| See Note 2|
 days_supply| No | The number of days of supply the meidcation as recorded in the original prescription or dispensing record||
-sig| No | The directions on the drug prescription as recorded in the original prescription (and printed on the container) or the dispensing record||
+sig| No | The directions on the drug prescription as recorded in the original prescription (and printed on the container) or the dispensing record| See Note 5|
 route_concept_id| No | A foreign key that refers to a standard administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id='Dose Form')</p> <p>select * from omop5.concept where concept_class_id='Dose Form' yields 357 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
-effective_drug_dose| No | Numerical value of drug dose for this drug_exposure record||
-dose_unit_concept_id| No | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the effective drug_dose value is expressed||
+effective_drug_dose| No | Numerical value of drug dose for this drug_exposure record| See note 1|
+dose_unit_concept_id| No | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the effective drug_dose value is expressed|See note 3|
 lot_number| No | An identifier to determine where the product originated||
 provider_id| No | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id| No | A foreign key to the visit in the visit table during which the drug exposure initiated. | See VISIT.visit_occurrence_id (primary key)
