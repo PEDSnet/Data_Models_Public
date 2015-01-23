@@ -375,13 +375,19 @@ EHRs may store medications in different vocabularies (GPI,NDC etc). Please use t
 
 Exclusions:
 1. Cancelled Medication Orders
+2. 
 2. Missed Medication administrations
 
 **Note 1**: The effective_dose_drug is the dose basis. This is a calcualted value done by computing the total amount taken by multiplying the quantity * days supply. (Eg. 45 mg/kg/dose)
+
 **Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient)
+
 **Note 3**: The dose_unit_concept_id is the unit of the effective dose.
+
 **Note 4**: For dispensing records, compute the dose basis by looking for a weight observation +/- 60 days of the dispensed date.
+
 **Note 5:**: For the sig, encode the value using XML. <ul> <li> Element 1: Actual SIG from source data </li> <li> Element 2: Raw Supply/Quantity (Examples: "1 bottle" "10 ml Bottle" "1 pack"</li> </ul> the raw "supply/quantity"
+
 
 Field |Required | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
