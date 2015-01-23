@@ -374,8 +374,8 @@ The drug exposure table captures any biochemical substance that is introduced in
 EHRs may store medications in different vocabularies (GPI,NDC etc). Please use the cross-walk in the source_to_concept_map to map to RxNorm codes.
 
 Exclusions:
+
 1. Cancelled Medication Orders
-2. 
 2. Missed Medication administrations
 
 **Note 1**: The effective_dose_drug is the dose basis. This is a calcualted value done by computing the total amount taken by multiplying the quantity * days supply. (Eg. 45 mg/kg/dose)
@@ -386,7 +386,7 @@ Exclusions:
 
 **Note 4**: For dispensing records, compute the dose basis by looking for a weight observation +/- 60 days of the dispensed date.
 
-**Note 5:**: For the sig, encode the value using XML. <ul> <li> Element 1: Actual SIG from source data </li> <li> Element 2: Raw Supply/Quantity (Examples: "1 bottle" "10 ml Bottle" "1 pack"</li> </ul> the raw "supply/quantity"
+**Note 5:** For the sig, encode the value using XML. <ul> <li> Element 1: Actual SIG from source data </li> <li> Element 2: Raw Supply/Quantity (Examples: "1 bottle" "10 ml Bottle" "1 pack"</li> </ul> the raw "supply/quantity"
 
 
 Field |Required | Description | PEDSnet Conventions
