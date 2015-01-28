@@ -66,7 +66,7 @@ The definition of an "in person" clinical encounter remains heuristic -any encou
 Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 person_id | Yes | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
-gender_concept_id | Yes | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 12 and vocabulary_id = 60 where noted): <ul><li>Ambiguous: concept_id = 8570</li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814667 (Vocabulary 60)</li> <li>Unknown: concept_id = 8551</li> <li>Other: concept_id = 8521</li></ul>
+gender_concept_id | Yes | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table select \* from chop_omop5.concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 8570</li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814667 (Vocabulary 60)</li> <li>Unknown: concept_id = 8551</li> <li>Other: concept_id = 8521</li></ul>
 year_of_birth | Yes | The year of birth of the person. | <p>For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.</p> Please keep all accurate/real dates (No date shifting)
 month_of_birth | No | The month of birth of the person. | <p>For data sources that provide the precise date of birth, the month is extracted and stored in this field.</p> Please keep all accurate/real dates (No date shifting)
 day_of_birth | No | The day of the month of birth of the person. | <p>For data sources that provide the precise date of birth, the day is extracted and stored in this field.</p> Please keep all accurate/real dates (No date shifting)
@@ -545,10 +545,7 @@ Care Site Specialty -> Care Site
 
 **APPENDIX**
 
-**PEDSnet-specific Vocabulary 99 has been supplanted by OMOP-supported Vocabulary 60, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0**
-
-The INSERT statements that created Vocabulary 99 have been removed from this Appendix based on the current use of Vocabulary 60.
-
+**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0 and 2.0**
 * * *
 
 **Elements for future versions**
