@@ -112,19 +112,30 @@ select distinct
 	enc.enc_type as enc_type,
 	enc.admit_date as admit_date,
 	enc.providerid as providerid,
-	case when c.concept_name = 'No matching concept' then 'NM'||cast(round(random()*1000000000) as text) else c.concept_code end as px,
-	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
+	-- case 2
+	case when c.concept_name = 'No matching concept' then
+	---- case 2a
+	case when split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) then split_part(split_part(procedure_source_value,'|||',1),'.',1)  
+	---- case 2b
+	else 'NM'||cast(round(random()*1000000000) as text) end 
+	--case 1
+	else c.concept_code end as px,
+	case when c.concept_name = 'No matching concept' then 
+	case when split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) then m3.target_concept 
+	else 'OT' end 
+	else coalesce(m1.target_concept,'NI') end as px_type,
 	split_part(split_part(procedure_source_value,'|||',1),'.',1) as raw_px,
 	case when m2.target_concept IS Null then 'Other' else m2.target_concept end as raw_px_type
-	--string_agg(split_part(split_part(procedure_source_value,'|||',1),'.',1),',') as raw_px,
-	--string_agg(case when m2.target_concept IS Null then 'Other' else m2.target_concept end,',') as raw_px_type
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
 	join rz.concept c on po.procedure_concept_id=c.concept_id
+	-- get the vocabulary from procedure concept id - to populate the PX_TYPE field (case 1)
 	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = cast(m1.source_concept_id as text) AND m1.source_concept_class='Procedure Code Type'
-	left join cz.cz_omop_pcornet_concept_map m2 on case when split_part(procedure_source_value,'|||',2) is null AND m2.source_concept_id is null then true else split_part(procedure_source_value,'|||',2) = cast(m2.source_concept_id as text) end AND m2.source_concept_class ='Source Coding System'	
---group by  person_id, visit_occurrence_id, enc_type, admit_date, providerid, px, px_type;
+	-- get the vocabulary for the RAW_PX_TYPE field - for all cases. 
+	left join cz.cz_omop_pcornet_concept_map m2 on case when split_part(procedure_source_value,'|||',2) is null AND m2.source_concept_id is null then true else split_part(procedure_source_value,'|||',2) = cast(m2.source_concept_id as text) end AND m2.source_concept_class ='Source Coding System'
+	-- get the vocabulary from the procedure source value to populate the PX_TYPE field (case 2a)
+	left join cz.cz_omop_pcornet_concept_map m3 on split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) AND m3.source_concept_class='Procedure Code Type' 
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
