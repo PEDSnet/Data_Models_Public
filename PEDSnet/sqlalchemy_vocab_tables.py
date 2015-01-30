@@ -1,4 +1,4 @@
-from sqlalchemy import Column, BigInteger, Integer, Date, String, Numeric, Time
+from sqlalchemy import Column, Integer, Date, String, Numeric
 from sqlalchemy.schema import PrimaryKeyConstraint, ForeignKeyConstraint, Index, CheckConstraint, UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -14,7 +14,7 @@ class Concept(Base):
 
     concept_id = Column('concept_id', Integer(), nullable=False, autoincrement=False)
     concept_name = Column('concept_name', String(256), nullable=False)
-    concept_level = Column('concept_level', Numeric(precision=38), nullable=False)
+    concept_level = Column('concept_level', Integer(), nullable=False)
     concept_class = Column('concept_class', String(60), nullable=False)
     vocabulary_id = Column('vocabulary_id', Integer(), nullable=False)
     concept_code = Column('concept_code', String(40), nullable=False)

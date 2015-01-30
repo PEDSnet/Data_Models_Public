@@ -1,20 +1,9 @@
 
-CREATE TABLE vocabulary (
-	vocabulary_id NUMBER(10) NOT NULL, 
-	vocabulary_name VARCHAR2(256 CHAR) NOT NULL, 
-	CONSTRAINT xpkvocabulary_ref PRIMARY KEY (vocabulary_id), 
-	CONSTRAINT unique_vocabulary_name UNIQUE (vocabulary_name)
-)
-
-;
-
-CREATE TABLE relationship (
-	relationship_id NUMBER(10) NOT NULL, 
-	relationship_name VARCHAR2(256 CHAR) NOT NULL, 
-	is_hierarchical NUMBER(10) NOT NULL, 
-	defines_ancestry NUMBER(10) DEFAULT '1' NOT NULL, 
-	reverse_relationship NUMBER(10), 
-	CONSTRAINT xpkrelationship_type PRIMARY KEY (relationship_id)
+CREATE TABLE drug_approval (
+	ingredient_concept_id NUMBER(10) NOT NULL, 
+	approval_date DATE NOT NULL, 
+	approved_by VARCHAR2(20 CHAR) DEFAULT 'FDA' NOT NULL, 
+	CONSTRAINT xpkdrug_approval PRIMARY KEY (ingredient_concept_id)
 )
 
 ;
@@ -35,11 +24,22 @@ CREATE TABLE drug_strength (
 
 ;
 
-CREATE TABLE drug_approval (
-	ingredient_concept_id NUMBER(10) NOT NULL, 
-	approval_date DATE NOT NULL, 
-	approved_by VARCHAR2(20 CHAR) DEFAULT 'FDA' NOT NULL, 
-	CONSTRAINT xpkdrug_approval PRIMARY KEY (ingredient_concept_id)
+CREATE TABLE vocabulary (
+	vocabulary_id NUMBER(10) NOT NULL, 
+	vocabulary_name VARCHAR2(256 CHAR) NOT NULL, 
+	CONSTRAINT xpkvocabulary_ref PRIMARY KEY (vocabulary_id), 
+	CONSTRAINT unique_vocabulary_name UNIQUE (vocabulary_name)
+)
+
+;
+
+CREATE TABLE relationship (
+	relationship_id NUMBER(10) NOT NULL, 
+	relationship_name VARCHAR2(256 CHAR) NOT NULL, 
+	is_hierarchical NUMBER(10) NOT NULL, 
+	defines_ancestry NUMBER(10) DEFAULT '1' NOT NULL, 
+	reverse_relationship NUMBER(10), 
+	CONSTRAINT xpkrelationship_type PRIMARY KEY (relationship_id)
 )
 
 ;
@@ -47,7 +47,7 @@ CREATE TABLE drug_approval (
 CREATE TABLE concept (
 	concept_id NUMBER(10) NOT NULL, 
 	concept_name VARCHAR2(256 CHAR) NOT NULL, 
-	concept_level NUMERIC(38) NOT NULL, 
+	concept_level NUMBER(10) NOT NULL, 
 	concept_class VARCHAR2(60 CHAR) NOT NULL, 
 	vocabulary_id NUMBER(10) NOT NULL, 
 	concept_code VARCHAR2(40 CHAR) NOT NULL, 
@@ -80,16 +80,6 @@ CREATE TABLE source_to_concept_map (
 ;
 CREATE INDEX source_to_concept_source_idx ON source_to_concept_map (source_code);
 
-CREATE TABLE concept_synonym (
-	concept_synonym_id NUMBER(10) NOT NULL, 
-	concept_id NUMBER(10) NOT NULL, 
-	concept_synonym_name VARCHAR2(1000 CHAR) NOT NULL, 
-	CONSTRAINT xpkconcept_synonym PRIMARY KEY (concept_synonym_id), 
-	CONSTRAINT concept_synonym_concept_fk FOREIGN KEY(concept_id) REFERENCES concept (concept_id)
-)
-
-;
-
 CREATE TABLE concept_relationship (
 	concept_id_1 NUMBER(10) NOT NULL, 
 	concept_id_2 NUMBER(10) NOT NULL, 
@@ -113,6 +103,16 @@ CREATE TABLE concept_ancestor (
 	CONSTRAINT xpkconcept_ancestor PRIMARY KEY (ancestor_concept_id, descendant_concept_id), 
 	CONSTRAINT concept_ancestor_fk FOREIGN KEY(ancestor_concept_id) REFERENCES concept (concept_id), 
 	CONSTRAINT concept_descendant_fk FOREIGN KEY(descendant_concept_id) REFERENCES concept (concept_id)
+)
+
+;
+
+CREATE TABLE concept_synonym (
+	concept_synonym_id NUMBER(10) NOT NULL, 
+	concept_id NUMBER(10) NOT NULL, 
+	concept_synonym_name VARCHAR2(1000 CHAR) NOT NULL, 
+	CONSTRAINT xpkconcept_synonym PRIMARY KEY (concept_synonym_id), 
+	CONSTRAINT concept_synonym_concept_fk FOREIGN KEY(concept_id) REFERENCES concept (concept_id)
 )
 
 ;

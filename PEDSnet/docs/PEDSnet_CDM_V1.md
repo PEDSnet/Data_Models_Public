@@ -40,8 +40,8 @@ person_id | Yes | integer | A unique identifier for each person; this is created
 gender_concept_id | Yes | integer | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person.
 year_of_birth | Yes | integer | The year of birth of the person. For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.
 month_of_birth | No | integer | The month of birth of the person. For data sources that provide the precise date of birth, the month is extracted and stored in this field.
-day_of_birth | No | Date | The day of the month of birth of the person. For data sources that provide the precise date of birth, the day is extracted and stored in this field.
-pn_time_of_birth | No | Time | The time of birth at the birthday (UTC). NOTE:
+day_of_birth | No | integer | The day of the month of birth of the person. For data sources that provide the precise date of birth, the day is extracted and stored in this field.
+pn_time_of_birth | No | datetime | The time of birth at the birthday. In order to reduce ambiguity around timezone shifts, this field is stored and transmitted as a full date and time **without** timezone information or conversion. Enter as much information as is available.
 race_concept_id | No | integer | A foreign key that refers to a standard concept identifier in the Vocabulary for the race of the person.
 ethnicity_concept_id | No | integer | A foreign key that refers to the standard concept identifier in the Vocabulary for the ethnicity of the person.
 location_id | No | integer | A foreign key to the place of residency (ZIP code) for the person in the location table, where the detailed address information is stored.
@@ -67,7 +67,7 @@ The death domain contains the clinical event for how and when a person dies. Liv
 Field | Required | Type | Description
  --- | --- | --- | ---
 person_id | Yes | integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.
-death_date | Yes | date | The date the person was deceased. If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.
+death_date | Yes | datetime | The date the person was deceased. If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.
 death_type_concept_id | Yes | integer | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data.
 cause_of_death_concept_id | No | integer | A foreign key referring to a standard concept identifier in the Vocabulary for conditions.
 cause_of_death_source_value | No | varchar | The source code for the cause of death as it appears in the source data. This code is mapped to a standard concept in the Vocabulary and the original code is, stored here for reference.
@@ -152,8 +152,8 @@ Field | Required | Type | Description
  --- | --- | --- | ---
 visit_occurrence_id | Yes | integer | A unique identifier for each person’s visits or encounter at a healthcare provider. Sites can provide whatever integers (DCC will replace the value).
 person_id | Yes | integer | A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.
-visit_start_date | Yes | date | The start date of the visit.
-visit_end_date | No | date | The end date of the visit. If this is a one-day visit the end date should match the start date. If the encounter is on-going at the time of ETL, this should be null.
+visit_start_date | Yes | datetime | The start date of the visit.
+visit_end_date | No | datetime | The end date of the visit. If this is a one-day visit the end date should match the start date. If the encounter is on-going at the time of ETL, this should be null.
 provider_id | No | integer | A foreign key to the provider in the provider table who was associated with the visit. **NOTE: this is NOT in OMOP CDM v4, but appears in OMOP CDMv5. PEDSnet is including the field at this time due to an existing use case (Obesity cohort).**
 care_site_id | No | integer | A foreign key to the care site in the care site table that was visited.
 place_of_service_concept_id | Yes | integar | A foreign key that refers to a place of service concept identifier in the vocabulary.
@@ -181,8 +181,8 @@ Field | Required | Type | Description
 condition_occurrence_id | Yes | integer | A unique identifier for each condition occurrence event.
 person_id | Yes | integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 condition_concept_id | Yes | integer | A foreign key that refers to a standard condition concept identifier in the Vocabulary.
-condition_start_date | Yes | date | The date when the instance of the condition is recorded.
-condition_end_date | No | date | The date when the instance of the condition is considered to have ended. If this information is not available, set to NULL.
+condition_start_date | Yes | datetime | The date when the instance of the condition is recorded.
+condition_end_date | No | datetime | The date when the instance of the condition is considered to have ended. If this information is not available, set to NULL.
 condition_type_concept_id | Yes | integer | A foreign key to the predefined concept identifier in the Vocabulary reflecting the source data from which the condition was recorded, the level of standardization, and the type of occurrence. For example, conditions may be defined as primary or secondary diagnoses, problem lists and person statuses.
 stop_reason | No | varchar | The reason, if available, that the condition was no longer recorded, as indicated in the source data. Valid values include discharged, resolved, etc. Note that a stop_reason does not necessarily imply that the condition is no longer occurring.
 associated_provider_id | No | integer | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition.
@@ -207,7 +207,7 @@ Field | Required | Type | Description
 procedure_occurrence_id | Yes | integer | A system-generated unique identifier for each procedure occurrence. Sites can use any integer- DCC will do a substitution.
 person_id | Yes | integer | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
 procedure_concept_id | Yes | integer | A foreign key that refers to a standard procedure concept identifier in the Vocabulary.
-procedure_date | Yes | date | The date on which the procedure was performed.
+procedure_date | Yes | datetime | The date on which the procedure was performed.
 procedure_type_concept_id | Yes | integer | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of source data from which the procedure record is derived.
 associated_provider_id | No | integer | A foreign key to the provider in the provider table who was responsible for carrying out the procedure.
 visit_occurrence_id | No | integer | A foreign key to the visit in the visit table during which the procedure was carried out.
@@ -246,8 +246,8 @@ Field | Required | Type | Description
 observation_id | Yes | integer | A unique identifier for each observation.
 person_id | Yes | integer | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.
 observation_concept_id | Yes | integer | A foreign key to the standard observation concept identifier in the Vocabulary.
-observation_date | Yes | date | The date of the observation (UTC).
-observation_time | No | time | The time of the observation (UTC).
+observation_date | Yes | datetime | The date of the observation. In order to reduce ambiguity around timezone shifts, this field is stored and transmitted as a full date and time. Enter as much information as is available.
+observation_time | No | datetime | The time of the observation. In order to reduce ambiguity around timezone shifts, this field is stored and transmitted as a full date and time. Enter as much information as is available.
 observation_type_concept_id | Yes | integer | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the observation.
 value_as_number | No | float | The observation result stored as a number. This is applicable to observations where the result is expressed as a numeric value.
 value_as_string | No | varchar | The observation result stored as a string. This is applicable to observations where the result is expressed as verbatim text.
@@ -277,7 +277,7 @@ Field | Required | Type | Description
  --- | --- | --- | ---
 observation_period_id | Yes | Integer | A system-generate unique identifier for each observation period
 person_id | Yes | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source
-observation_period_end_date | No | Date | The end date of the observation period for which data are available from the source.
+observation_period_start_date | Yes | datetime | The start date of the observation period for which data are available from the data source
+observation_period_end_date | No | datetime | The end date of the observation period for which data are available from the source.
 
 #### ADDITIONAL NOTES
