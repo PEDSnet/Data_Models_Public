@@ -134,8 +134,7 @@ class Vocabulary(Base):
     __tablename__ = 'vocabulary'
     __table_args__ = (
         PrimaryKeyConstraint('vocabulary_id', name='xpkvocabulary_ref'),
-        UniqueConstraint('vocabulary_name', name='unique_vocabulary_name')
     )
 
     vocabulary_id = Column('vocabulary_id', Integer(), nullable=False, autoincrement=False)
-    vocabulary_name = Column('vocabulary_name', String(256), nullable=False)
+    vocabulary_name = Column('vocabulary_name', String(256), nullable=False, unique=True)

@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Numeric, DateTime
-from sqlalchemy.schema import PrimaryKeyConstraint, ForeignKeyConstraint, Index
+from sqlalchemy.schema import PrimaryKeyConstraint, UniqueConstraint, ForeignKeyConstraint, Index
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -26,7 +26,7 @@ class Person(Base):
     provider_id = Column('provider_id', Integer())
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     pn_gestational_age = Column('pn_gestational_age', Numeric(precision=4, scale=2))
-    person_source_value = Column('person_source_value', String(length=100), nullable=False)
+    person_source_value = Column('person_source_value', String(length=100), nullable=False, unique=True)
     gender_source_value = Column('gender_source_value', String(length=50))
     race_source_value = Column('race_source_value', String(length=50))
     ethnicity_source_value = Column('ethnicity_source_value', String(length=50))
@@ -35,7 +35,7 @@ class Person(Base):
 class Death(Base):
     __tablename__ = 'death'
     __table_args__ = (
-        PrimaryKeyConstraint('person_id', 'death_type_concept_id', name='death_pkey'),
+        PrimaryKeyConstraint('person_id', 'death_type_concept_id', 'cause_of_death_concept_id', name='death_pkey'),
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='death_person_fk')
     )
 
@@ -66,6 +66,7 @@ class CareSite(Base):
     __tablename__ = 'care_site'
     __table_args__ = (
         PrimaryKeyConstraint('care_site_id', name='care_site_pkey'),
+        UniqueConstraint('organization_id', 'care_site_source_value', name='care_site_nkey'),
         ForeignKeyConstraint(['location_id'], ['location.location_id'], name='care_site_location_fk'),
         ForeignKeyConstraint(['organization_id'], ['organization.organization_id'], name='care_site_organization_fk')
     )
@@ -90,7 +91,7 @@ class Organization(Base):
     place_of_service_concept_id = Column('place_of_service_concept_id', Integer())
     location_id = Column('location_id', Integer())
     place_of_service_source_value = Column('place_of_service_source_value', String(length=100))
-    organization_source_value = Column('organization_source_value', String(length=50), nullable=False)
+    organization_source_value = Column('organization_source_value', String(length=50), nullable=False, unique=True)
 
 
 class Provider(Base):
@@ -105,7 +106,7 @@ class Provider(Base):
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     npi = Column('npi', String(length=20))
     dea = Column('dea', String(length=20))
-    provider_source_value = Column('provider_source_value', String(length=100), nullable=False)
+    provider_source_value = Column('provider_source_value', String(length=100), nullable=False, unique=True)
     specialty_source_value = Column('specialty_source_value', String(length=300))
 
 
@@ -202,7 +203,7 @@ class ObservationPeriod(Base):
     __table_args__ = (
         PrimaryKeyConstraint('observation_period_id', name='observation_period_pkey'),
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='observation_period_person_fk'),
-        Index('observation_period_person', 'person_id', 'observation_period_start_date', unique=True)
+        Index('observation_period_person', 'person_id', 'observation_period_start_date')
     )
 
     observation_period_id = Column('observation_period_id', Integer(), nullable=False)
