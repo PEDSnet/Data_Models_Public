@@ -19,6 +19,59 @@ UN|Race|8552|NULL|Unknown
 OT|Race|8522|NULL|Other
 NULL|Race|NULL|NULL|NULL
 NI|Race|44814661|NULL|No information
+OT|Race|9178|NULL|Non-white
+OT|Race|38003600|NULL|African
+OT|Race|38003601|NULL|Bahamian
+OT|Race|38003602|NULL|Barbadian
+OT|Race|38003603|NULL|Dominican
+OT|Race|38003604|NULL|Dominica Islander
+OT|Race|38003605|NULL|Haitian
+OT|Race|38003606|NULL|Jamaican
+OT|Race|38003607|NULL|Tobagoan
+OT|Race|38003608|NULL|Trinidadian
+OT|Race|38003609|NULL|West Indian
+OT|Race|38003610|NULL|Polynesian
+OT|Race|38003611|NULL|Micronesian
+OT|Race|38003612|NULL|Melanesian
+04|Race|38003613|NULL|Other Pacific Islander
+OT|Race|38003614|NULL|European
+OT|Race|38003615|NULL|Middle Eastern or North African
+OT|Race|38003616|NULL|Arab
+01|Race|38003572|NULL|American Indian
+01|Race|38003573|NULL|Alaska Native
+02|Race|38003574|NULL|Asian Indian
+02|Race|38003575|NULL|Bangladeshi
+02|Race|38003576|NULL|Bhutanese
+02|Race|38003577|NULL|Burmese
+02|Race|38003578|NULL|Cambodian
+02|Race|38003579|NULL|Chinese
+02|Race|38003580|NULL|Taiwanese
+02|Race|38003581|NULL|Filipino
+02|Race|38003582|NULL|Hmong
+02|Race|38003583|NULL|Indonesian
+02|Race|38003584|NULL|Japanese
+02|Race|38003585|NULL|Korean
+02|Race|38003586|NULL|Laotian
+02|Race|38003587|NULL|Malaysian
+02|Race|38003588|NULL|Okinawan
+02|Race|38003589|NULL|Pakistani
+02|Race|38003590|NULL|Sri Lankan
+02|Race|38003591|NULL|Thai
+02|Race|38003592|NULL|Vietnamese
+02|Race|38003593|NULL|Iwo Jiman
+02|Race|38003594|NULL|Maldivian
+02|Race|38003595|NULL|Nepalese
+02|Race|38003596|NULL|Singaporean
+OT|Race|38003597|NULL|Madagascar
+03|Race|38003598|NULL|Black
+03|Race|38003599|NULL|African American
+01|Race|44814654|NULL|American Indian or Alaska Native
+02|Race|44814655|NULL|Asian
+03|Race|44814656|NULL|Black or African American
+04|Race|44814657|NULL|Native Hawaiian or Other Pacific Islander
+05|Race|44814658|NULL|White
+UN|Race|44814662|NULL|Unknown
+OT|Race|44814663|NULL|Other
 F|Gender|8532|NULL|Female
 M|Gender|8507|NULL|Male
 A|Gender|8570|NULL|Ambiguous
@@ -79,14 +132,15 @@ Y|Chart availability|4030450|4188539|Yes
 N|Chart availability|4030450|4188540|No
 N|Chart availability|4030450|0|Unknown
 N|Chart availability|4030450|NULL|No information
-1|BP Position|3018586|NULL|Sitting
-2|BP Position|3035856|NULL|Standing
-3|BP Position|3009395|NULL|Supine
-NI|BP Position|3004249|NULL|No information
-2|BP Position|3035856|NULL|Standing
-3|BP Position|3009395|NULL|Supine
-UN|BP Position|NULL|NULL|Unknown
-NULL|BP Position|NULL|NULL|NULL
+01|BP Position|3018586|NULL|Sitting (Systolic)
+02|BP Position|3035856|NULL|Standing (Systolic)
+03|BP Position|3009395|NULL|Supine (Systolic)
+UN|BP Position|3004249|NULL|Unknown (Systolic)
+01|BP Position|3034703|NULL|Sitting (Diastolic)
+02|BP Position|3019962|NULL|Standing (Diastolic)
+03|BP Position|3013940|NULL|Supine (Diastolic)
+UN|BP Position|3012888|NULL|Unknown (Diastolic)
+NI|BP Position|NULL|NULL|NULL
 PR|Vital source|4481472|NULL|Patient reported
 HC|Vital source|38000280|NULL|Healthcare delivery setting
 NULL|Vital source|NULL|NULL|NULL
@@ -102,3 +156,17 @@ HC|Procedure Code Type|5|NULL|HCPCS (i.e., HCPCS Level II)
 LC|Procedure Code Type|6|NULL|LOINC
 ND|Procedure Code Type|9|NULL|NDC
 RE|Procedure Code Type|43|NULL|Revenue
+CPT-4|Source Coding System|1|NULL|CPT-4, HCPCS Level I
+HCPCS|Source Coding System|2|NULL|HCPCS, HCPCS Level II
+HCPCS Level 3|Source Coding System|3|NULL|HCPCS Level III
+CPT Category 2|Source Coding System|4|NULL|CPT Category II
+CPT Category 3|Source Coding System|5|NULL|CPT Category III
+ICD-9|Source Coding System|6|NULL|ICD-9, ICD9, ICD-9-CM
+ICD-9-Proc|Source Coding System|7|NULL|ICD-9-Proc
+ICD-10-PCS|Source Coding System|8|NULL|ICD-10-PCS
+ICD-11-PCS|Source Coding System|9|NULL|ICD-11-PCS
+LOINC|Source Coding System|10|NULL|LOINC
+NDC|Source Coding System|11|NULL|NDC
+Revenue|Source Coding System|12|NULL|Revenue
+BJC-MED|Source Coding System|13|NULL|BJC-MED
+Other|Source Coding System|NULL|NULL|NULL, N/A

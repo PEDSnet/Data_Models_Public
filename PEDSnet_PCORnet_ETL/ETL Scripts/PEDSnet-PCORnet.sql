@@ -41,22 +41,23 @@ insert into pcornet.encounter (
             discharge_status, drg, drg_type, admitting_source, raw_enc_type, 
             raw_discharge_disposition, raw_discharge_status, raw_drg_type, 
             raw_admitting_source)
+WITH  o1 as (select distinct person_id,visit_occurrence_id,value_as_concept_id from omop.observation where observation_concept_id = 44813951)
+     ,o2 as (select distinct person_id,visit_occurrence_id, value_as_string from omop.observation where observation_concept_id = 3040464)
+     ,o3 as (select distinct person_id,visit_occurrence_id, value_as_concept_id from omop.observation where observation_concept_id = 4137274)
+     ,o4 as (select distinct value_as_concept_id, visit_occurrence_id, person_id from omop.observation where observation_concept_id = 4145666)
 select distinct 
- 	cast(v.person_id as text) as pat_id,
-	cast(v.visit_occurrence_id as text) as encounterid,
-	cast(date_part('year', visit_start_date) as text)||'-'||lpad(cast(date_part('month', visit_start_date) as text),2,'0')||'-'||lpad(cast(date_part('day', visit_start_date) as text),2,'0') as admit_date,
+	cast(v.person_id as text) as pat_id,
+	cast(v.visit_occurrence_id as text) as encounterid ,
+	cast(date_part('year', visit_start_date) as text)||'-'||lpad(cast(date_part('month', visit_start_date) as text),2,'0')||'-'||lpad(cast(date_part('day', 	visit_start_date) as text),2,'0') as admit_date,
 	null as admit_time,
 	cast(date_part('year', visit_end_date) as text)||'-'||lpad(cast(date_part('month', visit_end_date) as text),2,'0')||'-'||lpad(cast(date_part('day', visit_end_date) as text),2,'0') as discharge_date,
-	null as discharge_time,
+	null as discharge_time ,
 	v.provider_id as providerid,
 	left(l.zip,3) as facility_location,
-	coalesce(m1.target_concept,'OT') as enc_type,
-	v.care_site_id as facilityid,
+coalesce(m1.target_concept,'OT') as enc_type,
+v.care_site_id as facilityid,
 	case when o1.person_id is null then 'NI' else coalesce(m2.target_concept,'OT') end as discharge_disposition,
 	case when o3.person_id is null then 'NI' else coalesce(m3.target_concept,'OT') end as discharge_status,
-	--case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else case when o2.observation_source_value~'^[0-9]{0,3}$' then lpad(o2.observation_source_value,3,'0') else 'OT' end end as drg,
-	--case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else case when visit_start_date<'2007-10-01' then '01' else '02' end end as drg_type,
-	--case when drg.concept_id is null then 'OT' else drg.concept_code end as drg,
 	case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else o2.value_as_string end as drg,
 	case when coalesce(m1.target_concept,'OT') in ('AV','OA') then null else case when visit_start_date<'2007-10-01' then '01' else '02' end end as drg_type,
 	case when o4.person_id is null then 'NI' else coalesce(m4.target_concept,'OT') end as admitting_source,
@@ -65,17 +66,15 @@ select distinct
 	case when o3.person_id is null then null else cast(o3.value_as_concept_id as text) end as raw_discharge_status,
 	null as raw_drg_type,
 	case when o4.person_id is null then null else cast(o4.value_as_concept_id as text) end as raw_admitting_source
-from
+from 
 	omop.visit_occurrence v
-	--left join omop.person p on v.person_id = p.person_id
 	left join omop.care_site c on v.care_site_id = c.care_site_id
 	left join omop.location l on c.location_id = l.location_id
-	left join omop.observation o1 on v.person_id = o1.person_id and o1.observation_concept_id = 44813951
-	left join omop.observation o2 on v.person_id = o2.person_id and o2.observation_concept_id = 3040464
-	--left join omop.observation drg on drg.concept_id = o2.value_as_concept_id
-	left join omop.observation o3 on v.person_id = o3.person_id and o3.observation_concept_id = 4137274
-	left join omop.observation o4 on v.person_id = o4.person_id and o4.observation_concept_id = 4145666
-	left join cz.cz_omop_pcornet_concept_map m1 on case when v.place_of_service_concept_id is null AND m1.source_concept_id is null then true else v.place_of_service_concept_id = m1.source_concept_id end and m1.source_concept_class='Encounter type'
+	left join o1 on v.visit_occurrence_id = o1.visit_occurrence_id 
+	left join o2 on v.visit_occurrence_id = o2.visit_occurrence_id 
+	left join o3 on v.visit_occurrence_id = o3.visit_occurrence_id 
+	left join o4 on v.visit_occurrence_id = o4.visit_occurrence_id 
+	left join cz.cz_omop_pcornet_concept_map m1 on case when v.place_of_service_concept_id is null AND m1.source_concept_id is null then true else 	v.place_of_service_concept_id = m1.source_concept_id end and m1.source_concept_class='Encounter type'
 	left join cz.cz_omop_pcornet_concept_map m2 on case when o1.value_as_concept_id is null AND m2.value_as_concept_id is null then true else o1.value_as_concept_id = m2.value_as_concept_id end and m2.source_concept_class='Discharge disposition'
 	left join cz.cz_omop_pcornet_concept_map m3 on case when o3.value_as_concept_id is null AND m3.value_as_concept_id is null then true else o3.value_as_concept_id = m3.value_as_concept_id end and m3.source_concept_class='Discharge status'
 	left join cz.cz_omop_pcornet_concept_map m4 on case when o4.value_as_concept_id is null AND m4.value_as_concept_id is null then true else o4.value_as_concept_id = m4.value_as_concept_id end and m4.source_concept_class='Admitting source'
@@ -110,18 +109,33 @@ insert into pcornet.procedure(
 select distinct 
 	cast(person_id as text) as patid,
 	cast(visit_occurrence_id as text) as encounterid,
-	enc.enc_type,
-	enc.admit_date,
-	enc.providerid,
-	case when c.concept_name = 'No matching concept' then 'No Match' else c.concept_code end as px,
-	case when c.concept_name = 'No matching concept' then 'OT' else coalesce(m1.target_concept,'NI') end as px_type,
-	null as raw_px,
-	null as raw_px_type
+	enc.enc_type as enc_type,
+	enc.admit_date as admit_date,
+	enc.providerid as providerid,
+	-- case 2
+	case when c.concept_name = 'No matching concept' then
+	---- case 2a
+	case when split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) then split_part(split_part(procedure_source_value,'|||',1),'.',1)  
+	---- case 2b
+	else 'NM'||cast(round(random()*1000000000) as text) end 
+	--case 1
+	else c.concept_code end as px,
+	case when c.concept_name = 'No matching concept' then 
+	case when split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) then m3.target_concept 
+	else 'OT' end 
+	else coalesce(m1.target_concept,'NI') end as px_type,
+	split_part(split_part(procedure_source_value,'|||',1),'.',1) as raw_px,
+	case when m2.target_concept IS Null then 'Other' else m2.target_concept end as raw_px_type
 from
 	omop.procedure_occurrence po
 	join pcornet.encounter enc on cast(po.visit_occurrence_id as text)=enc.encounterid
 	join rz.concept c on po.procedure_concept_id=c.concept_id
-	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = m1.source_concept_id AND m1.source_concept_class='Procedure Code Type' 
+	-- get the vocabulary from procedure concept id - to populate the PX_TYPE field (case 1)
+	left join cz.cz_omop_pcornet_concept_map m1 on cast(c.vocabulary_id as text) = cast(m1.source_concept_id as text) AND m1.source_concept_class='Procedure Code Type'
+	-- get the vocabulary for the RAW_PX_TYPE field - for all cases. 
+	left join cz.cz_omop_pcornet_concept_map m2 on case when split_part(procedure_source_value,'|||',2) is null AND m2.source_concept_id is null then true else split_part(procedure_source_value,'|||',2) = cast(m2.source_concept_id as text) end AND m2.source_concept_class ='Source Coding System'
+	-- get the vocabulary from the procedure source value to populate the PX_TYPE field (case 2a)
+	left join cz.cz_omop_pcornet_concept_map m3 on split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) AND m3.source_concept_class='Procedure Code Type' 
 
 -- observation --> vital WITHOUT Observation time
 insert into pcornet.vital(
@@ -252,14 +266,14 @@ FROM
 --- Vital with CTE with fields
 
 WITH
-	ob as (select visit_occurrence_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
+	ob as (select person_id, visit_occurrence_id, observation_concept_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
 	ob_ht as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3023540'),
 	ob_wt as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3013762'),
 	ob_bmi as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3038553'),
 	ob_sys as (select visit_occurrence_id, observation_date, observation_time, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3018586','3035856','3009395','3004249')),
 	ob_dia as (select visit_occurrence_id, observation_date, observation_time, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3034703','3019962','3013940','3012888')), 
-	ob_bp as (select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id target_concept 
-	from ob inner join cz.cz_omop_pcornet_concept_map m on ob.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') as 
+	ob_bp as (select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id, target_concept 
+	from ob inner join cz.cz_omop_pcornet_concept_map m on ob.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') 
 SELECT distinct 
 	cast(ob.person_id as text) as patid,
 	cast(ob.visit_occurrence_id as text) as encounterid,

@@ -213,7 +213,7 @@ condition_type_concept_id | Yes | A foreign key to the predefined concept identi
 stop_reason | No | The reason, if available, that the condition was no longer recorded, as indicated in the source data. | <p>Valid values include discharged, resolved, etc. Note that a stop_reason does not necessarily imply that the condition is no longer occurring, and therefore does not mandate that the end date be assigned.</p> Leave blank for billing diagnoses. Possibly will be used for problem list diagnoses in the future.
 associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Make a best-guess and document method used. Or leave blank
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
-condition_source_value | No | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.
+condition_source_value | No | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.<p>If the coding system of the source value is available, the ID of the source coding system should be concatenated to condition_source_value using the following convention: condition_source_value\|\|\|coding_system_id.</p> <p>The coding_sytem_id is an integer found in Table 1 in 1.9.1 additional notes section. For example, a condition source value in ICD-9 should be populated as 93.07\|\|\|6. If your source coding system is not found in this table or is unknown, the source value can be left unchanged.</p> <p>Alternatively, if all of your conditions are from a single source coding system, you may communicate that to the PEDSnet DCC and leave the source value unchanged.</p>|
 
 #### 1.8.1 Additional Notes
 
@@ -240,7 +240,7 @@ procedure_type_concept_id | Yes | A foreign key to the predefined concept identi
 associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for carrying out the procedure. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
 relevant_condition_concept_id | No | A foreign key to the predefined concept identifier in the vocabulary reflecting the condition that was the cause for initiation of the procedure. | <p>Note that this is not a direct reference to a specific condition record in the condition table, but rather a condition concept in the vocabulary.</p> Use OMOP vocabulary_id = 1
-procedure_source_value | No | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
+procedure_source_value | No | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | <p>Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.</p> <p>If the coding system of the source value is available, the ID of the source coding system should be concatenated to procedure_source_value using the following convention: procedure_source_value\|\|\|coding_system_id.</p> <p>The coding_sytem_id is an integer found in Table 1 in 1.9.1 additional notes section. For example, a procedure source value in CPT-4 should be populated as 42700\|\|\|1. If your source coding system is not found in this table or is unknown, the source value can be left unchanged.</p> <p>Alternatively, if all of your procedures are from a single source coding system, you may communicate that to the PEDSnet DCC and leave the source value unchanged.</p>|
 
 **Table 1: Standard Procedure concept IDs.**
 
@@ -255,6 +255,24 @@ Completed early periodic screening diagnosis and treatment (epsdt) service (list
 - Procedures could reflect the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 - The Visit during which the procedure was performed is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider carrying out the procedure is recorded through a reference to the PROVIDER table. This information is not always available.
+
+**Table 1: Source coding system.**
+
+ID | Source coding system name | 
+--- | --- | 
+1 | CPT-4, HCPCS Level I | 
+2 | HCPCS, HCPCS Level II |
+3 | HCPCS Level III |
+4 | CPT Category II |
+5 | CPT Category III |
+6 | ICD-9, ICD9, ICD-9-CM |
+7 | ICD-9-Proc |
+8 | ICD-10-PCS |
+9 | ICD-11-PCS | 
+10 | LOINC |
+11 | NDC |
+12 | Revenue |
+13 | BJC-MED |
 
 ## 1.10 OBSERVATION
 
