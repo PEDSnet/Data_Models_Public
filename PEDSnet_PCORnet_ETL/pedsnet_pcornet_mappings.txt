@@ -164,8 +164,9 @@ CPT Category 3|Source Coding System|5|NULL|CPT Category III
 ICD-9|Source Coding System|6|NULL|ICD-9, ICD9, ICD-9-CM
 ICD-9-Proc|Source Coding System|7|NULL|ICD-9-Proc
 ICD-10-PCS|Source Coding System|8|NULL|ICD-10-PCS
-ICD-11-PCS|Source Coding System|10|NULL|ICD-11-PCS
-LOINC|Source Coding System|11|NULL|LOINC
-NDC|Source Coding System|12|NULL|NDC
-Revenue|Source Coding System|13|NULL|Revenue
+ICD-11-PCS|Source Coding System|9|NULL|ICD-11-PCS
+LOINC|Source Coding System|10|NULL|LOINC
+NDC|Source Coding System|11|NULL|NDC
+Revenue|Source Coding System|12|NULL|Revenue
+BJC-MED|Source Coding System|13|NULL|BJC-MED
 Other|Source Coding System|NULL|NULL|NULL, N/A

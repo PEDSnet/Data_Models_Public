@@ -266,6 +266,7 @@ ID | Source coding system name |
 10 | LOINC |
 11 | NDC |
 12 | Revenue |
+13 | BJC-MED |
 
 ## 1.10 OBSERVATION
 
