@@ -569,7 +569,7 @@ Care Site Specialty -> Care Site
 
 **PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0 and 2.0**
 
-### A1. Specialty Care Mappings OMOP to Pedsnet Specifc Accepted List
+### A1. ABMS Specialty Category to OMOP V5 Specialty Mapping
 http://www.abms.org/member-boards/specialty-subspecialty-certificates/
 
 ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
