@@ -526,14 +526,14 @@ measurement_type_concept_id | Yes | A foreign key to the predefined concept iden
 operator_concept_id| No| A foreign key identifier to the mathematical operator that is applied to the value_as_number.Operators are <, ≤, =, ≥, >| Valid operator concept id are found in the concept table <p> select \* from concept where domain_id='Meas Value Operator' yields 5 valid concept ids. <ul> <li> Operator <= : 4171754 </li> <li> Operator >= : 4171755      </li> <li> Operator < : 4171756 </li> <li> Operator =   4172703 </li> <li> Operator > : 4172704 </li> </ul>|
 value_as_number | No\* (see convention) | The measurement result stored as a number. This is applicable to measurements where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}.
 value_as_concept_id | No\* (see convention) | A foreign key to an observation result stored as a concept identifier. This is applicable to observations where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. Valid concepts are found in the concept table <p> select \* from concept where domain_id='Meas Value' yiels 86 valid concept ids.</p>
-unit_concept_id | No | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = UCUM yields 912 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li></ul>
+unit_concept_id | No | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = UCUM yields 912 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li></ul>
 range_low | No | <p>Optional - Do not transmit to DCC</p> The lower limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 range_high | No | <p>Optional - Do not transmit to DCC.</p> The upper limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 provider_id | No | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the observation was recorded.
-measurement_source_value | Yes | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. For lab values, it is suggested to include the **LAB ID| PROCEDURE NAME | COMPONENT NAME** combination as the measurement source value where applicable.
+measurement_source_value | Yes | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. For lab values, it is suggested to include the (LAB ID\| PROCEDURE NAME \| COMPONENT NAME) combination as the measurement source value where applicable.
 measurement_source_concept_id| No|A foreign key to a concept that refers to the code used in the source.| 'LOINC' =44819263, 'SNOMED-CT'=44819097 etc
-unit_source_value| Yes| The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value
+unit_source_value| Yes| The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc)
 value_source_value| Yes| The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
 
 #### 1.12.1 Additional Notes
@@ -563,6 +563,28 @@ Organization -> Care Site Specialty
 Organization -> Care Site
 Care Site Specialty -> Care Site
 
+This is illustrated in the following example:
+
+**CARE_SITE TABLE**
+
+Care_Site_id | Care_Site_Name | Place_of_service_concept_id | Location_id | Care_site_source_value | Place_of_service_source_Value|
+--- | --- | --- | --- | --- | ---
+1 | CHOP - Ogranization | |1 | Children's Hospital of Philadelphia | Hospital
+2 | CHOP Emergency | 9203 | 1 | 993493943_CHOP_EMER_DEPT | Emergency
+3 | Emergency Medicine Specialty | | | Emergency Medicine - Specialty | |
+
+**FACT_RELATIONSHIP TABLE**
+
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+Place of Service | 1 | Place of Service | 2 |  Is a
+Place of Service| 2| Place of Service | 1 |  Is a 
+Place of Service | 1 | Place of Service | 3 |  Is a
+Place of Service| 3  | Place of Service | 1|  Is a 
+Place of Service | 2 | Place of Service | 3 |  Is a
+Place of Service| 3  | Place of Service | 2|  Is a 
+
+**NOTE:** To make more clear, it is possibly worth requesting organizational domaings and relationships be added.
 * * *
 
 **APPENDIX**
