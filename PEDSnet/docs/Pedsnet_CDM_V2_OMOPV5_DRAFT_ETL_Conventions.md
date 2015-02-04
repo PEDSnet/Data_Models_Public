@@ -22,7 +22,7 @@ Comments on this specification and ETL rules are welcome. Please send email to p
 
 6. Concept IDs are taken from OMOP 5 vocabularies for PEDSnet CDM v2, using the complete (restricted) version that includes licensed terminologies such as CPT and others.
 
-7. PCORnet CDM V2.0 requires data elements that are not currently considered "standard concepts". Vocabulary version 5 has a new vocabulary (vocabulary_id = 60) that was added by OMOP to capture all of the PCORnet concepts that are not in the standard terminologies. We use concept_ids from vocabulary_id 60 where there are no existing standard concepts. We highlight where we are pulling concept_ids from vocabulary_id 60 in the tables. While terms from vocabulary_id = 60 violates the OMOP rule to use only concept_ids from standard vocabularies (vocabulary 60 is a non-standard vocabulary), this convention enables a clean extraction from PEDSnet CDM to PCORnet CDM.
+7. PCORnet CDM V2.0 requires data elements that are not currently considered "standard concepts". Vocabulary version 5 has a new vocabulary (vocabulary_id=PCORNet) that was added by OMOP to capture all of the PCORnet concepts that are not in the standard terminologies. We use concept_ids from vocabulary_id=PCORNet where there are no existing standard concepts. We highlight where we are pulling concept_ids from vocabulary_id=PCORNet in the tables. While terms from vocabulary_id=PCORNet violates the OMOP rule to use only concept_ids from standard vocabularies vocabulary_id=PCORNet is a non-standard vocabulary), this convention enables a clean extraction from PEDSnet CDM to PCORnet CDM.
 
 8. Some source fields may be considered sensitive by data sites. Potential examples include patient_source_value, provider_source_value, care_site_source_value. Many of these fields are used to generate an ID field, such as PATIENT.patient_source_value PATIENT.patient_id, that is used as a primary key in PATIENT and a foreign key in many other tables. Sites are free to obfuscate or not provide source values that are used to create ID variables. Sites must maintain a mapping from the ID variable back to the original site-specific value for local re-identification tasks.
 
@@ -66,13 +66,13 @@ The definition of an "in person" clinical encounter remains heuristic -any encou
 Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 person_id | Yes | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
-gender_concept_id | Yes | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table select \* from chop_omop5.concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 8570</li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814667 (Vocabulary 60)</li> <li>Unknown: concept_id = 8551</li> <li>Other: concept_id = 8521</li></ul>
+gender_concept_id | Yes | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 8570</li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814667 (Vocabulary 60)</li> <li>Unknown: concept_id = 8551</li> <li>Other: concept_id = 8521</li></ul>
 year_of_birth | Yes | The year of birth of the person. | <p>For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.</p> Please keep all accurate/real dates (No date shifting)
 month_of_birth | No | The month of birth of the person. | <p>For data sources that provide the precise date of birth, the month is extracted and stored in this field.</p> Please keep all accurate/real dates (No date shifting)
 day_of_birth | No | The day of the month of birth of the person. | <p>For data sources that provide the precise date of birth, the day is extracted and stored in this field.</p> Please keep all accurate/real dates (No date shifting)
 time_of_birth | No | The time of birth at the birth day | <p>Include whatever is the relevant time zone when insert this value.</p> Please keep all accurate/real dates (No date shifting)
-race_concept_id | No | A foreign key that refers to a standard concept identifier in the Vocabulary for the race of the person. | Details of categorical definitions: <ul><li>**-American Indian or Alaska Native**: A person having origins in any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment.</li> <li>**-Asian**: A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.</li> <li>**-Black or African American**: A person having origins in any of the black racial groups of Africa.</li> <li>**-Native Hawaiian or Other Pacific Islander**: A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.</li> <li>**-White**: A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.</li></ul> <p>For patients with multiple races (i.e. biracial), race is considered a single concept, meaning there is only one race slot. If there are multiple races in the source system, concatenate all races into one race_source_value (see below) and use concept_id code as 'Multiple Race.'</p> Predefined values (valid concept_ids found in CONCEPT table where vocabulary_id = 13 and vocabulary_id = 60): <ul><li>American Indian/Alaska Native: concept_id = 8657</li> <li>Asian: concept_id = 8515</li> <li>Black or African American: concept_id = 8516</li> <li>Native Hawaiian or Other Pacific Islander: concept_id = 8557</li> <li>White: concept_id = 8527M</li> <li>ultiple Race: concept_id = 44814659 (vocabulary 60)</li> <li>Refuse to answer: concept_id = 44814660 (vocabulary 60)</li> <li>No Information: concept_id = 44814661 (vocabulary 60)</li> <li>Unknown: concept_id = 8552</li> <li>Other: concept_id = 8522</li></ul>
-ethnicity_concept_id | No | A foreign key that refers to the standard concept identifier in the Vocabulary for the ethnicity of the person. | <p>For PEDSnet, a person with Hispanic ethnicity is defined as "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race."</p> Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 44 or vocabulary 60 where noted): <ul><li>Hispanic: concept_id = 38003563</li> <li>Not Hispanic: concept_id = 38003564</li> <li>No Information: concept_id = 44814650 (vocabulary 60)</li> <li>Unknown: concept_id = 44814653 (vocabulary 60)</li> <li>Other: concept_id = 44814649 (vocabulary 60)</li></ul>
+race_concept_id | No | A foreign key that refers to a standard concept identifier in the Vocabulary for the race of the person. | Details of categorical definitions: <ul><li>**-American Indian or Alaska Native**: A person having origins in any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment.</li> <li>**-Asian**: A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.</li> <li>**-Black or African American**: A person having origins in any of the black racial groups of Africa.</li> <li>**-Native Hawaiian or Other Pacific Islander**: A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.</li> <li>**-White**: A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.</li></ul> <p>For patients with multiple races (i.e. biracial), race is considered a single concept, meaning there is only one race slot. If there are multiple races in the source system, concatenate all races into one race_source_value (see below) and use concept_id code as 'Multiple Race.'</p> Predefined values (valid concept_ids found in CONCEPT table where (domain_id='Race' and vocabulary_id = 'Race') or (vocabulary_id = 'PCORNet' and concept_class_id='Race'): <ul><li>American Indian/Alaska Native: concept_id = 8657</li> <li>Asian: concept_id = 8515</li> <li>Black or African American: concept_id = 8516</li> <li>Native Hawaiian or Other Pacific Islander: concept_id = 8557</li> <li>White: concept_id = 8527M</li> <li>ultiple Race: concept_id = 44814659 (vocabulary_id=PCORNet)</li> <li>Refuse to answer: concept_id = 44814660 (vocabulary_id=PCORNet)</li> <li>No Information: concept_id = 44814661 vocabulary_id=PCORNet)</li> <li>Unknown: concept_id = 8552</li> <li>Other: concept_id = 8522</li></ul>
+ethnicity_concept_id | No | A foreign key that refers to the standard concept identifier in the Vocabulary for the ethnicity of the person. | <p>For PEDSnet, a person with Hispanic ethnicity is defined as "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race."</p> Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='Ethnicity' or vocabulary_id=PCORNet where noted): <ul><li>Hispanic: concept_id = 38003563</li> <li>Not Hispanic: concept_id = 38003564</li> <li>No Information: concept_id = 44814650 (vocabulary_id=PCORNet)</li> <li>Unknown: concept_id = 44814653 (vocabulary_id=PCORNet)</li> <li>Other: concept_id = 44814649 (vocabulary_id=PCORNet)</li></ul>
 location_id | No | A foreign key to the place of residency (ZIP code) for the person in the location table, where the detailed address information is stored.
 provider_id | No | Foreign key to the primary care provider the person is seeing in the provider table.| <p>For PEDSnet CDM V1.0: Sites will use site-specific logic to determine the best primary care provider and document how that decision was made (e.g., billing provider).</p> PEDSnet CDM 2.0/OMOP V5, multiple providers may be asserted based on specific use cases that require multiple providers in all provider_id fields.
 care_site_id | Yes | A foreign key to the site of primary care in the care_site table, where the details of the care site are stored | For patients who receive care at multiple care sites, use site-specific logic to select a care site that best represents where the patient obtains the majority of their recent care. If a specific site within the institution cannot be identified, use a care_site_id representing the institution as a whole.
@@ -90,7 +90,7 @@ Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 person_id | Yes | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
 death_date | Yes | The date the person was deceased. | <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> When the date of death is not present in the source data, use the date the source record was created.
-death_type_concept_id | Yes | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 45)</p> <p>select \* from concept where vocabulary_id = 45 yields 8 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("Recorded from EHR")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
+death_type_concept_id | Yes | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Type')</p> <p>select \* from concept where domain_id ='Death Type' yields 9 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("EHR record patient status "Deceased"")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
 cause_of_death_concept_id | No | A foreign referring to a standard concept identifier in the Vocabulary for conditions.
 cause_of_death_source_value | No | The source code for the cause of death as it appears in the source. This code is mapped to a standard concept in the Vocabulary and the original code is stored here for reference.
 cause_source_concept_id | No | A foreign key to the concept that refers to the code used in the source. Note, this variable name is abbreviated to ensure it will be allowable across database platforms.
@@ -102,7 +102,7 @@ cause_source_concept_id | No | A foreign key to the concept that refers to the c
 
 ## 1.3 LOCATION
 
-The Location table represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons and Care Sites. NOTE: In OMOP CDM V5, this table is eliminated so don't spend a lot of time on this table. The most important field is ZIP for location-based queries.
+The Location table represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons and Care Sites. The most important field is ZIP for location-based queries.
 
 Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
@@ -127,7 +127,7 @@ Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 care_site_id | Yes | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 care_site_name | No | The description of the care site | 
-place_of_service_concept_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 24 and vocabulary 60 where noted)</p> <p>select \* from concept where vocabulary_id = 24 yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160 (vocabulary 60)</li> <li>Unknown: concept_id = 44814713 (vocabulary 60)</li> <li>Other: concept_id = 44814711 (vocabulary 60)</li> <li>No information: concept_id = 44814712 (vocabulary 60)</li></ul>
+place_of_service_concept_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Visit')</p> <p>select \* from concept where domain_id ='Visit' yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160 (vocabulary_id=PCORNet)</li> <li>Unknown: concept_id = 44814713 (vocabulary_id=PCORNet)</li> <li>Other: concept_id = 44814711 (vocabulary_id=PCORNet)</li> <li>No information: concept_id = 44814712 (vocabulary_id=PCORNet)</li></ul>
 location_id | No | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
 care_site_source_value | Yes | The identifier for the organization in the source data, stored here for reference. | <p>If care site source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate care site_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> <p>For EPIC EHRs, map care_site_id to Clarity Department.</p> Sites may consider using the care_site_id field value in this table as the pseudo-identifier as long as a local mapping from care_site_id to the real site identifier is maintained.
 place_of_service_source_value | No | The source code for the place of service as it appears in the source data, stored here for reference.
@@ -145,7 +145,7 @@ The Provider table contains a list of uniquely identified health care providers.
 Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 provider_id | Yes | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. See Additional Comments below. Sites should document who they have included as a provider.
-specialty_concept_id | No | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 48)</p> <p>select \* from concept where vocabulary_id = 48 yields 111 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.
+specialty_concept_id | No | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialtity concept associated with the American Medical Board of Specialties as seen in **Appendix A1**. Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 48)</p> <p>select \* from concept where vocabulary_id ='Provider Specialty' and domain='Specialty' and invalid_reason is null yields 107 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.
 care_site_id | Yes | A foreign key to the main care site where the provider is practicing. | See CARE_SITE.care_site_id (primary key)
 NPI | No | <p>Optional - Do not transmit to DCC.</p> The National Provider Identifier (NPI) of the provider.
 DEA | No | <p>Optional - Do not transmit to DCC.</p> The Drug Enforcement Administration (DEA) number of the provider.
@@ -169,7 +169,7 @@ visit_start_date | Yes | The start date of the visit. | No date shifting
 visit_end_date | No | The end date of the visit. | <p>No date shifting.</p> <p>If this is a one-day visit the end date should match the start date.</p> If the encounter is on-going at the time of ETL, this should be null.
 provider_id | No | A foreign key to the provider in the provider table who was associated with the visit. | <p>Use attending or billing provider for this field if available, even if multiple providers were involved in the visit. Otherwise, make site-specific decision on which provider to associate with visits and document.</p> **NOTE: this is NOT in OMOP CDM v4, but appears in OMOP CDMv5.**
 care_site_id | No | A foreign key to the care site in the care site table that was visited. | See CARE_SITE.care_site_id (primary key)
-visit_concept_id | Yes | A foreign key that refers to a place of service concept identifier in the vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 24).</p> <p>select \* from concept where vocabulary_id = 24 yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160</li> <li>Unknown: concept_id = 44814713</li> <li>Other: concept_id = 44814711 (vocabulary 60)</li> <li>No information: concept_id = 44814712 (vocabulary 60)</li></ul>
+visit_concept_id | Yes | A foreign key that refers to a place of service concept identifier in the vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 24).</p> <p>select \* from concept where domain_id ='Visit' yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160</li> <li>Unknown: concept_id = 44814713</li> <li>Other: concept_id = 44814711 (vocabulary_id=PCORNet)</li> <li>No information: concept_id = 44814712 (vocabulary_id=PCORNet)</li></ul>
 place_of_service_source_value | No | varchar | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
 visit_source_concept_id | No | A foreign key to a concept that refers to the code used in the source.
 
@@ -196,10 +196,10 @@ Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 condition_occurrence_id | Yes | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-condition_concept_id | Yes | A foreign key that refers to a standard condition concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 1)</p> <p>select \* from concept where vocabulary_id = 1 yields ~400,000 valid concept_ids.</p> If none are correct, use concept_id = 0
+condition_concept_id | Yes | A foreign key that refers to a standard condition concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='SNOMED')</p> <p>select \* from concept where vocabulary_id ='SNOMED'  yields ~400,000 valid concept_ids.</p> If none are correct, use concept_id = 0
 condition_start_date | Yes | The date when the instance of the condition is recorded. | No date shifting
 condition_end_date | No | The date when the instance of the condition is considered to have ended | <p>No date shifting.</p> If this information is not available, set to NULL.
-condition_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the source data from which the condition was recorded, the level of standardization, and the type of occurrence. For example, conditions may be defined as primary or secondary diagnoses, problem lists and person statuses. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 37)</p> <p>select \* from concept where vocabulary_id = 37 yields 67 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> If data source only identifies conditions as primary or secondary with no sequence number, use the following concept_ids: <ul><li>Inpatient primary: concept_id = 38000199</li> <li>Inpatient secondary: concept_id = 38000201</li> <li>Outpatient primary: concept_id = 38000230</li> <li>Outpatient secondary: concept_id = 38000231</li></ul>
+condition_type_concept_id | Yes | A foreign key to the predefined concept identifier in the Vocabulary reflecting the source data from which the condition was recorded, the level of standardization, and the type of occurrence. For example, conditions may be defined as primary or secondary diagnoses, problem lists and person statuses. | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 37)</p> <p>select \* from concept where domain_id ='Condition Type' yields 76 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> If data source only identifies conditions as primary or secondary with no sequence number, use the following concept_ids: <ul><li>Inpatient primary: concept_id = 38000199</li> <li>Inpatient secondary: concept_id = 38000201</li> <li>Outpatient primary: concept_id = 38000230</li> <li>Outpatient secondary: concept_id = 38000231</li></ul>
 stop_reason | No | The reason, if available, that the condition was no longer recorded, as indicated in the source data. | <p>Valid values include discharged, resolved, etc. Note that a stop_reason does not necessarily imply that the condition is no longer occurring, and therefore does not mandate that the end date be assigned.</p> Leave blank for billing diagnoses. Possibly will be used for problem list diagnoses in the future.
 associated_provider_id | No | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Make a best-guess and document method used. Or leave blank
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
@@ -211,7 +211,7 @@ condition_source_concept_id | No | A foreign key to a condition concept that ref
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to condition_occurrence. All conditions are included for an active patient. For PEDSnet CDM V1, we limit condition_occurrences to final diagnoses only (not reason-for-visit, , and provisional surgical diagnoses such as those recored in EPIC OPTIME). In EPIC, final diagnoses includes both encounter diagnoses and billing diagnoses, problem lists (all problems, not filtered on "chronic" versus "provisional" unless local practices use this flag as intended).
 - Condition records are inferred from diagnostic codes recorded in the source data by a clinician or abstractionist for a specific visit. In the current version of the CDM, problem list entries are not used, nor are diagnoses extracted from unstructured data, such as notes.
 - Source code systems, like ICD-9-CM, ICD-10-CM, etc., provide coverage of conditions. However, if the code does not define a condition, but rather is an observation or a procedure, then such information is not stored in the CONDITION_OCCURRENCE table, but in the respective tables instead. An example are ICD-9-CM procedure codes. For example, OMOP source-to-concept table uses the MAPPING_TYPE column to distinguish ICD9 codes that represent procedures rather than conditions.
-- Condition source values are mapped to standard concepts for cflowonditions in the Vocabulary. Since the icd9-cm diagnosis codes are notB in the concept table, use the source_to_concept_map table where the icd9_code = source_code and the source_vocabulary_id =2 (icd_9) and target_vocabulatory_id=1 (snomed-ct) to locate the correct condition_concept_id value.
+- Condition source values are mapped to standard concepts for cflowonditions in the Vocabulary. Since the icd9-cm diagnosis codes are notB in the concept table, use the source_to_concept_map table where the icd9_code = source_code and the source_vocabulary_id =ICD9CM (icd_9) and target_vocabulatory_id=SNOMED (snomed-ct) to locate the correct condition_concept_id value.
 - When the source code cannot be translated into a Standard Concept, a CONDITION_OCCURRENCE entry is stored with only the corresponding source_value and a condition_concept_id of 0.
 - Codes written in the process of establishing the diagnosis, such as "question of" of and "rule out", are not represented here.
 
@@ -225,7 +225,7 @@ Field | Required | Description | PEDSnet Conventions
  --- | --- | --- | ---
 procedure_occurrence_id | Yes | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
-procedure_concept_id | Yes | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id = 1), ICD-9-Procedures (vocabulary_id = 3), CPT-4 (vocabulary_id = 4), and HCPCS (vocabulary_id = 5)</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
+procedure_concept_id | Yes | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id ='SNOMED'), ICD-9-Procedures (vocabulary_id ='ICD9Proc'), CPT-4 (vocabulary_id ='CPT4' ), and HCPCS (vocabulary_id ='HCPCS')</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 modifier_concept_id | No | A foreign key to a standard concept identifier for a modifier to the procedure (e.g. bilateral)
 quantity | No | The quantity of procedures ordered or administered.
 procedure_date | Yes | The date on which the procedure was performed.
@@ -568,7 +568,147 @@ Care Site Specialty -> Care Site
 **APPENDIX**
 
 **PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0 and 2.0**
+
+### A1. Specialty Care Mappings OMOP to Pedsnet Specifc Accepted List
+http://www.abms.org/member-boards/specialty-subspecialty-certificates/
+
+ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
+--- | --- | --- | --- | ---
+Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty     | Specialty  
+Adolescent Medicine ||||
+Adult Congenital Heart Disease ||||
+Advanced Heart Failure and Transplant Cardiology ||||
+Aerospace Medicine ||||
+Allergy and Immunology | 38004448 | Allergy/Immunology                | Provider Specialty | Specialty     | Specialty
+Anesthesiology |38004450 | Anesthesiology   | Provider Specialty | Specialty     | Specialty
+Anesthesiology Critical Care Medicine ||||
+Blood Banking/Transfusion Medicine ||||
+Brain Injury Medicine ||||
+Cardiology |38004451 | Cardiology                       | Provider Specialty | Specialty     | Specialty 
+Cardiovascular Disease ||||
+Child Abuse Pediatrics ||||
+Child and Adolescent Psychiatry ||||
+Clinical Biochemical Genetics ||||
+Clinical Cardiac Electrophysiology ||||
+Clinical Cytogenetics ||||
+Clinical Genetics (MD) ||||
+Clinical Informatics ||||
+Clinical Molecular Genetics ||||
+Clinical Neurophysiology ||||
+Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Provider Specialty | Specialty     | Specialty
+Complex General Surgical Oncology ||||
+Congenital Cardiac Surgery ||||
+Critical Care Medicine | 38004500 | Critical care (intensivist)      | Provider Specialty | Specialty     | Specialty 
+Cytopathology ||||
+Dermatology  |38004452 | Dermatology                        | Provider Specialty | Specialty     | Specialty 
+Dermatopathology ||||
+Developmental-Behavioral Pediatrics ||||
+Diagnostic Radiology ||||
+Emergency Medical Services ||||
+Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty | Specialty     | Specialty
+Endocrinology, Diabetes and Metabolism ||||
+Epilepsy ||||
+General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty     | Specialty
+Female Pelvic Medicine and Reconstructive Surgery ||||
+Female Pelvic Medicine and Reconstructive Surgery||||
+Forensic Psychiatry ||||
+Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty     | Specialty
+General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty     | Specialty 
+Geriatric Medicine | 38004478 | Geriatric Medicine                   | Provider Specialty | Specialty     | Specialty
+Geriatric Psychiatry ||||
+Gynecologic Oncology |38004513 | Gynecology/Oncology              | Provider Specialty | Specialty     | Specialty 
+Hematology | 38004501 | Hematology                           | Provider Specialty | Specialty     | Specialty
+Hospice and Pallative Medicine ||||
+Infectious Disease | 38004484 | Infectious Disease                | Provider Specialty | Specialty     | Specialty
+General Internal Medicine | 38004456 | Internal Medicine| Provider Specialty | Specialty     | Specialty
+Internal Medicine - Critical Care Medicine ||||
+Interventional Cardiology ||||
+Interventional Radiology and Diagnostic Radiology |38004511 | Interventional Radiology | Provider Specialty | Specialty     | Specialty
+Maternal and Fetal Medicine ||||
+Medical Biochemical Genetics ||||
+Medical Genetics and Genomics ||||
+Medical Oncology |38004507 | Medical Oncology | Provider Specialty | Specialty     | Specialty
+Medical Physics ||||
+Medical Toxicology||||
+Molecular Genetic Pathology ||||
+Neonatal-Perinatal Medicine ||||
+Nephrology | 38004479 | Nephrology                   | Provider Specialty | Specialty     | Specialty
+Neurodevelopmental Disabilities ||||
+Neurological Surgery | 38004459 | Neurosurgery                    | Provider Specialty | Specialty     | Specialty
+General Neurology | 38004458 | Neurology                                     | Provider Specialty | Specialty     | Specialty
+Neurology with Special Qualification in Child Neurology ||||
+Neuromuscular Medicine ||||
+Neuropathology ||||
+Neuroradiology ||||
+Neurotology ||||
+Nuclear Medicine |38004476 | Nuclear Medicine                  | Provider Specialty | Specialty     | Specialty
+Nuclear Radiology ||||
+Obstetrics and Gynecology | 38004461 | Obstetrics/Gynecology              | Provider Specialty | Specialty     | Specialty
+Occupational Medicine |38004492 | Occupational Therapy              | Provider Specialty | Specialty     | Specialty
+Ophthalmology |  38004463 | Ophthalmology                       | Provider Specialty | Specialty     | Specialty  
+Orthopaedic Sports Medicine ||||
+Orthopaedic Surgery |38004465 | Orthopedic Surgery                | Provider Specialty | Specialty     | Specialty
+Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty     | Specialty
+Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty     | Specialty
+Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty     | Specialty
+Pathology - Anatomic ||||
+Pathology - Chemical ||||
+Pathology - Clinical ||||
+Pathology - Forensic ||||
+Pathology - Hematology ||||
+Pathology - Medical Microbiology ||||
+Pathology - Molecular Genetic ||||
+Pathology - Pediatric ||||
+Pathology-Anatomic/Pathology-Clinical ||||
+General Pediatrics | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty     | Specialty
+Pediatric Anesthesiology ||||
+Pediatric Cardiology ||||
+Pediatric Critical Care Medicine ||||
+Pediatric Dermatology ||||
+Pediatric Emergency Medicine ||||
+Pediatric Endocrinology ||||
+Pediatric Gastroenterology ||||
+Pediatric Hematology-Oncology ||||
+Pediatric Infectious Diseases ||||
+Pediatric Nephrology |||| 
+Pediatric Otolaryngology ||||
+Pediatric Pulmonology ||||
+Pediatric Radiology ||||
+Pediatric Rehabilitation Medicine ||||
+Pediatric Rheumatology ||||
+Pediatric Surgery ||||
+Pediatric Transplant Hepatology ||||
+Pediatric Urology||||
+Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty     | Specialty
+Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty     | Specialty 
+Plastic Surgery Within the Head and Neck ||||
+Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty     | Specialty
+Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty     | Specialty
+Psychosomatic Medicine ||||
+Public Health and General Preventive Medicine ||||
+Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty     | Specialty
+Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty     | Specialty
+Radiology ||||
+Reproductive Endocrinology/Infertility ||||
+Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty     | Specialty
+Sleep Medicine ||||
+Spinal Cord Injury Medicine ||||
+Sports Medicine ||||
+General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty     | Specialty
+Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty     | Specialty
+Surgical Critical Care ||||
+Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     | Specialty  
+Thoracic and Cardiac Surgery ||||
+Transplant Hepatology ||||
+Undersea and Hyperbaric Medicine ||||
+Urology | 38004474 | Urology                                   | Provider Specialty | Specialty     | Specialty
+Vascular and Interventional Radiology ||||
+Vascular Neurology ||||
+Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty     | Specialty
+
+
 * * *
+
 
 **Elements for future versions**
 
