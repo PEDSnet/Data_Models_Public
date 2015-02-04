@@ -371,14 +371,14 @@ Observation_period_end_date | No | Date | The end date of the observation period
 
 The drug exposure table captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
-EHRs may store medications in different vocabularies (GPI,NDC etc). Please use the cross-walk in the source_to_concept_map to map to RxNorm codes.
+EHRs may store medications in different vocabularies (GPI,NDC etc). 
 
 Exclusions:
 
 1. Cancelled Medication Orders
 2. Missed Medication administrations
 
-**Note 1**: The effective_dose_drug is the dose basis. This is a calcualted value done by computing the total amount taken by multiplying the quantity * days supply. (Eg. 45 mg/kg/dose)
+**Note 1**: The effective_dose_drug is the dose basis.(Eg. 45 mg/kg/dose). This is the discrete dose value from the source data if available. If the discrete dose value is **not** available from the source data, then compute the dose basis by looking for a weight observation +/- 60 days of the date of the medication. (Eg. Total Amount/Weight) (Dose per kg)
 
 **Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient)
 
@@ -386,7 +386,17 @@ Exclusions:
 
 **Note 4**: For dispensing records, compute the dose basis by looking for a weight observation +/- 60 days of the dispensed date.
 
-**Note 5:** For the sig, encode the value using XML. <ul> <li> Element 1: Actual SIG from source data </li> <li> Element 2: Raw Supply/Quantity (Examples: "1 bottle" "10 ml Bottle" "1 pack"</li> </ul> the raw "supply/quantity"
+**Note 5:** For the sig, encode the value using XML. 
+
+<ul> <li> Element 1: Actual SIG from source data </li> <li> Element 2: Raw "Supply/Quantity" (Examples: "1 bottle" "10 ml Bottle" "1 pack"</li> <li>Element 3: Refills</li></ul>
+
+```xml
+    <XML>
+    <SIG>1/2 capful in 4 oz clear liquid</SIG>
+    <QUANTITY>1 jar</QUANTITY>
+    <REFILLS>2</REFILLS>
+    </XML>
+```
 
 
 Field |Required | Description | PEDSnet Conventions
@@ -396,7 +406,7 @@ person_id | Yes | A foreign key identifier to the person who is experiencing the
 drug_concept_id| Yes | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target)
 drug_exposure_start_date| Yes | date |The start date of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting
 drug_exposure_end_date| Yes | The end date of the utilization of the drug | No date shifting
-drug_type_concept_id| Yes | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represeneted in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = 36)</p> <p>select \* from concept where vocabulary_id = 36 yields 12 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written (outpatient med): concept_id = 8000177</li></ul>
+drug_type_concept_id| Yes | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represeneted in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Drug Type')</p> <p>select \* from concept where domain_id ='Drug Type' yields 12 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written: concept_id = 38000177</li></ul>
 stop_reason| No | The reason, if available, where the medication was stopped, as indicated in the source data. | <p>Valid values include therapy completed, changed, removed, side effects, etc. Note that a stop_reason does not necessarily imply that the medication is no longer being used at all, and therefore does not mandate that the end date be assigned.</p>
 refills| No | The number of refills after the initial prescrition||
 quantity| No | The quantity of the drugs as recorded in the original prescription or dispensing record| See Note 2|
@@ -457,7 +467,7 @@ Vital source | 4481472 | 39 | See Note 3 | Patient reported
 Vital source | 38000280 | | See Note 3 | Healthcare delivery setting
 
 **Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_number field.
-**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together, use the observation_id assigned to the ***systolic*** blood pressure measurement and insert into the value_as_concept_id field of both observations records (the systolic BP measurement and the diastolic BP measurement records). This will provide a direct linkage between the SBP measurement and its associated DBP measurement.
+**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
 Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood pressure measurements performed as follows:
 
@@ -468,16 +478,27 @@ Four rows will be inserted into the observation table. Showing only the relevant
 
 Observation_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_String | Value_as_Concept_ID
  --- | --- | --- | --- | --- | --- | --- | ---
-66661 | 12345 | 678910 | 3009395 | 38000280 | 120 | | 66661
-66662 | 12345 | 678910 | 3013940 | 38000280 | 60 | | 66661
-66663 | 12345 | 678910 | 3035856 | 38000280 | 144 | | 66663
-66664 | 12345 | 678910 | 3019962 | 38000280 | 72 | | 66663
+66661 | 12345 | 678910 | 3009395 | 38000280 | 120 | |
+66662 | 12345 | 678910 | 3013940 | 38000280 | 60 | |
+66663 | 12345 | 678910 | 3035856 | 38000280 | 144 | |
+66664 | 12345 | 678910 | 3019962 | 38000280 | 72 | |
 
 - Measurement_concept_id = 3009395 = systolic BP - supine; measurement_concept_id = 3013940 = diastolic BP supine
 - Measurement_concept_id = 3035856 = systolic BP standing; measurement_concept_id = 3019962 = diastolic BP standing
 - measurement_type_concept_id = 38000280 (observation recorded from EMR).
-- Value_as_concept_id = 66661 links two observations for *supine* BPs to the observation ID of the supine systolic BP.
-- Value_as_concept_id = 66663 links two observations for *standing* BPs to the observation ID of the standing systolic BP.
+
+To link these two values, use the fact relationship table:
+
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+Measurement | 66661 | Measurement | 66662 |  Asso with finding 
+Measurement | 66662 | Measurement | 66661 |  Asso with finding 
+Measurement | 66663 | Measurement | 66664 |  Asso with finding 
+Measurement | 666624 | Measurement | 66663 |  Asso with finding 
+
+
+- Two rows in the FACT_RELATIONSHIP table link the *supine*  diastolic BP to the supine systolic BP.
+- Two rows in the FACT_RELATIONSHIP table link the *standing* diastolic BP to the standing systolic BP.
 
 **Note 3**: Vital source concept_ids are used as values for the measurement_type_concept_id field
 In addition, the following observations are derived via the DCC (concept_ids to be assigned in future version of this document. However, concept_ids are not needed for ETL since these observations will be derived/calculated using scripts developed by DCC):
@@ -490,6 +511,7 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
 Exclusions:
+
 1. Cancelled Lab orders
 2. Lab orders that are 'NOT DONE' or 'INCOMPLETE'
 
@@ -509,10 +531,10 @@ range_low | No | <p>Optional - Do not transmit to DCC</p> The lower limit of the
 range_high | No | <p>Optional - Do not transmit to DCC.</p> The upper limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 provider_id | No | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No | A foreign key to the visit in the visit table during which the observation was recorded.
-measurement_source_value | No | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| TBD
+measurement_source_value | Yes | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. For lab values, it is suggested to include the **LAB ID| PROCEDURE NAME | COMPONENT NAME** combination as the measurement source value where applicable.
 measurement_source_concept_id| No|A foreign key to a concept that refers to the code used in the source.| 'LOINC' =44819263, 'SNOMED-CT'=44819097 etc
-unit_source_value| No| The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value
-value_source_value| No| The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed| 
+unit_source_value| Yes| The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value
+value_source_value| Yes| The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
 
 #### 1.12.1 Additional Notes
 
