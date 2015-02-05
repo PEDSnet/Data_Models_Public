@@ -9,7 +9,7 @@ select distinct
 	coalesce (m1.target_concept,'OT') as Sex,
 	coalesce (m2.target_concept,'OT') as Hispanic,
 	coalesce (m3.target_concept,'OT') as Race,
-	case when o.person_id is null then 'NI' else coalesce (m4.target_concept,'OT') end as Biobank_flag,
+	case when o.person_id is null then 'N' else coalesce (m4.target_concept,'N') end as Biobank_flag,
 	gender_source_value,
 	ethnicity_source_value,
 	race_source_value
@@ -89,18 +89,28 @@ select distinct
 	enc.enc_type,
 	enc.admit_date,
 	enc.providerid,
-	case when c.concept_name = 'No matching concept' then 'No Match' else c.concept_code end as dx,
-	case when c.concept_name = 'No matching concept' then 'OT' else 'SM' end as dx_type,
+	-- case 1 - when source value in pcornet vocabulary 
+	case when split_part(condition_source_value,'|||',2) ='6' 
+		then split_part(condition_source_value,'|||',1)
+	-- case 2: when source value doesnt exist... check if concept id = non-zero and source vocab is one of the five, then include concept id (SNOMED CT code) else random number
+	else case when condition_concept_id>0  
+		then (select distinct concept_code from concept c where c.concept_id = co.condition_concept_id)
+	else 'NM'||cast(round(random()*10000000000000) as text) end end as dx,
+	case when  split_part(condition_source_value,'|||',2) ='6' then '09'
+		else case when condition_concept_id>0  then 'SM' else 'OT' end
+	end as dx_type,
 	null as dx_source,
 	null as pdx,
-	condition_source_value as raw_dx,
-	'ICD-9' as raw_dx_type,
+	split_part(condition_source_value,'|||',1)  as raw_dx,
+	m1.target_concept as raw_dx_type,
 	null as raw_dx_source,
 	null as raw_pdx
 from
 	omop.condition_occurrence co
 	join pcornet.encounter enc on cast(co.visit_occurrence_id as text)=enc.encounterid
-	join rz.concept c on co.condition_concept_id=c.concept_id; 
+	-- find source coding system name for raw_dx_type
+	join cz.cz_omop_pcornet_concept_map m1 on split_part(condition_source_value,'|||',2) = cast(m1.source_concept_id as text) AND m1.source_concept_class ='Source Coding System'
+
 
 -- procedure_occurrence -> Procedure
 insert into pcornet.procedure(

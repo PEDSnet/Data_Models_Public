@@ -273,6 +273,11 @@ ID | Source coding system name |
 11 | NDC |
 12 | Revenue |
 13 | BJC-MED |
+14 | NDF-RT Indications |
+15 | FDB Indications |
+16 | Oxmis |
+17 | Read |
+18 | ICD-10 |
 
 ## 1.10 OBSERVATION
 
