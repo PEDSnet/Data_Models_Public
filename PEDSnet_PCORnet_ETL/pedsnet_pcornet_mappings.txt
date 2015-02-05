@@ -169,4 +169,9 @@ LOINC|Source Coding System|10|NULL|LOINC
 NDC|Source Coding System|11|NULL|NDC
 Revenue|Source Coding System|12|NULL|Revenue
 BJC-MED|Source Coding System|13|NULL|BJC-MED
+NDF-RT|Source Coding System|14|NULL|NDF-RT Indications
+FDB|Source Coding System|15|NULL|FDB Indications
+Oxmis|Source Coding System|16|NULL|Oxmis
+Read|Source Coding System|17|NULL|Read
+ICD-10|Source Coding System|18|NULL|ICD-10, ICD10, ICD-10-CM
 Other|Source Coding System|NULL|NULL|NULL, N/A

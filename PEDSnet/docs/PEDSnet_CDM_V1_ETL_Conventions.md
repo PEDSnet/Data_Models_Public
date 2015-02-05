@@ -242,6 +242,12 @@ visit_occurrence_id | No | A foreign key to the visit in the visit table during 
 relevant_condition_concept_id | No | A foreign key to the predefined concept identifier in the vocabulary reflecting the condition that was the cause for initiation of the procedure. | <p>Note that this is not a direct reference to a specific condition record in the condition table, but rather a condition concept in the vocabulary.</p> Use OMOP vocabulary_id = 1
 procedure_source_value | No | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | <p>Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.</p> <p>If the coding system of the source value is available, the ID of the source coding system should be concatenated to procedure_source_value using the following convention: procedure_source_value\|\|\|coding_system_id.</p> <p>The coding_sytem_id is an integer found in Table 1 in 1.9.1 additional notes section. For example, a procedure source value in CPT-4 should be populated as 42700\|\|\|1. If your source coding system is not found in this table or is unknown, the source value can be left unchanged.</p> <p>Alternatively, if all of your procedures are from a single source coding system, you may communicate that to the PEDSnet DCC and leave the source value unchanged.</p>|
 
+**Table 1: Standard Procedure concept IDs.**
+
+Concept Name | Procedure concept ID | Vocab ID | Vocab Name
+ --- | --- | --- | ---
+Completed early periodic screening diagnosis and treatment (epsdt) service (list in addition to code for appropriate evaluation and management service)| 2721031 |5 | HCPCS
+
 #### 1.9.1 Additional notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to procedure_occurrence. All procedures are included for an active patient. For PEDSnet CDM V1, we limit procedures_occurrences to billing procedures only (not surgical diagnoses).
@@ -267,6 +273,11 @@ ID | Source coding system name |
 11 | NDC |
 12 | Revenue |
 13 | BJC-MED |
+14 | NDF-RT Indications |
+15 | FDB Indications |
+16 | Oxmis |
+17 | Read |
+18 | ICD-10 |
 
 ## 1.10 OBSERVATION
 
