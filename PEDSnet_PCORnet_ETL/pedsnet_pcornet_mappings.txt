@@ -123,11 +123,13 @@ OT|Discharge status|4137274|44814706|Other
 IP|Encounter type|9201|NULL|Inpatient Hospital Stay 
 AV|Encounter type|9202|NULL|Ambulatory Visit
 ED|Encounter type|9203|NULL|Emergency Department 
-IS|Encounter type|42898160|NULL|Non-Acute Institutional Stay 
+IS|Encounter type|42898160|NULL|Long Term Care Visit
+IS|Encounter type|44814710|NULL|Non-Acute institutional stay
+OA|Encounter type|44814711|NULL|Other ambulatory visit 
 UN|Encounter type|44814713|NULL|Unknown 
 NI|Encounter type|44814712|NULL|No information
 NULL|Encounter type|NULL|NULL|NULL
-OT|Encounter type|44814711|NULL|Other
+OT|Encounter type|44814714|NULL|Other
 Y|Chart availability|4030450|4188539|Yes
 N|Chart availability|4030450|4188540|No
 N|Chart availability|4030450|0|Unknown
