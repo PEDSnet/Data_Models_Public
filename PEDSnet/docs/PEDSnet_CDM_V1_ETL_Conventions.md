@@ -397,7 +397,7 @@ Observation_id | Person_id | Visit_occurrence_id | Observation_concept_id | Obse
 **Note 4**: For DRG, use the following logic (must use vocabulary version 4.5):
 
 - The DRG value must be three digits as text. Put into value_as_string in observation
-- For all DRGs, set observation_concept_id = 3040464 (hospital discharge DRG)
+- For all DRGs, set observation_concept_id = 3040464 (hospital discharge DRG), observation_type_concept_id = 38000280 (observation recorded from EMR)
 - To obtain correct value_as_concept_id for the DRG:
     - If the date for the DRG \< 10/1/2007, use concept_class = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
     - If the date for the DRG \>=10/1/2007, use concept_class = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
