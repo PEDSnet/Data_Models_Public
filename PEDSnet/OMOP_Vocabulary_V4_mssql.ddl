@@ -1,13 +1,4 @@
 
-CREATE TABLE vocabulary (
-	vocabulary_id INTEGER NOT NULL, 
-	vocabulary_name VARCHAR(256) NOT NULL, 
-	CONSTRAINT xpkvocabulary_ref PRIMARY KEY (vocabulary_id), 
-	CONSTRAINT unique_vocabulary_name UNIQUE (vocabulary_name)
-)
-
-;
-
 CREATE TABLE relationship (
 	relationship_id INTEGER NOT NULL, 
 	relationship_name VARCHAR(256) NOT NULL, 
@@ -15,6 +6,24 @@ CREATE TABLE relationship (
 	defines_ancestry INTEGER NOT NULL DEFAULT '1', 
 	reverse_relationship INTEGER NULL, 
 	CONSTRAINT xpkrelationship_type PRIMARY KEY (relationship_id)
+)
+
+;
+
+CREATE TABLE vocabulary (
+	vocabulary_id INTEGER NOT NULL, 
+	vocabulary_name VARCHAR(256) NOT NULL, 
+	CONSTRAINT xpkvocabulary_ref PRIMARY KEY (vocabulary_id), 
+	UNIQUE (vocabulary_name)
+)
+
+;
+
+CREATE TABLE drug_approval (
+	ingredient_concept_id INTEGER NOT NULL, 
+	approval_date DATE NOT NULL, 
+	approved_by VARCHAR(20) NOT NULL DEFAULT 'FDA', 
+	CONSTRAINT xpkdrug_approval PRIMARY KEY (ingredient_concept_id)
 )
 
 ;
@@ -35,19 +44,10 @@ CREATE TABLE drug_strength (
 
 ;
 
-CREATE TABLE drug_approval (
-	ingredient_concept_id INTEGER NOT NULL, 
-	approval_date DATE NOT NULL, 
-	approved_by VARCHAR(20) NOT NULL DEFAULT 'FDA', 
-	CONSTRAINT xpkdrug_approval PRIMARY KEY (ingredient_concept_id)
-)
-
-;
-
 CREATE TABLE concept (
 	concept_id INTEGER NOT NULL, 
 	concept_name VARCHAR(256) NOT NULL, 
-	concept_level NUMERIC(38) NOT NULL, 
+	concept_level INTEGER NOT NULL, 
 	concept_class VARCHAR(60) NOT NULL, 
 	vocabulary_id INTEGER NOT NULL, 
 	concept_code VARCHAR(40) NOT NULL, 
@@ -60,25 +60,17 @@ CREATE TABLE concept (
 
 ;
 
-CREATE TABLE source_to_concept_map (
-	source_code VARCHAR(40) NOT NULL, 
-	source_vocabulary_id INTEGER NOT NULL, 
-	source_code_description VARCHAR(256) NULL, 
-	target_concept_id INTEGER NOT NULL, 
-	target_vocabulary_id INTEGER NOT NULL, 
-	mapping_type VARCHAR(20) NULL, 
-	primary_map VARCHAR(1) NULL CHECK (primary_map IN ('Y')), 
-	valid_start_date DATE NOT NULL, 
-	valid_end_date DATE NOT NULL DEFAULT '31-Dec-2099', 
-	invalid_reason VARCHAR(1) NULL CHECK (invalid_reason IN ('D', 'U')), 
-	CONSTRAINT xpksource_to_concept_map PRIMARY KEY (source_vocabulary_id, target_concept_id, source_code, valid_end_date), 
-	CONSTRAINT source_to_concept_concept FOREIGN KEY(target_concept_id) REFERENCES concept (concept_id), 
-	CONSTRAINT source_to_concept_source_vocab FOREIGN KEY(source_vocabulary_id) REFERENCES vocabulary (vocabulary_id), 
-	CONSTRAINT source_to_concept_target_vocab FOREIGN KEY(target_vocabulary_id) REFERENCES vocabulary (vocabulary_id)
+CREATE TABLE concept_ancestor (
+	ancestor_concept_id INTEGER NOT NULL, 
+	descendant_concept_id INTEGER NOT NULL, 
+	max_levels_of_separation NUMERIC(38) NULL, 
+	min_levels_of_separation NUMERIC(38) NULL, 
+	CONSTRAINT xpkconcept_ancestor PRIMARY KEY (ancestor_concept_id, descendant_concept_id), 
+	CONSTRAINT concept_ancestor_fk FOREIGN KEY(ancestor_concept_id) REFERENCES concept (concept_id), 
+	CONSTRAINT concept_descendant_fk FOREIGN KEY(descendant_concept_id) REFERENCES concept (concept_id)
 )
 
 ;
-CREATE INDEX source_to_concept_source_idx ON source_to_concept_map (source_code);
 
 CREATE TABLE concept_synonym (
 	concept_synonym_id INTEGER NOT NULL, 
@@ -105,14 +97,22 @@ CREATE TABLE concept_relationship (
 
 ;
 
-CREATE TABLE concept_ancestor (
-	ancestor_concept_id INTEGER NOT NULL, 
-	descendant_concept_id INTEGER NOT NULL, 
-	max_levels_of_separation NUMERIC(38) NULL, 
-	min_levels_of_separation NUMERIC(38) NULL, 
-	CONSTRAINT xpkconcept_ancestor PRIMARY KEY (ancestor_concept_id, descendant_concept_id), 
-	CONSTRAINT concept_ancestor_fk FOREIGN KEY(ancestor_concept_id) REFERENCES concept (concept_id), 
-	CONSTRAINT concept_descendant_fk FOREIGN KEY(descendant_concept_id) REFERENCES concept (concept_id)
+CREATE TABLE source_to_concept_map (
+	source_code VARCHAR(40) NOT NULL, 
+	source_vocabulary_id INTEGER NOT NULL, 
+	source_code_description VARCHAR(256) NULL, 
+	target_concept_id INTEGER NOT NULL, 
+	target_vocabulary_id INTEGER NOT NULL, 
+	mapping_type VARCHAR(20) NULL, 
+	primary_map VARCHAR(1) NULL CHECK (primary_map IN ('Y')), 
+	valid_start_date DATE NOT NULL, 
+	valid_end_date DATE NOT NULL DEFAULT '31-Dec-2099', 
+	invalid_reason VARCHAR(1) NULL CHECK (invalid_reason IN ('D', 'U')), 
+	CONSTRAINT xpksource_to_concept_map PRIMARY KEY (source_vocabulary_id, target_concept_id, source_code, valid_end_date), 
+	CONSTRAINT source_to_concept_concept FOREIGN KEY(target_concept_id) REFERENCES concept (concept_id), 
+	CONSTRAINT source_to_concept_source_vocab FOREIGN KEY(source_vocabulary_id) REFERENCES vocabulary (vocabulary_id), 
+	CONSTRAINT source_to_concept_target_vocab FOREIGN KEY(target_vocabulary_id) REFERENCES vocabulary (vocabulary_id)
 )
 
 ;
+CREATE INDEX source_to_concept_source_idx ON source_to_concept_map (source_code);

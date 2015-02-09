@@ -1,5 +1,5 @@
-from sqlalchemy import Column, Integer, Date, String, Numeric, Time
-from sqlalchemy.schema import PrimaryKeyConstraint, ForeignKeyConstraint, Index
+from sqlalchemy import Column, Integer, String, Numeric, DateTime
+from sqlalchemy.schema import PrimaryKeyConstraint, UniqueConstraint, ForeignKeyConstraint, Index
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -16,17 +16,17 @@ class Person(Base):
 
     person_id = Column('person_id', Integer(), nullable=False)
     gender_concept_id = Column('gender_concept_id', Integer(), nullable=False)
-    year_of_birth = Column('year_of_birth', Integer(), nullable=False)
-    month_of_birth = Column('month_of_birth', Integer())
-    day_of_birth = Column('day_of_birth', Integer())
-    pn_time_of_birth = Column('pn_time_of_birth', Time())
+    year_of_birth = Column('year_of_birth', Numeric(precision=4, scale=0), nullable=False)
+    month_of_birth = Column('month_of_birth', Numeric(precision=2, scale=0))
+    day_of_birth = Column('day_of_birth', Numeric(precision=2, scale=0))
+    pn_time_of_birth = Column('pn_time_of_birth', DateTime())
     race_concept_id = Column('race_concept_id', Integer())
     ethnicity_concept_id = Column('ethnicity_concept_id', Integer())
     location_id = Column('location_id', Integer())
     provider_id = Column('provider_id', Integer())
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     pn_gestational_age = Column('pn_gestational_age', Numeric(precision=4, scale=2))
-    person_source_value = Column('person_source_value', String(length=100), nullable=False)
+    person_source_value = Column('person_source_value', String(length=100), nullable=False, unique=True)
     gender_source_value = Column('gender_source_value', String(length=50))
     race_source_value = Column('race_source_value', String(length=50))
     ethnicity_source_value = Column('ethnicity_source_value', String(length=50))
@@ -35,12 +35,12 @@ class Person(Base):
 class Death(Base):
     __tablename__ = 'death'
     __table_args__ = (
-        PrimaryKeyConstraint('person_id', 'death_type_concept_id', name='death_pkey'),
+        PrimaryKeyConstraint('person_id', 'death_type_concept_id', 'cause_of_death_concept_id', name='death_pkey'),
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='death_person_fk')
     )
 
     person_id = Column('person_id', Integer(), nullable=False)
-    death_date = Column('death_date', Date(), nullable=False)
+    death_date = Column('death_date', DateTime(), nullable=False)
     death_type_concept_id = Column('death_type_concept_id', Integer(), nullable=False, autoincrement=False)
     cause_of_death_concept_id = Column('cause_of_death_concept_id', Integer())
     cause_of_death_source_value = Column('cause_of_death_source_value', String(length=100))
@@ -66,6 +66,7 @@ class CareSite(Base):
     __tablename__ = 'care_site'
     __table_args__ = (
         PrimaryKeyConstraint('care_site_id', name='care_site_pkey'),
+        UniqueConstraint('organization_id', 'care_site_source_value', name='care_site_nkey'),
         ForeignKeyConstraint(['location_id'], ['location.location_id'], name='care_site_location_fk'),
         ForeignKeyConstraint(['organization_id'], ['organization.organization_id'], name='care_site_organization_fk')
     )
@@ -90,7 +91,7 @@ class Organization(Base):
     place_of_service_concept_id = Column('place_of_service_concept_id', Integer())
     location_id = Column('location_id', Integer())
     place_of_service_source_value = Column('place_of_service_source_value', String(length=100))
-    organization_source_value = Column('organization_source_value', String(length=50), nullable=False)
+    organization_source_value = Column('organization_source_value', String(length=50), nullable=False, unique=True)
 
 
 class Provider(Base):
@@ -105,7 +106,7 @@ class Provider(Base):
     care_site_id = Column('care_site_id', Integer(), nullable=False)
     npi = Column('npi', String(length=20))
     dea = Column('dea', String(length=20))
-    provider_source_value = Column('provider_source_value', String(length=100), nullable=False)
+    provider_source_value = Column('provider_source_value', String(length=100), nullable=False, unique=True)
     specialty_source_value = Column('specialty_source_value', String(length=300))
 
 
@@ -119,8 +120,8 @@ class VisitOccurrence(Base):
 
     visit_occurrence_id = Column('visit_occurrence_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
-    visit_start_date = Column('visit_start_date', Date(), nullable=False)
-    visit_end_date = Column('visit_end_date', Date())
+    visit_start_date = Column('visit_start_date', DateTime(), nullable=False)
+    visit_end_date = Column('visit_end_date', DateTime())
     provider_id = Column('provider_id', Integer())
     care_site_id = Column('care_site_id', Integer())
     place_of_service_concept_id = Column('place_of_service_concept_id', Integer(), nullable=False)
@@ -139,8 +140,8 @@ class ConditionOccurrence(Base):
     condition_occurrence_id = Column('condition_occurrence_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
     condition_concept_id = Column('condition_concept_id', Integer(), nullable=False)
-    condition_start_date = Column('condition_start_date', Date(), nullable=False)
-    condition_end_date = Column('condition_end_date', Date())
+    condition_start_date = Column('condition_start_date', DateTime(), nullable=False)
+    condition_end_date = Column('condition_end_date', DateTime())
     condition_type_concept_id = Column('condition_type_concept_id', Integer(), nullable=False)
     stop_reason = Column('stop_reason', String(length=100))
     associated_provider_id = Column('associated_provider_id', Integer())
@@ -160,7 +161,7 @@ class ProcedureOccurrence(Base):
     procedure_occurrence_id = Column('procedure_occurrence_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
     procedure_concept_id = Column('procedure_concept_id', Integer(), nullable=False)
-    procedure_date = Column('procedure_date', Date(), nullable=False)
+    procedure_date = Column('procedure_date', DateTime(), nullable=False)
     procedure_type_concept_id = Column('procedure_type_concept_id', Integer(), nullable=False)
     associated_provider_id = Column('associated_provider_id', Integer())
     visit_occurrence_id = Column('visit_occurrence_id', Integer())
@@ -181,8 +182,8 @@ class Observation(Base):
     observation_id = Column('observation_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
     observation_concept_id = Column('observation_concept_id', Integer(), nullable=False)
-    observation_date = Column('observation_date', Date(), nullable=False)
-    observation_time = Column('observation_time', Time())
+    observation_date = Column('observation_date', DateTime(), nullable=False)
+    observation_time = Column('observation_time', DateTime())
     observation_type_concept_id = Column('observation_type_concept_id', Integer(), nullable=False)
     value_as_number = Column('value_as_number', Numeric(precision=14, scale=3))
     value_as_string = Column('value_as_string', String(length=4000))
@@ -202,13 +203,13 @@ class ObservationPeriod(Base):
     __table_args__ = (
         PrimaryKeyConstraint('observation_period_id', name='observation_period_pkey'),
         ForeignKeyConstraint(['person_id'], ['person.person_id'], name='observation_period_person_fk'),
-        Index('observation_period_person', 'person_id', 'observation_period_start_date', unique=True)
+        Index('observation_period_person', 'person_id', 'observation_period_start_date')
     )
 
     observation_period_id = Column('observation_period_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
-    observation_period_start_date = Column('observation_period_start_date', Date(), nullable=False)
-    observation_period_end_date = Column('observation_period_end_date', Date())
+    observation_period_start_date = Column('observation_period_start_date', DateTime(), nullable=False)
+    observation_period_end_date = Column('observation_period_end_date', DateTime())
 
 
 class ConditionEra(Base):
@@ -221,10 +222,10 @@ class ConditionEra(Base):
     condition_era_id = Column('condition_era_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
     condition_concept_id = Column('condition_concept_id', Integer(), nullable=False)
-    condition_era_start_date = Column('condition_era_start_date', Date(), nullable=False)
-    condition_era_end_date = Column('condition_era_end_date', Date(), nullable=False)
+    condition_era_start_date = Column('condition_era_start_date', DateTime(), nullable=False)
+    condition_era_end_date = Column('condition_era_end_date', DateTime(), nullable=False)
     condition_type_concept_id = Column('condition_type_concept_id', Integer(), nullable=False)
-    condition_occurrence_count = Column('condition_occurrence_count', Integer())
+    condition_occurrence_count = Column('condition_occurrence_count', Numeric(precision=4, scale=0))
 
 
 class DrugExposure(Base):
@@ -239,13 +240,13 @@ class DrugExposure(Base):
     drug_exposure_id = Column('drug_exposure_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
     drug_concept_id = Column('drug_concept_id', Integer(), nullable=False)
-    drug_exposure_start_date = Column('drug_exposure_start_date', Date(), nullable=False)
-    drug_exposure_end_date = Column('drug_exposure_end_date', Date())
+    drug_exposure_start_date = Column('drug_exposure_start_date', DateTime(), nullable=False)
+    drug_exposure_end_date = Column('drug_exposure_end_date', DateTime())
     drug_type_concept_id = Column('drug_type_concept_id', Integer(), nullable=False)
     stop_reason = Column('stop_reason', String(length=100))
-    refills = Column('refills', Integer())
-    quantity = Column('quantity', Integer())
-    days_supply = Column('days_supply', Integer())
+    refills = Column('refills', Numeric(precision=3, scale=0))
+    quantity = Column('quantity', Numeric(precision=4, scale=0))
+    days_supply = Column('days_supply', Numeric(precision=4, scale=0))
     sig = Column('sig', String(length=500))
     prescribing_provider_id = Column('prescribing_provider_id', Integer())
     visit_occurrence_id = Column('visit_occurrence_id', Integer())
@@ -263,8 +264,8 @@ class DrugEra(Base):
     drug_era_id = Column('drug_era_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
     drug_concept_id = Column('drug_concept_id', Integer(), nullable=False)
-    drug_era_start_date = Column('drug_era_start_date', Date(), nullable=False)
-    drug_era_end_date = Column('drug_era_end_date', Date(), nullable=False)
+    drug_era_start_date = Column('drug_era_start_date', DateTime(), nullable=False)
+    drug_era_end_date = Column('drug_era_end_date', DateTime(), nullable=False)
     drug_type_concept_id = Column('drug_type_concept_id', Integer(), nullable=False)
     drug_exposure_count = Column('drug_exposure_count', Numeric(precision=4, scale=0))
 
@@ -278,8 +279,8 @@ class PayerPlanPeriod(Base):
 
     payer_plan_period_id = Column('payer_plan_period_id', Integer(), nullable=False)
     person_id = Column('person_id', Integer(), nullable=False)
-    payer_plan_period_start_date = Column('payer_plan_period_start_date', Date(), nullable=False)
-    payer_plan_period_end_date = Column('payer_plan_period_end_date', Date(), nullable=False)
+    payer_plan_period_start_date = Column('payer_plan_period_start_date', DateTime(), nullable=False)
+    payer_plan_period_end_date = Column('payer_plan_period_end_date', DateTime(), nullable=False)
     payer_source_value = Column('payer_source_value', String(length=100))
     plan_source_value = Column('plan_source_value', String(length=100))
     family_source_value = Column('family_source_value', String(length=100))
@@ -340,7 +341,7 @@ class Cohort(Base):
 
     cohort_id = Column('cohort_id', Integer(), nullable=False)
     cohort_concept_id = Column('cohort_concept_id', Integer(), nullable=False)
-    cohort_start_date = Column('cohort_start_date', Date(), nullable=False)
-    cohort_end_date = Column('cohort_end_date', Date())
+    cohort_start_date = Column('cohort_start_date', DateTime(), nullable=False)
+    cohort_end_date = Column('cohort_end_date', DateTime())
     subject_id = Column('subject_id', Integer(), nullable=False)
     stop_reason = Column('stop_reason', String(length=100))
