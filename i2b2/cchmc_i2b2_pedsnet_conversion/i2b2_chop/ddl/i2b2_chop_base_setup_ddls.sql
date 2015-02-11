@@ -552,7 +552,6 @@ MAXTRANS   255
 STORAGE    (
             INITIAL          64K
             NEXT             1M
-            MAXSIZE          17179869168K
             MINEXTENTS       1
             MAXEXTENTS       UNLIMITED
             PCTINCREASE      0
