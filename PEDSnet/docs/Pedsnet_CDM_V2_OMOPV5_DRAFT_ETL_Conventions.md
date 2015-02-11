@@ -110,10 +110,10 @@ location_id | Yes | Integer | A unique identifier for each geographic location. 
 state | No | Varchar | The state field as it appears in the source data.
 zip | No | Varchar | The zip code. For US addresses, valid zip codes can be 3, 5 or 9 digits long, depending on the source data. | While optional, this is the most important field in this table to support location-based queries.
 location_source_value | No | Varchar | <p>Optional - Do not transmit to DCC.</p> The verbatim information that is used to uniquely identify the location as it appears in the source data. | <p>If location source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate location_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> Sites may consider using the location_id field value in this table as the pseudo-identifier as long as a local mapping from location_id to the real site identifier is maintained.
-address_1 | No | Varchar | Optional - Do not transmit to DCC
-address_2 | No | Varchar | Optional - Do not transmit to DCC
-city | No | Varchar | Optional - Do not transmit to DCC
-county | No | Varchar | Optional - Do not transmit to DCC
+address_1 | No | Varchar | |Optional - Do not transmit to DCC
+address_2 | No | Varchar | |Optional - Do not transmit to DCC
+city | No | Varchar | |Optional - Do not transmit to DCC
+county | No | Varchar | |Optional - Do not transmit to DCC
 
 #### 1.3.1 Additional Notes
 
@@ -148,8 +148,8 @@ provider_name | No | Varchar | A description of the provider
 gender_concept_id | No | Integer | The gender of the provider
 specialty_concept_id | No |  Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialtity concept associated with the American Medical Board of Specialties as seen in **Appendix A1**. Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Provider Specialty' and  vocabulary_id = Specialty)</p> <p>select \* from concept where vocabulary_id ='Provider Specialty' and domain='Specialty' and invalid_reason is null yields 107 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.
 care_site_id | Yes |  Integer | A foreign key to the main care site where the provider is practicing. | See CARE_SITE.care_site_id (primary key)
-NPI | No |  Integer | <p>Optional - Do not transmit to DCC.</p> The National Provider Identifier (NPI) of the provider.
-DEA | No |  Integer | <p>Optional - Do not transmit to DCC.</p> The Drug Enforcement Administration (DEA) number of the provider.
+NPI | No |  Integer | The National Provider Identifier (NPI) of the provider. | <p>Optional - Do not transmit to DCC.</p> 
+DEA | No |  Integer | The Drug Enforcement Administration (DEA) number of the provider. | <p>Optional - Do not transmit to DCC.</p>
 provider_source_value | Yes |  Varchar | The identifier used for the provider in the source data, stored here for reference. | <p>Insert a pseudo-identifier (random number, encrypted identifier) into the field. Do not insert the actual PROVIDER_ID from your site. A mapping from the pseudo-identifier for provider_source_value in this field to a real provider ID from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p> Sites may consider using the provider_id field value in this table as the pseudo-identifier as long as a local mapping from provider_id to the real site identifier is maintained.
 specialty_source_value | No |  Varchar | The source code for the provider specialty as it appears in the source data, stored here for reference. | Optional. May be obfuscated if deemed sensitive by local site.
 specialty_source_concept_id | No | Integer | A foreign key to a concept that refers to the code used in the source.
