@@ -44,6 +44,8 @@ OT = Other | A data field is present in the source system, but the source value 
 ***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, organization, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure and observation_period
 
 * * *
+[https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#11-person] (1.1 person)
+* * *
 
 ## 1.1 PERSON
 
