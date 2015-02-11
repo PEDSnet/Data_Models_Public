@@ -63,8 +63,8 @@ The definition of an "in person" clinical encounter remains heuristic -any encou
 
 **NOTE: While the 1/1/2009 date and "in person" clinical encounter restrictions apply to defining an active PEDSnet patient, once a patient has met this criteria, PEDSnet will extract *ALL* available clinical encounters/clinical data of any type across all available dates. That is, 1/1/2009 and 1 'in person' clinical encounter applies only to defining the active patient cohort. It does NOT apply to data extraction on active patients.**
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 person_id | Yes | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
 gender_concept_id | Yes | A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 8570</li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814667 (Vocabulary 60)</li> <li>Unknown: concept_id = 8551</li> <li>Other: concept_id = 8521</li></ul>
 year_of_birth | Yes | The year of birth of the person. | <p>For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.</p> Please keep all accurate/real dates (No date shifting)
@@ -74,7 +74,7 @@ time_of_birth | No | The time of birth at the birth day | <p>Include whatever is
 race_concept_id | No | A foreign key that refers to a standard concept identifier in the Vocabulary for the race of the person. | Details of categorical definitions: <ul><li>**-American Indian or Alaska Native**: A person having origins in any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment.</li> <li>**-Asian**: A person having origins in any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam.</li> <li>**-Black or African American**: A person having origins in any of the black racial groups of Africa.</li> <li>**-Native Hawaiian or Other Pacific Islander**: A person having origins in any of the original peoples of Hawaii, Guam, Samoa, or other Pacific Islands.</li> <li>**-White**: A person having origins in any of the original peoples of Europe, the Middle East, or North Africa.</li></ul> <p>For patients with multiple races (i.e. biracial), race is considered a single concept, meaning there is only one race slot. If there are multiple races in the source system, concatenate all races into one race_source_value (see below) and use concept_id code as 'Multiple Race.'</p> Predefined values (valid concept_ids found in CONCEPT table where (domain_id='Race' and vocabulary_id = 'Race') or (vocabulary_id = 'PCORNet' and concept_class_id='Race'): <ul><li>American Indian/Alaska Native: concept_id = 8657</li> <li>Asian: concept_id = 8515</li> <li>Black or African American: concept_id = 8516</li> <li>Native Hawaiian or Other Pacific Islander: concept_id = 8557</li> <li>White: concept_id = 8527M</li> <li>ultiple Race: concept_id = 44814659 (vocabulary_id=PCORNet)</li> <li>Refuse to answer: concept_id = 44814660 (vocabulary_id=PCORNet)</li> <li>No Information: concept_id = 44814661 vocabulary_id=PCORNet)</li> <li>Unknown: concept_id = 8552</li> <li>Other: concept_id = 8522</li></ul>
 ethnicity_concept_id | No | A foreign key that refers to the standard concept identifier in the Vocabulary for the ethnicity of the person. | <p>For PEDSnet, a person with Hispanic ethnicity is defined as "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race."</p> Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='Ethnicity' or vocabulary_id=PCORNet where noted): <ul><li>Hispanic: concept_id = 38003563</li> <li>Not Hispanic: concept_id = 38003564</li> <li>No Information: concept_id = 44814650 (vocabulary_id=PCORNet)</li> <li>Unknown: concept_id = 44814653 (vocabulary_id=PCORNet)</li> <li>Other: concept_id = 44814649 (vocabulary_id=PCORNet)</li></ul>
 location_id | No | A foreign key to the place of residency (ZIP code) for the person in the location table, where the detailed address information is stored.
-provider_id | No | Foreign key to the primary care provider the person is seeing in the provider table.| <p>For PEDSnet CDM V1.0: Sites will use site-specific logic to determine the best primary care provider and document how that decision was made (e.g., billing provider).</p> PEDSnet CDM 2.0/OMOP V5, multiple providers may be asserted based on specific use cases that require multiple providers in all provider_id fields.
+provider_id | No | Foreign key to the primary care provider the person is seeing in the provider table.| <p>For PEDSnet CDM V2.0: Sites will use site-specific logic to determine the best primary care provider and document how that decision was made (e.g., billing provider).</p>
 care_site_id | Yes | A foreign key to the site of primary care in the care_site table, where the details of the care site are stored | For patients who receive care at multiple care sites, use site-specific logic to select a care site that best represents where the patient obtains the majority of their recent care. If a specific site within the institution cannot be identified, use a care_site_id representing the institution as a whole.
 pn_gestational_age | No | The post-menstrual age in weeks of the person at birth, if known | Use granularity of age in weeks as is recorded in local EHR.
 person_source_value | Yes | An encrypted key derived from the person identifier in the source data. | <p>Insert a pseudo-identifier (random number, encrypted identifier) into the field. Do not insert the actual MRN or PAT_ID from your site. A mapping from the pseudo-identifier for person_source_value in this field to a real patient ID or MRN from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p> Sites may consider using the person_id field value in this table as the pseudo-identifier as long as a local mapping from person_id to the real site identifier is maintained.
@@ -86,8 +86,8 @@ ethnicity_source_value | No | The source code for the ethnicity of the person as
 
 The death domain contains the clinical event for how and when a person dies. Living patients should not contain any information in the death table.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 person_id | Yes | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
 death_date | Yes | The date the person was deceased. | <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> When the date of death is not present in the source data, use the date the source record was created.
 death_type_concept_id | Yes | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Type')</p> <p>select \* from concept where domain_id ='Death Type' yields 9 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("EHR record patient status "Deceased"")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
@@ -102,10 +102,10 @@ cause_source_concept_id | No | A foreign key to the concept that refers to the c
 
 ## 1.3 LOCATION
 
-The Location table represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons and Care Sites. The most important field is ZIP for location-based queries.
+The Location domain represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons and Care Sites. The most important field is ZIP for location-based queries.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 location_id | Yes | A unique identifier for each geographic location. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 state | No | The state field as it appears in the source data.
 zip | No | The zip code. For US addresses, valid zip codes can be 3, 5 or 9 digits long, depending on the source data. | While optional, this is the most important field in this table to support location-based queries.
@@ -121,10 +121,10 @@ county | No | Optional - Do not transmit to DCC
 
 ## 1.4 CARE_SITE
 
-The Care Site table contains a list of uniquely identified physical or organizational units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.). Future definitions of PEDSnet CDM will more precisely define the fields in this table. The most important field in this table is organization_id, which is the tie back to the contributing PEDSnet data partner (CHOP versus Colorado versus St. Louis).
+The Care Site domain contains a list of uniquely identified physical or organizational units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.). Future definitions of PEDSnet CDM will more precisely define the fields in this table. The most important field in this table is organization_id, which is the tie back to the contributing PEDSnet data partner (CHOP versus Colorado versus St. Louis).
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 care_site_id | Yes | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 care_site_name | No | The description of the care site | 
 place_of_service_concept_id | No | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Visit')</p> <p>select \* from concept where domain_id ='Visit' yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160 (vocabulary_id=PCORNet)</li> <li>Unknown: concept_id = 44814713 (vocabulary_id=PCORNet)</li> <li>Other: concept_id = 44814711 (vocabulary_id=PCORNet)</li> <li>No information: concept_id = 44814712 (vocabulary_id=PCORNet)</li></ul>
@@ -140,10 +140,10 @@ place_of_service_source_value | No | The source code for the place of service as
 
 ## 1.5 PROVIDER
 
-The Provider table contains a list of uniquely identified health care providers. These are typically physicians, nurses, etc.
+The Provider domain contains a list of uniquely identified health care providers. These are typically physicians, nurses, etc.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 provider_id | Yes | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. See Additional Comments below. Sites should document who they have included as a provider.
 specialty_concept_id | No | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialtity concept associated with the American Medical Board of Specialties as seen in **Appendix A1**. Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Provider Specialty' and  vocabulary_id = Specialty)</p> <p>select \* from concept where vocabulary_id ='Provider Specialty' and domain='Specialty' and invalid_reason is null yields 107 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.
 care_site_id | Yes | A foreign key to the main care site where the provider is practicing. | See CARE_SITE.care_site_id (primary key)
@@ -159,10 +159,10 @@ specialty_source_value | No | The source code for the provider specialty as it a
 
 ## 1.6 VISIT_OCCURRENCE
 
-The visit domain contains the spans of time a person continuously receives medical services from one or more providers at a care site in a given setting within the health care system.
+The visit occurrence domain contains the spans of time a person continuously receives medical services from one or more providers at a care site in a given setting within the health care system.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 visit_occurrence_id | Yes | A unique identifier for each person's visits or encounter at a healthcare provider. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. Do not use institutional encounter ID.
 person_id | Yes | A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.
 visit_start_date | Yes | The start date of the visit. | No date shifting
@@ -192,8 +192,8 @@ Conditions are recorded in different sources and levels of standardization. For 
 - Medical claims data include ICD-9-CM diagnosis codes that are submitted as part of a claim for health services and procedures.
 - EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 condition_occurrence_id | Yes | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 condition_concept_id | Yes | A foreign key that refers to a standard condition concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='SNOMED')</p> <p>select \* from concept where vocabulary_id ='SNOMED'  yields ~400,000 valid concept_ids.</p> If none are correct, use concept_id = 0
@@ -209,7 +209,7 @@ condition_source_concept_id | No | A foreign key to a condition concept that ref
 #### 1.7.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to condition_occurrence. All conditions are included for an active patient. For PEDSnet CDM V2, we limit condition_occurrences to final diagnoses only (not reason-for-visit, , and provisional surgical diagnoses such as those recored in EPIC OPTIME). In EPIC, final diagnoses includes both encounter diagnoses and billing diagnoses, problem lists (all problems, not filtered on "chronic" versus "provisional" unless local practices use this flag as intended).
-- Condition records are inferred from diagnostic codes recorded in the source data by a clinician or abstractionist for a specific visit. In the current version of the CDM, problem list entries are not used, nor are diagnoses extracted from unstructured data, such as notes.
+- Condition records are inferred from diagnostic codes recorded in the source data by a clinician or abstractionist for a specific visit. In the current version of the CDM, diagnoses extracted from unstructured data (such as notes) are not included.
 - Source code systems, like ICD-9-CM, ICD-10-CM, etc., provide coverage of conditions. However, if the code does not define a condition, but rather is an observation or a procedure, then such information is not stored in the CONDITION_OCCURRENCE table, but in the respective tables instead. An example are ICD-9-CM procedure codes. For example, OMOP source-to-concept table uses the MAPPING_TYPE column to distinguish ICD9 codes that represent procedures rather than conditions.
 - Condition source values are mapped to standard concepts for cflowonditions in the Vocabulary. Since the icd9-cm diagnosis codes are notB in the concept table, use the source_to_concept_map table where the icd9_code = source_code and the source_vocabulary_id =ICD9CM (icd_9) and target_vocabulatory_id=SNOMED (snomed-ct) to locate the correct condition_concept_id value.
 - When the source code cannot be translated into a Standard Concept, a CONDITION_OCCURRENCE entry is stored with only the corresponding source_value and a condition_concept_id of 0.
@@ -217,12 +217,12 @@ condition_source_concept_id | No | A foreign key to a condition concept that ref
 
 ## 1.8 PROCEDURE_OCCURRENCE
 
-The procedure domain contains records of significant activities or processes ordered by and/or carried out by a healthcare provider on the patient to have a diagnostic and/or therapeutic purpose that are not fully captured in another table (e.g. drug_exposure).
+The procedure occurrence domain contains records of significant activities or processes ordered by and/or carried out by a healthcare provider on the patient to have a diagnostic and/or therapeutic purpose that are not fully captured in another table (e.g. drug_exposure).
 
 Procedures records are extracted from structured data in Electronic Health Records that capture source procedure codes using CPT-4, ICD-9-CM (Procedures), HCPCS or OPCS-4 procedures as orders.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 procedure_occurrence_id | Yes | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
 procedure_concept_id | Yes | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id ='SNOMED'), ICD-9-Procedures (vocabulary_id ='ICD9Proc'), CPT-4 (vocabulary_id ='CPT4' ), and HCPCS (vocabulary_id ='HCPCS')</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
@@ -322,8 +322,8 @@ Chart availability | 4030450 | | NULL | No information
 
 **Note 3:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
 
-Field | Required | Description | PEDSnet Conventions
- --- | --- | --- | ---
+Field |Required | Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---
 observation_id | Yes | A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.|
 observation_concept_id | Yes | A foreign key to the standard observation concept identifier in the Vocabulary. | Lab results and vitals are not stored in this table in V5 but are stored in the Measurement table.
@@ -352,7 +352,7 @@ qualifier_source_value |No | The source value associated with a qualifier to cha
 
 ## 1.10 OBSERVATION PERIOD
 
-The observation period table is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have the potential of drug and condition information recorded. This table is used to generate the PCORnet CDM enrollment table.
+The observation period domain is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have the potential of drug and condition information recorded. This table is used to generate the PCORnet CDM enrollment table.
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
 
@@ -369,7 +369,7 @@ Observation_period_end_date | No | Date | The end date of the observation period
 
 ## 1.11 DRUG EXPOSURE
 
-The drug exposure table captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
+The drug exposure domain captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
 EHRs may store medications in different vocabularies (GPI,NDC etc). 
 
@@ -399,7 +399,7 @@ Exclusions:
 ```
 
 
-Field |Required | Description | PEDSnet Conventions
+Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
  drug_exposure_id | Yes | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
@@ -431,7 +431,7 @@ dose_unit_source_value| No| The information about the dose unit as detailed in t
 
 ## 1.12 MEASUREMENT
 
-The measurement table captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
+The measurement domain captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
 
 Specifically this table includes:
 - Height/length in cm (use numeric precision as recorded in EHR)
@@ -515,7 +515,7 @@ Exclusions:
 1. Cancelled Lab orders
 2. Lab orders that are 'NOT DONE' or 'INCOMPLETE'
 
-Field |Required | Description | PEDSnet Conventions
+Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 measurement_id | Yes | A system-generated unique identifier for each measurement | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes | A foreign key identifier to the person who the measurement is being documented for. The demographic details of that person are stored in the person table.
@@ -545,9 +545,9 @@ value_source_value| Yes| The source value associated with the structured value s
 
 ## 1.13 FACT RELATIONSHIP
 
-The fact relationship table contains records to detail the relationships between facts within one domain or across two domains, and the nature of the relationship. Examples of types of fact relationships include: person relationships (mother-child linkage), care site relationships (representing the hierarchical organization structure of facilities within health systems), drug exposures provided due to associated indicated condition, devices used during the course of an associated procedure, and measurements derived from an associated specimen. All relationships are directional, and each relationship is represented twice symmetrically within the fact relationship table. 
+The fact relationship domain contains details of the relationships between facts within one domain or across two domains, and the nature of the relationship. Examples of types of fact relationships include: person relationships (mother-child linkage), care site relationships (representing the hierarchical organization structure of facilities within health systems), drug exposures provided due to associated indicated condition, devices used during the course of an associated procedure, and measurements derived from an associated specimen. All relationships are directional, and each relationship is represented twice symmetrically within the fact relationship table. 
 
-Field |Required | Description | PEDSnet Conventions
+Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 Domain_concept_id_1|Yes|	The concept representing the domain of fact one, from which the corresponding table can be inferred
 Fact_id_1|	Yes |The unique identifier in the table corresponding to the domain of fact one.
@@ -577,12 +577,12 @@ Care_Site_id | Care_Site_Name | Place_of_service_concept_id | Location_id | Care
 
 Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
 --- | --- | --- | --- | ---
-Place of Service | 1 | Place of Service | 2 |  Is a
-Place of Service| 2| Place of Service | 1 |  Is a 
-Place of Service | 1 | Place of Service | 3 |  Is a
-Place of Service| 3  | Place of Service | 1|  Is a 
-Place of Service | 2 | Place of Service | 3 |  Is a
-Place of Service| 3  | Place of Service | 2|  Is a 
+Place of Service | 1 | Place of Service | 2 |  Contains
+Place of Service| 2| Place of Service | 1 |  Part a 
+Place of Service | 1 | Place of Service | 3 |  Contains
+Place of Service| 3  | Place of Service | 1|  Part a 
+Place of Service | 2 | Place of Service | 3 |  Has focus
+Place of Service| 3  | Place of Service | 2|   Asso with
 
 **NOTE:** To make more clear, it is possibly worth requesting organizational domaings and relationships be added.
 * * *
@@ -730,11 +730,3 @@ Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | 
 
 
 * * *
-
-
-**Elements for future versions**
-
-Date requested | Requestor | Data request | Target PEDSnet DM Version
- --- | --- | --- | ---
-10/24/2014 | Chris Forrest | Prescription meds | 2
-10/24/2014 | Chris Forrest | Lab results: A1C, TC, HDL, TG, LDL, glucose insulin | 2
