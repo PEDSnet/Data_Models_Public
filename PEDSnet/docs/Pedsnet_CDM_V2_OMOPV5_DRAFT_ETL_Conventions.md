@@ -291,10 +291,10 @@ Admitting source | 4145666 | | 44814682 | No information | 60
 Admitting source | 4145666 | | 44814683 | Unknown | 60
 Admitting source | 4145666 | | 44814684 | Other | 60
 Discharge disposition (See Note 3) | 44813951 | 1 | 4161979 | Discharged alive
-Discharge disposition | 44813951 | 1 | 4216643 | Expired
-Discharge disposition | 44813951 | 1 | 44814687 | No information | 60
-Discharge disposition | 44813951 | 1 | 44814688 | Unknown | 60
-Discharge disposition | 44813951 | 1 | 44814689 | Other | 60
+Discharge disposition | 44813951 | SNOMED | 4216643 | Expired
+Discharge disposition | 44813951 | SNOMED | 44814687 | No information | 60
+Discharge disposition | 44813951 | SNOMED | 44814688 | Unknown | 60
+Discharge disposition | 44813951 | SNOMED | 44814689 | Other | 60
 Discharge status (see Note 3) | 4137274 | | 38004205 | Adult Foster Home
 Discharge status | 4137274 | | 38004301 | Assisted Living Facility
 Discharge status | 4137274 | | 4021968 | Against Medical Advice
@@ -470,8 +470,8 @@ Vital | 3035856 | | See Note 2 | Systolic Blood Pressure - Standing
 Vital | 3009395 | | See Note 2 | Systolic Blood Pressure - Supine
 Vital | 3004249 | | See Note 2 | Systolic BP Unknown/Other
 Vital | 3038553 | | See Note 1 | BMI
-Vital source | 4481472 | 39 | See Note 3 | Patient reported
-Vital source | 38000280 | | See Note 3 | Healthcare delivery setting
+Vital source | 44814721 | Observation Type | See Note 3 | Patient reported
+Vital source | 38000280 | Observation Type | See Note 3 | Healthcare delivery setting
 
 **Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_number field.
 **Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
