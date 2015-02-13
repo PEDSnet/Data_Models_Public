@@ -47,7 +47,7 @@ concept_blob | No | varchar | Not described |
 update_date | No | date | Not described |
 download_date | No | date | Not described |
 import_date | No | date | Not described |
-sourcesystem_cd | No | date | Not described |
+sourcesystem_cd | No | varchar | Not described |
 upload_id | No | integer | Not described |
 
 
