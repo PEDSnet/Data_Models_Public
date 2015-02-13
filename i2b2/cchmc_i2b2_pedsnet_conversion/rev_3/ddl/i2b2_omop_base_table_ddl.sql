@@ -17,7 +17,7 @@
 -- Under OMOP_ETL schema, run the below base create table statement.
 --
 --=============================================================================
-CREATE TABLE OMOP_ETL.ERR$_LOCATION
+CREATE TABLE ERR$_LOCATION
 (
   ORA_ERR_NUMBER$        NUMBER,
   ORA_ERR_MESG$          VARCHAR2(2000 BYTE),
@@ -55,5 +55,5 @@ NOCACHE
 PARALLEL ( DEGREE DEFAULT INSTANCES DEFAULT )
 MONITORING
 /
-COMMENT ON TABLE OMOP_ETL.ERR$_LOCATION IS 'DML Error NOLOGGING table for "LOCATION"'
+COMMENT ON TABLE ERR$_LOCATION IS 'DML Error NOLOGGING table for "LOCATION"'
 /

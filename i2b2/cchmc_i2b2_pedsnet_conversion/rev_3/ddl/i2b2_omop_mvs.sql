@@ -21,9 +21,9 @@
 -- added "ZIP" field.
 --
 --=============================================================================
-DROP MATERIALIZED VIEW OMOP_ETL.MV_PERSON
+DROP MATERIALIZED VIEW MV_PERSON
 /
-CREATE MATERIALIZED VIEW OMOP_ETL.MV_PERSON
+CREATE MATERIALIZED VIEW MV_PERSON
 TABLESPACE I2B2DAT
 PCTUSED    0
 PCTFREE    0
@@ -84,5 +84,5 @@ SELECT DISTINCT
              AND 'ETHNICITY_CONCEPT_ID' = ME.Destination_Column
              AND UPPER (NVL (PD.ETHNICITY_CD, 'NULL')) = ME.Source_Value
 /
-COMMENT ON MATERIALIZED VIEW OMOP_ETL.MV_PERSON IS 'snapshot table for snapshot OMOP_ETL.MV_PERSON'
+COMMENT ON MATERIALIZED VIEW MV_PERSON IS 'snapshot table for snapshot MV_PERSON'
 /

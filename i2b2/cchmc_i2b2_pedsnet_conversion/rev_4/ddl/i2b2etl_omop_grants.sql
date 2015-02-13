@@ -20,9 +20,9 @@
 -- tables to OMOP_ETL schema for to pull data.
 -- 
 --=============================================================================
-GRANT select on I2B2ETL.PATIENT_DIMENSION TO OMOP_ETL
-/
-GRANT select on I2B2ETL.VISIT_DIMENSION TO OMOP_ETL
-/
-GRANT select on I2B2ETL.OBSERVATION_FACT TO OMOP_ETL
-/
+-- GRANT select on I2B2ETL.PATIENT_DIMENSION TO OMOP_ETL
+-- /
+-- GRANT select on I2B2ETL.VISIT_DIMENSION TO OMOP_ETL
+-- /
+-- GRANT select on I2B2ETL.OBSERVATION_FACT TO OMOP_ETL
+-- /

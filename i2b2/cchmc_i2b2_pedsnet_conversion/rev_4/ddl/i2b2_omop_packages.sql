@@ -22,7 +22,7 @@
 -- procedure codes from I2B2ETL schema into PROCEDURE_OCCURRENCE table.
 --
 --=============================================================================
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_PROCS_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_PROCS_PKG" 
 AS
    
     

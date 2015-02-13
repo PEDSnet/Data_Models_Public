@@ -24,7 +24,7 @@
 --
 --=============================================================================
 SET DEFINE OFF;
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_VITALS_PKG"
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_VITALS_PKG"
 AS
 
 

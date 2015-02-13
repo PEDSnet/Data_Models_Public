@@ -56,9 +56,9 @@
 -- DEATH table.
 --
 --=============================================================================
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_ETL_PKG
+DROP PACKAGE I2B2_TO_OMOP_ETL_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_ETL_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_ETL_PKG" 
 AS
    
     -- ==============================================================
@@ -97,9 +97,9 @@ AS
 
 END I2B2_TO_OMOP_ETL_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_ETL_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_ETL_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_ETL_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_ETL_PKG" 
 AS
    
   
@@ -176,7 +176,7 @@ AS
         
           g_Err_Comment := 'Refresh MV Views and Analyze MV Views';      
             
-          OMOP_ETL.SP_OMOP_MVS_TBL_STATS('MV');
+          SP_OMOP_MVS_TBL_STATS('MV');
         
         ----------------------------------------------------------------
         -- Disable Constraints
@@ -550,7 +550,7 @@ AS
         
           g_Err_Comment := 'Analyze Table objects stats';      
             
-          OMOP_ETL.SP_OMOP_MVS_TBL_STATS('TBL');
+          SP_OMOP_MVS_TBL_STATS('TBL');
           
         ----------------------------------------------------------------
         -- Log process in OMOP_PROCESS_LOG
@@ -685,9 +685,9 @@ AS
    END sp_I2B2_To_OMOP_ETL;
 END I2B2_TO_OMOP_ETL_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_PERSON_PKG
+DROP PACKAGE I2B2_TO_OMOP_PERSON_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_PERSON_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_PERSON_PKG" 
 AS
    
     -- ==============================================================
@@ -768,9 +768,9 @@ AS
 
 END I2B2_TO_OMOP_PERSON_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_PERSON_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_PERSON_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_PERSON_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_PERSON_PKG" 
 AS
    
   
@@ -1038,7 +1038,7 @@ GENDER_SOURCE_VALUE, RACE_SOURCE_VALUE,
    ETHNICITY_SOURCE_VALUE,
  NULL AS PN_GESTATIONAL_AGE,
                     NULL AS PN_TIME_OF_BIRTH
-FROM OMOP_ETL.MV_PERSON
+FROM MV_PERSON
                 )
               )
             )
@@ -1205,9 +1205,9 @@ FROM OMOP_ETL.MV_PERSON
     END sp_Load_Person_Tbl; 
 END I2B2_TO_OMOP_PERSON_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_VISIT_PKG
+DROP PACKAGE I2B2_TO_OMOP_VISIT_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_VISIT_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_VISIT_PKG" 
 AS
    
     -- ==============================================================
@@ -1283,9 +1283,9 @@ AS
 
 END I2B2_TO_OMOP_VISIT_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_VISIT_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_VISIT_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_VISIT_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_VISIT_PKG" 
 AS
    
     
@@ -1721,9 +1721,9 @@ AS
     END sp_Load_Visit_Tbl; 
 END I2B2_TO_OMOP_VISIT_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_VITALS_PKG
+DROP PACKAGE I2B2_TO_OMOP_VITALS_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_VITALS_PKG"
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_VITALS_PKG"
 AS
 
     -- ==============================================================
@@ -1806,9 +1806,9 @@ AS
 
 END I2B2_TO_OMOP_VITALS_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_VITALS_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_VITALS_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_VITALS_PKG"
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_VITALS_PKG"
 AS
 
 
@@ -2269,9 +2269,9 @@ AS
     END sp_Load_Vitals_Tbl;
 END I2B2_TO_OMOP_VITALS_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_DX_PKG
+DROP PACKAGE I2B2_TO_OMOP_DX_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_DX_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_DX_PKG" 
 AS
    
     -- ==============================================================
@@ -2347,9 +2347,9 @@ AS
 
 END I2B2_TO_OMOP_DX_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_DX_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_DX_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_DX_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_DX_PKG" 
 AS
    
     
@@ -2789,9 +2789,9 @@ AS
     END sp_Load_DX_Tbl; 
 END I2B2_TO_OMOP_DX_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_PROCS_PKG
+DROP PACKAGE I2B2_TO_OMOP_PROCS_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_PROCS_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_PROCS_PKG" 
 AS
    
     -- ==============================================================
@@ -2866,9 +2866,9 @@ AS
 
 END I2B2_TO_OMOP_PROCS_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_PROCS_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_PROCS_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_PROCS_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_PROCS_PKG" 
 AS
    
     
@@ -3306,9 +3306,9 @@ AS
     END sp_Load_PROCS_Tbl; 
 END I2B2_TO_OMOP_PROCS_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_OBSV_PERIOD_PKG
+DROP PACKAGE I2B2_TO_OMOP_OBSV_PERIOD_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
 AS
    
     -- ==============================================================
@@ -3378,9 +3378,9 @@ AS
 
 END I2B2_TO_OMOP_OBSV_PERIOD_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_OBSV_PERIOD_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_OBSV_PERIOD_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
 AS
    
     
@@ -3807,9 +3807,9 @@ group by vd.patient_num
     END sp_Load_Obsv_Period_Tbl; 
 END I2B2_TO_OMOP_OBSV_PERIOD_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG
+DROP PACKAGE I2B2_TO_OMOP_CONDERA_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG IS
+CREATE OR REPLACE PACKAGE I2B2_TO_OMOP_CONDERA_PKG IS
     -- global constant
     newLine CONSTANT char(1) := chr( 10 ) ;
         -- ==============================================================
@@ -3881,9 +3881,9 @@ PROCEDURE sp_Load_Cond_Era_Tbl(
 
 END I2B2_TO_OMOP_CONDERA_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_CONDERA_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG is
+CREATE OR REPLACE PACKAGE BODY I2B2_TO_OMOP_CONDERA_PKG is
    
    
      -- ==============================================================
@@ -3943,7 +3943,7 @@ CREATE OR REPLACE PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG is
     BEGIN
        IF p_restart_sequence
        THEN
-          lv_execute_string := 'drop SEQUENCE OMOP_ETL.CONDITION_ERA_SEQ';
+          lv_execute_string := 'drop SEQUENCE CONDITION_ERA_SEQ';
           BEGIN
              execute immediate lv_execute_string;
              EXCEPTION  -- ignore error if sequence did not exist
@@ -3951,7 +3951,7 @@ CREATE OR REPLACE PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG is
                 null;
           END;
 
-          lv_execute_string := 'CREATE SEQUENCE OMOP_ETL.CONDITION_ERA_SEQ '
+          lv_execute_string := 'CREATE SEQUENCE CONDITION_ERA_SEQ '
                             || 'MINVALUE 1 NOMAXVALUE '
                             || 'INCREMENT BY 1 START WITH 1 CACHE '|| p_commit_interval ||' NOORDER  NOCYCLE' ;
 
@@ -3964,7 +3964,7 @@ CREATE OR REPLACE PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_CONDERA_PKG is
 
           IF sequence_count = 0
           THEN -- sequence does not exist
-             lv_execute_string := 'CREATE SEQUENCE OMOP_ETL.CONDITION_ERA_SEQ '
+             lv_execute_string := 'CREATE SEQUENCE CONDITION_ERA_SEQ '
                                || 'MINVALUE 1 NOMAXVALUE '
                                || 'INCREMENT BY 1 START WITH 1 CACHE '|| p_commit_interval ||' NOORDER  NOCYCLE' ;
 
@@ -4411,8 +4411,8 @@ BEGIN
       *---------------------------------------------*/
 
      lv_cursor_string := 'SELECT concept_id' || newLine
-                      || '  FROM OMOP_ETL.concept'  || newLine
-                      || '  JOIN OMOP_ETL.vocabulary USING( vocabulary_id )'  || newLine
+                      || '  FROM concept'  || newLine
+                      || '  JOIN vocabulary USING( vocabulary_id )'  || newLine
                       || ' WHERE vocabulary_name = ''' || p_ref_vocabulary_name || '''' || newLine
                       || '   AND concept_name = ''' || p_ref_description_value || '''';
 
@@ -4477,7 +4477,7 @@ BEGIN
                '       UNION ALL '                                                       || newLine ||
                '       SELECT    con.concept_id  gen_voc_ancestor_concept_id, '            || newLine ||
                '               con.concept_id  gen_voc_descendant_concept_id '           || newLine ||
-               '       FROM    OMOP_ETL.concept con '                                  || newLine ||
+               '       FROM    concept con '                                  || newLine ||
                '       WHERE    con.vocabulary_id '                             ||
                                case
                                   when p_concept_vocabulary_codes is null then
@@ -4769,7 +4769,7 @@ BEGIN
 
 select count(*)
 into g_Row_Count
-from OMOP_ETL.Condition_Era;
+from Condition_Era;
 
         -- Get error count, success variables
         WITH CTE_ERRORS
@@ -4828,7 +4828,7 @@ EXCEPTION
           dbms_output.put_line('**********************************************************************');
           
            INSERT
-    INTO OMOP_ETL.TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
+    INTO TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
     VALUES('SP_LOAD_COND_ERA_TBL',   'Wrong_Type_Value - Type Values need to be defined.',   SYSTIMESTAMP);
 COMMIT;
 
@@ -4838,7 +4838,7 @@ COMMIT;
           dbms_output.put_line('**********************************************************************');
 
  INSERT
-    INTO OMOP_ETL.TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
+    INTO TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
     VALUES('SP_LOAD_COND_ERA_TBL',   'Mandatory_Value_Not_Entered - ALL Mandatory fields not provided.',   SYSTIMESTAMP);
 COMMIT;
 
@@ -4849,7 +4849,7 @@ COMMIT;
           dbms_output.put_line('**********************************************************************');
 
 INSERT
-    INTO OMOP_ETL.TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
+    INTO TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
     VALUES('SP_LOAD_COND_ERA_TBL',   'Vocab_Fields_Not_Provided - Vocabulary option has been chosen but NOT one of the Vocab fields has anything in them of the ALL Mandatory fields not provided.',   SYSTIMESTAMP);
 COMMIT;
 
@@ -4860,7 +4860,7 @@ COMMIT;
           dbms_output.put_line('**********************************************************************');
 
  INSERT
-    INTO OMOP_ETL.TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
+    INTO TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
     VALUES('SP_LOAD_COND_ERA_TBL',   'VOCAB_FILE_NOT_PROVIDED - Vocabulary File option has been chosen but the Concept File has not been provided as a parameter.',   SYSTIMESTAMP);
 COMMIT;
 
@@ -4871,7 +4871,7 @@ COMMIT;
           dbms_output.put_line('**********************************************************************');
 
  INSERT
-    INTO OMOP_ETL.TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
+    INTO TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
     VALUES('SP_LOAD_COND_ERA_TBL',   'CONCEPT_FILENAME_NOT_EXIST - Vocabulary File option has been chosen but the Concept File doesn''t exist or permissions where file reside, is not set right.',   SYSTIMESTAMP);
 COMMIT;
 
@@ -4882,16 +4882,16 @@ COMMIT;
           dbms_output.put_line('**********************************************************************');
 
  INSERT
-    INTO OMOP_ETL.TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
+    INTO TBL_ERR_MSG (MODULE_NAME, ERR_MSG, ERR_TIME)
     VALUES('SP_LOAD_COND_ERA_TBL',   'TABLE_OR_VIEW_NOT_EXIST -' || lv_execute_string,   SYSTIMESTAMP);
 COMMIT;
 
 END sp_Load_Cond_Era_Tbl;
 END I2B2_TO_OMOP_CONDERA_PKG;
 /
-DROP PACKAGE OMOP_ETL.I2B2_TO_OMOP_DEATH_PKG
+DROP PACKAGE I2B2_TO_OMOP_DEATH_PKG
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_DEATH_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_DEATH_PKG" 
 AS
    
     -- ==============================================================
@@ -4961,9 +4961,9 @@ AS
 
 END I2B2_TO_OMOP_DEATH_PKG;
 /
-DROP PACKAGE BODY OMOP_ETL.I2B2_TO_OMOP_DEATH_PKG
+DROP PACKAGE BODY I2B2_TO_OMOP_DEATH_PKG
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_DEATH_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_DEATH_PKG" 
 AS
    
   

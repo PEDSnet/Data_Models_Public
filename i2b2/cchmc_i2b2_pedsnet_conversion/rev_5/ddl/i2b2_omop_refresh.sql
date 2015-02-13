@@ -20,6 +20,6 @@
 -- Please follow the sequence of execution as specified below.
 --
 --=============================================================================
-alter package OMOP_ETL.I2B2_TO_OMOP_ETL_PKG compile package; 
-execute OMOP_ETL.I2B2_TO_OMOP_ETL_PKG.sp_I2B2_To_OMOP_ETL;
-execute OMOP_ETL.SP_OMOP_PREPARE_STATS;
+alter package I2B2_TO_OMOP_ETL_PKG compile package; 
+execute I2B2_TO_OMOP_ETL_PKG.sp_I2B2_To_OMOP_ETL;
+execute SP_OMOP_PREPARE_STATS;

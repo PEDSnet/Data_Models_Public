@@ -20,13 +20,13 @@
 -- condition_era table. 
 -- 
 --=============================================================================
-CREATE OR REPLACE FORCE VIEW OMOP_ETL.OMOP_ETL_GEN_MAP
+CREATE OR REPLACE FORCE VIEW OMOP_ETL_GEN_MAP
 AS
    SELECT CONDITION_CONCEPT_ID AS gen_ancestor_concept_id,
           PERSON_ID AS gen_person_id,
           CONDITION_START_DATE AS gen_start_date,
           CONDITION_END_DATE AS gen_end_date,
           CONDITION_CONCEPT_ID AS gen_descendant_concept_id
-     FROM OMOP_ETL.CONDITION_OCCURRENCE
+     FROM CONDITION_OCCURRENCE
     WHERE CONDITION_CONCEPT_ID <> 0
 /

@@ -18,6 +18,6 @@
 -- data length > 10.
 -- 
 --=============================================================================
-ALTER TABLE OMOP_ETL.LOCATION
+ALTER TABLE LOCATION
 MODIFY ZIP VARCHAR2(50)
 /

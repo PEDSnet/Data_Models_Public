@@ -64,7 +64,7 @@
 -- l) Log ETL times and counts in Log table.
 --
 --=============================================================================
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_PERSON_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_PERSON_PKG" 
 AS
    
     -- ==============================================================
@@ -143,7 +143,7 @@ AS
         PARALLEL_ENABLE(PARTITION i_I2B2_Table_cur BY ANY);
 END I2B2_TO_OMOP_PERSON_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_PERSON_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_PERSON_PKG" 
 AS
    
   
@@ -412,8 +412,8 @@ MP.RACE_SOURCE_VALUE,
    MP.ETHNICITY_SOURCE_VALUE,
  NULL AS PN_GESTATIONAL_AGE,
                     NULL AS PN_TIME_OF_BIRTH
-FROM OMOP_ETL.MV_PERSON MP,
-      OMOP_ETL.LOCATION LOC
+FROM MV_PERSON MP,
+      LOCATION LOC
 WHERE LTRIM(MP.ZIP) = LTRIM(LOC.ZIP(+))
                 )
               )
@@ -581,7 +581,7 @@ WHERE LTRIM(MP.ZIP) = LTRIM(LOC.ZIP(+))
     END sp_Load_Person_Tbl; 
 END I2B2_TO_OMOP_PERSON_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_VISIT_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_VISIT_PKG" 
 AS
    
     -- ==============================================================
@@ -657,7 +657,7 @@ AS
 
 END I2B2_TO_OMOP_VISIT_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_VISIT_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_VISIT_PKG" 
 AS
    
     
@@ -1093,7 +1093,7 @@ AS
     END sp_Load_Visit_Tbl; 
 END I2B2_TO_OMOP_VISIT_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_VITALS_PKG"
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_VITALS_PKG"
 AS
 
     -- ==============================================================
@@ -1176,7 +1176,7 @@ AS
 
 END I2B2_TO_OMOP_VITALS_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_VITALS_PKG"
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_VITALS_PKG"
 AS
 
 
@@ -1637,7 +1637,7 @@ AS
     END sp_Load_Vitals_Tbl;
 END I2B2_TO_OMOP_VITALS_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_DX_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_DX_PKG" 
 AS
    
     -- ==============================================================
@@ -1713,7 +1713,7 @@ AS
 
 END I2B2_TO_OMOP_DX_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_DX_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_DX_PKG" 
 AS
    
     
@@ -2153,7 +2153,7 @@ AS
     END sp_Load_DX_Tbl; 
 END I2B2_TO_OMOP_DX_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_PROCS_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_PROCS_PKG" 
 AS
    
     -- ==============================================================
@@ -2228,7 +2228,7 @@ AS
 
 END I2B2_TO_OMOP_PROCS_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_PROCS_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_PROCS_PKG" 
 AS
    
     
@@ -2666,7 +2666,7 @@ AS
     END sp_Load_PROCS_Tbl; 
 END I2B2_TO_OMOP_PROCS_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
 AS
    
     -- ==============================================================
@@ -2736,7 +2736,7 @@ AS
 
 END I2B2_TO_OMOP_OBSV_PERIOD_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_OBSV_PERIOD_PKG" 
 AS
    
     
@@ -3163,7 +3163,7 @@ group by vd.patient_num
     END sp_Load_Obsv_Period_Tbl; 
 END I2B2_TO_OMOP_OBSV_PERIOD_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_DEATH_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_DEATH_PKG" 
 AS
    
     -- ==============================================================
@@ -3233,7 +3233,7 @@ AS
 
 END I2B2_TO_OMOP_DEATH_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_DEATH_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_DEATH_PKG" 
 AS
    
   
@@ -3647,7 +3647,7 @@ AS
     END sp_Load_Death_Tbl; 
 END I2B2_TO_OMOP_DEATH_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL.I2B2_TO_OMOP_LOCATION_PKG 
+CREATE OR REPLACE PACKAGE I2B2_TO_OMOP_LOCATION_PKG 
 AS
    
     -- ==============================================================
@@ -3720,7 +3720,7 @@ AS
 
 END I2B2_TO_OMOP_LOCATION_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_LOCATION_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_LOCATION_PKG" 
 AS
    
   
@@ -4136,7 +4136,7 @@ AS
     END sp_Load_Location_Tbl; 
 END I2B2_TO_OMOP_LOCATION_PKG;
 /
-CREATE OR REPLACE PACKAGE OMOP_ETL."I2B2_TO_OMOP_ETL_PKG" 
+CREATE OR REPLACE PACKAGE "I2B2_TO_OMOP_ETL_PKG" 
 AS
    
     -- ==============================================================
@@ -4175,7 +4175,7 @@ AS
 
 END I2B2_TO_OMOP_ETL_PKG;
 /
-CREATE OR REPLACE PACKAGE BODY OMOP_ETL."I2B2_TO_OMOP_ETL_PKG" 
+CREATE OR REPLACE PACKAGE BODY "I2B2_TO_OMOP_ETL_PKG" 
 AS
    
   
@@ -4252,7 +4252,7 @@ AS
         
           g_Err_Comment := 'Refresh MV Views and Analyze MV Views';      
             
-          OMOP_ETL.SP_OMOP_MVS_TBL_STATS('MV');
+          SP_OMOP_MVS_TBL_STATS('MV');
         
         ----------------------------------------------------------------
         -- Disable Constraints
@@ -4643,7 +4643,7 @@ AS
         
           g_Err_Comment := 'Analyze Table objects stats';      
             
-          OMOP_ETL.SP_OMOP_MVS_TBL_STATS('TBL');
+          SP_OMOP_MVS_TBL_STATS('TBL');
           
         ----------------------------------------------------------------
         -- Log process in OMOP_PROCESS_LOG
