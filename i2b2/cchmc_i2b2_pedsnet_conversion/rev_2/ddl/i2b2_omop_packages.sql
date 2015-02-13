@@ -1545,7 +1545,7 @@ AS
                         NULL                        AS              CARE_SITE_ID,
                         V.INOUT_CD                  AS              PLACE_OF_SERVICE_SOURCE_VALUE,
                         NULL                   AS   PROVIDER_ID
-                      FROM I2B2ETL.VISIT_DIMENSION V
+                      FROM VISIT_DIMENSION V
                         INNER JOIN PERSON PN
                           ON V.PATIENT_NUM = PN.PERSON_ID
                         INNER JOIN OMOP_MAPPING OMAP                
@@ -2089,7 +2089,7 @@ AS
             NULL                    RELEVANT_CONDITION_CONCEPT_ID,
             OBF.CONCEPT_CD                OBSERVATION_SOURCE_VALUE,
             OBF.UNITS_CD                UNITS_CODE_SOURCE
-            FROM I2B2ETL.OBSERVATION_FACT PARTITION (vitals) OBF
+            FROM OBSERVATION_FACT PARTITION (vitals) OBF
             INNER JOIN PERSON PN
                ON OBF.PATIENT_NUM = PN.PERSON_ID
             INNER JOIN OMOP_MAPPING A
@@ -2609,7 +2609,7 @@ AS
                       NULL                                ASSOCIATED_PROVIDER_ID,
                       OBF.ENCOUNTER_NUM                   VISIT_OCCURRENCE_ID,
                       OBF.CONCEPT_CD                      CONDITION_SOURCE_VALUE
-                    FROM I2B2ETL.OBSERVATION_FACT PARTITION (DX) OBF
+                    FROM OBSERVATION_FACT PARTITION (DX) OBF
                       INNER JOIN PERSON PN
                        ON OBF.PATIENT_NUM = PN.PERSON_ID
                       INNER JOIN MV_OMOP_DX_CODES DX
@@ -3125,7 +3125,7 @@ AS
               OBF.ENCOUNTER_NUM               VISIT_OCCURRENCE_ID,
               NULL                            RELEVANT_CONDITION_CONCEPT_ID,
               OBF.CONCEPT_CD                  PROCEDURE_SOURCE_VALUE
-          FROM I2B2ETL.OBSERVATION_FACT PARTITION (PROCS) OBF
+          FROM OBSERVATION_FACT PARTITION (PROCS) OBF
            INNER JOIN PERSON PN
                ON OBF.PATIENT_NUM = PN.PERSON_ID
            INNER JOIN CONCEPT CNPT
@@ -3630,8 +3630,8 @@ case when to_date(max(vd.end_date),'dd-mon-rrrr')  is null
 then to_date('12/31/'||extract (year from vd.start_Date),'mm/dd/yyyy') 
 else to_date(max(vd.end_date),'dd-mon-rrrr')  
 end as observation_period_end_date
-from i2b2etl.observation_fact partition (vitals) vt 
-inner join i2b2etl.visit_dimension vd 
+from observation_fact partition (vitals) vt 
+inner join visit_dimension vd 
  on vt.encounter_num=vd.encounter_num 
 inner join person pn
 on vd.patient_num = pn.person_id
@@ -5203,7 +5203,7 @@ AS
              MS.DESTINATION_CODE     DEATH_TYPE_CONCEPT_ID,
              NULL             CAUSE_OF_DEATH_CONCEPT_ID,
              NULL                     CAUSE_OF_DEATH_SOURCE_VALUE
-             FROM I2B2ETL.PATIENT_DIMENSION PD
+             FROM PATIENT_DIMENSION PD
          INNER JOIN PERSON PN
          ON PD.PATIENT_NUM = PN.PERSON_ID
          INNER JOIN OMOP_MAPPING MS

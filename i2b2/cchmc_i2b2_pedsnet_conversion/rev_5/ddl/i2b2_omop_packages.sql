@@ -304,7 +304,7 @@ AS
             NULL                    RELEVANT_CONDITION_CONCEPT_ID,
             OBF.CONCEPT_CD                OBSERVATION_SOURCE_VALUE,
             OBF.UNITS_CD                UNITS_CODE_SOURCE
-            FROM I2B2ETL.OBSERVATION_FACT PARTITION (vitals) OBF
+            FROM OBSERVATION_FACT PARTITION (vitals) OBF
             INNER JOIN PERSON PN
                ON OBF.PATIENT_NUM = PN.PERSON_ID
             INNER JOIN OMOP_MAPPING A
@@ -334,7 +334,7 @@ AS
  OBF.CONCEPT_CD    OBSERVATION_SOURCE_VALUE,
  NULL    UNITS_CODE_SOURCE
 FROM (select  aa.encounter_num, aa.patient_num, aa.concept_cd, aa.start_date, cnpt.concept_name, cnpt.concept_code, cnpt.concept_id as value_as_concept_id
-from i2b2etl.observation_fact partition (drgs) aa,
+from observation_fact partition (drgs) aa,
 concept cnpt
 where ltrim(cnpt.concept_code) = ltrim(replace(aa.concept_cd, 'MSDRG:',''))
 and aa.concept_cd like 'MS%'
@@ -343,7 +343,7 @@ and cnpt.concept_class = 'MS-DRG'
 and cnpt.invalid_reason is null
 union
 select aa.encounter_num, aa.patient_num, aa.concept_cd, aa.start_date, cnpt.concept_name, cnpt.concept_code, cnpt.concept_id as value_as_concept_id
-from i2b2etl.observation_fact partition (drgs) aa,
+from observation_fact partition (drgs) aa,
 concept cnpt
 where ltrim(cnpt.concept_code) = ltrim(replace(aa.concept_cd, 'CMSDRG:',''))
 and aa.concept_cd like 'CMS%'
