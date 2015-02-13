@@ -28,7 +28,7 @@ i2b2_chop_ont_inserts_3.sql.gz
 
 This creates the I2B2, CONCEPT_DIMENSION, PATIENT_DIMENSION, VISIT_DIMENSION, and OBSERVATION_FACT tables.
 
-* Insert the 623 MB of ontology data by running:
+* Insert 623 MB of ontology data into the I2B2 table by running:
 
     @i2b2_chop/data/i2b2_chop_ont_inserts_1.sql -- [182 MB]
     @i2b2_chop/data/i2b2_chop_ont_inserts_2.sql -- [161 MB]
@@ -37,6 +37,8 @@ This creates the I2B2, CONCEPT_DIMENSION, PATIENT_DIMENSION, VISIT_DIMENSION, an
 * Insert the 99 MB CONCEPT_DIMENSION ontology data by running:
 
     @i2b2_chop/data/i2b2_chop_conceptdim_inserts.sql -- [99 MB]
+
+The ontology loads into the I2B2 and CONCEPT_DIMENSION tables take 51 minutes on the Oracle instance we have available to us. 
 
 * Load data into I2B2 tables ... TBD
 
