@@ -118,6 +118,7 @@ county | No | Varchar | |Optional - Do not transmit to DCC
 #### 1.3.1 Additional Notes
 
 - Each address or Location is unique and is present only once in the table
+- Locations in this table are restricted to locations that are applicable to each sites persons and care_sites in the Pedsnet cohort. When external data is implmented, valid(data containing) locations may be expanded beyond those just in clinical tables.
 
 ## 1.4 CARE_SITE
 
