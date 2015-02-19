@@ -5,10 +5,7 @@
 This document contains the DDL script to create the source-to-concept mapping table (i.e. PEDSnet->PCORnet vocabulary mapping) into database. 
 
 ### PEDSnet-PCORnet.sql
-This file contains the complete ETL source code, i.e. table-wise SQL queries to extract the PCORnet instance from a given PEDSnet CDM instance and the source-to-concept mapping table 
-
-    - working condition: Demographic, Enrollment, Encounter, and Diagnosis queries. 
-    - work in progress: Procedure and Vital queries
+This file contains the complete ETL source code, i.e. table-wise SQL queries to extract the PCORnet instance from a given PEDSnet CDM instance and the source-to-concept mapping table. All six queries (Demographic, Enrollment, Encounter, Diagnosis, Procedure, Vital) are in working condition
 
 ## Steps for Executing the Scripts 
 1. Execute the [PCORnet Schema DDL](https://github.com/PEDSnet/Data_Models/tree/master/PCORnet)
