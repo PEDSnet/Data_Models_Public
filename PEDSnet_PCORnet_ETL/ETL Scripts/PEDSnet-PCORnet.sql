@@ -1,4 +1,4 @@
-﻿=======
+=======
 
 -- Person 
 insert into pcornet.demographic (patid, birth_date, birth_time, sex, hispanic, race, biobank_flag, raw_sex, raw_hispanic, raw_race)
@@ -147,112 +147,31 @@ from
 	-- get the vocabulary from the procedure source value to populate the PX_TYPE field (case 2a)
 	left join cz.cz_omop_pcornet_concept_map m3 on split_part(procedure_source_value,'|||',2) = cast(m3.source_concept_id as text) AND m3.source_concept_class='Procedure Code Type' 
 
--- observation --> vital WITHOUT Observation time
+-- observation --> vital 
 insert into pcornet.vital(
             patid, encounterid, measure_date, measure_time, vital_source, 
             ht, wt, diastolic, systolic, original_bmi, bp_position, raw_vital_source, 
             raw_diastolic, raw_systolic, raw_bp_position)
-select distinct 
-	cast(ob.person_id as text) as patid,
-	cast(ob.visit_occurrence_id as text) as encounterid,
-	cast(date_part('year', ob.observation_date) as text)||'-'||lpad(cast(date_part('month', ob.observation_date) as text),2,'0')||'-'||lpad(cast(date_part('day', ob.observation_date) as text),2,'0') as measure_date,
-	lpad(cast(date_part('hour', ob.observation_time) as text),2,'0')||':'||lpad(cast(date_part('minute', ob.observation_time) as text),2,'0') as measure_time,
-	null as vital_source,
-	ob_ht.value_as_number as ht,
-	ob_wt.value_as_number as wt,
-	ob_dia.value_as_number as diastolic,
-	ob_sys.value_as_number as systolic,
-	ob_bmi.value_as_number as original_bmi,
-	coalesce(ob_bp.target_concept,'OT') as bp_position,
-	null as raw_vital_source,
-	null as raw_diastolic,
-	null as raw_systolic,
-	null as raw_bp_position
-from
-	omop.observation ob 
-	left join omop.observation ob_ht on ob.visit_occurrence_id = ob_ht.visit_occurrence_id 
-		and ob.observation_date = ob_ht.observation_date and ob_ht.observation_concept_id='3023540'
-	left join omop.observation ob_wt on ob.visit_occurrence_id = ob_wt.visit_occurrence_id 
-		and ob.observation_date = ob_wt.observation_date and ob_wt.observation_concept_id='3013762'
-	left join omop.observation ob_sys on ob.visit_occurrence_id = ob_sys.visit_occurrence_id 
-		and ob.observation_date = ob_sys.observation_date and ob_sys.observation_concept_id IN ('3018586','3035856','3009395','3004249')
-	left join omop.observation ob_dia on ob.visit_occurrence_id = ob_dia.visit_occurrence_id 
-		and ob_sys.value_as_concept_id = ob_dia.value_as_concept_id and ob_dia.observation_concept_id IN ('3034703','3019962','3013940','3012888') 
-	left join omop.observation ob_bmi on ob.visit_occurrence_id = ob_bmi.visit_occurrence_id 
-		and ob.observation_date = ob_bmi.observation_date and ob_bmi.observation_concept_id='3038553'
-	left join 
-	(select distinct visit_occurrence_id, observation_date, observation_time, target_concept, ob_sub.value_as_string from 
-	omop.observation ob_sub inner join cz.cz_omop_pcornet_concept_map m on ob_sub.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') ob_bp
-	on ob.visit_occurrence_id = ob_bp.visit_occurrence_id AND trim(ob_bp.value_as_concept_id) = trim(ob_sys.value_as_concept_id)	
-	where ob.observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')
-	AND coalesce(ob_ht.value_as_number, ob_wt.value_as_number, ob_dia.value_as_number, 
-	ob_sys.value_as_number, ob_bmi.value_as_number) is not null;
-
--- observation --> vital WITH Observation time
-insert into pcornet.vital(
-            patid, encounterid, measure_date, measure_time, vital_source, 
-            ht, wt, diastolic, systolic, original_bmi, bp_position, raw_vital_source, 
-            raw_diastolic, raw_systolic, raw_bp_position)
-select distinct 
-	cast(ob.person_id as text) as patid,
-	cast(ob.visit_occurrence_id as text) as encounterid,
-	cast(date_part('year', ob.observation_date) as text)||'-'||lpad(cast(date_part('month', ob.observation_date) as text),2,'0')||'-'||lpad(cast(date_part('day', ob.observation_date) as text),2,'0') as measure_date,
-	lpad(cast(date_part('hour', ob.observation_time) as text),2,'0')||':'||lpad(cast(date_part('minute', ob.observation_time) as text),2,'0') as measure_time,
-	null as vital_source,
-	ob_ht.value_as_number as ht,
-	ob_wt.value_as_number as wt,
-	ob_dia.value_as_number as diastolic,
-	ob_sys.value_as_number as systolic,
-	ob_bmi.value_as_number as original_bmi,
-	case when ob_bp.visit_occurrence_id is null then 'NI' else coalesce(ob_bp.target_concept,'OT') end as bp_position,
-	null as raw_vital_source,
-	null as raw_diastolic,
-	null as raw_systolic,
-	null as raw_bp_position
-from
-	omop.observation ob 
-	left join omop.observation ob_ht on ob.visit_occurrence_id = ob_ht.visit_occurrence_id 
-		and ob.observation_date = ob_ht.observation_date and ob.observation_time = ob_ht.observation_time and ob_ht.observation_concept_id='3023540'
-	left join omop.observation ob_wt on ob.visit_occurrence_id = ob_wt.visit_occurrence_id 
-		and ob.observation_date = ob_wt.observation_date and ob.observation_time = ob_wt.observation_time and ob_wt.observation_concept_id='3013762'
-	left join omop.observation ob_sys on ob.visit_occurrence_id = ob_sys.visit_occurrence_id 
-		and ob.observation_date = ob_sys.observation_date and ob.observation_time = ob_sys.observation_time and ob_sys.observation_concept_id IN ('3018586','3035856','3009395','3004249')
-	left join omop.observation ob_dia on ob.visit_occurrence_id = ob_dia.visit_occurrence_id 
-		and ob_sys.value_as_concept_id = ob_dia.value_as_concept_id and ob_dia.observation_concept_id IN ('3034703','3019962','3013940','3012888') 
-	left join omop.observation ob_bmi on ob.visit_occurrence_id = ob_bmi.visit_occurrence_id 
-		and ob.observation_date = ob_bmi.observation_date and ob.observation_time = ob_bmi.observation_time and ob_bmi.observation_concept_id='3038553'
-	left join 
-	(select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id target_concept from 
-	omop.observation ob_sub inner join cz.cz_omop_pcornet_concept_map m on ob_sub.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') ob_bp
-	on ob.visit_occurrence_id = ob_bp.visit_occurrence_id AND ob_bp.value_as_concept_id = ob_sys.value_as_concept_id
-	where ob.observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')
-	AND coalesce(ob_ht.value_as_number, ob_wt.value_as_number, ob_dia.value_as_number, 
-	ob_sys.value_as_number, ob_bmi.value_as_number) is not null;
-
--- Vital with CTE with *
-
-WITH
-	ob as (select * from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
-	ob_ht as (select * from omop.observation where observation_concept_id = '3023540'),
-	ob_wt as (select * from omop.observation where observation_concept_id = '3013762'),
-	ob_bmi as (select * from omop.observation where observation_concept_id = '3038553'),
-	ob_sys as (select * from omop.observation where observation_concept_id in ('3018586','3035856','3009395','3004249')),
-	ob_dia as (select * from omop.observation where observation_concept_id in ('3034703','3019962','3013940','3012888')), 
-	ob_bp as (select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id target_concept 
-	from ob inner join cz.cz_omop_pcornet_concept_map m on ob.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') as 
-SELECT distinct 
+ WITH
+	ob as (select distinct person_id, visit_occurrence_id,observation_date  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
+	ob_ht as (select distinct visit_occurrence_id, observation_date, value_as_number  from omop.observation where observation_concept_id = '3023540'),
+	ob_wt as (select distinct visit_occurrence_id, observation_date, value_as_number  from omop.observation where observation_concept_id = '3013762'),
+	ob_bmi as (select distinct visit_occurrence_id, observation_date, value_as_number  from omop.observation where observation_concept_id = '3038553'),
+	ob_sys as (select distinct visit_occurrence_id, observation_date, value_as_number, value_as_concept_id, observation_concept_id from omop.observation where observation_concept_id in ('3018586','3035856','3009395','3004249')),
+	ob_dia as (select distinct visit_occurrence_id, observation_date, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3034703','3019962','3013940','3012888'))
+SELECT
 	cast(ob.person_id as text) as patid,
 	cast(ob.visit_occurrence_id as text) as encounterid,
 	cast(date_part('year', ob.observation_date) as text)||'-'||lpad(cast(date_part('month', ob.observation_date) as text),2,'0')||'-'||lpad(cast(date_part
 	('day', ob.observation_date) as text),2,'0') as measure_date,
-	lpad(cast(date_part('hour', ob.observation_time) as text),2,'0')||':'||lpad(cast(date_part('minute', ob.observation_time) as text),2,'0') as measure_time,
+	lpad(cast(date_part('hour', ob.observation_date) as text),2,'0')||':'||lpad(cast(date_part('minute', ob.observation_date) as text),2,'0') as measure_time,
 	null as vital_source,
 	ob_ht.value_as_number as ht,
 	ob_wt.value_as_number as wt,
 	ob_dia.value_as_number as diastolic,
 	ob_sys.value_as_number as systolic,
 	ob_bmi.value_as_number as original_bmi,
-	case when ob_bp.visit_occurrence_id is null then 'NI' else coalesce(ob_bp.target_concept,'OT') end as bp_position,
+	coalesce(m.target_concept,'OT') as bp_position,
 	null as raw_vital_source,
 	null as raw_diastolic,
 	null as raw_systolic,
@@ -260,58 +179,14 @@ SELECT distinct
 FROM 
 	ob 
 	left join ob_ht on ob.visit_occurrence_id = ob_ht.visit_occurrence_id 
-		and ob.observation_date = ob_ht.observation_date and ob.observation_time = ob_ht.observation_time
+		and ob.observation_date = ob_ht.observation_date 
 	left join ob_wt on ob.visit_occurrence_id = ob_wt.visit_occurrence_id 
-		and ob.observation_date = ob_wt.observation_date and ob.observation_time = ob_wt.observation_time
+		and ob.observation_date = ob_wt.observation_date 
 	left join ob_sys on ob.visit_occurrence_id = ob_sys.visit_occurrence_id 
-		and ob.observation_date = ob_sys.observation_date and ob.observation_time = ob_sys.observation_time
+		and ob.observation_date = ob_sys.observation_date 
 	left join ob_dia on ob.visit_occurrence_id = ob_dia.visit_occurrence_id 
 		and ob_sys.value_as_concept_id = ob_dia.value_as_concept_id
 	left join ob_bmi on ob.visit_occurrence_id = ob_bmi.visit_occurrence_id 
-		and ob.observation_date = ob_bmi.observation_date and ob.observation_time = ob_bmi.observation_time
-	left join ob_bp on ob.visit_occurrence_id = ob_bp.visit_occurrence_id AND ob_bp.value_as_concept_id = ob_sys.value_as_concept_id
-	where coalesce(ob_ht.value_as_number, ob_wt.value_as_number, ob_dia.value_as_number, ob_sys.value_as_number, ob_bmi.value_as_number) is not null;
-
-
---- Vital with CTE with fields
-
-WITH
-	ob as (select person_id, visit_occurrence_id, observation_concept_id, observation_date, observation_time  from omop.observation where observation_concept_id IN ('3023540','3013762','3034703','3019962','3013940','3012888','3018586','3035856','3009395','3004249','3038553')),
-	ob_ht as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3023540'),
-	ob_wt as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3013762'),
-	ob_bmi as (select visit_occurrence_id, observation_date, observation_time, value_as_number  from omop.observation where observation_concept_id = '3038553'),
-	ob_sys as (select visit_occurrence_id, observation_date, observation_time, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3018586','3035856','3009395','3004249')),
-	ob_dia as (select visit_occurrence_id, observation_date, observation_time, value_as_number, value_as_concept_id from omop.observation where observation_concept_id in ('3034703','3019962','3013940','3012888')), 
-	ob_bp as (select distinct visit_occurrence_id, observation_date, observation_time, value_as_concept_id, target_concept 
-	from ob inner join cz.cz_omop_pcornet_concept_map m on ob.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position') 
-SELECT distinct 
-	cast(ob.person_id as text) as patid,
-	cast(ob.visit_occurrence_id as text) as encounterid,
-	cast(date_part('year', ob.observation_date) as text)||'-'||lpad(cast(date_part('month', ob.observation_date) as text),2,'0')||'-'||lpad(cast(date_part
-	('day', ob.observation_date) as text),2,'0') as measure_date,
-	lpad(cast(date_part('hour', ob.observation_time) as text),2,'0')||':'||lpad(cast(date_part('minute', ob.observation_time) as text),2,'0') as measure_time,
-	null as vital_source,
-	ob_ht.value_as_number as ht,
-	ob_wt.value_as_number as wt,
-	ob_dia.value_as_number as diastolic,
-	ob_sys.value_as_number as systolic,
-	ob_bmi.value_as_number as original_bmi,
-	case when ob_bp.visit_occurrence_id is null then 'NI' else coalesce(ob_bp.target_concept,'OT') end as bp_position,
-	null as raw_vital_source,
-	null as raw_diastolic,
-	null as raw_systolic,
-	null as raw_bp_position
-FROM 
-	ob 
-	left join ob_ht on ob.visit_occurrence_id = ob_ht.visit_occurrence_id 
-		and ob.observation_date = ob_ht.observation_date and ob.observation_time = ob_ht.observation_time
-	left join ob_wt on ob.visit_occurrence_id = ob_wt.visit_occurrence_id 
-		and ob.observation_date = ob_wt.observation_date and ob.observation_time = ob_wt.observation_time
-	left join ob_sys on ob.visit_occurrence_id = ob_sys.visit_occurrence_id 
-		and ob.observation_date = ob_sys.observation_date and ob.observation_time = ob_sys.observation_time
-	left join ob_dia on ob.visit_occurrence_id = ob_dia.visit_occurrence_id 
-		and ob_sys.value_as_concept_id = ob_dia.value_as_concept_id
-	left join ob_bmi on ob.visit_occurrence_id = ob_bmi.visit_occurrence_id 
-		and ob.observation_date = ob_bmi.observation_date and ob.observation_time = ob_bmi.observation_time
-	left join ob_bp on ob.visit_occurrence_id = ob_bp.visit_occurrence_id AND ob_bp.value_as_concept_id = ob_sys.value_as_concept_id
+		and ob.observation_date = ob_bmi.observation_date 
+	left join cz.cz_omop_pcornet_concept_map m on ob_sys.observation_concept_id = m.source_concept_id AND m.source_concept_class='BP Position'
 	where coalesce(ob_ht.value_as_number, ob_wt.value_as_number, ob_dia.value_as_number, ob_sys.value_as_number, ob_bmi.value_as_number) is not null;

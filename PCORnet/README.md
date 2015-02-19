@@ -24,3 +24,4 @@ To re-generate the CDM DDL in the various dialects using the sqlalchemy CDM tabl
 2. Primary key constraints have been added to all tables, using the fields mentioned as unique for each table in the specification (SQLAlchemy table definitions require a primary key).
 3. No constraints or checks have been added to enforce the formatting or value sets declared on columns in the specification (this is an area for possible future improvement).
 4. No foreign key constraints have been added to enforce referential integrity on the relationships between tables mentioned in the specification (another area for possible future work).
+5. An auto-incrementing integer primary key called `vitalid` is added to the vital table.
