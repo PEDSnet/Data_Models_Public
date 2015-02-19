@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Numeric
+from sqlalchemy import Column, String, Numeric, Integer
 from sqlalchemy.schema import PrimaryKeyConstraint
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -102,12 +102,14 @@ class Procedure(Base):
     raw_px = Column('raw_px', String(length=1028))
     raw_px_type = Column('raw_px_type', String(length=1028))
 
+
 class Vital(Base):
     __tablename__ = 'vital'
     __table_args__ = (
-        PrimaryKeyConstraint('patid', 'measure_date', 'measure_time', name='vital_pkey'),
+        PrimaryKeyConstraint('vitalid', name='vital_pkey'),
     )
 
+    vitalid = Column('vitalid', Integer(), nullable=False)
     patid = Column('patid', String(length=1028))
     encounterid = Column('encounterid', String(length=1028))
     measure_date = Column('measure_date', String(length=10))
