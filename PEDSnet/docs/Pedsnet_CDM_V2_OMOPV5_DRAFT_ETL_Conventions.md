@@ -600,6 +600,7 @@ The visit payer table documents insurance information as it relates to a visit i
 
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
+visit_payer_id | Yes | Integer |A system-generated unique identifier for each visit payer relationship.
 visit_occurrence_id | Yes | Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
 plan_id | Yes | Integer | The id that corresponds to the payer plan
 plan_name | Yes | Varchar| The untransformed payer/plan name from the source data
