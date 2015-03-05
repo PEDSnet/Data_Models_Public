@@ -47,7 +47,7 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 * * *
 ## Table of Contents
-####[1.1 Person](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#11-person)
+####[1.1 Person](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#11-person-1)
 
 ####[1.2 Death](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#12-death-1)
 
