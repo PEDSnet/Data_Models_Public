@@ -71,7 +71,7 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 ####[1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#112-measurement)
 
-####[1.13 Fact Relationship](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#113-fact-relationship)
+####[1.13 Fact Relationship](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#113-fact-relationship-1)
 
 ####[1.14 Visit Payer](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#114-visit_payer)
 
