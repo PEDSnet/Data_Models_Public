@@ -43,6 +43,8 @@ NULL | A data field is not present in the source system. Note. This is not a 'NU
 
 ***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure and observation_period
 
+It is recommended to refer to the vocabulary documentation as provided by ODHSII for guidance on how to populate "concept_id" fields in the model and for any specific transformations in the vocabulary. http://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:data_etl
+
 * * *
 
 ## 1.1 PERSON
@@ -324,7 +326,7 @@ Chart availability | 4030450 | | NULL | No information
 - For all DRGs, set observation_concept_id = 3040464 (hospital discharge DRG)
 - To obtain correct value_as_concept_id for the DRG:
     - If the date for the DRG \< 10/1/2007, use concept_class = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
-    - If the date for the DRG \>=10/1/2007, use concept_class = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
+    - If the date for the DRG \>=10/1/2007, use concept_class = "DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
 
 **Note 2**: In the Observation table, the biobank flag and chart availability concept_ids can appear multiple times capturing changes in patient consent over time. The temporally most recent observation will be used to determine the current consent status.
 
@@ -471,8 +473,8 @@ Vital | 3035856 | | See Note 2 | Systolic Blood Pressure - Standing
 Vital | 3009395 | | See Note 2 | Systolic Blood Pressure - Supine
 Vital | 3004249 | | See Note 2 | Systolic BP Unknown/Other
 Vital | 3038553 | | See Note 1 | BMI
-Vital source | 44814721 | Observation Type | See Note 3 | Patient reported
-Vital source | 38000280 | Observation Type | See Note 3 | Healthcare delivery setting
+Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
+Measurement Type | 44818701 | Measurement Type | See Note 3 | Vital sign
 
 **Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_number field.
 **Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
@@ -508,7 +510,7 @@ Measurement | 666624 | Measurement | 66663 |  Asso with finding
 - Two rows in the FACT_RELATIONSHIP table link the *supine*  diastolic BP to the supine systolic BP.
 - Two rows in the FACT_RELATIONSHIP table link the *standing* diastolic BP to the standing systolic BP.
 
-**Note 3**: Vital source concept_ids are used as values for the measurement_type_concept_id field
+**Note 3**: Measurement type concept_ids are used as values for the measurement_type_concept_id field.
 In addition, the following observations are derived via the DCC (concept_ids to be assigned in future version of this document. However, concept_ids are not needed for ETL since these observations will be derived/calculated using scripts developed by DCC):
 
 - Body mass index in kg/m<sup>2</sup> if not directly extracted
