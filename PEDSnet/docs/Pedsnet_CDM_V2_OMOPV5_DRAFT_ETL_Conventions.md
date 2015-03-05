@@ -355,7 +355,7 @@ Chart availability | 4030450 | | NULL | No information
 - For all DRGs, set observation_concept_id = 3040464 (hospital discharge DRG)
 - To obtain correct value_as_concept_id for the DRG:
     - If the date for the DRG \< 10/1/2007, use concept_class = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
-    - If the date for the DRG \>=10/1/2007, use concept_class = "DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
+    - If the date for the DRG \>=10/1/2007, use concept_class = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
 
 **Note 2**: In the Observation table, the biobank flag and chart availability concept_ids can appear multiple times capturing changes in patient consent over time. The temporally most recent observation will be used to determine the current consent status.
 
