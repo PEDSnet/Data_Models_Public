@@ -36,7 +36,7 @@ Comments on this specification and ETL rules are welcome. Please send email to p
 
 Null Name | Definition of each field
  --- | ---
-NULL | A data field is not present in the source system. Note. This is not a 'NULL' string but the null value.
+NULL | A data field is not present in the source system. Note. This is not a 'NULL' string but the NULL value.
 'NI' = No Information | A data field is present in the source system, but the source value is null or blank
 'UN' = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value
 'OT' = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM
@@ -90,7 +90,7 @@ Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 person_id | Yes | Integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
 death_date | Yes | Datetime | The date the person was deceased. | <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> When the date of death is not present in the source data, use the date the source record was created. If there is no time associated with the date assert midnight.
-death_type_concept_id | Yes | Integer | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Type')</p> <p>select \* from concept where domain_id ='Death Type' yields 9 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("EHR record patient status "Deceased"")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
+death_type_concept_id | Yes | Integer | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Type')</p> <p>select \* from concept where domain_id ='Death Type' yields 9 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("EHR record patient status "Deceased")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
 cause_of_death_concept_id | No | Integer | A foreign referring to a standard concept identifier in the Vocabulary for conditions.
 cause_of_death_source_value | No | Varchar | The source code for the cause of death as it appears in the source. This code is mapped to a standard concept in the Vocabulary and the original code is stored here for reference.
 cause_source_concept_id | No | Integer | A foreign key to the vocbaulary concept that refers to the code used in the source. Note, this variable name is abbreviated to ensure it will be allowable across database platforms.
@@ -128,7 +128,7 @@ Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 care_site_id | Yes | Integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 care_site_name | No | Varchar | The description of the care site | 
-place_of_service_concept_id | No |  Integer | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv4). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Visit')</p> <p>select \* from concept where domain_id ='Visit' yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160 (vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814713 (vocabulary_id='PCORNet')</li> <li>Other: concept_id = 44814711 (vocabulary_id='PCORNet')</li> <li>No information: concept_id = 44814712 (vocabulary_id='PCORNet')</li></ul>
+place_of_service_concept_id | No |  Integer | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Visit')</p> <p>select \* from concept where domain_id ='Visit' yields 4 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Non-Acute Institutional Stay: concept_id = 42898160 (vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814713 (vocabulary_id='PCORNet')</li> <li>Other: concept_id = 44814711 (vocabulary_id='PCORNet')</li> <li>No information: concept_id = 44814712 (vocabulary_id='PCORNet')</li></ul>
 location_id | No |  Integer | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
 care_site_source_value | Yes |  Varchar | The identifier for the organization in the source data, stored here for reference. | <p>If care site source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate care site_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> <p>For EPIC EHRs, map care_site_id to Clarity Department.</p> Sites may consider using the care_site_id field value in this table as the pseudo-identifier as long as a local mapping from care_site_id to the real site identifier is maintained.
 place_of_service_source_value | No | Varchar | The source code for the place of service as it appears in the source data, stored here for reference.
@@ -619,135 +619,135 @@ http://www.abms.org/member-boards/specialty-subspecialty-certificates/
 ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
 --- | --- | --- | --- | ---
 Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty     | Specialty  
-Adolescent Medicine ||||
-Adult Congenital Heart Disease ||||
-Advanced Heart Failure and Transplant Cardiology ||||
-Aerospace Medicine ||||
+Adolescent Medicine |concept_id requested|||
+Adult Congenital Heart Disease |concept_id requested|||
+Advanced Heart Failure and Transplant Cardiology |concept_id requested|||
+Aerospace Medicine |concept_id requested|||
 Allergy and Immunology | 38004448 | Allergy/Immunology                | Provider Specialty | Specialty     | Specialty
 Anesthesiology |38004450 | Anesthesiology   | Provider Specialty | Specialty     | Specialty
-Anesthesiology Critical Care Medicine ||||
-Blood Banking/Transfusion Medicine ||||
-Brain Injury Medicine ||||
+Anesthesiology Critical Care Medicine |concept_id requested|||
+Blood Banking/Transfusion Medicine |concept_id requested|||
+Brain Injury Medicine |concept_id requested|||
 Cardiology |38004451 | Cardiology                       | Provider Specialty | Specialty     | Specialty 
-Cardiovascular Disease ||||
-Child Abuse Pediatrics ||||
-Child and Adolescent Psychiatry ||||
-Clinical Biochemical Genetics ||||
-Clinical Cardiac Electrophysiology ||||
-Clinical Cytogenetics ||||
-Clinical Genetics (MD) ||||
-Clinical Informatics ||||
-Clinical Molecular Genetics ||||
-Clinical Neurophysiology ||||
+Cardiovascular Disease |concept_id requested|||
+Child Abuse Pediatrics |concept_id requested|||
+Child and Adolescent Psychiatry |concept_id requested|||
+Clinical Biochemical Genetics |concept_id requested|||
+Clinical Cardiac Electrophysiology |concept_id requested|||
+Clinical Cytogenetics |concept_id requested|||
+Clinical Genetics (MD) |concept_id requested|||
+Clinical Informatics |concept_id requested|||
+Clinical Molecular Genetics |concept_id requested|||
+Clinical Neurophysiology |concept_id requested|||
 Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Provider Specialty | Specialty     | Specialty
-Complex General Surgical Oncology ||||
-Congenital Cardiac Surgery ||||
+Complex General Surgical Oncology |concept_id requested|||
+Congenital Cardiac Surgery |concept_id requested|||
 Critical Care Medicine | 38004500 | Critical care (intensivist)      | Provider Specialty | Specialty     | Specialty 
-Cytopathology ||||
+Cytopathology |concept_id requested|||
 Dermatology  |38004452 | Dermatology                        | Provider Specialty | Specialty     | Specialty 
-Dermatopathology ||||
-Developmental-Behavioral Pediatrics ||||
-Diagnostic Radiology ||||
-Emergency Medical Services ||||
+Dermatopathology |concept_id requested|||
+Developmental-Behavioral Pediatrics |concept_id requested|||
+Diagnostic Radiology |concept_id requested|||
+Emergency Medical Services |concept_id requested|||
 Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty | Specialty     | Specialty
-Endocrinology, Diabetes and Metabolism ||||
-Epilepsy ||||
+Endocrinology, Diabetes and Metabolism |concept_id requested|||
+Epilepsy |concept_id requested|||
 General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty     | Specialty
-Female Pelvic Medicine and Reconstructive Surgery ||||
-Female Pelvic Medicine and Reconstructive Surgery||||
-Forensic Psychiatry ||||
+Female Pelvic Medicine and Reconstructive Surgery |concept_id requested|||
+Female Pelvic Medicine and Reconstructive Surgery|concept_id requested|||
+Forensic Psychiatry |concept_id requested|||
 Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty     | Specialty
 General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty     | Specialty 
 Geriatric Medicine | 38004478 | Geriatric Medicine                   | Provider Specialty | Specialty     | Specialty
-Geriatric Psychiatry ||||
+Geriatric Psychiatry |concept_id requested|||
 Gynecologic Oncology |38004513 | Gynecology/Oncology              | Provider Specialty | Specialty     | Specialty 
 Hematology | 38004501 | Hematology                           | Provider Specialty | Specialty     | Specialty
-Hospice and Pallative Medicine ||||
+Hospice and Pallative Medicine |concept_id requested|||
 Infectious Disease | 38004484 | Infectious Disease                | Provider Specialty | Specialty     | Specialty
 General Internal Medicine | 38004456 | Internal Medicine| Provider Specialty | Specialty     | Specialty
-Internal Medicine - Critical Care Medicine ||||
-Interventional Cardiology ||||
+Internal Medicine - Critical Care Medicine |concept_id requested|||
+Interventional Cardiology |concept_id requested|||
 Interventional Radiology and Diagnostic Radiology |38004511 | Interventional Radiology | Provider Specialty | Specialty     | Specialty
-Maternal and Fetal Medicine ||||
-Medical Biochemical Genetics ||||
-Medical Genetics and Genomics ||||
+Maternal and Fetal Medicine |concept_id requested|||
+Medical Biochemical Genetics |concept_id requested|||
+Medical Genetics and Genomics |concept_id requested|||
 Medical Oncology |38004507 | Medical Oncology | Provider Specialty | Specialty     | Specialty
-Medical Physics ||||
-Medical Toxicology||||
-Molecular Genetic Pathology ||||
-Neonatal-Perinatal Medicine ||||
+Medical Physics |concept_id requested|||
+Medical Toxicology|concept_id requested|||
+Molecular Genetic Pathology |concept_id requested|||
+Neonatal-Perinatal Medicine |concept_id requested|||
 Nephrology | 38004479 | Nephrology                   | Provider Specialty | Specialty     | Specialty
-Neurodevelopmental Disabilities ||||
+Neurodevelopmental Disabilities |concept_id requested|||
 Neurological Surgery | 38004459 | Neurosurgery                    | Provider Specialty | Specialty     | Specialty
 General Neurology | 38004458 | Neurology                                     | Provider Specialty | Specialty     | Specialty
-Neurology with Special Qualification in Child Neurology ||||
-Neuromuscular Medicine ||||
-Neuropathology ||||
-Neuroradiology ||||
-Neurotology ||||
+Neurology with Special Qualification in Child Neurology |concept_id requested|||
+Neuromuscular Medicine |concept_id requested|||
+Neuropathology |concept_id requested|||
+Neuroradiology |concept_id requested|||
+Neurotology |concept_id requested|||
 Nuclear Medicine |38004476 | Nuclear Medicine                  | Provider Specialty | Specialty     | Specialty
-Nuclear Radiology ||||
+Nuclear Radiology |concept_id requested|||
 Obstetrics and Gynecology | 38004461 | Obstetrics/Gynecology              | Provider Specialty | Specialty     | Specialty
 Occupational Medicine |38004492 | Occupational Therapy              | Provider Specialty | Specialty     | Specialty
 Ophthalmology |  38004463 | Ophthalmology                       | Provider Specialty | Specialty     | Specialty  
-Orthopaedic Sports Medicine ||||
+Orthopaedic Sports Medicine |concept_id requested|||
 Orthopaedic Surgery |38004465 | Orthopedic Surgery                | Provider Specialty | Specialty     | Specialty
 Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty     | Specialty
 Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty     | Specialty
 Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty     | Specialty
-Pathology - Anatomic ||||
-Pathology - Chemical ||||
-Pathology - Clinical ||||
-Pathology - Forensic ||||
-Pathology - Hematology ||||
-Pathology - Medical Microbiology ||||
-Pathology - Molecular Genetic ||||
-Pathology - Pediatric ||||
-Pathology-Anatomic/Pathology-Clinical ||||
+Pathology - Anatomic |concept_id requested|||
+Pathology - Chemical |concept_id requested|||
+Pathology - Clinical |concept_id requested|||
+Pathology - Forensic |concept_id requested|||
+Pathology - Hematology |concept_id requested|||
+Pathology - Medical Microbiology |concept_id requested|||
+Pathology - Molecular Genetic |concept_id requested|||
+Pathology - Pediatric |concept_id requested|||
+Pathology-Anatomic/Pathology-Clinical |concept_id requested|||
 General Pediatrics | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty     | Specialty
-Pediatric Anesthesiology ||||
-Pediatric Cardiology ||||
-Pediatric Critical Care Medicine ||||
-Pediatric Dermatology ||||
-Pediatric Emergency Medicine ||||
-Pediatric Endocrinology ||||
-Pediatric Gastroenterology ||||
-Pediatric Hematology-Oncology ||||
-Pediatric Infectious Diseases ||||
-Pediatric Nephrology |||| 
-Pediatric Otolaryngology ||||
-Pediatric Pulmonology ||||
-Pediatric Radiology ||||
-Pediatric Rehabilitation Medicine ||||
-Pediatric Rheumatology ||||
-Pediatric Surgery ||||
-Pediatric Transplant Hepatology ||||
-Pediatric Urology||||
+Pediatric Anesthesiology |concept_id requested|||
+Pediatric Cardiology |concept_id requested|||
+Pediatric Critical Care Medicine |concept_id requested|||
+Pediatric Dermatology |concept_id requested|||
+Pediatric Emergency Medicine |concept_id requested|||
+Pediatric Endocrinology |concept_id requested|||
+Pediatric Gastroenterology |concept_id requested|||
+Pediatric Hematology-Oncology |concept_id requested|||
+Pediatric Infectious Diseases |concept_id requested|||
+Pediatric Nephrology |concept_id requested||| 
+Pediatric Otolaryngology |concept_id requested|||
+Pediatric Pulmonology |concept_id requested|||
+Pediatric Radiology |concept_id requested|||
+Pediatric Rehabilitation Medicine |concept_id requested|||
+Pediatric Rheumatology |concept_id requested|||
+Pediatric Surgery |concept_id requested|||
+Pediatric Transplant Hepatology |concept_id requested|||
+Pediatric Urology|concept_id requested|||
 Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty     | Specialty
 Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty     | Specialty 
-Plastic Surgery Within the Head and Neck ||||
+Plastic Surgery Within the Head and Neck |concept_id requested|||
 Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty     | Specialty
 Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty     | Specialty
-Psychosomatic Medicine ||||
-Public Health and General Preventive Medicine ||||
+Psychosomatic Medicine |concept_id requested|||
+Public Health and General Preventive Medicine |concept_id requested|||
 Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty     | Specialty
 Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty     | Specialty
-Radiology ||||
-Reproductive Endocrinology/Infertility ||||
+Radiology |concept_id requested|||
+Reproductive Endocrinology/Infertility |concept_id requested|||
 Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty     | Specialty
-Sleep Medicine ||||
+Sleep Medicine |concept_id requested|||
 Spinal Cord Injury Medicine ||||
-Sports Medicine ||||
+Sports Medicine |concept_id requested|||
 General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty     | Specialty
 Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty     | Specialty
-Surgical Critical Care ||||
+Surgical Critical Care |concept_id requested|||
 Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     | Specialty  
-Thoracic and Cardiac Surgery ||||
-Transplant Hepatology ||||
-Undersea and Hyperbaric Medicine ||||
+Thoracic and Cardiac Surgery |concept_id requested|||
+Transplant Hepatology |concept_id requested|||
+Undersea and Hyperbaric Medicine |concept_id requested|||
 Urology | 38004474 | Urology                                   | Provider Specialty | Specialty     | Specialty
-Vascular and Interventional Radiology ||||
-Vascular Neurology ||||
+Vascular and Interventional Radiology |concept_id requested|||
+Vascular Neurology |concept_id requested|||
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty     | Specialty
 
 
