@@ -46,7 +46,17 @@ NULL | A data field is not present in the source system. Note. This is not a 'NU
 It is recommended to refer to the vocabulary documentation as provided by ODHSII for guidance on how to populate "concept_id" fields in the model and for any specific transformations in the vocabulary. http://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:data_etl
 
 * * *
+## Table of Contents
+####[1.1 Person](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#11-person)
 
+####[1.2 Death](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#12-death)
+
+####[1.3 Location](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#13-location)
+
+####[1.4 Caresite](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#14-care_site)
+
+
+* * *
 ## 1.1 PERSON
 
 The person domain contains records that uniquely identify each patient in the source data who is time at-risk to have clinical observations recorded within the source systems. Each person record has associated demographic attributes, which are assumed to be constant for the patient throughout the course of their periods of observation. All other patient-related data domains have a foreign-key reference to the person domain.
