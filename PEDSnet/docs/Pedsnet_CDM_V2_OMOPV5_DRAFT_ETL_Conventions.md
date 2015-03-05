@@ -53,15 +53,15 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 ####[1.3 Location](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#13-location-1)
 
-####[1.4 Caresite](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#14-care_site-1)
+####[1.4 Caresite](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#14-care_site)
 
 ####[1.5 Provider](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#15-provider-1)
 
-####[1.6 Visit Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#16-visit_occurrence-1)
+####[1.6 Visit Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#16-visit_occurrence)
 
-####[1.7 Condition Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#17-condition_occurrence-1)
+####[1.7 Condition Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#17-condition_occurrence)
 
-####[1.8 Procedure Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#18-procedure_occurrence-1)
+####[1.8 Procedure Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#18-procedure_occurrence)
 
 ####[1.9 Observation](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#19-observation-1)
 
