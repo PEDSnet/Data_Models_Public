@@ -652,9 +652,6 @@ http://www.abms.org/member-boards/specialty-subspecialty-certificates/
 ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
 --- | --- | --- | --- | ---
 Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty   
-Adolescent Medicine |45756747 |Adolescent MedicineABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
---- | --- | --- | --- | ---
-Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty   
 Adolescent Medicine |45756747 |Adolescent Medicine|Provider Specialty | ABMS
 Adult Congenital Heart Disease |45756748  |Adult Congenital Heart Disease|Provider Specialty |  ABMS
 Advanced Heart Failure and Transplant Cardiology |45756749 |Advanced Heart Failure and Transplant Cardiology|  Provider Specialty | ABMS
@@ -676,7 +673,7 @@ Clinical Informatics |45756761|Clinical Informatics|Provider Specialty |  ABMS
 Clinical Molecular Genetics |45756762|Clinical Molecular Genetics|Provider Specialty |  ABMS
 Clinical Neurophysiology |45756763|Clinical Neurophysiology |Provider Specialty |  ABMS
 Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Provider Specialty | Specialty   
-Complex General Surgical Oncology |45756764|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Complex General Surgical Oncology |45756764|| Provider Specialty | ABMS
 Congenital Cardiac Surgery |45756765|Congenital Cardiac Surgery |Provider Specialty |  ABMS
 Critical Care Medicine | 38004500 | Critical care (intensivist)      | Provider Specialty | Specialty    
 Cytopathology |45756766|Cytopathology |Provider Specialty |  ABMS
@@ -689,7 +686,7 @@ Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty 
 Endocrinology, Diabetes and Metabolism |45756771  |Endocrinology, Diabetes and Metabolism|Provider Specialty |  ABMS
 Epilepsy |45756772   |Epilepsy|Provider Specialty |  ABMS
 General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty   
-Female Pelvic Medicine and Reconstructive Surgery|45756773 |Provider Specialty |  ABMSProvider Specialty |  ABMS
+Female Pelvic Medicine and Reconstructive Surgery|45756773 || Provider Specialty | ABMS
 Forensic Psychiatry |45756775|Forensic Psychiatry|Provider Specialty |  ABMS
 Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty   
 General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty    
@@ -730,59 +727,59 @@ Orthopaedic Surgery |38004465 | Orthopedic Surgery                | Provider Spe
 Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty   
 Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty   
 Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty   
-Pathology - Anatomic |45756795|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Chemical |45756796|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Clinical |45756797|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Forensic |45756798|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Hematology |45756799|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Medical Microbiology |45756800 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Molecular Genetic |45756801|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Pediatric |45756802|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology-Anatomic/Pathology-Clinical |45756803|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Pathology - Anatomic |45756795|| Provider Specialty | ABMS
+Pathology - Chemical |45756796|| Provider Specialty | ABMS
+Pathology - Clinical |45756797|| Provider Specialty | ABMS
+Pathology - Forensic |45756798|| Provider Specialty | ABMS
+Pathology - Hematology |45756799|| Provider Specialty | ABMS
+Pathology - Medical Microbiology |45756800 || Provider Specialty | ABMS
+Pathology - Molecular Genetic |45756801|| Provider Specialty | ABMS
+Pathology - Pediatric |45756802|| Provider Specialty | ABMS
+Pathology-Anatomic/Pathology-Clinical |45756803|| Provider Specialty | ABMS
 General Pediatrics | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty   
-Pediatric Anesthesiology |45756804|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Cardiology |45756805|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Critical Care Medicine |45756806|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Dermatology |45756807|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Emergency Medicine |45756808|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Endocrinology |45756809|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Gastroenterology |45756810 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Hematology-Oncology |45756811 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Infectious Diseases |45756812 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Nephrology |45756813 |Provider Specialty |  ABMSProvider Specialty |  ABMS 
-Pediatric Otolaryngology |45756814|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Pulmonology |45756815|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Radiology |45756816|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Rehabilitation Medicine |45756817|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Rheumatology |45756818|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Surgery |45756819|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Transplant Hepatology |45756820|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Urology|45756821|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Pediatric Anesthesiology |45756804|| Provider Specialty | ABMS
+Pediatric Cardiology |45756805|| Provider Specialty | ABMS
+Pediatric Critical Care Medicine |45756806|| Provider Specialty | ABMS
+Pediatric Dermatology |45756807|| Provider Specialty | ABMS
+Pediatric Emergency Medicine |45756808|| Provider Specialty | ABMS
+Pediatric Endocrinology |45756809|| Provider Specialty | ABMS
+Pediatric Gastroenterology |45756810 || Provider Specialty | ABMS
+Pediatric Hematology-Oncology |45756811 || Provider Specialty | ABMS
+Pediatric Infectious Diseases |45756812 || Provider Specialty | ABMS
+Pediatric Nephrology |45756813 || Provider Specialty | ABMS 
+Pediatric Otolaryngology |45756814|| Provider Specialty | ABMS
+Pediatric Pulmonology |45756815|| Provider Specialty | ABMS
+Pediatric Radiology |45756816|| Provider Specialty | ABMS
+Pediatric Rehabilitation Medicine |45756817|| Provider Specialty | ABMS
+Pediatric Rheumatology |45756818|| Provider Specialty | ABMS
+Pediatric Surgery |45756819|| Provider Specialty | ABMS
+Pediatric Transplant Hepatology |45756820|| Provider Specialty | ABMS
+Pediatric Urology|45756821|| Provider Specialty | ABMS
 Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty   
 Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty    
-Plastic Surgery Within the Head and Neck |45756822|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Plastic Surgery Within the Head and Neck |45756822|| Provider Specialty | ABMS
 Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty   
 Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty   
-Psychosomatic Medicine |45756823 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Public Health and General Preventive Medicine |45756824|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Psychosomatic Medicine |45756823 || Provider Specialty | ABMS
+Public Health and General Preventive Medicine |45756824|| Provider Specialty | ABMS
 Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty   
 Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty   
-Radiology |45756825|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Reproductive Endocrinology/Infertility |45756826|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Radiology |45756825|| Provider Specialty | ABMS
+Reproductive Endocrinology/Infertility |45756826|| Provider Specialty | ABMS
 Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty   
-Sleep Medicine |45756827|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Spinal Cord Injury Medicine |Provider Specialty |  ABMSProvider Specialty |  ABMS|
-Sports Medicine |45756828|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Sleep Medicine |45756827|| Provider Specialty | ABMS
+Spinal Cord Injury Medicine || Provider Specialty | ABMS|
+Sports Medicine |45756828|| Provider Specialty | ABMS
 General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty   
 Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty   
-Surgical Critical Care |45756829|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Surgical Critical Care |45756829|| Provider Specialty | ABMS
 Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     
-Thoracic and Cardiac Surgery |45756830|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Transplant Hepatology |45756831|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Undersea and Hyperbaric Medicine |45756832 |Provider Specialty |  ABMSProvider Specialty |  ABMS
+Thoracic and Cardiac Surgery |45756830|| Provider Specialty | ABMS
+Transplant Hepatology |45756831|| Provider Specialty | ABMS
+Undersea and Hyperbaric Medicine |45756832 || Provider Specialty | ABMS
 Urology | 38004474 | Urology                                   | Provider Specialty | Specialty   
-Vascular and Interventional Radiology |45756833|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Vascular Neurology |45756834|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Vascular and Interventional Radiology |45756833|| Provider Specialty | ABMS
+Vascular Neurology |45756834|| Provider Specialty | ABMS
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty   
 Adult Congenital Heart Disease |45756748  |Adult Congenital Heart Disease|Provider Specialty |  ABMS
 Advanced Heart Failure and Transplant Cardiology |45756749 |Advanced Heart Failure and Transplant Cardiology|  Provider Specialty | ABMS
@@ -804,7 +801,7 @@ Clinical Informatics |45756761|Clinical Informatics|Provider Specialty |  ABMS
 Clinical Molecular Genetics |45756762|Clinical Molecular Genetics|Provider Specialty |  ABMS
 Clinical Neurophysiology |45756763|Clinical Neurophysiology |Provider Specialty |  ABMS
 Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Provider Specialty | Specialty   
-Complex General Surgical Oncology |45756764|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Complex General Surgical Oncology |45756764|| Provider Specialty | ABMS
 Congenital Cardiac Surgery |45756765|Congenital Cardiac Surgery |Provider Specialty |  ABMS
 Critical Care Medicine | 38004500 | Critical care (intensivist)      | Provider Specialty | Specialty    
 Cytopathology |45756766|Cytopathology |Provider Specialty |  ABMS
@@ -817,7 +814,7 @@ Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty 
 Endocrinology, Diabetes and Metabolism |45756771  |Endocrinology, Diabetes and Metabolism|Provider Specialty |  ABMS
 Epilepsy |45756772   |Epilepsy|Provider Specialty |  ABMS
 General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty   
-Female Pelvic Medicine and Reconstructive Surgery|45756773 |Provider Specialty |  ABMSProvider Specialty |  ABMS
+Female Pelvic Medicine and Reconstructive Surgery|45756773 || Provider Specialty | ABMS
 Forensic Psychiatry |45756775|Forensic Psychiatry|Provider Specialty |  ABMS
 Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty   
 General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty    
@@ -858,59 +855,59 @@ Orthopaedic Surgery |38004465 | Orthopedic Surgery                | Provider Spe
 Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty   
 Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty   
 Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty   
-Pathology - Anatomic |45756795|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Chemical |45756796|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Clinical |45756797|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Forensic |45756798|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Hematology |45756799|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Medical Microbiology |45756800 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Molecular Genetic |45756801|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology - Pediatric |45756802|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pathology-Anatomic/Pathology-Clinical |45756803|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Pathology - Anatomic |45756795|| Provider Specialty | ABMS
+Pathology - Chemical |45756796|| Provider Specialty | ABMS
+Pathology - Clinical |45756797|| Provider Specialty | ABMS
+Pathology - Forensic |45756798|| Provider Specialty | ABMS
+Pathology - Hematology |45756799|| Provider Specialty | ABMS
+Pathology - Medical Microbiology |45756800 || Provider Specialty | ABMS
+Pathology - Molecular Genetic |45756801|| Provider Specialty | ABMS
+Pathology - Pediatric |45756802|| Provider Specialty | ABMS
+Pathology-Anatomic/Pathology-Clinical |45756803|| Provider Specialty | ABMS
 General Pediatrics | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty   
-Pediatric Anesthesiology |45756804|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Cardiology |45756805|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Critical Care Medicine |45756806|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Dermatology |45756807|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Emergency Medicine |45756808|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Endocrinology |45756809|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Gastroenterology |45756810 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Hematology-Oncology |45756811 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Infectious Diseases |45756812 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Nephrology |45756813 |Provider Specialty |  ABMSProvider Specialty |  ABMS 
-Pediatric Otolaryngology |45756814|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Pulmonology |45756815|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Radiology |45756816|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Rehabilitation Medicine |45756817|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Rheumatology |45756818|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Surgery |45756819|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Transplant Hepatology |45756820|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Pediatric Urology|45756821|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Pediatric Anesthesiology |45756804|| Provider Specialty | ABMS
+Pediatric Cardiology |45756805|| Provider Specialty | ABMS
+Pediatric Critical Care Medicine |45756806|| Provider Specialty | ABMS
+Pediatric Dermatology |45756807|| Provider Specialty | ABMS
+Pediatric Emergency Medicine |45756808|| Provider Specialty | ABMS
+Pediatric Endocrinology |45756809|| Provider Specialty | ABMS
+Pediatric Gastroenterology |45756810 || Provider Specialty | ABMS
+Pediatric Hematology-Oncology |45756811 || Provider Specialty | ABMS
+Pediatric Infectious Diseases |45756812 || Provider Specialty | ABMS
+Pediatric Nephrology |45756813 || Provider Specialty | ABMS 
+Pediatric Otolaryngology |45756814|| Provider Specialty | ABMS
+Pediatric Pulmonology |45756815|| Provider Specialty | ABMS
+Pediatric Radiology |45756816|| Provider Specialty | ABMS
+Pediatric Rehabilitation Medicine |45756817|| Provider Specialty | ABMS
+Pediatric Rheumatology |45756818|| Provider Specialty | ABMS
+Pediatric Surgery |45756819|| Provider Specialty | ABMS
+Pediatric Transplant Hepatology |45756820|| Provider Specialty | ABMS
+Pediatric Urology|45756821|| Provider Specialty | ABMS
 Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty   
 Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty    
-Plastic Surgery Within the Head and Neck |45756822|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Plastic Surgery Within the Head and Neck |45756822|| Provider Specialty | ABMS
 Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty   
 Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty   
-Psychosomatic Medicine |45756823 |Provider Specialty |  ABMSProvider Specialty |  ABMS
-Public Health and General Preventive Medicine |45756824|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Psychosomatic Medicine |45756823 || Provider Specialty | ABMS
+Public Health and General Preventive Medicine |45756824|| Provider Specialty | ABMS
 Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty   
 Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty   
-Radiology |45756825|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Reproductive Endocrinology/Infertility |45756826|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Radiology |45756825|| Provider Specialty | ABMS
+Reproductive Endocrinology/Infertility |45756826|| Provider Specialty | ABMS
 Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty   
-Sleep Medicine |45756827|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Spinal Cord Injury Medicine |Provider Specialty |  ABMSProvider Specialty |  ABMS|
-Sports Medicine |45756828|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Sleep Medicine |45756827|| Provider Specialty | ABMS
+Spinal Cord Injury Medicine || Provider Specialty | ABMS|
+Sports Medicine |45756828|| Provider Specialty | ABMS
 General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty   
 Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty   
-Surgical Critical Care |45756829|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Surgical Critical Care |45756829|| Provider Specialty | ABMS
 Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     
-Thoracic and Cardiac Surgery |45756830|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Transplant Hepatology |45756831|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Undersea and Hyperbaric Medicine |45756832 |Provider Specialty |  ABMSProvider Specialty |  ABMS
+Thoracic and Cardiac Surgery |45756830|| Provider Specialty | ABMS
+Transplant Hepatology |45756831|| Provider Specialty | ABMS
+Undersea and Hyperbaric Medicine |45756832 || Provider Specialty | ABMS
 Urology | 38004474 | Urology                                   | Provider Specialty | Specialty   
-Vascular and Interventional Radiology |45756833|Provider Specialty |  ABMSProvider Specialty |  ABMS
-Vascular Neurology |45756834|Provider Specialty |  ABMSProvider Specialty |  ABMS
+Vascular and Interventional Radiology |45756833|| Provider Specialty | ABMS
+Vascular Neurology |45756834|| Provider Specialty | ABMS
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty   
 
 
