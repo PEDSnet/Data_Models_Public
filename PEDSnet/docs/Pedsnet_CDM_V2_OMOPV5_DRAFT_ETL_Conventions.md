@@ -649,136 +649,135 @@ http://www.abms.org/member-boards/specialty-subspecialty-certificates/
 
 ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
 --- | --- | --- | --- | ---
-Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty     | Specialty  
-Adolescent Medicine |concept_id requested|||
-Adult Congenital Heart Disease |concept_id requested|||
-Advanced Heart Failure and Transplant Cardiology |concept_id requested|||
-Aerospace Medicine |concept_id requested|||
-Allergy and Immunology | 38004448 | Allergy/Immunology                | Provider Specialty | Specialty     | Specialty
-Anesthesiology |38004450 | Anesthesiology   | Provider Specialty | Specialty     | Specialty
-Anesthesiology Critical Care Medicine |concept_id requested|||
-Blood Banking/Transfusion Medicine |concept_id requested|||
-Brain Injury Medicine |concept_id requested|||
-Cardiology |38004451 | Cardiology                       | Provider Specialty | Specialty     | Specialty 
-Cardiovascular Disease |concept_id requested|||
-Child Abuse Pediatrics |concept_id requested|||
-Child and Adolescent Psychiatry |concept_id requested|||
-Clinical Biochemical Genetics |concept_id requested|||
-Clinical Cardiac Electrophysiology |concept_id requested|||
-Clinical Cytogenetics |concept_id requested|||
-Clinical Genetics (MD) |concept_id requested|||
-Clinical Informatics |concept_id requested|||
-Clinical Molecular Genetics |concept_id requested|||
-Clinical Neurophysiology |concept_id requested|||
+Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty   
+Adolescent Medicine |45756747 |Adolescent Medicine|Provider Specialty | ABMS
+Adult Congenital Heart Disease |45756748  |Adult Congenital Heart Disease|Provider Specialty |  ABMS
+Advanced Heart Failure and Transplant Cardiology |45756749 |Advanced Heart Failure and Transplant Cardiology|  Provider Specialty | ABMS
+Aerospace Medicine |45756750 |Aerospace Medicine| Provider Specialty | ABMS
+Allergy and Immunology | 38004448 | Allergy/Immunology                | Provider Specialty | Specialty    
+Anesthesiology |38004450 | Anesthesiology   | Provider Specialty | Specialty    
+Anesthesiology Critical Care Medicine |45756751 |Anesthesiology Critical Care Medicine|Provider Specialty | Specialty
+Blood Banking/Transfusion Medicine |45756752|Blood Banking/Transfusion Medicine|Provider Specialty |  ABMS
+Brain Injury Medicine |45756753 |Brain Injury Medicine|Provider Specialty |  ABMS
+Cardiology |38004451 | Cardiology                       | Provider Specialty | Specialty 
+Cardiovascular Disease |45756754 |Cardiovascular Disease||
+Child Abuse Pediatrics |45756755 |Child Abuse Pediatrics ||
+Child and Adolescent Psychiatry |45756756|Child and Adolescent Psychiatry||
+Clinical Biochemical Genetics |45756757|Clinical Biochemical Genetics||
+Clinical Cardiac Electrophysiology |45756758|Clinical Cardiac Electrophysiology ||
+Clinical Cytogenetics |45756759 |Clinical Cytogenetics||
+Clinical Genetics (MD) |45756760|Clinical Genetics (MD)||
+Clinical Informatics |45756761|Clinical Informatics||
+Clinical Molecular Genetics |45756762|Clinical Molecular Genetics||
+Clinical Neurophysiology |45756763|Clinical Neurophysiology ||
 Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Provider Specialty | Specialty     | Specialty
-Complex General Surgical Oncology |concept_id requested|||
-Congenital Cardiac Surgery |concept_id requested|||
+Complex General Surgical Oncology |45756764|||
+Congenital Cardiac Surgery |45756765|Congenital Cardiac Surgery ||
 Critical Care Medicine | 38004500 | Critical care (intensivist)      | Provider Specialty | Specialty     | Specialty 
-Cytopathology |concept_id requested|||
+Cytopathology |45756766|Cytopathology ||
 Dermatology  |38004452 | Dermatology                        | Provider Specialty | Specialty     | Specialty 
-Dermatopathology |concept_id requested|||
-Developmental-Behavioral Pediatrics |concept_id requested|||
-Diagnostic Radiology |concept_id requested|||
-Emergency Medical Services |concept_id requested|||
+Dermatopathology |45756767|Dermatopathology||
+Developmental-Behavioral Pediatrics |45756768|Developmental-Behavioral Pediatrics||
+Diagnostic Radiology |45756769|Diagnostic Radiology||
+Emergency Medical Services |45756770|Emergency Medical Services||
 Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty | Specialty     | Specialty
-Endocrinology, Diabetes and Metabolism |concept_id requested|||
-Epilepsy |concept_id requested|||
+Endocrinology, Diabetes and Metabolism |45756771  |Endocrinology, Diabetes and Metabolism||
+Epilepsy |45756772   |Epilepsy||
 General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty     | Specialty
-Female Pelvic Medicine and Reconstructive Surgery |concept_id requested|||
-Female Pelvic Medicine and Reconstructive Surgery|concept_id requested|||
-Forensic Psychiatry |concept_id requested|||
+Female Pelvic Medicine and Reconstructive Surgery|45756773 |||
+Forensic Psychiatry |45756775|Forensic Psychiatry||
 Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty     | Specialty
 General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty     | Specialty 
 Geriatric Medicine | 38004478 | Geriatric Medicine                   | Provider Specialty | Specialty     | Specialty
-Geriatric Psychiatry |concept_id requested|||
+Geriatric Psychiatry |45756776|Geriatric Psychiatry||
 Gynecologic Oncology |38004513 | Gynecology/Oncology              | Provider Specialty | Specialty     | Specialty 
 Hematology | 38004501 | Hematology                           | Provider Specialty | Specialty     | Specialty
-Hospice and Pallative Medicine |concept_id requested|||
+Hospice and Pallative Medicine |45756777 |Hospice and Pallative Medicine||
 Infectious Disease | 38004484 | Infectious Disease                | Provider Specialty | Specialty     | Specialty
 General Internal Medicine | 38004456 | Internal Medicine| Provider Specialty | Specialty     | Specialty
-Internal Medicine - Critical Care Medicine |concept_id requested|||
-Interventional Cardiology |concept_id requested|||
+Internal Medicine - Critical Care Medicine |45756778|Internal Medicine - Critical Care Medicine||
+Interventional Cardiology |45756779 |Interventional Cardiology||
 Interventional Radiology and Diagnostic Radiology |38004511 | Interventional Radiology | Provider Specialty | Specialty     | Specialty
-Maternal and Fetal Medicine |concept_id requested|||
-Medical Biochemical Genetics |concept_id requested|||
-Medical Genetics and Genomics |concept_id requested|||
+Maternal and Fetal Medicine |45756780|Maternal and Fetal Medicine ||
+Medical Biochemical Genetics |45756781|Medical Biochemical Genetics||
+Medical Genetics and Genomics |45756782 |Medical Genetics and Genomics||
 Medical Oncology |38004507 | Medical Oncology | Provider Specialty | Specialty     | Specialty
-Medical Physics |concept_id requested|||
-Medical Toxicology|concept_id requested|||
-Molecular Genetic Pathology |concept_id requested|||
-Neonatal-Perinatal Medicine |concept_id requested|||
+Medical Physics |45756783|Medical Physics||
+Medical Toxicology|45756784|Medical Toxicology||
+Molecular Genetic Pathology |45756785|Molecular Genetic Pathology||
+Neonatal-Perinatal Medicine |45756786|Neonatal-Perinatal Medicine||
 Nephrology | 38004479 | Nephrology                   | Provider Specialty | Specialty     | Specialty
-Neurodevelopmental Disabilities |concept_id requested|||
+Neurodevelopmental Disabilities |45756787|Neurodevelopmental Disabilities||
 Neurological Surgery | 38004459 | Neurosurgery                    | Provider Specialty | Specialty     | Specialty
 General Neurology | 38004458 | Neurology                                     | Provider Specialty | Specialty     | Specialty
-Neurology with Special Qualification in Child Neurology |concept_id requested|||
-Neuromuscular Medicine |concept_id requested|||
-Neuropathology |concept_id requested|||
-Neuroradiology |concept_id requested|||
-Neurotology |concept_id requested|||
+Neurology with Special Qualification in Child Neurology |45756788|Neurology with Special Qualification in Child Neurology||
+Neuromuscular Medicine |45756789|Neuromuscular Medicine||
+Neuropathology |45756790 |Neuropathology||
+Neuroradiology |45756791|Neuroradiology||
+Neurotology |45756792|Neurotology||
 Nuclear Medicine |38004476 | Nuclear Medicine                  | Provider Specialty | Specialty     | Specialty
-Nuclear Radiology |concept_id requested|||
+Nuclear Radiology |45756793 |Nuclear Radiology||
 Obstetrics and Gynecology | 38004461 | Obstetrics/Gynecology              | Provider Specialty | Specialty     | Specialty
 Occupational Medicine |38004492 | Occupational Therapy              | Provider Specialty | Specialty     | Specialty
 Ophthalmology |  38004463 | Ophthalmology                       | Provider Specialty | Specialty     | Specialty  
-Orthopaedic Sports Medicine |concept_id requested|||
+Orthopaedic Sports Medicine |45756794|Orthopaedic Sports Medicine||
 Orthopaedic Surgery |38004465 | Orthopedic Surgery                | Provider Specialty | Specialty     | Specialty
 Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty     | Specialty
 Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty     | Specialty
 Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty     | Specialty
-Pathology - Anatomic |concept_id requested|||
-Pathology - Chemical |concept_id requested|||
-Pathology - Clinical |concept_id requested|||
-Pathology - Forensic |concept_id requested|||
-Pathology - Hematology |concept_id requested|||
-Pathology - Medical Microbiology |concept_id requested|||
-Pathology - Molecular Genetic |concept_id requested|||
-Pathology - Pediatric |concept_id requested|||
-Pathology-Anatomic/Pathology-Clinical |concept_id requested|||
+Pathology - Anatomic |45756795|||
+Pathology - Chemical |45756796|||
+Pathology - Clinical |45756797|||
+Pathology - Forensic |45756798|||
+Pathology - Hematology |45756799|||
+Pathology - Medical Microbiology |45756800 |||
+Pathology - Molecular Genetic |45756801|||
+Pathology - Pediatric |45756802|||
+Pathology-Anatomic/Pathology-Clinical |45756803|||
 General Pediatrics | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty     | Specialty
-Pediatric Anesthesiology |concept_id requested|||
-Pediatric Cardiology |concept_id requested|||
-Pediatric Critical Care Medicine |concept_id requested|||
-Pediatric Dermatology |concept_id requested|||
-Pediatric Emergency Medicine |concept_id requested|||
-Pediatric Endocrinology |concept_id requested|||
-Pediatric Gastroenterology |concept_id requested|||
-Pediatric Hematology-Oncology |concept_id requested|||
-Pediatric Infectious Diseases |concept_id requested|||
-Pediatric Nephrology |concept_id requested||| 
-Pediatric Otolaryngology |concept_id requested|||
-Pediatric Pulmonology |concept_id requested|||
-Pediatric Radiology |concept_id requested|||
-Pediatric Rehabilitation Medicine |concept_id requested|||
-Pediatric Rheumatology |concept_id requested|||
-Pediatric Surgery |concept_id requested|||
-Pediatric Transplant Hepatology |concept_id requested|||
-Pediatric Urology|concept_id requested|||
+Pediatric Anesthesiology |45756804|||
+Pediatric Cardiology |45756805|||
+Pediatric Critical Care Medicine |45756806|||
+Pediatric Dermatology |45756807|||
+Pediatric Emergency Medicine |45756808|||
+Pediatric Endocrinology |45756809|||
+Pediatric Gastroenterology |45756810 |||
+Pediatric Hematology-Oncology |45756811 |||
+Pediatric Infectious Diseases |45756812 |||
+Pediatric Nephrology |45756813 ||| 
+Pediatric Otolaryngology |45756814|||
+Pediatric Pulmonology |45756815|||
+Pediatric Radiology |45756816|||
+Pediatric Rehabilitation Medicine |45756817|||
+Pediatric Rheumatology |45756818|||
+Pediatric Surgery |45756819|||
+Pediatric Transplant Hepatology |45756820|||
+Pediatric Urology|45756821|||
 Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty     | Specialty
 Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty     | Specialty 
-Plastic Surgery Within the Head and Neck |concept_id requested|||
+Plastic Surgery Within the Head and Neck |45756822|||
 Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty     | Specialty
 Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty     | Specialty
-Psychosomatic Medicine |concept_id requested|||
-Public Health and General Preventive Medicine |concept_id requested|||
+Psychosomatic Medicine |45756823 |||
+Public Health and General Preventive Medicine |45756824|||
 Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty     | Specialty
 Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty     | Specialty
-Radiology |concept_id requested|||
-Reproductive Endocrinology/Infertility |concept_id requested|||
+Radiology |45756825|||
+Reproductive Endocrinology/Infertility |45756826|||
 Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty     | Specialty
-Sleep Medicine |concept_id requested|||
+Sleep Medicine |45756827|||
 Spinal Cord Injury Medicine ||||
-Sports Medicine |concept_id requested|||
+Sports Medicine |45756828|||
 General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty     | Specialty
 Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty     | Specialty
-Surgical Critical Care |concept_id requested|||
+Surgical Critical Care |45756829|||
 Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     | Specialty  
-Thoracic and Cardiac Surgery |concept_id requested|||
-Transplant Hepatology |concept_id requested|||
-Undersea and Hyperbaric Medicine |concept_id requested|||
+Thoracic and Cardiac Surgery |45756830|||
+Transplant Hepatology |45756831|||
+Undersea and Hyperbaric Medicine |45756832 |||
 Urology | 38004474 | Urology                                   | Provider Specialty | Specialty     | Specialty
-Vascular and Interventional Radiology |concept_id requested|||
-Vascular Neurology |concept_id requested|||
+Vascular and Interventional Radiology |45756833|||
+Vascular Neurology |45756834|||
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty     | Specialty
 
 
