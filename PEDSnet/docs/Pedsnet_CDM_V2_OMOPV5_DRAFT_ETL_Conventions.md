@@ -75,6 +75,8 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 ####[1.14 Visit Payer](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#114-visit_payer)
 
+####[Appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
+
 * * *
 ## 1.1 PERSON
 
