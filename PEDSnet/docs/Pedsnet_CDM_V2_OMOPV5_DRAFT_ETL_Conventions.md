@@ -749,7 +749,7 @@ Radiology |45756825|Radiology| Provider Specialty | ABMS
 Reproductive Endocrinology/Infertility |45756826|Reproductive Endocrinology/Infertility| Provider Specialty | ABMS
 Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty   
 Sleep Medicine |45756827|Sleep Medicine| Provider Specialty | ABMS
-Spinal Cord Injury Medicine |Spinal Cord Injury Medicine | Provider Specialty | ABMS|
+Spinal Cord Injury Medicine| |Spinal Cord Injury Medicine | Provider Specialty | ABMS|
 Sports Medicine |45756828|Sports Medicine| Provider Specialty | ABMS
 General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty   
 Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty   
