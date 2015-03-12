@@ -745,15 +745,15 @@ Psychosomatic Medicine |45756823 |Psychosomatic Medicine | Provider Specialty | 
 Public Health and General Preventive Medicine |45756824|Public Health and General Preventive Medicine| Provider Specialty | ABMS
 Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty   
 Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty   
-Radiology |45756825|| Provider Specialty | ABMS
+Radiology |45756825|Radiology| Provider Specialty | ABMS
 Reproductive Endocrinology/Infertility |45756826|Reproductive Endocrinology/Infertility| Provider Specialty | ABMS
 Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty   
-Sleep Medicine |45756827|| Provider Specialty | ABMS
+Sleep Medicine |45756827|Sleep Medicine| Provider Specialty | ABMS
 Spinal Cord Injury Medicine |Spinal Cord Injury Medicine | Provider Specialty | ABMS|
 Sports Medicine |45756828|| Provider Specialty | ABMS
 General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty   
 Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty   
-Surgical Critical Care |45756829|| Provider Specialty | ABMS
+Surgical Critical Care |45756829|Surgical Critical Care | Provider Specialty | ABMS
 Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     
 Thoracic and Cardiac Surgery |45756830|Thoracic and Cardiac Surgery| Provider Specialty | ABMS
 Transplant Hepatology |45756831|Transplant Hepatology| Provider Specialty | ABMS
@@ -795,7 +795,7 @@ Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty 
 Endocrinology, Diabetes and Metabolism |45756771  |Endocrinology, Diabetes and Metabolism|Provider Specialty |  ABMS
 Epilepsy |45756772   |Epilepsy|Provider Specialty |  ABMS
 General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty   
-Female Pelvic Medicine and Reconstructive Surgery|45756773 || Provider Specialty | ABMS
+Female Pelvic Medicine and Reconstructive Surgery|45756773 |Female Pelvic Medicine and Reconstructive Surgery| Provider Specialty | ABMS
 Forensic Psychiatry |45756775|Forensic Psychiatry|Provider Specialty |  ABMS
 Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty   
 General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty    
@@ -866,11 +866,11 @@ Pediatric Transplant Hepatology |45756820|Pediatric Transplant Hepatology| Provi
 Pediatric Urology|45756821|Pediatric Urology| Provider Specialty | ABMS
 Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty   
 Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty    
-Plastic Surgery Within the Head and Neck |45756822|| Provider Specialty | ABMS
+Plastic Surgery Within the Head and Neck |45756822|Plastic Surgery Within the Head and Neck | Provider Specialty | ABMS
 Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty   
 Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty   
 Psychosomatic Medicine |45756823 |Psychosomatic Medicine| Provider Specialty | ABMS
-Public Health and General Preventive Medicine |45756824|| Provider Specialty | ABMS
+Public Health and General Preventive Medicine |45756824|Public Health and General Preventive Medicine| Provider Specialty | ABMS
 Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty   
 Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty   
 Radiology |45756825|Radiology| Provider Specialty | ABMS
@@ -888,7 +888,7 @@ Transplant Hepatology |45756831|Transplant Hepatology| Provider Specialty | ABMS
 Undersea and Hyperbaric Medicine |45756832 |Undersea and Hyperbaric Medicine| Provider Specialty | ABMS
 Urology | 38004474 | Urology                                   | Provider Specialty | Specialty   
 Vascular and Interventional Radiology |45756833|Vascular and Interventional Radiology| Provider Specialty | ABMS
-Vascular Neurology |45756834|| Provider Specialty | ABMS
+Vascular Neurology |45756834|Vascular Neurology| Provider Specialty | ABMS
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty   
 
 
