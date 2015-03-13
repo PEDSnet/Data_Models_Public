@@ -127,7 +127,7 @@ death_time | Yes | Datetime | The date the person was deceased. |<p>**This field
 death_type_concept_id | Yes | Integer | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Type')</p> <p>select \* from concept where domain_id ='Death Type' yields 9 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR so most likely concept_id to insert here is 38003569 ("EHR record patient status "Deceased")</p> Note: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
 cause_of_death_concept_id | No | Integer | A foreign referring to a standard concept identifier in the Vocabulary for conditions. | 
 cause_of_death_source_value | No | Varchar | The source code for the cause of death as it appears in the source. This code is mapped to a standard concept in the Vocabulary and the original code is stored here for reference.
-cause_source_concept_id | No | Integer | A foreign key to the vocbaulary concept that refers to the code used in the source.| This links to the concept id of the vocabulary of the cause of death concept id as stored in the source. For example, this may correspond to the ICD9 vocabulary concept id (44819098) if the cause of death in the source is listed as an icd9 code.
+cause_source_concept_id | No | Integer | A foreign key to the vocbaulary concept that refers to the code used in the source.| This links to the concept id of the vocabulary of the cause of death concept id as stored in the source. For example, if the cause of death is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the cause source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00.
 
 #### 1.2.1 Additional Notes
 
@@ -250,7 +250,7 @@ stop_reason | No | Varchar | The reason, if available, that the condition was no
 provider_id | No | Integer | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition. | **In PEDSnet CDM v1, this field was previously called associated_provider_id**<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Make a best-guess and document method used. Or leave blank
 visit_occurrence_id | No | Integer | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
 condition_source_value | No | Varchar | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.
-condition_source_concept_id | No | Integer | A foreign key to a condition concept that refers to the code used in the source| For example, this may correspond to the ICD9 vocabulary concept id (44819098) if the condition in the source is coded as an ICD9 code.
+condition_source_concept_id | No | Integer | A foreign key to a condition concept that refers to the code used in the source| For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00.
 
 #### 1.7.1 Additional Notes
 
@@ -282,7 +282,7 @@ procedure_type_concept_id | Yes | Integer | A foreign key to the predefined conc
 provider_id | No | Integer | A foreign key to the provider in the provider table who was responsible for carrying out the procedure. | <p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id | No | Integer | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
 procedure_source_value | No | Varchar | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
-procedure_source_concept_id | No | Integer | A foreign key to a procedure concept that refers to the code used in the source. (eg CPT, ICD9 Proc, HCPCS etc) | Examples: <ul><li>CPT = 44819100</li><li>ICD9 Proc=44819099 </li><li>HCPCS = 44819101</li></ul>
+procedure_source_concept_id | No | Integer | A foreign key to a procedure concept that refers to the code used in the source. For example, if the procedure is "Anesthesia for procedures on eye; lens surgery" in the source which has a concept code in the vocabulary that is 2100658. The procedure source concept id will be 2100658.
 qualifier_source_value | No | Varchar | The source code for the qualifier as it appears in the source data.
 
 #### 1.8.1 Additional notes
@@ -387,7 +387,7 @@ unit_concept_id | No | Integer | A foreign key to a standard concept identifier 
 provider_id | No | Integer | A foreign key to the provider in the provider table who was responsible for making the observation.
 visit_occurrence_id | No | Integer | A foreign key to the visit in the visit table during which the observation was recorded.
 observation_source_value | No | Varchar | The observation code as it appears in the source data. This code is mapped to a standard concept in the Vocabulary and the original code is, stored here for reference.
-observation_source_concept_id| No |Integer | A foreign key to a concept that refers to the code used in the source. | An example of where this is applicable is using the concept id in the vocabulary that corresponds to the DRG (44819130)
+observation_source_concept_id| No |Integer | A foreign key to a concept that refers to the code used in the source. |
 unit_source_value | No | Integer | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Vocabulary and the original code is, stored here for reference.
 qualifier_source_value |No | Varchar | The source value associated with a qualifier to characterize the observation
 
@@ -472,7 +472,7 @@ lot_number| No | Varchar | An identifier to determine where the product originat
 provider_id| No | Integer | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id| No | Integer | A foreign key to the visit in the visit table during which the drug exposure initiated. | See VISIT.visit_occurrence_id (primary key)
 drug_source_value| No| Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.
-drug_source_concept_id| No | Integer | A foreign key to a drug concept that refers to the code used in the source | Sites are to map this to the type of value in the source. Examples: <ul><li>GPI=44819106</li> <li>NDC=44819105</li> <li>etc..</li></ul>
+drug_source_concept_id| No | Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here.
 route_source_value| No| Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No| Varchar | The information about the dose unit as detailed in the source ||
 
@@ -585,7 +585,7 @@ range_high | No | Float | <p>Optional - Do not transmit to DCC.</p> The upper li
 provider_id | No | Integer | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No | Integer | A foreign key to the visit in the visit table during which the observation was recorded.
 measurement_source_value | Yes | Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. For lab values, it is suggested to include the (LAB ID\| PROCEDURE NAME \| COMPONENT NAME) combination as the measurement source value where applicable.
-measurement_source_concept_id| No| Integer | A foreign key to a concept that refers to the code used in the source.| 'LOINC' =44819263, 'SNOMED-CT'=44819097 etc
+measurement_source_concept_id| No| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary.
 unit_source_value| Yes| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc)
 value_source_value| Yes| Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
 
