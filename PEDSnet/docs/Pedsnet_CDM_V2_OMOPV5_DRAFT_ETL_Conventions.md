@@ -235,7 +235,10 @@ visit_occurrence_id | person_id |    visit_start_date    |     visit_end_date   
 
 **FACT_RELATIONSHIP**
 
-
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+Visit | 35022489| Visit | 35022490|  Occurs before/ Part of 
+Visit | 35022490 | Visit | 35022489 | Occurs after/ Part of 
 
 - Operating and Anesthesia encounters that occur as apart of the Inpatient stay should be rolled up into one Inpatient encounter.
 - Each Visit is standardized by assigning a corresponding Concept Identifier based on the type of facility visited and the type of services rendered.
