@@ -358,6 +358,24 @@ Chart availability (See Note 2) | 4030450 | | 4188539 | Yes
 Chart availability | 4030450 | | 4188540 | No
 Chart availability | 4030450 | | 0 | Unknown/Other
 Chart availability | 4030450 | | NULL | No information
+Tobacco Use | | | | Current every day smoker
+Tobacco Use | | | |  Current some day smoker
+Tobacco Use | | | |  Former smoker
+Tobacco Use | | | |  Never Smoker
+Tobacco Use | | | | Smoker, current status unknown
+Tobacco Use | | | | Unknown if ever smoked
+Tobacco Use | | | | Heavy tobacco smoker
+Tobacco Use | | | | Light tobacco smoker
+Tobacco Use | | | | No information
+Tobacco Use | | |0| Unknown
+Tobacco Use | | |0| Other
+Tobacco Type | | | | Cigarettes only
+Tobacco Type | | | | Other tobacco only
+Tobacco Type | | | | Cigarettes and other tobacco
+Tobacco Type | | | | None
+Tobacco Type | | | NULL | No information
+Tobacco Use | | |0| Unknown
+Tobacco Use | | |0| Other
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
 
