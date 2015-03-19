@@ -220,7 +220,7 @@ visit_source_concept_id | No | Integer | A foreign key to a concept that refers 
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is **NOT** applied to visit_occurrence. All visits, of all types (physical and virtual) are included for an active patient.
 - A Visit Occurrence is recorded for each visit to a healthcare facility.
-- **If a visit includes moving between different visit_concepts (ED -\> inpatient) this should be split into separate visit_occurrences to meet PCORnet's definitions**.
+- **If a visit includes moving between different visit_concepts (ED -\> inpatient) this should be split into separate visit_occurrence records to meet PCORnet's definitions**.
 
 **To show the relationship of the split (ED -\> inpatient) encounter, use the FACT_RELATIONSHIP table**.
 
