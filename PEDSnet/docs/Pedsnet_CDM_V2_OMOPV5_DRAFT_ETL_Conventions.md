@@ -220,12 +220,29 @@ visit_source_concept_id | No | Integer | A foreign key to a concept that refers 
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is **NOT** applied to visit_occurrence. All visits, of all types (physical and virtual) are included for an active patient.
 - A Visit Occurrence is recorded for each visit to a healthcare facility.
-- If a visit includes moving between different visit_concepts (ED -\> inpatient) this should be split into separate visit_occurrences to meet PCORnet's definitions.
+- **If a visit includes moving between different visit_concepts (ED -\> inpatient) this should be split into separate visit_occurrences to meet PCORnet's definitions**.
+
+**To show the relationship of the split (ED -\> inpatient) encounter, use the FACT_RELATIONSHIP table**.
+
+An example of this is below:
+
+**VISIT_OCCURRENCE**
+
+visit_occurrence_id | person_id |    visit_start_date    |     visit_end_date     | provider_id | care_site_id | place_of_service_concept_id | place_of_service_source_value 
+---------------------|-----------|---------|------------------------|-------------|--------------|------|---------------
+35022489 |    209846 | 2011-11-14 17:36:00-05 | 2011-11-14 22:25:00-05 |        2238 |          322 |                        9203 | Emergency
+35022490 |    209846 | 2011-11-14 22:25:00-05 | 2011-11-15 16:33:00-05 |        2238 |           43 |                        9201 | Emergency
+
+**FACT_RELATIONSHIP**
+
+
+
 - Operating and Anesthesia encounters that occur as apart of the Inpatient stay should be rolled up into one Inpatient encounter.
 - Each Visit is standardized by assigning a corresponding Concept Identifier based on the type of facility visited and the type of services rendered.
 - At any one day, there could be more than one visit.
 - One visit may involve multiple attending or billing providers (e.g. billing, attending, etc), in which case the ETL must specify how a single provider id is selected or leave the provider_id field null.
 - One visit may involve multiple care sites, in which case the ETL must specify how a single care_site id is selected or leave the care_site_id field null.
+
 
 ## 1.7 CONDITION_OCCURRENCE
 
