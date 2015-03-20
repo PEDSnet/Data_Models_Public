@@ -337,16 +337,16 @@ Biobank flag (see Note 2) | 4001345 | | 4188539 | Yes
 Biobank flag | 4001345 | | 4188540 | No
 Biobank flag | 4001345 | | NULL | No information
 Biobank flag | 4001345 | | 0 | Unknown/Other
-Admitting source | 4145666 | | 38004205 | Adult Foster Home
-Admitting source | 4145666 | | 38004301 | Assisted Living Facility
-Admitting source | 4145666 | | 38004207 | Ambulatory Visit
+Admitting source | 4145666 | | 44814670 | Adult Foster Home
+Admitting source | 4145666 | | 44814671 | Assisted Living Facility
+Admitting source | 4145666 | | 44814672 | Ambulatory Visit
 Admitting source | 4145666 | | 8870 | Emergency Department
-Admitting source | 4145666 | | 38004195 | Home Health
-Admitting source | 4145666 | | 8536 | Home / Self Care
+Admitting source | 4145666 | | 44814674 | Home Health
+Admitting source | 4145666 | | 44814675 | Home / Self Care
 Admitting source | 4145666 | | 8546 | Hospice
 Admitting source | 4145666 | | 38004279 | Other Acute Inpatient Hospital
-Admitting source | 4145666 | | 8676 | Nursing Home (Includes ICF)
-Admitting source | 4145666 | | 8920 | Rehabilitation Facility
+Admitting source | 4145666 | | 44814678 | Nursing Home (Includes ICF)
+Admitting source | 4145666 | | 44814679 | Rehabilitation Facility
 Admitting source | 4145666 | | 44814680 | Residential Facility | PCORNet
 Admitting source | 4145666 | | 8863 | Skilled Nursing Facility
 Admitting source | 4145666 | | 44814682 | No information | PCORNet
