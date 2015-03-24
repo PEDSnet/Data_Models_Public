@@ -326,6 +326,7 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 - Chart availability
 - DRG (requires special logic - see Note 1 below)
 - Tobacco Status
+- PROs (information and format provided by the DCC)
 
 Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary_id='Observation Type' and vocabulary_id='PCORNet' and one newly added standard concept from vocabulary_id='SNOMED'.
 
@@ -378,24 +379,24 @@ Chart availability (See Note 2) | 4030450 | | 4188539 | Yes
 Chart availability | 4030450 | | 4188540 | No
 Chart availability | 4030450 | | 0 | Unknown/Other
 Chart availability | 4030450 | | NULL | No information
-Tobacco Use | | | | Current every day smoker
-Tobacco Use | | | |  Current some day smoker
-Tobacco Use | | | |  Former smoker
-Tobacco Use | | | |  Never Smoker
-Tobacco Use | | | | Smoker, current status unknown
-Tobacco Use | | | | Unknown if ever smoked
-Tobacco Use | | | | Heavy tobacco smoker
-Tobacco Use | | | | Light tobacco smoker
-Tobacco Use | | | | No information
-Tobacco Use | | |0| Unknown
-Tobacco Use | | |0| Other
-Tobacco Type | | | | Cigarettes only
-Tobacco Type | | | | Other tobacco only
-Tobacco Type | | | | Cigarettes and other tobacco
-Tobacco Type | | | | None
-Tobacco Type | | | NULL | No information
-Tobacco Use | | |0| Unknown
-Tobacco Use | | |0| Other
+Tobacco Use |*concept id pending* | |*concept id pending* | Current every day smoker
+Tobacco Use | *concept id pending*| |*concept id pending* |  Current some day smoker
+Tobacco Use |*concept id pending* | |*concept id pending* |  Former smoker
+Tobacco Use |*concept id pending* | |*concept id pending* | Never Smoker
+Tobacco Use |*concept id pending* | |*concept id pending* |Smoker, current status unknown
+Tobacco Use |*concept id pending* | |*concept id pending* | Unknown if ever smoked
+Tobacco Use |*concept id pending* | |*concept id pending* | Heavy tobacco smoker
+Tobacco Use |*concept id pending* | |*concept id pending* | Light tobacco smoker
+Tobacco Use |*concept id pending* | |*concept id pending* | No information
+Tobacco Use |*concept id pending* | |0| Unknown
+Tobacco Use |*concept id pending* | |0| Other
+Tobacco Type |*concept id pending* | |*concept id pending* | Cigarettes only
+Tobacco Type |*concept id pending* | |*concept id pending* | Other tobacco only
+Tobacco Type |*concept id pending* | |*concept id pending* | Cigarettes and other tobacco
+Tobacco Type |*concept id pending* | |*concept id pending* | None
+Tobacco Type |*concept id pending* | | NULL | No information
+Tobacco Use |*concept id pending* | |0| Unknown
+Tobacco Use |*concept id pending* | |0| Other
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
 
@@ -535,9 +536,9 @@ Specifically this table includes:
     - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Vital source
-- PCORI Mandated Labs
-- Cohort specific Labs
-- Top 100 Labs of institution
+- PCORI Mandated Labs *list pending*
+- Cohort specific Labs *list pending*
+- Top 100 Institution Labs *list pending* 
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
