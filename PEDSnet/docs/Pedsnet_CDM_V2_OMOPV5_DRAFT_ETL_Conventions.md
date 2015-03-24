@@ -115,7 +115,7 @@ gender_source_value | No* | Varchar |  The source code for the gender of the per
 race_source_value | No* | Varchar |  The source code for the race of the person as it appears in the source data. | <p>The person race is mapped to a standard race concept in the Vocabulary and the original value is stored here for reference.</p> For patients with multiple races (i.e. biracial), race is considered a single concept, meaning there is only one race slot. If there are multiple races in the source system, concatenate all races into one source value, and use the concept_id for Multiple Race.
 ethnicity_source_value | No* | Varchar |  The source code for the ethnicity of the person as it appears in the source data. | The person ethnicity is mapped to a standard ethnicity concept in the Vocabulary and the original code is, stored here for reference.
 
-* **/*This field is important for responding to PCORNet queries. If sites have any information on this filed in the source EHR then these fields should be populated in the PEDSnet CDM instance**
+* **\*This field is important for responding to PCORNet queries. If sites have any information on this filed in the source EHR then these fields should be populated in the PEDSnet CDM instance**
 
 ## 1.2 DEATH
 
