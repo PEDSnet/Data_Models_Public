@@ -678,7 +678,6 @@ Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 visit_payer_id | Yes | Integer |A system-generated unique identifier for each visit payer relationship.
 visit_occurrence_id | Yes | Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
-plan_id | Yes | Integer | The id that corresponds to the payer plan
 plan_name | Yes | Varchar| The untransformed payer/plan name from the source data
 plan_type | No | Varchar |  A standardized interpretation of the plan structure; proposed value set would be HMO, PPO, POS, Fee for service, Other/unknown
 plan_class | Yes | Varchar | A list of the "payment sources" most often used in demographic analyses; proposed value would be Private/commercial, Medicaid/sCHIP, Medicare, Other public, Self-pay, Other/unknown
