@@ -327,7 +327,7 @@ qualifier_source_value | No | Varchar | The source code for the qualifier as it 
 
 ## 1.9 OBSERVATION
 
-The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. The observation domain supports capture of data not represented by other domains, including unstructored measurements, medical history and family history. For the PEDSnet CDM version 2, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id ='PCORNet'). ~~See Appendix for SQL INSERT statements that add the necessary rows in the CONCEPT table to support PCORnet CDM V2.0.~~
+The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. The observation domain supports capture of data not represented by other domains, including unstructored measurements, medical history and family history. For the PEDSnet CDM version 2, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id ='PCORNet').
 
 NOTE: DRG and DRG Type require special logic/processing described below.
 
