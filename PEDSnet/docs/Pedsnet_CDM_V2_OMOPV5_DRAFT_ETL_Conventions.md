@@ -337,8 +337,8 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 - Discharge status
 - Chart availability
 - DRG (requires special logic - see Note 1 below)
-- Tobacco Status
-- PROs (information and format provided by the DCC)
+- Tobacco Status (see Note 4)
+- PROs (information and format will be provided by the DCC)
 
 Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary_id='Observation Type' and vocabulary_id='PCORNet' and one newly added standard concept from vocabulary_id='SNOMED'.
 
@@ -421,6 +421,8 @@ Tobacco Use |*concept id pending* | |0| Other
 **Note 2**: In the Observation table, the biobank flag and chart availability concept_ids can appear multiple times capturing changes in patient consent over time. The temporally most recent observation will be used to determine the current consent status.
 
 **Note 3:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
+
+**Note 4:** If tobacco information is available at the visit level, please provide this information. If it is not sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
