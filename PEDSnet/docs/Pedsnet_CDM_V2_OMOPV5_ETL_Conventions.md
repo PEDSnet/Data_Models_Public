@@ -475,8 +475,8 @@ Observation_period_end_time | No | Datetime | The end date of the observation pe
 
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
 
-#DRAFT
-## 1.11 DRUG EXPOSURE 
+
+## 1.11 DRUG EXPOSURE (**DRAFT**)
 
 The drug exposure domain captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
@@ -542,7 +542,7 @@ dose_unit_source_value| No| Varchar | The information about the dose unit as det
 - The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider initating th drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
 
-## 1.12 MEASUREMENT #DRAFT
+## 1.12 MEASUREMENT (**DRAFT**)
 
 The measurement domain captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
 
