@@ -475,7 +475,8 @@ Observation_period_end_time | No | Datetime | The end date of the observation pe
 
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
 
-## 1.11 DRUG EXPOSURE #DRAFT
+#DRAFT
+## 1.11 DRUG EXPOSURE 
 
 The drug exposure domain captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
