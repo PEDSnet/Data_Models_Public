@@ -47,35 +47,35 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 * * *
 ## Table of Contents
-####[1.1 Person](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#11-person-1)
+####[1.1 Person](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#11-person-1)
 
-####[1.2 Death](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#12-death-1)
+####[1.2 Death](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#12-death-1)
 
-####[1.3 Location](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#13-location-1)
+####[1.3 Location](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#13-location-1)
 
-####[1.4 Caresite](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#14-care_site)
+####[1.4 Caresite](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#14-care_site)
 
-####[1.5 Provider](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#15-provider-1)
+####[1.5 Provider](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#15-provider-1)
 
-####[1.6 Visit Occurrence ](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#16-visit_occurrence)
+####[1.6 Visit Occurrence ](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#16-visit_occurrence)
 
-####[1.7 Condition Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#17-condition_occurrence)
+####[1.7 Condition Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#17-condition_occurrence)
 
-####[1.8 Procedure Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#18-procedure_occurrence)
+####[1.8 Procedure Occurrence](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#18-procedure_occurrence)
 
-####[1.9 Observation](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#19-observation-1)
+####[1.9 Observation](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#19-observation-1)
 
-####[1.10 Observation Period](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#110-observation-period-1)
+####[1.10 Observation Period](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#110-observation-period-1)
 
-####[1.11 Drug Exposure](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#111-drug-exposure-1)
+####[1.11 Drug Exposure](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#111-drug-exposure-1)
 
-####[1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#112-measurement-1)
+####[1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#112-measurement-1)
 
-####[1.13 Fact Relationship](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#113-fact-relationship-1)
+####[1.13 Fact Relationship](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#113-fact-relationship-1)
 
-####[1.14 Visit Payer](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#114-visit_payer)
+####[1.14 Visit Payer](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#114-visit_payer)
 
-####[Appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
+####[Appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
 ## 1.1 PERSON
@@ -170,7 +170,7 @@ place_of_service_concept_id | No |  Integer | A foreign key that refers to a pla
 location_id | No* |  Integer | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
 care_site_source_value | Yes |  Varchar | The identifier for the organization in the source data, stored here for reference. | <p>If care site source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate care site_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> <p>For EPIC EHRs, map care_site_id to Clarity Department.</p> Sites may consider using the care_site_id field value in this table as the pseudo-identifier as long as a local mapping from care_site_id to the real site identifier is maintained.
 place_of_service_source_value | No | Varchar | The source code for the place of service as it appears in the source data, stored here for reference.
-specialty_concept_id|No|Integer|The specialty of the department linked to a standard specialty concept as it appears in the Vocabulary | <p>Care sites could have one or more specialties or a Care site could have no specialty information.</p><p>**Valid specialty concept ids for PEDSnet are found in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p><p>**Please use the following rules:**</p><ul><li><p> If care site specialty information is unavaiable, please follow the convention on reporting values that are unknown,null or unavailable. </p></li><li><p> If a care site has a single specialty associated with it, sites should link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)** </p></li><li><p> If there are multiple specialties assicated with a particular care site and sites are not able to assign a specialty value on the visit occurrence level, sites should use the specialty concept id=38004477 "Pediatric Medicine". </p></li><li><p> If there are multiple specialties aossicated with a particular care site and this information is attainable, sites should document the strategy used to obtain this information and the strategy used to link the correct care site/specialty pair for each visit occurrence. Sites should also link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p></li></ul>|
+specialty_concept_id|No|Integer|The specialty of the department linked to a standard specialty concept as it appears in the Vocabulary | <p>Care sites could have one or more specialties or a Care site could have no specialty information.</p><p>**Valid specialty concept ids for PEDSnet are found in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p><p>**Please use the following rules:**</p><ul><li><p> If care site specialty information is unavaiable, please follow the convention on reporting values that are unknown,null or unavailable. </p></li><li><p> If a care site has a single specialty associated with it, sites should link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)** </p></li><li><p> If there are multiple specialties assicated with a particular care site and sites are not able to assign a specialty value on the visit occurrence level, sites should use the specialty concept id=38004477 "Pediatric Medicine". </p></li><li><p> If there are multiple specialties aossicated with a particular care site and this information is attainable, sites should document the strategy used to obtain this information and the strategy used to link the correct care site/specialty pair for each visit occurrence. Sites should also link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p></li></ul>|
 
 **\* This field is important for responding to PCORNet queries. If sites have any information on this filed in the source EHR then these fields should be populated in the PEDSnet CDM instance**
 
@@ -194,7 +194,7 @@ NPI | No |  Integer | The National Provider Identifier (NPI) of the provider. | 
 DEA | No |  Integer | The Drug Enforcement Administration (DEA) number of the provider. | <p>Optional - Do not transmit to DCC.</p>
 provider_source_value | Yes |  Varchar | The identifier used for the provider in the source data, stored here for reference. | <p>Insert a pseudo-identifier (random number, encrypted identifier) into the field. Do not insert the actual PROVIDER_ID from your site. A mapping from the pseudo-identifier for provider_source_value in this field to a real provider ID from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p> Sites may consider using the provider_id field value in this table as the pseudo-identifier as long as a local mapping from provider_id to the real site identifier is maintained.
 specialty_source_value | No |  Varchar | The source code for the provider specialty as it appears in the source data, stored here for reference. | Optional. May be obfuscated if deemed sensitive by local site.
-specialty_source_concept_id | No | Integer | A foreign key to a concept that refers to the code used in the source.| If providing this information, sites should document how they determine the specialty associated with the provider. **Valid specialty concept ids for PEDSnet are found in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_DRAFT_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**
+specialty_source_concept_id | No | Integer | A foreign key to a concept that refers to the code used in the source.| If providing this information, sites should document how they determine the specialty associated with the provider. **Valid specialty concept ids for PEDSnet are found in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**
 gender_source_value | No | Varchar | The source value for the provider gender.
 gender_source_concept_id | No | Integer | A foreign key to the concept that refers to the code used in the source.|Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 8570</li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814667 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 8551</li> <li>Other: concept_id = 8521</li></ul>
 
