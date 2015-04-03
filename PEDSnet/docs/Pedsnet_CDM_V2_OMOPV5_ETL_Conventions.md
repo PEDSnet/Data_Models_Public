@@ -313,7 +313,7 @@ provider_id | No | Integer | A foreign key to the provider in the provider table
 visit_occurrence_id | No | Integer | A foreign key to the visit in the visit table during which the procedure was carried out. | See VISIT.visit_occurrence_id (primary key)
 procedure_source_value | No* | Varchar | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
 procedure_source_concept_id | No* | Integer | A foreign key to a procedure concept that refers to the code used in the source. For example, if the procedure is "Anesthesia for procedures on eye; lens surgery" in the source which has a concept code in the vocabulary that is 2100658. The procedure source concept id will be 2100658.
-qualifier_source_value | No | Varchar | The source code for the qualifier as it appears in the source data.
+modifier_source_value | No | Varchar | The source code for the modifier as it appears in the source data.
 
 **\* This field is important for responding to PCORNet queries. If sites have any information on this filed in the source EHR then these fields should be populated in the PEDSnet CDM instance**
 
@@ -475,7 +475,7 @@ Observation_period_end_time | No | Datetime | The end date of the observation pe
 
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
 
-## 1.11 DRUG EXPOSURE
+## 1.11 DRUG EXPOSURE #DRAFT
 
 The drug exposure domain captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
@@ -541,7 +541,7 @@ dose_unit_source_value| No| Varchar | The information about the dose unit as det
 - The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider initating th drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
 
-## 1.12 MEASUREMENT
+## 1.12 MEASUREMENT #DRAFT
 
 The measurement domain captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
 
@@ -556,9 +556,7 @@ Specifically this table includes:
     - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Vital source
-- PCORI Mandated Labs *list pending*
-- Cohort specific Labs *list pending*
-- Top 100 Institution Labs *list pending* 
+- Component Level Labs ###*list pending*
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
