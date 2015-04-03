@@ -67,9 +67,9 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 ####[1.10 Observation Period](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#110-observation-period-1)
 
-####[1.11 Drug Exposure](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#111-drug-exposure-1)
+####[1.11 Drug Exposure](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#111-drug-exposure-draft)
 
-####[1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#112-measurement-1)
+####[1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#112-measurement-draft)
 
 ####[1.13 Fact Relationship](https://github.com/PEDSnet/Data_Models/blob/OMOP-V5/PEDSnet/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#113-fact-relationship-1)
 
