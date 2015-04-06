@@ -80,4 +80,4 @@ The only changes made to the original OMOP Vocabulary V4 DDL were made to suppor
 
 ## Original OMOP files
 
-The original OMOP CDM and Vocabulary V4 specification and DDL files, as well as the Vocabulary V4.5 release notes, are included in [docs](docs) directory for reference. 
+The original OMOP CDM and Vocabulary V4 specification and DDL files, as well as the Vocabulary V4.5 release notes, are included in [docs](docs) directory for reference.
