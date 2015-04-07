@@ -673,7 +673,7 @@ Relationship_concept_id	|Yes| Integer |A foreign key to a standard concept ident
 
 ## 1.14 VISIT_PAYER
 
-The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and plan_id.
+The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and plan_id. **This able is CUSTOM to Pedsnet.**
 
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
