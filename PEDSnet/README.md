@@ -1,3 +1,27 @@
+
+## PEDSnet CDM V2
+
+The PEDSnet common data model version2 is based on the OMOP CDM V5. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2 ETL Conventions](V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md) file. The PEDSnet CDM V2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point, but the data definition language files include all of the OMOP tables. Those tables not documented are still in a draft state.
+
+### ETL Conventions for version 2
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V2 ETL Conventions](V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+
+### Database Dialects for Version 2
+
+DDL scripts for creating the PEDSnet CDM V2 will be available soon!
+
+- PostgreSQL *link coming soon*
+- MySQL *link coming soon*
+- Oracle *link coming soon*
+- MS SQL Server *link coming soon*
+
+## Original OMOP files
+
+The original OMOP CDM and Vocabulary V5 specification is included in [docs](V2/docs) directory for reference.
+
+***
+
 ## PEDSnet CDM V1
 
 The PEDSnet common data model is based on the OMOP CDM V4. A full description of the data model is available in the [PEDSnet CDM V1](V1/docs/PEDSnet_CDM_V1.md) file. A description of PEDSnet ETL conventions for the CDM is available in the [PEDSnet CDM V1 ETL Conventions](V1/docs/PEDSnet_CDM_V1_ETL_Conventions.md) file. The most recent versions of these files are also available in MS Word (.docx) format and a Word "DocDiff" is included to highlight the most recent changes (all in the [docs](V1/docs) directory). The PEDSnet CDM V1 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point, but the data definition language files here include all of the OMOP tables. Those tables not documented are still in a draft state.
