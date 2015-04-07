@@ -27,7 +27,7 @@ DDL scripts for creating the PEDSnet CDM V2 will be available soon!
 5. Add `death_time` field to the `death` table.
 6. Add `condition_start_time' and `condition_end_time` fields to the condition_occurrence table.
 7. Add `procedure_time` field to the `procedure_occurrence` table.
-8. Add `observation_period_start_time' and `observation_period_end_time` fields to the observation_period table.
+8. Add `observation_period_start_time` and `observation_period_end_time` fields to the observation_period table.
 9. Change field orders within some tables.
 
 ## Original OMOP files
