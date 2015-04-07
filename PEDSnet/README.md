@@ -3,7 +3,7 @@
 
 The PEDSnet common data model version2 is based on the OMOP CDM V5. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2 ETL Conventions](V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md) file. The PEDSnet CDM V2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point, but the data definition language files include all of the OMOP tables. Those tables not documented are still in a draft state.
 
-### ETL Conventions for version 2
+### ETL Conventions for Version 2
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V2 ETL Conventions](V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
 
@@ -15,6 +15,20 @@ DDL scripts for creating the PEDSnet CDM V2 will be available soon!
 - MySQL *link coming soon*
 - Oracle *link coming soon*
 - MS SQL Server *link coming soon*
+
+### Changes from OMOP CDM V5
+
+#### Field additions and deletions
+
+1. Utilize the `time_of_birth` field as a Datetime field where the full date of the birth is stored.
+2. Utilize the ETL conventions document's appendix to populate the Care_Site `specialty_concept_id`.
+3. Utilize the ETL conventions document's appendix to populate the Provider `specialty_concept_id`.
+4. Add `visit_start_time' and `visit_end_time` fields to the visit table.
+5. Add `death_time` field to the `death` table.
+6. Add `condition_start_time' and `condition_end_time` fields to the condition_occurrence table.
+7. Add `procedure_time` field to the `procedure_occurrence` table.
+8. Add `observation_period_start_time' and `observation_period_end_time` fields to the observation_period table.
+9. Change field orders within some tables.
 
 ## Original OMOP files
 
