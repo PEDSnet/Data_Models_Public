@@ -6,7 +6,6 @@
 2. `pn_time_of_birth` field renamed to `time_of_birth`
 3. `time_of_birth` field is now Datetime. See convention document for instructions.
 4. Fields are marked as necessary for the PCORNET transformation (`person_id`,`year_of_birth`,`month_of_birth`,`time_of_birth`,`race_concept_id`,`ethnicity_concept_id`,`race_source_value`,`ethnicity_source_value`)
-5. 
  
 ####[1.2 Death](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#12-death-1)
 1. Data Type Column included in the table 
@@ -42,6 +41,7 @@
 ## DELETED from PEDSNet CDM2
 
 #### [1.5 Organization -- VERSION 1 ONLY] (V1/docs/PEDSnet_CDM_V1_ETL_Conventions.md#15-organization)
+- This table has been removed from OMOP V5.
 
 ***
 ## NEW in PEDSnet CDM2
