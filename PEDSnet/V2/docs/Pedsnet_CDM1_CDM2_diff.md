@@ -74,7 +74,8 @@
 ####[1.10 Observation Period](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#110-observation-period-1)
 1. Data Type Column included in the table 
 2. Addition of `osbervation_period_start_time` and `observation_period_end_time` columns to osbervation_period.See convention document for instructions. These fields are custom to PEDSnet.
-3. Fields are marked as necessary for the PCORNET transformation (`person_id`,`observation_period_start_date`,`observation_period_start_time`,`observation_period_end_date,`observation_period_send_time`)
+3. Fields are marked as necessary for the PCORNET transformation (`person_id`,`observation_period_start_date`,`observation_period_start_time`,`observation_period_end_date`,
+`observation_period_send_time`)
 
 ***
 ## DELETED from PEDSNet CDM2
