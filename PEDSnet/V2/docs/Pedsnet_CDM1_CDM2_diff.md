@@ -1,6 +1,6 @@
 ## Differences between CDM1 and CDM2
 
-## Changes from CDM1
+## CHANGES from CDM1
 ####[1.1 Person](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#11-person-1)
 1. Data Type Column included in the table 
 2. `pn_time_of_birth` field renamed to `time_of_birth`
