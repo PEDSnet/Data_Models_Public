@@ -1,4 +1,4 @@
-## Differences between CDM1 and CDM2
+## Differences between PEDSnet CDM1 and CDM2
 
 ## CHANGES from CDM1
 ####[1.1 Person](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#11-person-1)
