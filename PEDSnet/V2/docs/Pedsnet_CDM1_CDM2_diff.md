@@ -30,6 +30,7 @@
 2. Updated instructions on how to map specialty values for the `specialty_concept_id`.
 3. Addition of `provider_name` field. See convention document for instructions.
 4. Addition of `gender_concept_id` and `gender_source_Value` fields. See convention document for instructions.
+5. Additon of `specialty_source_concept_id` field. See convention document for instructions.
 
 ####[1.6 Visit Occurrence ](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#16-visit_occurrence)
 1. Data Type Column included in the table 
@@ -53,8 +54,11 @@
 2. Addition of `procedure_time` field to procedure_occurrence.See convention document for instructions. These fields are custom to PEDSnet.
 3. `associated_provider_id` field renamed to `provider_id`
 4. Addition of `procedure_source_concept_id` field. See convention document for instructions.
-5.  Fields are marked as necessary for the PCORNET transformation (`procedure_occurrence_id`,`procedure_date`,`procedure_concept_id`,`visit_occurrence_id`,`procedure_source_value`,`procedure_source_concept_id`)
-6. The logic to link to the procedure source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md#vocabulary-v5-notes) for clarification.
+5. Removal of `relevant_condition_concept_id` field
+6. Addition of `modifier_concept_id` and `modifier_source_value`. See convention document for instructions.
+7. Addition of `quantity` field. 
+8.  Fields are marked as necessary for the PCORNET transformation (`procedure_occurrence_id`,`procedure_date`,`procedure_concept_id`,`visit_occurrence_id`,`procedure_source_value`,`procedure_source_concept_id`)
+9. The logic to link to the procedure source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md#vocabulary-v5-notes) for clarification.
 
 ####[1.9 Observation](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#19-observation-1)
 1. Data Type Column included in the table 
@@ -64,6 +68,8 @@
 5. Removal of `relevant_condition_conept_id` field.
 6. Removal of `range_high` and `range_low` fields.
 7. Addition of `qualfiier_concept_id` and `qualifier_source_value` field. See convention document for instructions.
+8. `associated_provider_id` field renamed to `provider_id`
+9. Addition of `observation_source_concept_id` field
 
 ####[1.10 Observation Period](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#110-observation-period-1)
 1. Data Type Column included in the table 
