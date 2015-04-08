@@ -186,7 +186,7 @@ The Provider domain contains a list of uniquely identified health care providers
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 provider_id | Yes |  Integer | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. See Additional Comments below. Sites should document who they have included as a provider.
-provider_name | No | Varchar | A description of the provider
+provider_name | No | Varchar | A description of the provider | DO NOT TRASMIT TO DCC
 gender_concept_id | No | Integer | The gender of the provider
 specialty_concept_id | No |  Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialtity concept associated with the American Medical Board of Specialties as seen in **Appendix A1**. Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Provider Specialty' and  vocabulary_id = Specialty)</p> <p>select \* from concept where vocabulary_id ='Provider Specialty' and domain='Specialty' and invalid_reason is null yields 107 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source.
 care_site_id | Yes |  Integer | A foreign key to the main care site where the provider is practicing. | See CARE_SITE.care_site_id (primary key)
