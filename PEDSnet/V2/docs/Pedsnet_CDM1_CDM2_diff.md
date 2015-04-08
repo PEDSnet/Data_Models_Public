@@ -65,9 +65,10 @@
    - Systolic blood pressure in mmHg
    - Diastolic blood pressure in mmHg
    - Vital source
-   - Component Level Labs **(Network list pending)**
+   - Component Level Labs (Network list pending)
 - Please refer to the conventions document for specific instructions on guidance for field population.
-- 
+
+
 ####[1.13 Fact Relationship](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#113-fact-relationship-1)
 - This table is new to the data model.
 - The fact relationship domain contains details of the relationships between facts within one domain or across two domains, and the nature of the relationship. Examples of types of possible fact relationships include: BP relationships (linking systolic and diastolic blood pressures or linking previously split ED->Inpatient Visits)
@@ -75,8 +76,7 @@
 
 ####[1.14 Visit Payer](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#114-visit_payer)
 - This table is new to the data model.
-- The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and plan_id. **This table is CUSTOM to Pedsnet.**
-- 
+- The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and plan_id.This table is CUSTOM to Pedsnet.
 - Please refer to the conventions document for specific instructions on guidance for field population.
 
  ####[Appendix] (Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
