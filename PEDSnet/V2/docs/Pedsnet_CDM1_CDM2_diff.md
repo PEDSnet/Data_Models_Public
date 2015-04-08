@@ -4,7 +4,8 @@
 ####[1.1 Person](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#11-person-1)
 1. Data Type Column included in the table 
 2. `pn_time_of_birth` field renamed to `time_of_birth`
-3. `time_of_birth` field is now Datetime. (Instructions: Do not include timezone. Please keep all accurate/real dates (No date shifting). If there is no time associated with the date assert midnight.)
+3. `time_of_birth` field is now Datetime. 
+    (Instructions: Do not include timezone. Please keep all accurate/real dates (No date shifting). If there is no time associated with the date assert midnight.)
 4. Fields are marked as necessary for the PCORNET transformation (`person_id`,`year_of_birth`,`month_of_birth`,`time_of_birth`,`race_concept_id`,`ethnicity_concept_id`,`race_source_value`,`ethnicity_source_value`)
 5. The logic to link to the respective vocabularies has changed. However, previously mapped concept ids are consistent for gender,race and ethnicity. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
  
