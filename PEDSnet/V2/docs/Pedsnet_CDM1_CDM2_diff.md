@@ -4,20 +4,23 @@
 ####[1.1 Person](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#11-person-1)
 1. Data Type Column included in the table 
 2. `pn_time_of_birth` field renamed to `time_of_birth`
-3. `time_of_birth` field is now Datetime. See convention document for instructions.
+3. `time_of_birth` field is now Datetime. (Instructions: Do not include timezone. Please keep all accurate/real dates (No date shifting). If there is no time associated with the date assert midnight.)
 4. Fields are marked as necessary for the PCORNET transformation (`person_id`,`year_of_birth`,`month_of_birth`,`time_of_birth`,`race_concept_id`,`ethnicity_concept_id`,`race_source_value`,`ethnicity_source_value`)
+5. The logic to link to the respective vocabularies has changed. However, previously mapped concept ids are consistent for gender,race and ethnicity. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
  
 ####[1.2 Death](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#12-death-1)
 1. Data Type Column included in the table 
 2. Addition of `death_time` Datetime field. See convention document for instructions.
 3. Addition of `cause_source_concept_id` field. See convention document for instructions.
-4. 
+4. The logic to link to the cause of death vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
 
 ####[1.3 Location](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#13-location-1)
-1. Data Type Column included in the table 
+1. Data Type Column included in the table
+2. Fields are marked as necessary for the PCORNET transformation (`location_id`,`zip`)
 
 ####[1.4 Caresite](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#14-care_site)
 1. Data Type Column included in the table 
+2. Fields are marked as necessary for the PCORNET transformation (`care_site_id`,`location_id`)
 
 ####[1.5 Provider](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#15-provider-1)
 1. Data Type Column included in the table 
@@ -41,7 +44,7 @@
 ## DELETED from PEDSNet CDM2
 
 #### [1.5 Organization -- VERSION 1 ONLY] (V1/docs/PEDSnet_CDM_V1_ETL_Conventions.md#15-organization)
-- This table has been removed from OMOP V5.
+- This table has been removed from OMOP V5 (subsequently PEDSnet CDM v2).
 
 ***
 ## NEW in PEDSnet CDM2
@@ -83,3 +86,7 @@
 - This appendix is new to the data model.
 - Please use the values present to map care site and provider specialty.
 - This list is derived from the ABMS Specilaty Listing, which can be found [here] (http://www.abms.org/member-boards/specialty-subspecialty-certificates/)
+
+
+####Vocabulary V5 Notes
+
