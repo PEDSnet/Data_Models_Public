@@ -76,9 +76,10 @@
 ####[1.14 Visit Payer](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#114-visit_payer)
 - This table is new to the data model.
 - The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and plan_id. **This table is CUSTOM to Pedsnet.**
+- 
 - Please refer to the conventions document for specific instructions on guidance for field population.
 
  ####[Appendix] (Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
- - This appendix is new to the data model.
- - Please use the values present to map care site and provider specialty.
- - This list is derived from the ABMS Specilaty Listing, which can be found [here] (http://www.abms.org/member-boards/specialty-subspecialty-certificates/)
+- This appendix is new to the data model.
+- Please use the values present to map care site and provider specialty.
+- This list is derived from the ABMS Specilaty Listing, which can be found [here] (http://www.abms.org/member-boards/specialty-subspecialty-certificates/)
