@@ -4,8 +4,7 @@
 ####[1.1 Person](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#11-person-1)
 1. Data Type Column included in the table 
 2. `pn_time_of_birth` field renamed to `time_of_birth`
-3. `time_of_birth` field is now Datetime. 
-    (Instructions: Do not include timezone. Please keep all accurate/real dates (No date shifting). If there is no time associated with the date assert midnight.)
+3. `time_of_birth` field is now Datetime. See convention document for instructions.
 4. Fields are marked as necessary for the PCORNET transformation (`person_id`,`year_of_birth`,`month_of_birth`,`time_of_birth`,`race_concept_id`,`ethnicity_concept_id`,`race_source_value`,`ethnicity_source_value`)
 5. The logic to link to the respective vocabularies has changed. However, previously mapped concept ids are consistent for gender,race and ethnicity. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
  
@@ -22,24 +21,54 @@
 ####[1.4 Caresite](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#14-care_site)
 1. Data Type Column included in the table 
 2. Fields are marked as necessary for the PCORNET transformation (`care_site_id`,`location_id`)
+3. Addition of `specialty_concept_id` field. See convention document for instructions.
+4. Addition of `care_site_name` field. See convention document for instructions.
+5. Removal of `organization_id` column.
 
 ####[1.5 Provider](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#15-provider-1)
 1. Data Type Column included in the table 
+2. Updated instructions on how to map specialty values for the `specialty_concept_id`.
+3. Addition of `provider_name` field. See convention document for instructions.
+4. Addition of `gender_concept_id` and `gender_source_Value` fields. See convention document for instructions.
 
 ####[1.6 Visit Occurrence ](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#16-visit_occurrence)
 1. Data Type Column included in the table 
+2. Addition of `visit_start_time` and `visit_end_time` columns to visit_occurrence.See convention document for instructions. These fields are custom to PEDSnet.
+3. Fields are marked as necessary for the PCORNET transformation (`visit_occurrence_id`,`visit_start_date`,`visit_end_date`,`care_site_id`,`provider_id`,`place_of_service_concept_id`)
+4. Removal of `place_of_service_concept_id`. `Visit_concept_id` is used in its place
+5. Addition of `visit_soruce_concept_id`
+6. Use of FACT_RELATIONSHIP table to link ED->Inpatient Vists that have been split. See convention document for instructions.
 
 ####[1.7 Condition Occurrence](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#17-condition_occurrence)
 1. Data Type Column included in the table 
+2. Addition of `condition_start_time` and `condition_end_time` columns to condition_occurrence.See convention document for instructions. These fields are custom to PEDSnet.
+3. `associated_provider_id` field renamed to `provider_id`
+4. Addition of `condition_source_concept_id` field. See convention document for instructions.
+5. Fields are marked as necessary for the PCORNET transformation (`condition_occurrence_id`,`condition_start_date`,`condition_concept_id`,`visit_occurrence_id`,`condition_source_value`,`condition_source_concept_id`)
+6. The logic to link to the condition source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
+7. Problem list diagnosis are now included in CDM V2.
 
 ####[1.8 Procedure Occurrence](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#18-procedure_occurrence)
 1. Data Type Column included in the table 
+2. Addition of `procedure_time` field to procedure_occurrence.See convention document for instructions. These fields are custom to PEDSnet.
+3. `associated_provider_id` field renamed to `provider_id`
+4. Addition of `procedure_source_concept_id` field. See convention document for instructions.
+5.  Fields are marked as necessary for the PCORNET transformation (`procedure_occurrence_id`,`procedure_date`,`procedure_concept_id`,`visit_occurrence_id`,`procedure_source_value`,`procedure_source_concept_id`)
+6. The logic to link to the procedure source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
 
 ####[1.9 Observation](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#19-observation-1)
 1. Data Type Column included in the table 
+2. This table no longer includes vitals(bps), vital information or Heights/Weights. For CDM V2, it only includes (DRG (requires special logic - see Note 1), Tobacco Status (see Note 4), PROs (information and format will be provided by the DCC))
+3. Some concept mapping values have changed. Please reference the conventions document.
+4. DRG Logic has changed. (Concept_class_id as opposed to Concept_class)
+5. Removal of `relevant_condition_conept_id` field.
+6. Removal of `range_high` and `range_low` fields.
+7. Addition of `qualfiier_concept_id` and `qualifier_source_value` field. See convention document for instructions.
 
 ####[1.10 Observation Period](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#110-observation-period-1)
 1. Data Type Column included in the table 
+2. Addition of `osbervation_period_start_time` and `observation_period_end_time` columns to osbervation_period.See convention document for instructions. These fields are custom to PEDSnet.
+3. Fields are marked as necessary for the PCORNET transformation (`person_id`,`observation_period_start_date`,`observation_period_start_time`,`observation_period_end_date,`observation_period_send_time`)
 
 ***
 ## DELETED from PEDSNet CDM2
