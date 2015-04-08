@@ -36,7 +36,7 @@
 2. Addition of `visit_start_time` and `visit_end_time` columns to visit_occurrence.See convention document for instructions. These fields are custom to PEDSnet.
 3. Fields are marked as necessary for the PCORNET transformation (`visit_occurrence_id`,`visit_start_date`,`visit_end_date`,`care_site_id`,`provider_id`,`place_of_service_concept_id`)
 4. Removal of `place_of_service_concept_id`. `Visit_concept_id` is used in its place
-5. Addition of `visit_soruce_concept_id`
+5. Addition of `visit_soruce_concept_id` and `visit_source_value` fields.
 6. Use of FACT_RELATIONSHIP table to link ED->Inpatient Vists that have been split. See convention document for instructions.
 
 ####[1.7 Condition Occurrence](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#17-condition_occurrence)
