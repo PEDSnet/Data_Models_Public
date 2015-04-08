@@ -58,7 +58,7 @@
 
 ####[1.9 Observation](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#19-observation-1)
 1. Data Type Column included in the table 
-2. This table no longer includes vitals(bps), vital information or Heights/Weights. For CDM V2, it only includes (DRG (requires special logic - see Note 1), Tobacco Status (see Note 4), PROs (information and format will be provided by the DCC))
+2. This table no longer includes vitals(bps), vital information or Heights/Weights. For CDM V2, it only includes (DRG (requires special logic - see Note 1), Tobacco Status (see Note 4), PROs (information and format will be provided by the DCC)) Vitals, Vital information, heights and weights have moved to the [Measurement] (Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#112-measurement-draft) table.
 3. Some concept mapping values have changed. Please reference the conventions document.
 4. DRG Logic has changed. (Concept_class_id as opposed to Concept_class)
 5. Removal of `relevant_condition_conept_id` field.
