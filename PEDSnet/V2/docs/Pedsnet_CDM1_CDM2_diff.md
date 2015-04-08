@@ -23,7 +23,7 @@
 
 ## DELETED from PEDSNet CDM2
 
-#### [1.5 Organization] (V1/docs/PEDSnet_CDM_V1_ETL_Conventions.md#15-organization)
+#### [1.5 Organization -- VERSION 1 ONLY] (V1/docs/PEDSnet_CDM_V1_ETL_Conventions.md#15-organization)
 
 ## NEW in PEDSnet CDM2
 
