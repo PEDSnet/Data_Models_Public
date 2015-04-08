@@ -6,13 +6,13 @@
 2. `pn_time_of_birth` field renamed to `time_of_birth`
 3. `time_of_birth` field is now Datetime. See convention document for instructions.
 4. Fields are marked as necessary for the PCORNET transformation (`person_id`,`year_of_birth`,`month_of_birth`,`time_of_birth`,`race_concept_id`,`ethnicity_concept_id`,`race_source_value`,`ethnicity_source_value`)
-5. The logic to link to the respective vocabularies has changed. However, previously mapped concept ids are consistent for gender,race and ethnicity. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
+5. The logic to link to the respective vocabularies has changed. However, previously mapped concept ids are consistent for gender,race and ethnicity. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md#vocabulary-v5-notes) for clarification.
  
 ####[1.2 Death](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#12-death-1)
 1. Data Type Column included in the table 
 2. Addition of `death_time` Datetime field. See convention document for instructions.
 3. Addition of `cause_source_concept_id` field. See convention document for instructions.
-4. The logic to link to the cause of death vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
+4. The logic to link to the cause of death vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md#vocabulary-v5-notes) for clarification.
 
 ####[1.3 Location](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#13-location-1)
 1. Data Type Column included in the table
@@ -45,7 +45,7 @@
 3. `associated_provider_id` field renamed to `provider_id`
 4. Addition of `condition_source_concept_id` field. See convention document for instructions.
 5. Fields are marked as necessary for the PCORNET transformation (`condition_occurrence_id`,`condition_start_date`,`condition_concept_id`,`visit_occurrence_id`,`condition_source_value`,`condition_source_concept_id`)
-6. The logic to link to the condition source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
+6. The logic to link to the condition source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md#vocabulary-v5-notes) for clarification.
 7. Problem list diagnosis are now included in CDM V2.
 
 ####[1.8 Procedure Occurrence](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#18-procedure_occurrence)
@@ -54,7 +54,7 @@
 3. `associated_provider_id` field renamed to `provider_id`
 4. Addition of `procedure_source_concept_id` field. See convention document for instructions.
 5.  Fields are marked as necessary for the PCORNET transformation (`procedure_occurrence_id`,`procedure_date`,`procedure_concept_id`,`visit_occurrence_id`,`procedure_source_value`,`procedure_source_concept_id`)
-6. The logic to link to the procedure source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md) for clarification.
+6. The logic to link to the procedure source value and condition type source value to a standard vocabulary has changed. See the Vocabulary Notes [below] (Pedsnet_CDM1_CDM2_diff.md#vocabulary-v5-notes) for clarification.
 
 ####[1.9 Observation](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#19-observation-1)
 1. Data Type Column included in the table 
@@ -119,4 +119,20 @@
 
 
 ####Vocabulary V5 Notes
+
+The Standardized Vocabularies are undergoing a constant revision and improvement. Therefore, only significant structural changes are listed in the following.
+
+**Changes to Conventions**
+
+Concept Designation as Standard, Classification and Source
+- Source Concepts: In contrast to V4.0 of the Standardized Vocabularies, there is no longer a distinction between source codes and Concepts. All source codes now have their own Concept. However, in order to distinguish between codes that are used to represent a clinical entity in the data tables, Concepts are now designated Standard Concepts or Source Concepts.
+For some vocabularies, source codes did have records in the Concept table, such as VA Product, RxNorm Concept Classes “Drug Form”, SNOMED Concepts other than Condition and Procedure. These Concept had a concept_level = 0. The concept_id of these non-standard Concepts has been preserved between the versions.
+- Standard Concepts: These Concepts were available in previous versions of the Standardized Vocabularies. They were designated through a concept_level value greater than 0. The concept_id of Standard Concepts has been preserved between the versions.
+- Classification Concepts: Like the Standard Concepts, the Classification Concepts existed in V4.0 of the Standardized Vocabulary. Their concept_level was typically 3 for drug classifications, 1-5 for MedDRA (Condition Classification) and 1-2 for SNOMED Procedure Classifications. Their concept_id has been preserved as well.
+
+Mapping between source and Standard Concepts.
+- Each source code has now a representation as a Source Concept, and the mapping is achieved through the CONCEPT_RELATIONSHIP table. A new relationship_id = “Maps to” (reverse_relationship_id = “Mapped from”) links the Source to the Standard Concepts.
+- The SOURCE_TO_CONCEPT_MAP table is no longer used, and therefore no longer populated in the Standardized Vocabularies. However, it still can be used to map local source codes for specific ETL procedures using non-public vocabularies not supported here.
+
+For full documentation on the vocabulary changes, please reference the OHDSI website: [http://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:changes_from_version_4] (http://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:changes_from_version_4)
 
