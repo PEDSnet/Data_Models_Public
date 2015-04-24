@@ -37,7 +37,7 @@
 2. Addition of `visit_start_time` and `visit_end_time` columns to visit_occurrence.See convention document for instructions. These fields are custom to PEDSnet.
 3. Fields are marked as necessary for the PCORNET transformation (`visit_occurrence_id`,`visit_start_date`,`visit_end_date`,`care_site_id`,`provider_id`,`place_of_service_concept_id`)
 4. Removal of `place_of_service_concept_id`. `Visit_concept_id` is used in its place
-5. Addition of `visit_soruce_concept_id` and `visit_source_value` fields.
+5. Addition of `visit_source_concept_id` and `visit_source_value` fields.
 6. Use of FACT_RELATIONSHIP table to link ED->Inpatient Vists that have been split. See convention document for instructions.
 
 ####[1.7 Condition Occurrence](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#17-condition_occurrence)
@@ -65,9 +65,9 @@
 2. This table no longer includes vitals(bps), vital information or Heights/Weights. For CDM V2, it only includes (DRG (requires special logic - see Note 1), Tobacco Status (see Note 4), PROs (information and format will be provided by the DCC)) Vitals, Vital information, heights and weights have moved to the [Measurement] (Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#112-measurement-draft) table.
 3. Some concept mapping values have changed. Please reference the conventions document.
 4. DRG Logic has changed. (Concept_class_id as opposed to Concept_class)
-5. Removal of `relevant_condition_conept_id` field.
+5. Removal of `relevant_condition_concept_id` field.
 6. Removal of `range_high` and `range_low` fields.
-7. Addition of `qualfiier_concept_id` and `qualifier_source_value` field. See convention document for instructions.
+7. Addition of `qualifier_concept_id` and `qualifier_source_value` field. See convention document for instructions.
 8. `associated_provider_id` field renamed to `provider_id`
 9. Addition of `observation_source_concept_id` field
 
