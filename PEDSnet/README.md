@@ -7,6 +7,11 @@ The PEDSnet common data model version2 is based on the OMOP CDM V5. A full descr
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V2 ETL Conventions](V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
 
+## Site Responsibility for Version 2
+###Stable Identifiers
+
+For PEDSNet CDMv2, sites are responsible for sending stable person_id and visit_occurrence_id identifiers for their dataset. How this is implemented at a particular site, is up to the sites discretion. The value must be stable over time for each data transfer to the DCC.
+
 ### Database Dialects for Version 2
 
 DDL scripts for creating the PEDSnet CDM V2 will be available soon!
@@ -33,9 +38,16 @@ DDL scripts for creating the PEDSnet CDM V2 will be available soon!
 ## Original OMOP files
 
 The original OMOP CDM and Vocabulary V5 specification is included in [docs](V2/docs) directory for reference.
+
+##OMOP v5 Vocabulary for Version 2:
+
+The corresponding version of the vocabulary for PEDSNet CDM Version 2 can be found here: *link coming soon*
+
 ***
 ***
 ***
+
+
 
 ## PEDSnet CDM V1
 
