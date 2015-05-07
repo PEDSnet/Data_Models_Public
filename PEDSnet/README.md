@@ -41,7 +41,7 @@ The original OMOP CDM and Vocabulary V5 specification is included in [docs](V2/d
 
 ##OMOP v5 Vocabulary for Version 2:
 
-The corresponding version of the vocabulary for PEDSNet CDM Version 2 can be found here: *link coming soon*
+The corresponding version of the vocabulary for PEDSNet CDM Version 2 can be found here: https://upenn.app.box.com/s/g5m9xzffjncr6lgiq34dxd6bh1wx5c52
 
 ***
 ***
