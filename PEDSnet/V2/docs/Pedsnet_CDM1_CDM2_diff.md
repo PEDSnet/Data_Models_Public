@@ -21,7 +21,7 @@
 ####[1.4 Caresite](Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md#14-care_site)
 1. Data Type Column included in the table 
 2. Fields are marked as necessary for the PCORNET transformation (`care_site_id`,`location_id`)
-3. Addition of `specialty_concept_id` field. See convention document for instructions.
+3. Addition of `specialty_concept_id` and `specialty_source_value` fields. See convention document for instructions.
 4. Addition of `care_site_name` field. See convention document for instructions.
 5. Removal of `organization_id` column.
 
