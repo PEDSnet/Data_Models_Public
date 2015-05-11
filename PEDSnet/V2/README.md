@@ -2,7 +2,7 @@
 
 ### DDL files
 
-The CDM V2 DDL scripts are organized by DBMS. Within each DBMS-specific directory, there are separate scripts to create tables, constraints, and indexes, as well as load the vocabulary data.
+The CDM V2 DDL scripts are organized by DBMS. Within each DBMS-specific directory, there are separate scripts to create tables, constraints, and indexes, as well as load the vocabulary data (which can be downloaded seperately [here](https://github.com/PEDSnet/Data_Models/tree/master/PEDSnet#omop-v5-vocabulary-for-version-2)).
 
 ### Documentation
 
