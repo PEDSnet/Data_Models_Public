@@ -505,8 +505,8 @@ CREATE TABLE provider
      care_site_id					INTEGER			NOT NULL , 
 	 year_of_birth					INTEGER			NULL ,
 	 gender_concept_id				INTEGER			NULL ,
-     provider_source_value			VARCHAR(100)		NOT NULL , 
-     specialty_source_value			VARCHAR(300)		NULL ,
+     provider_source_value			VARCHAR(300)		NOT NULL , 
+     specialty_source_value			VARCHAR(100)		NULL ,
 	 specialty_source_concept_id	INTEGER			NULL , 
 	 gender_source_value			VARCHAR(100)		NULL ,
 	 gender_source_concept_id		INTEGER			NULL
