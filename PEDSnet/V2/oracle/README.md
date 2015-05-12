@@ -10,7 +10,7 @@ In order to create your instantiation of PEDSnet CDM V2, we recommend following 
 
 3. Load your data into the schema.
 
-4. Execute the script `pedsnetv2_oracle_constraints.sql` to add the constraints (primary and foreign keys). 
+4. **Be aware, the current release of the OMOP Vocabulary data (found [here](https://github.com/PEDSnet/Data_Models/tree/master/PEDSnet#omop-v5-vocabulary-for-version-2)) is causing foreign key constraint failures. Please work without the constraints until we can resolve this issue.** Execute the script `pedsnetv2_oracle_constraints.sql` to add the constraints (primary and foreign keys). 
 
 5. Execute the script `pedsnetv2_oracle_indexes.sql` to add the minimum set of indexes we recommend.
 
