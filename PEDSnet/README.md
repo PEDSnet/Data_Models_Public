@@ -41,7 +41,7 @@ The original OMOP CDM and Vocabulary V5 specification is included in [docs](V2/d
 
 ##OMOP v5 Vocabulary for Version 2:
 
-The corresponding version of the vocabulary for PEDSNet CDM Version 2 can be found here: https://upenn.app.box.com/s/g5m9xzffjncr6lgiq34dxd6bh1wx5c52
+The corresponding version of the vocabulary for PEDSNet CDM Version 2 can be found here: https://upenn.app.box.com/s/g5m9xzffjncr6lgiq34dxd6bh1wx5c52 **Please note:** We have found some issues with the existing vocabulary dataset and are addressing them with OHDSI. These will not effect your work, but you may see some constraints fail to build when you create the CDM schema. (Specifically, some foreign key constraints that target the `concept` table and the `drug_strength` table's primary key.) We will update with more information when available.
 
 ***
 ***
