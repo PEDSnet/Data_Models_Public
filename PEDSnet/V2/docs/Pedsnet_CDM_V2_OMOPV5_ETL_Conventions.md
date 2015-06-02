@@ -360,8 +360,9 @@ Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept
  --- | --- | --- | --- | --- | ---
 Biobank flag (see Note 2) | 4001345 | | 4188539 | Yes
 Biobank flag | 4001345 | | 4188540 | No
-Biobank flag | 4001345 | | NULL | No information
-Biobank flag | 4001345 | | 0 | Unknown/Other
+Biobank flag | 4001345 | | 44814650 | No information |PCORNet
+Biobank flag | 4001345 | | 44814653 | Unknown | PCORNet
+Biobank flag | 4001345 | | 44814649 | Other | PCORNet
 Admitting source | 4145666 | | 44814670 | Adult Foster Home
 Admitting source | 4145666 | | 44814671 | Assisted Living Facility
 Admitting source | 4145666 | | 44814672 | Ambulatory Visit
@@ -401,8 +402,9 @@ Discharge status | 4137274 | | 44814649 | Other | PCORNet
 Discharge status | 4137274 | | 44814650 | No information | PCORNet
 Chart availability (See Note 2) | 4030450 | | 4188539 | Yes
 Chart availability | 4030450 | | 4188540 | No
-Chart availability | 4030450 | | 0 | Unknown/Other
-Chart availability | 4030450 | | NULL | No information
+Chart availability  | 4030450 | | 44814650 | No information |PCORNet
+Chart availability  | 4030450 | | 44814653 | Unknown | PCORNet
+Chart availability  | 4030450 | | 44814649 | Other | PCORNet
 Tobacco Use |*concept id pending* | |*concept id pending* | Current every day smoker
 Tobacco Use | *concept id pending*| |*concept id pending* |  Current some day smoker
 Tobacco Use |*concept id pending* | |*concept id pending* |  Former smoker
