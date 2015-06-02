@@ -623,10 +623,10 @@ Because the domain concept id and relationship concept id are integers the follo
 
 Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
 --- | --- | --- | --- | ---
-Measurement | 66661 | Measurement | 66662 |  Asso with finding 
-Measurement | 66662 | Measurement | 66661 |  Asso with finding 
-Measurement | 66663 | Measurement | 66664 |  Asso with finding 
-Measurement | 666624 | Measurement | 66663 |  Asso with finding 
+21 | 66661 | 21 | 66662 |  44818792 
+21 | 66662 | 21 | 66661 |  44818792 
+21 | 66663 | 21 | 66664 |  44818792 
+21 | 666624 | 21 | 66663 | 44818792
 
 
 - Two rows in the FACT_RELATIONSHIP table link the *supine*  diastolic BP to the supine systolic BP.
