@@ -378,7 +378,7 @@ Admitting source | 4145666 | | 8863 | Skilled Nursing Facility
 Admitting source | 4145666 | | 44814650 | No information | PCORNet
 Admitting source | 4145666 | | 44814653 | Unknown | PCORNet
 Admitting source | 4145666 | | 44814649 | Other | PCORNet
-Discharge disposition (See Note 3) | 44813951 | 1 | 4161979 | Discharged alive
+Discharge disposition (See Note 3) | 44813951 | SNOMED | 4161979 | Discharged alive
 Discharge disposition | 44813951 | SNOMED | 4216643 | Expired
 Discharge disposition | 44813951 | SNOMED | 44814650 | No information | PCORNet
 Discharge disposition | 44813951 | SNOMED | 44814653 | Unknown | PCORNet
