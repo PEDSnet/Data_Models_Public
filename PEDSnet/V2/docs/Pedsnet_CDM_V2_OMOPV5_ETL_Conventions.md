@@ -354,7 +354,7 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 
 Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary_id='Observation Type' and vocabulary_id='PCORNet' and one newly added standard concept from vocabulary_id='SNOMED'.
 
-**Table 1: Observation concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
+**Table 1: Observation concept IDs for PCORnet concepts. The vocabulary id 'PCORNet' contains concept specific to PCORNet requirements and standards.**
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
  --- | --- | --- | --- | --- | ---
