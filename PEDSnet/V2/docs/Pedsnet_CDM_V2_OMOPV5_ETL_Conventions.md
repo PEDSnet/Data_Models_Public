@@ -413,16 +413,16 @@ Tobacco Use |*concept id pending* | |*concept id pending* |Smoker, current statu
 Tobacco Use |*concept id pending* | |*concept id pending* | Unknown if ever smoked
 Tobacco Use |*concept id pending* | |*concept id pending* | Heavy tobacco smoker
 Tobacco Use |*concept id pending* | |*concept id pending* | Light tobacco smoker
-Tobacco Use |*concept id pending* | |*concept id pending* | No information
-Tobacco Use |*concept id pending* | |0| Unknown
-Tobacco Use |*concept id pending* | |0| Other
+Tobacco Use |*concept id pending* | |44814650 |No information | PCORNet
+Tobacco Use |*concept id pending* | |44814653| Unknown| PCORNet
+Tobacco Use |*concept id pending* | |44814649| Other| PCORNet
 Tobacco Type |*concept id pending* | |*concept id pending* | Cigarettes only
 Tobacco Type |*concept id pending* | |*concept id pending* | Other tobacco only
 Tobacco Type |*concept id pending* | |*concept id pending* | Cigarettes and other tobacco
 Tobacco Type |*concept id pending* | |*concept id pending* | None
-Tobacco Type |*concept id pending* | | NULL | No information
-Tobacco Use |*concept id pending* | |0| Unknown
-Tobacco Use |*concept id pending* | |0| Other
+Tobacco Type |*concept id pending* | | 44814650 |No information | PCORNet
+Tobacco Use |*concept id pending* | |44814653| Unknown| PCORNet
+Tobacco Use |*concept id pending* | |44814649| Other| PCORNet
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
 
