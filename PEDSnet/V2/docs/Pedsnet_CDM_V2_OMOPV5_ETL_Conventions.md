@@ -470,7 +470,7 @@ qualifier_source_value |No | Varchar | The source value associated with a qualif
 
 ## 1.10 OBSERVATION PERIOD
 
-The observation period domain is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have the potential of drug and condition information recorded. This table is used to generate the PCORnet CDM enrollment table.
+The observation period domain is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have a clinical fact represented in the PEDSNet version 2 data modelo. This table is used to generate the PCORnet CDM enrollment table.
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
 
@@ -478,10 +478,10 @@ Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 Observation_period_id | Yes | Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes* | Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-Observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source | <p>Use the earliest fact date available for this patient.</p> No date shifting.  
-Observation_period_end_date | No* | Date | The end date of the observation period for which data are available from the source. | <p>Use the last fact date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL. 
-Observation_period_start_time | Yes* | Datetime | The start date of the observation period for which data are available from the data source | <p>Use the earliest fact time available for this patient.</p> No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
-Observation_period_end_time | No | Datetime | The end date of the observation period for which data are available from the source. | <p>Use the last fact time available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.  Full date and time. If there is no time associated with the date assert midnight.
+Observation_period_start_date | Yes | Date | The start date of the observation period for which data are available from the data source | <p>Use the earliest clinical fact date available for this patient.</p> No date shifting.  
+Observation_period_end_date | No* | Date | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL. 
+Observation_period_start_time | Yes* | Datetime | The start date of the observation period for which data are available from the data source | <p>Use the earliest clinical fact time available for this patient.</p> No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
+Observation_period_end_time | No | Datetime | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact time available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.  Full date and time. If there is no time associated with the date assert midnight.
 
 **\* This field is important for responding to PCORNet queries. If sites have any information on this filed in the source EHR then these fields should be populated in the PEDSnet CDM instance**
 
