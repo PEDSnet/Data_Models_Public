@@ -604,7 +604,7 @@ Four rows will be inserted into the observation table. Showing only the relevant
 Observation_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_String | Value_as_Concept_ID
  --- | --- | --- | --- | --- | --- | --- | ---
 66661 | 12345 | 678910 | 3009395 | 44818701 | 120 | |
-66662 | 12345 | 678910 | 3013940 | 344818701 | 60 | |
+66662 | 12345 | 678910 | 3013940 | 44818701 | 60 | |
 66663 | 12345 | 678910 | 3035856 | 44818701 | 144 | |
 66664 | 12345 | 678910 | 3019962 | 44818701 | 72 | |
 
@@ -666,7 +666,7 @@ range_high | No | Float | <p>Optional - Do not transmit to DCC.</p> The upper li
 provider_id | No | Integer | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No* | Integer | A foreign key to the visit in the visit table during which the observation was recorded.
 measurement_source_value | Yes | Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. For lab values, it is suggested to include the (LAB ID\| PROCEDURE NAME \| COMPONENT NAME) combination as the measurement source value where applicable.
-measurement_source_concept_id| No| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary.
+measurement_source_concept_id| No| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary.|
 unit_source_value| No| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc)
 value_source_value| Yes*| Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
 
