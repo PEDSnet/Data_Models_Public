@@ -603,14 +603,14 @@ Four rows will be inserted into the observation table. Showing only the relevant
 
 Observation_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_String | Value_as_Concept_ID
  --- | --- | --- | --- | --- | --- | --- | ---
-66661 | 12345 | 678910 | 3009395 | 38000280 | 120 | |
-66662 | 12345 | 678910 | 3013940 | 38000280 | 60 | |
-66663 | 12345 | 678910 | 3035856 | 38000280 | 144 | |
-66664 | 12345 | 678910 | 3019962 | 38000280 | 72 | |
+66661 | 12345 | 678910 | 3009395 | 44818701 | 120 | |
+66662 | 12345 | 678910 | 3013940 | 344818701 | 60 | |
+66663 | 12345 | 678910 | 3035856 | 44818701 | 144 | |
+66664 | 12345 | 678910 | 3019962 | 44818701 | 72 | |
 
 - Measurement_concept_id = 3009395 = systolic BP - supine; measurement_concept_id = 3013940 = diastolic BP supine
 - Measurement_concept_id = 3035856 = systolic BP standing; measurement_concept_id = 3019962 = diastolic BP standing
-- measurement_type_concept_id = 38000280 (observation recorded from EMR).
+- measurement_type_concept_id = 44818701 (observation recorded from EMR).
 
 To link these two values, use the fact relationship table:
 
