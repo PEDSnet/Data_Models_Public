@@ -549,7 +549,7 @@ dose_unit_concept_id| No | Integer | A foreign key to a predefined concept in th
 lot_number| No | Varchar | An identifier to determine where the product originated||
 provider_id| No | Integer | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id| No | Integer | A foreign key to the visit in the visit table during which the drug exposure initiated. | See VISIT.visit_occurrence_id (primary key)
-drug_source_value| No*| Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.
+drug_source_value| No*| Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.| Please be sure to include your source code and the drug name in this field. This will be useful in the event that there is no RxNorm mapping for your local medication code.
 drug_source_concept_id| No | Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here.
 route_source_value| No| Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No| Varchar | The information about the dose unit as detailed in the source ||
