@@ -520,13 +520,19 @@ Exclusions:
     <REFILLS>2</REFILLS>
     </XML>
 ```
+**Note 6:** If there are multiple RxNorm mappings associate with a mapping, choose the mapping in the following order and stop when you find your first match.
 
+1. SBD
+2. SCD
+3. MIN
+4. PIN
+5. IN
 
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
  drug_exposure_id | Yes | Integer | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes* |Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-drug_concept_id| Yes* | Integer | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target)
+drug_concept_id| Yes* | Integer | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target). In the event of multiple RxNorm mappings please see Note 6.
 drug_exposure_start_date| Yes* | Date |The start date of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting. 
 drug_exposure_end_date| No* |Date | The end date of the utilization of the drug | No date shifting.
 drug_exposure_start_time| Yes | Datetime |The start date and time of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting. Full date and time. If there is no time associated with the date assert midnight.
@@ -555,6 +561,7 @@ dose_unit_source_value| No| Varchar | The information about the dose unit as det
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to drug exposures. All drug exposures are included for an active patient. 
 - The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider initating th drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
+
 
 ## 1.12 MEASUREMENT (\*\*DRAFT\*\*)
 
