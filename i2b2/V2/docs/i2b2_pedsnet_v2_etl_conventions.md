@@ -158,7 +158,7 @@ quantity_num | No | Varchar | Quantity of `nval_num` | Not used.
 sourcesystem_cd | No | Varchar | Coded value for the data source system | Not used.
 start_date | No | Datetime | Start date/time of the observation | No date shifting.
 tval_char | No | Varchar | Text value or modifier of an observation | When `valtype_cd` = “T”, stores the text value of the observation.  When `valtype_cd` = “N”: <ul><li>E = Equals</li><li>NE = Not equal</li><li>L = Less Than</li><li>LE = Less than and Equal to</li><li>G = Greater Than</li><li>GE = Greater than and Equal to</ul>
-units_cd | No | Varchar | Units in which a numeric measurement is expressed | Possible values: <ul><li>'in' or 'cm' (for `concept_cd` 'HT')<li>'lbs' or 'kg' (for `concept_cd` 'WT').<li>For 'in' and 'lbs', case is significant.</ul>  <p>Do *not* use 'MM HG' (or 'mm hg'); currently this will result in duplication of measurements.</p>
+units_cd | No | Varchar | Units in which a numeric measurement is expressed | Possible values: <ul><li>'in' or 'cm' (for `concept_cd` 'HT').</li><li>'lbs' or 'kg' (for `concept_cd` 'WT').</li><li>'mm Hg' (for `concept_cd` 'SYSTOLIC' or 'DIASTOLIC')</li></ul><p>For 'in' and 'lbs', case is significant.</p>
 update_date | No | Datetime | Date the row was updated by the source system (date is obtained from the source system) | Not used.
 upload_id | No | Integer | A numeric id given to the upload | Not used.
 valtype_cd | No | Varchar | Data type of the observation | Possible values: <ul><li>N = Numeric</li><li>T = Text (enums/short messages) </li></ul>  <p>Determines whether the observation value is placed in `nval_num` or `tval_char`.</p>
