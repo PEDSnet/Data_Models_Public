@@ -715,6 +715,8 @@ Relationship_concept_id	|Yes| Integer |A foreign key to a standard concept ident
 
 The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and visit_payer_id. **This table is CUSTOM to Pedsnet.**
 
+**Note 1**: There can be multiple payers (primary/secondary) for a single visit. If you are able to obtain mutliple payer information at your site please populate the visit payer table with this information. If you are not able to obtain secondary or additonal payers for your visit occurrences at your site, please populate the primary payer and inform the DCC.
+
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
 visit_payer_id | Yes | Integer |A system-generated unique identifier for each visit payer relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
