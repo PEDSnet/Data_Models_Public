@@ -618,7 +618,7 @@ Observation_id | Person_id | Visit_occurrence_id | measurement_concept_id | meas
 
 - Measurement_concept_id = 3009395 = systolic BP - supine; measurement_concept_id = 3013940 = diastolic BP supine
 - Measurement_concept_id = 3035856 = systolic BP standing; measurement_concept_id = 3019962 = diastolic BP standing
-- measurement_type_concept_id = 44818701 (observation recorded from EMR).
+- measurement_type_concept_id = 44818701 (Vital Sign).
 
 To link these two values, use the fact relationship table:
 
