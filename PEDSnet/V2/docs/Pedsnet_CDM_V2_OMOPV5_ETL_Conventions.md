@@ -544,7 +544,7 @@ refills| No | Integer | The number of refills after the initial prescrition||
 quantity| No | Integer | The quantity of the drugs as recorded in the original prescription or dispensing record| See Note 2|
 days_supply| No | Integer | The number of days of supply the meidcation as recorded in the original prescription or dispensing record||
 sig| No | CLOB (XML Structure) | The directions on the drug prescription as recorded in the original prescription (and printed on the container) or the dispensing record| See Note 5|
-route_concept_id| No | Integer | A foreign key that refers to a standard administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id='Dose Form')</p> <p>select * from omop5.concept where concept_class_id='Dose Form' yields 357 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
+route_concept_id| No | Integer | A foreign key that refers to a standard administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Route')</p> <p>select * from omop5.concept where domain_id='Route' yields 11 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
 effective_drug_dose| No | Float | Numerical value of drug dose for this drug_exposure record| See note 1|
 dose_unit_concept_id| No | Integer | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the effective drug_dose value is expressed|See note 3|
 lot_number| No | Varchar | An identifier to determine where the product originated||
