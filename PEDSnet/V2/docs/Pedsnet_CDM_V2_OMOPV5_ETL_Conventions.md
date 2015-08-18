@@ -724,7 +724,7 @@ visit_payer_id | Yes | Integer |A system-generated unique identifier for each vi
 visit_occurrence_id | Yes | Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
 plan_name | Yes | Varchar| The untransformed payer/plan name from the source data
 plan_type | No | Varchar |  A standardized interpretation of the plan structure | Please only map your plan type to the following categories: <ul> <li>HMO</li> <li>PPO</li> <li>POS</li> <li>Fee for service</li><li> Other/unknown </li></ul> If the categoires are unclear, please work with your billing department or local experts to determine how to map plans to these values.
-plan_class | Yes | Varchar | A list of the "payment sources" most often used in demographic analyses| Please map your plan type to the following categories: <ul> <li>Private/commercial</li> <li>Medicaid/sCHIP</li> <li>Medicare</li> <li>Other public</li> <li>Self-pay</li> <li>Other/unknown</li></ul> Please work with your billing department or local experts to determine how to map plans to these values.
+plan_class | Yes | Varchar | A list of the "payment sources" most often used in demographic analyses| Please map your plan type to the following categories: <ul> <li>Private/Commercial</li> <li>Medicaid/sCHIP</li> <li>Medicare</li> <li>Other public</li> <li>Self-pay</li> <li>Other/Unknown</li></ul> Please work with your billing department or local experts to determine how to map plans to these values.
 
 #### 1.14.1 Additional Notes
 - If you cannot map your plan to any of the above values for plan_type or plan_class, please map them to Other/unknown, and inform the DCC if the above list of values is not complete or sufficient.
