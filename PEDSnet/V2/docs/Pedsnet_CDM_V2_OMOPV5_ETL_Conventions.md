@@ -361,8 +361,8 @@ Use the following table to populate observation_concept_ids for the observations
 
 **Table 1: Observation concept IDs for PCORnet concepts. The vocabulary id 'PCORNet' contains concept specific to PCORNet requirements and standards.**
 
-Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
- --- | --- | --- | --- | --- | ---
+Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID| PCORNet Mapping
+ --- | --- | --- | --- | --- | ---| ---
 Biobank flag (see Note 2) | 4001345 | | 4188539 | Yes
 Biobank flag | 4001345 | | 4188540 | No
 Biobank flag | 4001345 | | 44814650 | No information |PCORNet
@@ -410,24 +410,42 @@ Chart availability | 4030450 | | 4188540 | No
 Chart availability  | 4030450 | | 44814650 | No information |PCORNet
 Chart availability  | 4030450 | | 44814653 | Unknown | PCORNet
 Chart availability  | 4030450 | | 44814649 | Other | PCORNet
-Tobacco Use |*concept id pending* | |*concept id pending* | Current every day smoker
-Tobacco Use | *concept id pending*| |*concept id pending* |  Current some day smoker
-Tobacco Use |*concept id pending* | |*concept id pending* |  Former smoker
-Tobacco Use |*concept id pending* | |*concept id pending* | Never Smoker
-Tobacco Use |*concept id pending* | |*concept id pending* |Smoker, current status unknown
-Tobacco Use |*concept id pending* | |*concept id pending* | Unknown if ever smoked
-Tobacco Use |*concept id pending* | |*concept id pending* | Heavy tobacco smoker
-Tobacco Use |*concept id pending* | |*concept id pending* | Light tobacco smoker
-Tobacco Use |*concept id pending* | |44814650 |No information | PCORNet
-Tobacco Use |*concept id pending* | |44814653| Unknown| PCORNet
-Tobacco Use |*concept id pending* | |44814649| Other| PCORNet
-Tobacco Type |*concept id pending* | |*concept id pending* | Cigarettes only
-Tobacco Type |*concept id pending* | |*concept id pending* | Other tobacco only
-Tobacco Type |*concept id pending* | |*concept id pending* | Cigarettes and other tobacco
-Tobacco Type |*concept id pending* | |*concept id pending* | None
-Tobacco Type |*concept id pending* | | 44814650 |No information | PCORNet
-Tobacco Type |*concept id pending* | |44814653| Unknown| PCORNet
-Tobacco Type |*concept id pending* | |44814649| Other| PCORNet
+Tobacco |4005823| |4005823 |Tobacco User | | 01 = Current user
+Tobacco |4005823| |45765920 |  Never used Tobacco| |02 = Never
+Tobacco |4005823| |45765917|  Ex-tobacco user| |03 = Quit/Former Smoker
+Tobacco |4005823| |40765262 | PhenX-environmental exposures- current environmental tobacco smoke exposure protocol| |04 = Passive or environmental exposure
+Tobacco |4005823| |*concept id pending* ||| 06 = Not asked
+Tobacco |4005823| |44814650 |No information | PCORNet | NI
+Tobacco |4005823| |44814653| Unknown| PCORNet | OT
+Tobacco |4005823| |44814649| Other| PCORNet| UN
+Tobacco Type |4219336 |Multiple Response allowed |4298794 |Smoker | | 01 = Smoked tobacco only
+Tobacco Type |4219336 |Multiple Response allowed |4224317 |Pipe smoking tobacco | | 01 = Smoked tobacco only
+Tobacco Type |4219336 |Multiple Response allowed |4282779 |Cigarette smoking tobacco | | 01 = Smoked tobacco only
+Tobacco Type |4219336 | Multiple Response allowed|4132133 |Cigar smoking tobacco | | 01 = Smoked tobacco only
+Tobacco Type |4219336 |Multiple Response allowed |4218197 |Snuff tobacco | | 02 = Non-smoked tobacco only
+Tobacco Type |4219336 | Multiple Response allowed|4219234 |Chewing tobacco | | 02 = Non-smoked tobacco only
+Tobacco Type |4219336 | |45765920 |Never used tobacco | | 04 = None
+Tobacco Type |4219336 | |45765917 |Ex tobacco user | | 04 = None
+Tobacco Type |4219336 | |40765262 |40765262 | PhenX-environmental exposures- current environmental tobacco smoke exposure protocol | | 04 = None
+Tobacco Type |4219336 | | 44814650 |No information | PCORNet| NI
+Tobacco Type |4219336 | |44814653| Unknown| PCORNet | OT
+Tobacco Type |4219336 | |44814649| Other| PCORNet| UN
+Smoking |4275495 | |42709996 |Smokes tobacco daily| | 01 = Current everyday smoker
+Smoking |4275495 | |*concept id pending* |Occasional tobacco smoker| | 02 = current some day smoker
+Smoking |4275495 | |4310250|Ex-smoker| | 03 = Former smoker
+Smoking |4275495 | |4144272|Never smoked tobacco| | 04 = Never smoker
+Smoking |4275495 | |4298794|Smoker| | 05 = Smoker, current status unknown
+Smoking |4275495 | |4141786|Tobacco smoking consumption(status) unknown| | 06 = Unknown if ever smoked
+Smoking |4275495 |**USE AS DEFAULT FOR CATEGORY** |4044778|Chain smoker | | 07 = Heavy tobacco smoker
+Smoking |4275495 | |4209006|Heavy smoker (over 20 per day)| | 07 = Heavy tobacco smoker
+Smoking |4275495 | |4209585|Moderate smoker (20 or less per day)| | 08 = Light tobacco smoker
+Smoking |4275495 | | 44814650 |No information | PCORNet| NI
+Smoking |4275495 | |44814653| Unknown| PCORNet | OT
+Smoking |4275495 | |44814649| Other| PCORNet| UN
+
+
+
+
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
 
