@@ -491,7 +491,7 @@ Observation_period_end_time | No | Datetime | The end date of the observation pe
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
 
 
-## 1.11 DRUG EXPOSURE (\*\*DRAFT\*\*)
+## 1.11 DRUG EXPOSURE
 
 The drug exposure domain captures any biochemical substance that is introduced in any way to a patient. This can be evidence of prescribed, over the counter, administered (IV, intramuscular, etc), immunizations or dispensed medications. These events could be linked to procedures or encounters where they are administered or associated as a result of the encounter.
 
@@ -515,7 +515,7 @@ Dose only (Eg 450 mg) | Dose (Eg. 450) | Corresponding Concept for unit (Eg. mg 
 No discrete dosing information | | 0
  
 
-**Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient)
+**Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient) Extract numbers as much as possible , full value should be a part of the xml sig field.
 
 **Note 3**: For dispensing records, compute the dose basis by looking for a weight observation +/- 60 days of the dispensed date.
 
@@ -560,8 +560,8 @@ drug_exposure_start_time| Yes | Datetime |The start date and time of the utiliza
 drug_exposure_end_time| No |Datetime | The end date and time of the utilization of the drug | No date shifting. Full date and time. If there is no time associated with the date assert midnight.
     drug_type_concept_id| Yes | Integer | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represeneted in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Drug Type')</p> <p>select \* from concept where domain_id ='Drug Type' yields 12 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet drug types listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written: concept_id = 38000177</li></ul>
 stop_reason| No | Varchar | The reason, if available, where the medication was stopped, as indicated in the source data. | <p>Valid values include therapy completed, changed, removed, side effects, etc. Note that a stop_reason does not necessarily imply that the medication is no longer being used at all, and therefore does not mandate that the end date be assigned.</p>
-refills| No | Integer | The number of refills after the initial prescrition||
-quantity| No | Integer | The quantity of the drugs as recorded in the original prescription or dispensing record| See Note 2|
+refills| No | Integer | The number of refills after the initial prescrition| See Note 2. Extract numbers as much as possible , full value should be a part of the xml sig field.|
+quantity| No | Integer | The quantity of the drugs as recorded in the original prescription or dispensing record| See Note 2. Extract numbers as much as possible , full value should be a part of the xml sig field.|
 days_supply| No | Integer | The number of days of supply the meidcation as recorded in the original prescription or dispensing record||
 sig| No | CLOB (XML Structure) | The directions on the drug prescription as recorded in the original prescription (and printed on the container) or the dispensing record| See Note 4|
 route_concept_id| No | Integer | A foreign key that refers to a standard administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Route')</p> <p>select * from omop5.concept where domain_id='Route' yields 11 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
@@ -584,7 +584,7 @@ dose_unit_source_value| No| Varchar | The information about the dose unit as det
 - The Provider initating the drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
 
 
-## 1.12 MEASUREMENT (\*\*DRAFT\*\*)
+## 1.12 MEASUREMENT
 
 The measurement domain captures measurement orders and measurement results. The measurement domain can contain laboratory results and vital signs.
 
