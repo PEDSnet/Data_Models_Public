@@ -538,11 +538,18 @@ No discrete dosing information | | 0
 4. PIN
 5. IN
 
+**Note 6**: Please use the following table as a guide to determine how to populaute the `drug_source_value`, `drug_source_concept_id` and `drug_concept_id` for LAB Values
+
+You have in your source system | Measurement_source_value| Measurement_source_conept_id | measurement_concept_id
+---|---|---|---
+Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other +Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
+Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code +Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping
+
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
  drug_exposure_id | Yes | Integer | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes* |Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
-drug_concept_id| Yes* | Integer | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target). In the event of multiple RxNorm mappings please see Note 5.
+drug_concept_id| Yes* | Integer | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target). In the event of multiple RxNorm mappings please see Note 5. See note 6 for guide.
 drug_exposure_start_date| Yes* | Date |The start date of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting. 
 drug_exposure_end_date| No* |Date | The end date of the utilization of the drug | No date shifting.
 drug_exposure_start_time| Yes | Datetime |The start date and time of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting. Full date and time. If there is no time associated with the date assert midnight.
@@ -559,8 +566,8 @@ dose_unit_concept_id| No | Integer | A foreign key to a predefined concept in th
 lot_number| No | Varchar | An identifier to determine where the product originated||
 provider_id| No | Integer | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id| No | Integer | A foreign key to the visit in the visit table during which the drug exposure initiated. | See VISIT.visit_occurrence_id (primary key)
-drug_source_value| No*| Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.| Please be sure to include your source code and the drug name in this field. This will be useful in the event that there is no RxNorm mapping for your local medication code.
-drug_source_concept_id| No | Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here.
+drug_source_value| No*| Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.| Please be sure to include your source code and the drug name in this field. This will be useful in the event that there is no RxNorm mapping for your local medication code. See note 6.
+drug_source_concept_id| No | Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here. See note 6.
 route_source_value| No| Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No| Varchar | The information about the dose unit as detailed in the source ||
 
@@ -661,7 +668,7 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 - Systolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
-**Note 4**: Please use the following table as a guid to determine how to populaute the `measurment_source_value`, `measurement_source_concept_id` and `measurement_concept_id` for LAB Values
+**Note 4**: Please use the following table as a guide to determine how to populaute the `measurment_source_value`, `measurement_source_concept_id` and `measurement_concept_id` for LAB Values
 
 You have in your source system | Measurement_source_value| Measurement_source_conept_id | measurement_concept_id
 ---|---|---|---
