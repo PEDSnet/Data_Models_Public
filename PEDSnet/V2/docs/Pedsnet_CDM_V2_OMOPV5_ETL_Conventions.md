@@ -134,12 +134,12 @@ cause_concept_id | No |Provide When Available|   Integer | A foreign referring t
 cause_source_value | No |Provide When Available|   Varchar | The source code for the cause of death as it appears in the source. This code is mapped to a standard concept in the Vocabulary and the original code is stored here for reference.
 cause_source_concept_id | No |Provide When Available| Integer | A foreign key to the vocbaulary concept that refers to the code used in the source.| This links to the concept id of the vocabulary of the cause of death concept id as stored in the source. For example, if the cause of death is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the cause source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
+
 #### 1.2.1 Additional Notes
 
 - Each Person may have more than one record of death in the source data. It is OK to insert multiple death records for an individual.
 - If the Death Date cannot be precisely determined from the data, the best approximation should be used.
-
-**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 ## 1.3 LOCATION
 
@@ -206,6 +206,8 @@ specialty_source_concept_id | No |Provide When Available| Integer | A foreign ke
 gender_source_value | No |Provide When Available| Varchar | The source value for the provider gender.
 gender_source_concept_id | No |Provide When Available| Integer | The gender of the provider as represented in the source that maps to a concept in the vocabulary| <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
+
 #### 1.5.1 Additional Notes
 
 - For PEDSnet, a provider is any individual (MD, DO, NP, PA, RN, etc) who is authorized to document care.
@@ -229,6 +231,8 @@ visit_concept_id | Yes |Provide When Available| Integer | A foreign key that ref
 visit_type_concept_id | Yes |Provide When Available| Integer | A foreign key to the predefined concept identifier in the standard vocabulary reflecting the type of source data from which the visit record is derived.| <p> select \* from chop_omop5.concept where domain_id='Visit Type' yields 3 valid concept_ids.</p> If none are correct, user concept_id=0. The majoirty of visits should be type 'Visit derived from EHR record' which is concept_id=44818518
 visit_source_value | No |Provide When Available| Varchar | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
 visit_source_concept_id | No |Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source. | If a site is using HCPS or CPT for their visit source value, the standard concept id that maps to the particular vocabulary can be used here.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 #### 1.6.1 Additional Notes
 
@@ -293,6 +297,8 @@ visit_occurrence_id | No | Provide When Available|Integer | A foreign key to the
 condition_source_value | No |Provide When Available| Varchar | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.
 condition_source_concept_id | No |Provide When Available| Integer | A foreign key to a condition concept that refers to the code used in the source| For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
+
 #### 1.7.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to condition_occurrence. All conditions are included for an active patient. For PEDSnet CDM V2, we limit condition_occurrences to final diagnoses only (not reason-for-visit and provisional surgical diagnoses such as those recored in EPIC OPTIME). In EPIC, final diagnoses includes both encounter diagnoses and billing diagnoses, problem lists (all problems, not filtered on "chronic" versus "provisional" unless local practices use this flag as intended). Medical History diagnosis are optional.
@@ -327,6 +333,7 @@ procedure_source_value | No |Provide When Available| Varchar | The source code f
 procedure_source_concept_id | No |Provide When Available| Integer | A foreign key to a procedure concept that refers to the code used in the source.| For example, if the procedure is "Anesthesia for procedures on eye; lens surgery" in the source which has a concept code in the vocabulary that is 2100658. The procedure source concept id will be 2100658.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 modifier_source_value | No |Provide When Available| Varchar | The source code for the modifier as it appears in the source data.
 
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 #### 1.8.1 Additional notes
 
@@ -456,6 +463,8 @@ observation_source_concept_id| No |Provide When Available|Integer | A foreign ke
 unit_source_value | No |Provide When Available| Integer | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Vocabulary and the original code is, stored here for reference.
 qualifier_source_value |No |Provide When Available| Varchar | The source value associated with a qualifier to characterize the observation
 
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
+
 #### 1.9.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to observations. All observations are included for an active patient. For PEDSnet CDM V2, we limit observations to only those that appear in Table 1.
@@ -478,6 +487,8 @@ Observation_period_start_date | Yes |Provide When Available| Date | The start da
 Observation_period_end_date | No | Provide When Available|Date | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL. 
 Observation_period_start_time | Yes | Provide When Available|Datetime | The start date of the observation period for which data are available from the data source | <p>Use the earliest clinical fact time available for this patient.</p> No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
 Observation_period_end_time | No |Provide When Available| Datetime | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact time available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.  Full date and time. If there is no time associated with the date assert midnight.
+
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 #### 1.10.1 Additional Notes
 
@@ -567,6 +578,8 @@ drug_source_value| No|Provide When Available|  Varchar | The source drug value a
 drug_source_concept_id| No |Provide When Available|  Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here. See note 6.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 route_source_value| No|Provide When Available|  Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No|Provide When Available|  Varchar | The information about the dose unit as detailed in the source ||
+
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 #### 1.11.1 Additional Notes
 
@@ -699,12 +712,15 @@ measurement_source_concept_id| No| Provide When Available| Integer | A foreign k
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
 value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
 
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
+
 #### 1.12.1 Additional Notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to measurements. All measurements are included for an active patient. For PEDSnet CDM V1, we limit measurements to only those that appear in Table 3 (for vital signs).
 - Measurements have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
 - The Visit during which the measurement was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
+
 
 ## 1.13 FACT RELATIONSHIP
 
@@ -717,6 +733,8 @@ Fact_id_1|	Yes | Integer |The unique identifier in the table corresponding to th
 Domain_concept_id_2|Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.
 Fact_id_2 |	Yes | Integer |	The unique identifier in the table corresponding to the domain of fact two.
 Relationship_concept_id	|Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.
+
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 #### 1.13.1 Additional Notes
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table.
@@ -734,6 +752,8 @@ visit_occurrence_id | Yes | Integer | A foreign key to the visit in the visit ta
 plan_name | Yes |Provide When Available|  Varchar| The untransformed payer/plan name from the source data
 plan_type | No |Provide When Available|  Varchar |  A standardized interpretation of the plan structure | Please only map your plan type to the following categories: <ul> <li>HMO</li> <li>PPO</li> <li>POS</li> <li>Fee for service</li><li> Other/unknown </li></ul> If the categoires are unclear, please work with your billing department or local experts to determine how to map plans to these values.
 plan_class | Yes |Provide When Available|  Varchar | A list of the "payment sources" most often used in demographic analyses| Please map your plan type to the following categories: <ul> <li>Private/Commercial</li> <li>Medicaid/sCHIP</li> <li>Medicare</li> <li>Other public</li> <li>Self-pay</li> <li>Other/Unknown</li></ul> Please work with your billing department or local experts to determine how to map plans to these values.
+
+**If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
 #### 1.14.1 Additional Notes
 - If you cannot map your plan to any of the above values for plan_type or plan_class, please map them to Other/unknown, and inform the DCC if the above list of values is not complete or sufficient.
