@@ -545,6 +545,10 @@ You have in your source system | Measurement_source_value| Measurement_source_co
 Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other +Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
 Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code +Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping
 
+
+
+
+
 Field |Required | Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---
  drug_exposure_id | Yes | Integer | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
