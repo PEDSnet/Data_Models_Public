@@ -841,7 +841,7 @@ Obstetrics and Gynecology | 38004461 | Obstetrics/Gynecology              | Prov
 Occupational Medicine |38004492 | Occupational Therapy              | Provider Specialty | Specialty   
 Ophthalmology |  38004463 | Ophthalmology                       | Provider Specialty | Specialty     
 Orthopaedic Sports Medicine |45756794|Orthopaedic Sports Medicine|Provider Specialty |  ABMS
-Orthopaedic Surgery |38004465 | Orthopedic Surgery                | Provider Specialty | Specialty   
+Orthopedics/Orthopaedic Surgery |38004465 |Orthopedics/Orthopedic Surgery                | Provider Specialty | Specialty   
 Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty   
 Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty   
 Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty   
