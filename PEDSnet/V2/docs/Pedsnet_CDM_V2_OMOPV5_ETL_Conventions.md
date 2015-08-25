@@ -728,11 +728,11 @@ The fact relationship domain contains details of the relationships between facts
 
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-Domain_concept_id_1|Yes| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred
-Fact_id_1|	Yes | Integer |The unique identifier in the table corresponding to the domain of fact one.
-Domain_concept_id_2|Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.
-Fact_id_2 |	Yes | Integer |	The unique identifier in the table corresponding to the domain of fact two.
-Relationship_concept_id	|Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.
+Domain_concept_id_1|Yes|Provide When Available| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred
+Fact_id_1|	Yes |Provide When Available| Integer |The unique identifier in the table corresponding to the domain of fact one.
+Domain_concept_id_2|Yes|Provide When Available| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.
+Fact_id_2 |	Yes |Provide When Available| Integer |	The unique identifier in the table corresponding to the domain of fact two.
+Relationship_concept_id	|Yes|Provide When Available| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.
 
 **If a field that is required by the network is not available at your site, please relay this information to the DCC**
 
@@ -748,7 +748,7 @@ The visit payer table documents insurance information as it relates to a visit i
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 visit_payer_id | Yes |Provide When Available|  Integer |A system-generated unique identifier for each visit payer relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
-visit_occurrence_id | Yes | Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
+visit_occurrence_id | Yes |Provide When Available| Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
 plan_name | Yes |Provide When Available|  Varchar| The untransformed payer/plan name from the source data
 plan_type | No |Provide When Available|  Varchar |  A standardized interpretation of the plan structure | Please only map your plan type to the following categories: <ul> <li>HMO</li> <li>PPO</li> <li>POS</li> <li>Fee for service</li><li> Other/unknown </li></ul> If the categoires are unclear, please work with your billing department or local experts to determine how to map plans to these values.
 plan_class | Yes |Provide When Available|  Varchar | A list of the "payment sources" most often used in demographic analyses| Please map your plan type to the following categories: <ul> <li>Private/Commercial</li> <li>Medicaid/sCHIP</li> <li>Medicare</li> <li>Other public</li> <li>Self-pay</li> <li>Other/Unknown</li></ul> Please work with your billing department or local experts to determine how to map plans to these values.
