@@ -349,11 +349,9 @@ The observation domain captures clinical facts about a patient obtained in the c
 
 NOTE: DRG and DRG Type require special logic/processing described below.
 
-- Biobank availability
 - Admitting source
 - Discharge disposition
 - Discharge status
-- Chart availability
 - DRG (requires special logic - see Note 1 below)
 - Tobacco Status (see Note 4)
 
@@ -363,11 +361,6 @@ Use the following table to populate observation_concept_ids for the observations
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID| PCORNet Mapping
  --- | --- | --- | --- | --- | ---| ---
-Biobank flag (see Note 2) | 4001345 | | 4188539 | Yes
-Biobank flag | 4001345 | | 4188540 | No
-Biobank flag | 4001345 | | 44814650 | No information |PCORNet
-Biobank flag | 4001345 | | 44814653 | Unknown | PCORNet
-Biobank flag | 4001345 | | 44814649 | Other | PCORNet
 Admitting source | 4145666 | | 44814670 | Adult Foster Home
 Admitting source | 4145666 | | 44814671 | Assisted Living Facility
 Admitting source | 4145666 | | 44814672 | Ambulatory Visit
@@ -405,11 +398,6 @@ Discharge status | 4137274 | | 8863 | Skilled Nursing Facility
 Discharge status | 4137274 | | 44814653 | Unknown | PCORNet
 Discharge status | 4137274 | | 44814649 | Other | PCORNet
 Discharge status | 4137274 | | 44814650 | No information | PCORNet
-Chart availability (See Note 2) | 4030450 | | 4188539 | Yes
-Chart availability | 4030450 | | 4188540 | No
-Chart availability  | 4030450 | | 44814650 | No information |PCORNet
-Chart availability  | 4030450 | | 44814653 | Unknown | PCORNet
-Chart availability  | 4030450 | | 44814649 | Other | PCORNet
 Tobacco |4005823| |4005823 |Tobacco User | | 01 = Current user
 Tobacco |4005823| |45765920 |  Never used Tobacco| |02 = Never
 Tobacco |4005823| |45765917|  Ex-tobacco user| |03 = Quit/Former Smoker
@@ -455,11 +443,9 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
     - If the date for the DRG \< 10/1/2007, use concept_class_id = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
     - If the date for the DRG \>=10/1/2007, use concept_class_id = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
 
-**Note 2**: In the Observation table, the biobank flag and chart availability concept_ids can appear multiple times capturing changes in patient consent over time. The temporally most recent observation will be used to determine the current consent status.
+**Note 2:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
 
-**Note 3:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
-
-**Note 4:** If tobacco information is available at the visit level, please provide this information. If it is not sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
+**Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
