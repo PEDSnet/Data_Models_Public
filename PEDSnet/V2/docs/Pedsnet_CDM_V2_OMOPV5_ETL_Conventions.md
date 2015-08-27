@@ -452,6 +452,7 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 *Example 1:*
 
 Patient 1 smokes 5 cigarettes per day and does not use non-smoked tobacco
+
 Observation table:
 
 Observation ID|	Person ID|	Observation concept id|	Value as concept id
@@ -470,6 +471,7 @@ Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_con
 
 *Example 2:*
 Patient 2 smokes 25-40 cigarettes per day and also chews tobacco
+
 Observation table:
 
 Observation ID|	Person ID|	Observation concept id|	Value as concept id
