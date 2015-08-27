@@ -447,6 +447,48 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 
 **Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
+**Note 4:** Below are examples of how the observation table and the fact relationship table would be populated for tobocoo,smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert.
+
+*Example 1:*
+
+Patient 1 smokes 5 cigarettes per day and does not use non-smoked tobacco
+Observation table:
+
+Observation ID|	Person ID|	Observation concept id|	Value as concept id
+---|---|---|---
+0001|	1|	4005823|	4005823
+0002|	1|	4219336|	4282779
+0003|	1|	4275495|	4209585
+
+
+Fact relationship:
+
+Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_concept_id
+---|---|---|---|---
+27|	0001|	27	|0002	|0
+27 |0001|	27|	0003|	0
+
+*Example 2:*
+Patient 2 smokes 25-40 cigarettes per day and also chews tobacco
+Observation table:
+
+Observation ID|	Person ID|	Observation concept id|	Value as concept id
+0004|	2|	4005823|	4005823
+0005|	2|	4219336	|4282779
+0006|	2|	4219336	|4219234
+0007|	2|	4275495	|4209006
+
+Fact relationship:
+
+Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_concept_id
+---|---|---|---|---
+
+27	|0004|	27	|0005|	0
+27|	0004|	27	|0006|	0
+27|	0004|	27	|0007|	0
+
+*For more examples or if you have a specific scenario that you have a question about please contact the DCC*
+
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 observation_id | Yes |Provide When Available| Integer |  A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
