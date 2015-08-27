@@ -465,14 +465,15 @@ Fact relationship:
 
 Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_concept_id
 ---|---|---|---|---
-27|	0001|	27	|0002	|0
-27 |0001|	27|	0003|	0
+27|	0001|	27	|0002	|*concept id pending*
+27 |0001|	27|	0003|	*concept id pending*
 
 *Example 2:*
 Patient 2 smokes 25-40 cigarettes per day and also chews tobacco
 Observation table:
 
 Observation ID|	Person ID|	Observation concept id|	Value as concept id
+---|---|---|---
 0004|	2|	4005823|	4005823
 0005|	2|	4219336	|4282779
 0006|	2|	4219336	|4219234
@@ -482,10 +483,9 @@ Fact relationship:
 
 Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_concept_id
 ---|---|---|---|---
-
-27	|0004|	27	|0005|	0
-27|	0004|	27	|0006|	0
-27|	0004|	27	|0007|	0
+27	|0004|	27	|0005|	*concept id pending*
+27|	0004|	27	|0006|	*concept id pending*
+27|	0004|	27	|0007|	*concept id pending*
 
 *For more examples or if you have a specific scenario that you have a question about please contact the DCC*
 
