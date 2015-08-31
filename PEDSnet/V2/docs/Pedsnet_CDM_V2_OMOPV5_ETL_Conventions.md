@@ -592,7 +592,7 @@ No discrete dosing information | | 0
 
 **Note 6**: Please use the following table as a guide to determine how to populaute the `drug_source_value`, `drug_source_concept_id` and `drug_concept_id` for LAB Values
 
-You have in your source system | Measurement_source_value| Measurement_source_conept_id | measurement_concept_id
+You have in your source system | Drug_source_value| Drug_source_conept_id | Drug_concept_id
 ---|---|---|---
 Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other +Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
 Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code +Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping
