@@ -1,4 +1,4 @@
-# ETL Conventions for use with PEDSnet CDM v2.1.1 OMOP V5
+# ETL Conventions for use with PEDSnet CDM v2.1 OMOP V5
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
@@ -47,35 +47,35 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 * * *
 ## Table of Contents
-####[1.1 Person](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#11-person-1)
+####[1.1 Person](Pedsnet_CDM__ETL_Conventions.md#11-person-1)
 
-####[1.2 Death](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#12-death-1)
+####[1.2 Death](Pedsnet_CDM_ETL_Conventions.md#12-death-1)
 
-####[1.3 Location](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#13-location-1)
+####[1.3 Location](Pedsnet_CDM_ETL_Conventions.md#13-location-1)
 
-####[1.4 Caresite](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#14-care_site)
+####[1.4 Caresite](Pedsnet_CDM_ETL_Conventions.md#14-care_site)
 
-####[1.5 Provider](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#15-provider-1)
+####[1.5 Provider](Pedsnet_CDM_ETL_Conventions.md#15-provider-1)
 
-####[1.6 Visit Occurrence ](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#16-visit_occurrence)
+####[1.6 Visit Occurrence ](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
 
-####[1.7 Condition Occurrence](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#17-condition_occurrence)
+####[1.7 Condition Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
 
-####[1.8 Procedure Occurrence](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#18-procedure_occurrence)
+####[1.8 Procedure Occurrence](Pedsnet_CDM_ETL_Conventions.md#18-procedure_occurrence)
 
-####[1.9 Observation](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#19-observation-1)
+####[1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)
 
-####[1.10 Observation Period](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#110-observation-period-1)
+####[1.10 Observation Period](PPedsnet_CDM_ETL_Conventions.md#110-observation-period-1)
 
-####[1.11 Drug Exposure](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#111-drug-exposure)
+####[1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure)
 
-####[1.12 Measurement](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#112-measurement)
+####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement)
 
-####[1.13 Fact Relationship](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#113-fact-relationship-1)
+####[1.13 Fact Relationship](Pedsnet_CDM_ETL_Conventions.md#113-fact-relationship-1)
 
-####[1.14 Visit Payer](Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#114-visit_payer)
+####[1.14 Visit Payer](Pedsnet_CDM_ETL_Conventions.md#114-visit_payer)
 
-####[Appendix] (Pedsnet_CDM_v2.1_OMOPV5_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
+####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
 ## 1.1 PERSON
