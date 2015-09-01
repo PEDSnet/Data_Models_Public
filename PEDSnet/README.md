@@ -1,4 +1,32 @@
 
+## PEDSnet CDM V2.1
+
+The PEDSnet common data model version 2.1 is an update to version 2. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.1 ETL Conventions](V2.1/docs/Pedsnet_CDM_V2.1_OMOPV5_ETL_Conventions.md) file. The PEDSnet CDM V2.1 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables. Those tables not documented are still in a draft state.
+
+### ETL Conventions for Version 2.1
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V2 ETL Conventions](V2.1/docs/Pedsnet_CDM_V2.1_OMOPV5_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+
+## Site Responsibility for Version 2.1
+###Stable Identifiers
+
+For PEDSNet CDMv2.1, sites are responsible for sending **stable** `person_id, visit_occurrence_id, provider_id and care_site_id` identifiers for their dataset. How this is implemented at a particular site, is up to the sites discretion. The value must be stable over time for each data transfer to the DCC.
+
+## Database Dialects for Version 2.1
+
+DDL scripts for creating the PEDSnet CDM V2.1 will be available soon!
+
+- PostgreSQL *link coming soon*
+- MySQL *link coming soon*
+- Oracle *link coming soon*
+- MS SQL Server *link coming soon*
+
+
+***
+***
+***
+
+
 ## PEDSnet CDM V2
 
 The PEDSnet common data model version2 is based on the OMOP CDM V5. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2 ETL Conventions](V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md) file. The PEDSnet CDM V2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point, but the data definition language files include all of the OMOP tables. Those tables not documented are still in a draft state.
