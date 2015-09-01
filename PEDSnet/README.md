@@ -5,7 +5,7 @@ The PEDSnet common data model version 2.1 is an update to version 2. A full desc
 
 ### ETL Conventions for Version 2.1
 
-The PEDSnet ETL conventions are described in the [PEDSnet CDM V2 ETL Conventions](V2.1/docs/Pedsnet_CDM_V2.1_OMOPV5_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.1 ETL Conventions](V2.1/docs/Pedsnet_CDM_V2.1_OMOPV5_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
 
 ## Site Responsibility for Version 2.1
 ###Stable Identifiers
