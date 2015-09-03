@@ -47,7 +47,7 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 * * *
 ## Table of Contents
-####[1.1 Person](Pedsnet_CDM__ETL_Conventions.md#11-person-1)
+####[1.1 Person](Pedsnet_CDM_ETL_Conventions.md#11-person-1)
 
 ####[1.2 Death](Pedsnet_CDM_ETL_Conventions.md#12-death-1)
 
@@ -65,11 +65,11 @@ It is recommended to refer to the vocabulary documentation as provided by ODHSII
 
 ####[1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)
 
-####[1.10 Observation Period](PPedsnet_CDM_ETL_Conventions.md#110-observation-period-1)
+####[1.10 Observation Period](Pedsnet_CDM_ETL_Conventions.md#110-observation-period-1)
 
-####[1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure)
+####[1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
 
-####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement)
+####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 
 ####[1.13 Fact Relationship](Pedsnet_CDM_ETL_Conventions.md#113-fact-relationship-1)
 
