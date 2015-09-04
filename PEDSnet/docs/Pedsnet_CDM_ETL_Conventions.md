@@ -433,8 +433,6 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 
 
 
-
-
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
 
 - The DRG value must be three digits as text. Put into value_as_string in observation
@@ -443,9 +441,14 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
     - If the date for the DRG \< 10/1/2007, use concept_class_id = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
     - If the date for the DRG \>=10/1/2007, use concept_class_id = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
 
-**Note 2:** Discharge disposition and discharge status appear only once per visit_occurence. These vales can change across different visit_occurrences. Use the visit_occurrence_id to tie these observations to the corresponding visit.
+**Note 2:** 
+- For each inpatient encounter, there can be 1 admit source, 1 discharge disposition, 1 discharge status, 1 or more DRG
+  (May not be 1:1:1:1 if patients still admitted (therefore no discharge disposition, discharge details or DRG yet))
+- There should **NOT** be discharges without admission.
+- For each emergency dept (ED) encounters, these 4 records *may* also be populated but this is *optional*.
+- For outpatient encounters (OT, OA), these 4 records should **NOT** be populated
 
-**Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
+**Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
 **Note 4:** Below are examples of how the observation table and the fact relationship table would be populated for tobocoo,smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert.
 
