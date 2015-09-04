@@ -594,8 +594,8 @@ No discrete dosing information | | 0
 
 You have in your source system | Drug_source_value| Drug_source_conept_id | Drug_concept_id
 ---|---|---|---
-Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other +Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
-Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code +Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping
+Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other \| Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
+Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code \| Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping
 
 
 
@@ -623,7 +623,7 @@ dose_unit_concept_id| No |Provide When Available| Integer | A foreign key to a p
 lot_number| No |Site preference| Varchar | An identifier to determine where the product originated||
 provider_id| No |Provide When Available|  Integer | A foreign key to the provider in the provider table who initiated (prescribed) the drug exposure |<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Document how selection was made.
 visit_occurrence_id| No |Provide When Available|  Integer | A foreign key to the visit in the visit table during which the drug exposure initiated. | See VISIT.visit_occurrence_id (primary key)
-drug_source_value| No|Provide When Available|  Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.| Please be sure to include your source code and the drug name in this field. This will be useful in the event that there is no RxNorm mapping for your local medication code. See note 6.
+drug_source_value| No|Provide When Available|  Varchar | The source drug value as it appears in the source data. The source is mapped to a standard RxNorm concept and the original code is stored here for reference.| Please be sure to include your source code and the drug name in this field. This will be useful in the event that there is no RxNorm mapping for your local medication code. Please use the pipe delimiter "\|" when concacatenating values. See note 6.
 drug_source_concept_id| No |Provide When Available|  Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here. See note 6.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 route_source_value| No|Provide When Available|  Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No|Provide When Available|  Varchar | The information about the dose unit as detailed in the source ||
@@ -729,9 +729,9 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 
 You have in your source system | Measurement_source_value| Measurement_source_conept_id | measurement_concept_id
 ---|---|---|---
-Lab code is institutional-specific code (not CPT/not LOINC) |<ul><li> Local code or</li><li>Local name or</li><li>Local code +Local name</li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
-Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li>CPT code +Local name</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
-Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li>LOINC code +Local name</li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is institutional-specific code (not CPT/not LOINC) |<ul><li> Local code or</li><li>Local name or</li><li>Local code \| Local name</li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
+Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li>CPT code \| Local name</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li>LOINC code  \| Local name</li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is different than PEDSnet LOINC | Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
 
 Note 5:
@@ -767,7 +767,7 @@ range_high | No | Provide When Available| Float | The upper limit of the normal 
 range_high_source_value | No | Provide When Available| Varchar | The upper limit of the normal range of the measurement as it appears in the source. | See note 5
 provider_id | No | Provide When Available| Integer | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to the visit in the visit table during which the observation was recorded.
-measurement_source_value | Yes |Provide When Available|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. For lab values, please see Note 4.
+measurement_source_value | Yes |Provide When Available|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concacatenating values. For lab values, please see Note 4.
 measurement_source_concept_id| No| Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
 value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
