@@ -440,6 +440,7 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 - To obtain correct value_as_concept_id for the DRG:
     - If the date for the DRG \< 10/1/2007, use concept_class_id = "DRG", invalid_date = "9/30/2007", invalid_reason = 'D' and the DRG value=CONCEPT.concept_code to query the CONCEPT table for correct concept_id to use as value_as_concept_id.
     - If the date for the DRG \>=10/1/2007, use concept_class_id = "MS-DRG", invalid_reason = NULL and the DRG value = CONCEPT.concept_code to query the CONCEPT table for the correct concept_id to use as value_as_concept_id.
+-If your site has APR-DRGs **please include** these in the observation table. We have requested the APR-DRG vocabulary to be incorporated as apart of the OMOP standard vocabulary. 
 
 **Note 2:** 
 - For each inpatient encounter, there can be 1 admit source, 1 discharge disposition, 1 discharge status, 1 or more DRG
