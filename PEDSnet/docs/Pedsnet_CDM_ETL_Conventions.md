@@ -564,11 +564,12 @@ The dose_unit_concept_id is the unit of the effective dose.
 
 Please use the following logic to populate the effective_dose and dose unit based on what is available in your source system:
 
-Site Information | Effective Drug Dose | Dose Unit
---- | --- | ---
-Pre-calculated effective dose available  or Site is able to compute effective dose (Eg. 90 mg/kg | Effective Dose (Eg. 90) | Corresponding concept for unit (Eg. mg/kg = 9562)
-Dose only (Eg 450 mg) | Dose (Eg. 450) | Corresponding Concept for unit (Eg. mg = 8576)
-No discrete dosing information | | 0
+Site Information | Effective Drug Dose | Dose Unit Concept Id  | Dose Unit Source Value
+--- | --- | --- | ---
+Pre-calculated effective dose available  (Eg. 90 mg/kg | Effective Dose (Eg. 90) | Corresponding concept for unit (Eg. mg/kg = 9562)
+Site is able to compute effective dose (Eg. Dose 500 mg and Weight is 54.43 kb) | 9.18 | Corresponding concept for unit (Eg. mg/kg = 9562) | Corresponding Concept for unit (Eg. mg = 8576)
+Dose only (Eg 450 mg) | Dose (Eg. 450) | Corresponding Concept for unit (Eg. mg = 8576) |Corresponding Concept for unit (Eg. mg = 8576)
+No discrete dosing information | | 0|
  
 
 **Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient) Extract numbers as much as possible , full value should be a part of the xml sig field.
@@ -594,7 +595,7 @@ No discrete dosing information | | 0
 4. PIN
 5. IN
 
-**Note 6**: Please use the following table as a guide to determine how to populaute the `drug_source_value`, `drug_source_concept_id` and `drug_concept_id` for LAB Values
+**Note 6**: Please use the following table as a guide to determine how to populaute the `drug_source_value`, `drug_source_concept_id` and `drug_concept_id` for Drug Exposure Values
 
 You have in your source system | Drug_source_value| Drug_source_conept_id | Drug_concept_id
 ---|---|---|---
