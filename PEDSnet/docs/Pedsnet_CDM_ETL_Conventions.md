@@ -566,9 +566,9 @@ Please use the following logic to populate the effective_dose and dose unit base
 
 Site Information | Effective Drug Dose | Dose Unit Concept Id  | Dose Unit Source Value
 --- | --- | --- | ---
-Pre-calculated effective dose available  (Eg. 90 mg/kg | Effective Dose (Eg. 90) | Corresponding concept for unit (Eg. mg/kg = 9562)| mg/kg
+Pre-calculated effective dose available  (Eg. 90 mg/kg) | 90 | Corresponding concept for unit (Eg. mg/kg = 9562)| mg/kg
 Site is able to compute effective dose (Eg. Dose 500 mg and  Available Weight +/- 60 days is 54.43 kb) | 9.18 | Corresponding concept for unit (Eg. mg/kg = 9562) | mg
-Site is not able to compute effective dose( Eg. Supply Dose only (Eg 450 mg)) | Dose (Eg. 450) | Corresponding Concept for unit (Eg. mg = 8576) |mg
+Site is not able to compute effective dose( Eg. Supply Dose only (Eg 450 mg)) | 450 | Corresponding Concept for unit (Eg. mg = 8576) |mg
 No discrete dosing information | | 0|
  
 
