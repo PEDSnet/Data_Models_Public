@@ -558,7 +558,7 @@ Exclusions:
 1. Cancelled Medication Orders
 2. Missed Medication administrations
 
-**Note 1**: The `effective_drug_dose` is the dose basis.(Eg. 45 mg/kg/dose). This is the discrete dose value from the source data if available. If the discrete dose value is **not** available from the source data, then compute the dose basis by looking for a weight observation **+/- 60 days of the date of the medication**. (Eg. Total Amount/**(divided by)**Weight) (Dose per kg)
+**Note 1**: The `effective_drug_dose` is the dose basis.(E.g. 45 mg/kg/dose). This is the discrete dose value from the source data if available. If the discrete dose value is **not** available from the source data, then compute the dose basis by looking for a weight observation **+/- 60 days of the date of the medication**. (E.g. Total Amount/**(divided by)**Weight) (Dose per kg)
 
 The dose_unit_concept_id is the unit of the effective dose.
 
@@ -566,13 +566,13 @@ Please use the following logic to populate the effective_dose and dose unit base
 
 Site Information | Effective Drug Dose | Dose Unit Concept Id  | Dose Unit Source Value
 --- | --- | --- | ---
-Pre-calculated effective dose available  (Eg. 90 mg/kg) | 90 | Corresponding concept for unit (Eg. mg/kg = 9562)| mg/kg
-Site is able to compute effective dose (Eg. Dose 500 mg and  Available Weight +/- 60 days is 54.43 kb) | 9.18 | Corresponding concept for unit (Eg. mg/kg = 9562) | mg
-Site is not able to compute effective dose( Eg. Supply Dose only (Eg 450 mg)) | 450 | Corresponding Concept for unit (Eg. mg = 8576) |mg
+Pre-calculated effective dose available  (E.g. 90 mg/kg) | 90 | Corresponding concept for unit (E.g. mg/kg = 9562)| mg/kg
+Site is able to compute effective dose (E.g. Dose 500 mg and  Available Weight +/- 60 days is 54.43 kg) | 9.18 | Corresponding concept for unit (E.g. mg/kg = 9562) | mg
+Site is not able to compute effective dose( E.g. Site Only has dose (E.g. 450 mg)) | 450 | Corresponding Concept for unit (E.g. mg = 8576) |mg
 No discrete dosing information | | 0|
  
 
-**Note 2**: The quantity is the actual dose given. (Eg. 450 mg for 10 kg patient) Extract numbers as much as possible , full value should be a part of the xml sig field.
+**Note 2**: The quantity is the actual dose given. (E.g. 450 mg for 10 kg patient) Extract numbers as much as possible , full value should be a part of the xml sig field.
 
 **Note 3**: For dispensing records, compute the dose basis by looking for a weight observation +/- 60 days of the dispensed date.
 
@@ -775,7 +775,7 @@ visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to th
 measurement_source_value | Yes |Provide When Available|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concacatenating values. For lab values, please see Note 4.
 measurement_source_concept_id| No| Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
-value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value Eg. 120/60</li><li>If there are transformed values (Eg. Weight and Height) please insert the raw data before transformation.</li></ul>
+value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight and Height) please insert the raw data before transformation.</li></ul>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
