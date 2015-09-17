@@ -41,9 +41,18 @@ NULL | A data field is not present in the source system. Note. This is not a 'NU
 'UN' = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value
 'OT' = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM
 
-***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure and observation_period
+10.
+**For populating `'*_source_concept_id'` use the following Logic:**
 
-It is recommended to refer to the vocabulary documentation as provided by ODHSII for guidance on how to populate "concept_id" fields in the model and for any specific transformations in the vocabulary. http://www.ohdsi.org/web/wiki/doku.php?id=documentation:vocabulary:data_etl
+  **Populate `'*_source_concept_id'` (i.e. non-zero) if the source_value is drawn from a standard vocabulary in OMOP**.
+       
+Please use your local system knowledge to determine this or use the following criteria : All the values in the source_value field should be drawn from the concept_code in the concept table (for a given/relevant domain_id and a given vocabulary_id).
+    
+  **ELSE Use 0** 
+      
+ (usually the case when the sites need to "manually" map the foo_source_value to foo_concept_id)
+
+***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure
 
 * * *
 ## Table of Contents
