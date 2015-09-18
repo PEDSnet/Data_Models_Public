@@ -201,7 +201,6 @@ The Provider domain contains a list of uniquely identified health care providers
 
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-provider_id | Yes | Provide When Available| Integer | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. See Additional Comments below. Sites should document who they have included as a provider.
 provider_name | No | NO| Varchar | A description of the provider | DO NOT TRASMIT TO DCC
 gender_concept_id | No | Provide When Available|Integer | The gender of the provider | A foreign key to the concept that refers to the code used in the source.|Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
 specialty_concept_id | No | Provide When Available| Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialtity concept associated with the American Medical Board of Specialties as seen in **Appendix A1**. Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Provider Specialty' and  vocabulary_id = Specialty)</p> <p>select \* from concept where domain_id ='Provider Specialty' and vocabulary_id='Specialty' and invalid_reason is null yields 107 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source. If the specialty does not correspond to a value in this listing, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference.
@@ -351,6 +350,10 @@ modifier_source_value | No |Provide When Available| Varchar | The source code fo
 - Procedures could reflect the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 - The Visit during which the procedure was performed is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider carrying out the procedure is recorded through a reference to the PROVIDER table. This information is not always available.
+
+### **ATTENTION!!: OUTSTANDING ISSUES WITH PROCEDURE OCCURRENCE**
+- ***The procedure type concept id requires a standard concept assignment from the network.***
+
 
 ## 1.9 OBSERVATION
 
@@ -534,6 +537,11 @@ qualifier_source_value |No |Provide When Available| Varchar | The source value a
 - The Provider making the observation is recorded through a reference to the PROVIDER table. This information is not always available.
 - Observations obtained using standardized methods (e.g. laboratory assays) that produce discrete results are recorded by preference in the MEASUREMENT table.
 
+
+### **ATTENTION!!: OUTSTANDING ISSUES WITH OBSERVATION**
+- ***Tobacco concept mapping is not 100% complete. There are 3 concepts that require a mapping or are subject to change.***
+
+
 ## 1.10 OBSERVATION PERIOD
 
 The observation period domain is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have a clinical fact represented in the PEDSNet version 2 data modelo. This table is used to generate the PCORnet CDM enrollment table.
@@ -554,6 +562,10 @@ Observation_period_end_time | No |Provide When Available| Datetime | The end dat
 #### 1.10.1 Additional Notes
 
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
+
+
+### **ATTENTION!!: OUTSTANDING ISSUES WITH DEATH**
+- ***Possible structural changes: Addition of `death_impute_concept_id`, `death_source_concept_id` columns or similiar***
 
 
 ## 1.11 DRUG EXPOSURE
@@ -609,10 +621,10 @@ No discrete dosing information | | 0|
 You have in your source system | Drug_source_value| Drug_source_conept_id | Drug_concept_id
 ---|---|---|---
 Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other \| Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
-Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code \| Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping
+Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code \| Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping|
+\****PENDING***\**Drug Code is RxNorm and Drug has generic code and branded code* | *SCD\|PCORNET:'RxNormCode'\|Local Code* | *Corresponding SBD RxNorm concept_id mapping*| *Corresponding SBD RxNorm concept_id mapping*
 
-
-
+**Note 7**: For medication administration events, please store all events as single drug exposure entries.
 
 
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
@@ -650,6 +662,9 @@ dose_unit_source_value| No|Provide When Available|  Varchar | The information ab
 - The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider initating the drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
 
+### **ATTENTION!!: OUTSTANDING ISSUES WITH DRUG_EXPOSURE**
+- ***Possible Structural Changes: addition of `order_date`, `order_time`,`frequency` columns or similiar***
+- ***Additional RxNorm logic may be implemented for drugs that have both a generic and brand name form. This is an outstanding issue to be discussed with PCORI***
 
 ## 1.12 MEASUREMENT
 
@@ -795,6 +810,8 @@ value_source_value| Yes|Provide When Available|  Varchar | The source value asso
 - The Visit during which the measurement was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
 
+### **ATTENTION!!: OUTSTANDING ISSUES WITH MEASUREMENT**
+- ***Possible Structural Changes: addition of `result_location`,`lab_order_date`,`lab_order_time`, `result_date`, `result_time`,`specimen_date`, `specimen_time`,'specimen_source_concept_id',`specimen_source_source_value` columns or similar***
 
 ## 1.13 FACT RELATIONSHIP
 
@@ -812,6 +829,10 @@ Relationship_concept_id	|Yes|Provide When Available| Integer |A foreign key to a
 
 #### 1.13.1 Additional Notes
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table.
+- 
+
+### **ATTENTION!!: OUTSTANDING ISSUES WITH FACT RELATIONSHIP*
+- ***FINAL tobacco relationship concept id UNKNOWN***
 
 ## 1.14 VISIT_PAYER
 
