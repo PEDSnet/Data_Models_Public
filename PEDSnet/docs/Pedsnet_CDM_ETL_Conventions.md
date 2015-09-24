@@ -365,7 +365,7 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 - Discharge disposition
 - Discharge status
 - DRG (requires special logic - see Note 1 below)
-- Tobacco Status (see Note 4)
+- Tobacco Information (see Note 4)
 
 Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary_id='Observation Type' and vocabulary_id='PCORNet' and one newly added standard concept from vocabulary_id='SNOMED'.
 
@@ -413,7 +413,7 @@ Discharge status | 4137274 | | 44814650 | No information | PCORNet
 Tobacco |4005823| |4005823 |Tobacco User | | 01 = Current user
 Tobacco |4005823| |45765920 |  Never used Tobacco| |02 = Never
 Tobacco |4005823| |45765917|  Ex-tobacco user| |03 = Quit/Former Smoker
-Tobacco |4005823| |40765262 | PhenX-environmental exposures- current environmental tobacco smoke exposure protocol| |04 = Passive or environmental exposure
+Tobacco |4005823| |4030580 | Non-smoker's second hand smoke syndrome| |04 = Passive or environmental exposure
 Tobacco |4005823| |*concept id pending* ||| 06 = Not asked
 Tobacco |4005823| |44814650 |No information | PCORNet | NI
 Tobacco |4005823| |44814653| Unknown| PCORNet | OT
@@ -463,7 +463,7 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 
 **Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
-**Note 4:** Below are examples of how the observation table and the fact relationship table would be populated for tobocoo,smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert.
+**Note 4:** Below are examples of how the observation table and the fact relationship table would be populated for tobocoo,smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert. The PEDSnet standard relationship concept id for linking tobacco items will be *0*. This concept id was chosen as there was not a specific concept id that exists in the standard vocabulary that adequately defined an appropriate relationship for linking the tobacco items.
 
 *Example 1:*
 
@@ -482,8 +482,8 @@ Fact relationship:
 
 Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_concept_id
 ---|---|---|---|---
-27|	0001|	27	|0002	|*concept id pending*
-27 |0001|	27|	0003|	*concept id pending*
+27|	0001|	27	|0002	|0
+27 |0001|	27|	0003|	0
 
 *Example 2:*
 Patient 2 smokes 25-40 cigarettes per day and also chews tobacco
@@ -501,9 +501,9 @@ Fact relationship:
 
 Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_concept_id
 ---|---|---|---|---
-27	|0004|	27	|0005|	*concept id pending*
-27|	0004|	27	|0006|	*concept id pending*
-27|	0004|	27	|0007|	*concept id pending*
+27	|0004|	27	|0005|	0
+27|	0004|	27	|0006|	0
+27|	0004|	27	|0007|	0
 
 *For more examples or if you have a specific scenario that you have a question about please contact the DCC*
 
@@ -539,7 +539,7 @@ qualifier_source_value |No |Provide When Available| Varchar | The source value a
 
 
 ### **ATTENTION!!: OUTSTANDING ISSUES WITH OBSERVATION**
-- ***Tobacco concept mapping is not 100% complete. There are 3 concepts that require a mapping or are subject to change.***
+- ***Tobacco concept mapping is not 100% complete. There are 2 concepts that require a mapping or are subject to change.***
 
 
 ## 1.10 OBSERVATION PERIOD
