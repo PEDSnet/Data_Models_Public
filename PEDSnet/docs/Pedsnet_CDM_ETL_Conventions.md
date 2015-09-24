@@ -681,7 +681,7 @@ Specifically this table includes:
     - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Vital source
-- Component Level Labs **(Network list pending)**
+- Component Level Labs. The listing can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
@@ -700,6 +700,7 @@ Vital | 3004249 | | See Note 2 | Systolic BP Unknown/Other
 Vital | 3038553 | | See Note 1 | BMI
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
 Measurement Type | 44818701 | Measurement Type | See Note 3 | Vital sign
+Measurement Type | 44818702| Measurement Type | See Note 4 | Lab Result
 
 **Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_number field.
 **Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
@@ -709,9 +710,9 @@ Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood
 - Supine: Systolic BP 120; Diastolic BP 60
 - Standing: Systolic BP 144; Diastolic BP 72
 
-Four rows will be inserted into the observation table. Showing only the relevant columns:
+Four rows will be inserted into the measurement table. Showing only the relevant columns:
 
-Observation_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_String | Value_as_Concept_ID
+Measurement_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_Concept_ID
  --- | --- | --- | --- | --- | --- | --- | ---
 66661 | 12345 | 678910 | 3009395 | 44818701 | 120 | |
 66662 | 12345 | 678910 | 3013940 | 44818701 | 60 | |
@@ -763,8 +764,7 @@ Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li>CPT code 
 Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li>LOINC code  \| Local name</li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is different than PEDSnet LOINC | Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
 
-Note 5:
-**Note 4**: Please use the following table as a guide to determine how to populaute the `range_low`,`range_low_source_value`, `range_high` and `range_high_source_value` for LAB Values
+**Note 5**: Please use the following table as a guide to determine how to populaute the `range_low`,`range_low_source_value`, `range_high` and `range_high_source_value` for LAB Values
 
 You have in your source system | range high/ range low | range high source value / range low source value
 --- | --- | ---
@@ -772,6 +772,39 @@ Numerical value `Examples: 7,8.2,100` | Numerical Value `Examples: 7,8.2,100` | 
 Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Examples: 2, 100, 5`| Limits `Examples: <2, >100, less than 5`
 Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`
 
+**Note 6**: Please use the following as a guide for linking procedure orders to lab results in the FACT_RELATIONSHIP table.
+
+Example: Person_id = 12345 on visit_occurrence_id = 678910 had a basic metablolic panel ordered.
+
+One will be inserted into the procedure_occurrence table. Showing only the relevant columns:
+
+Procedure_Occurrence_id | Person_id | Visit_occurrence_id | procedure_concept_id | procedure_source_value
+ --- | --- | --- | --- | --- | --- 
+66661 | 12345 | 678910 | 2212090| BASIC METABOLIC PANEL_80048 |
+
+Multiple rows will be inserted into the measurment table. Showing a sample of componets results only:
+
+Measurement_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | measurement_source_value|measurement_source_concept_id|  Value_as_Number 
+ --- | --- | --- | --- | --- | --- | --- | ---
+1232| 12345 | 678910 | 3023103| 44818702 |POTASSIUM_80048 |2212090|4 
+1233| 12345 | 678910 | 3019550| 44818702 |SODIUM_80048|2212090|136 
+2434| 12345 | 678910 | 3013682| 44818702 |UREA NITROGEN_80048 |2212090|3
+
+To link the procedure with the result values, use the fact relationship table:
+
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+Procedure| 66661 | Measurement | 1232 |  Has component *PENDING*
+Procedure| 66661 | Measurement | 1233 |  Has component *PENDING*
+Procedure| 66661| Measurement | 2434 |  Has component *PENDING*
+
+Because the domain concept id and relationship concept id are integers the following is an example of how this data will be represented:
+
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+10| 66661  | 21 |1232  |44818767 *PENDING*
+10| 66661 | 21 | 1233|44818767 *PENDING*
+10| 66661| 21 |2434  |44818767 *PENDING*
 
 Exclusions:
 
@@ -783,8 +816,12 @@ Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PE
 measurement_id | Yes |Provide When Available|  Integer | A system-generated unique identifier for each measurement | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available|  Integer | A foreign key identifier to the person who the measurement is being documented for. The demographic details of that person are stored in the person table.
 measurement_concept_id | Yes |Provide When Available|  Integer | A foreign key to the standard measurement concept identifier in the Vocabulary. | <p>Valid Measurement Concepts belong to the "Measurement" domain. Measurement Concepts are based mostly on the LOINC vocabulary, with some additions from SNOMED-CT.</p> <p>Measurement must have an object represented as a concept, and a finding. A finding (see below) is represented as a concept, a numerical value or a verbatim string or more than one of these.</p> <p>There are three Standard Vocabularies defined for measurements:</p> <p>Laboratory tests and values: Logical Observation Identifiers Names and Codes (**LOINC**) (Vocabulary_id=LOINC).</p> <p>(FYI: Regenstrief also maintains the **"LOINC Multidimensional Classification"** Vocabulary_id=LOINC Hierarchy)</p> <p>Qualitative lab results: A set of SNOMED-CT Qualifier Value concepts (vocabulary_id=SNOMED)</p> <p>Laboratory units: Unified Code for Units of Measure (**UCUM**( )Vocabulary_id=UCUM)</p> <p>All other findings and observables: SNOMED-CT (Vocabulary_id=SNOMED).</p> For vital signs, pull information from flow sheet rows (EPIC sites only). For lab values, please see Note 4.
-measurement_date| Yes |Provide When Available|  Date | The date of the measurement. | No date shifting.  
-measurement_time| No| Provide When Available| Datetime | The time of the measurement. | No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
+measurement_date| Yes |Provide When Available|  Date | The date of the measurement.|For lab orders, this should be the result date. No date shifting.
+measurement_time| No| Provide When Available| Datetime | The time of the measurement. | For lab orders, this should be the result time.No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
+measurement_order_date| Yes| Provide When Available| Date | This field applies to Lab Orders only. This is the date the lab was ordered in the source. | No date shifting.
+measurement_order_time| Yes| Provide When Available| Datetime | This field applies to Lab Orders only. This is the time the lab was ordered in the source. | No date shifting. Full date and time. If there is no time associated with the date assert midnight.
+measurement_specimen_date| Yes| Provide When Available| Date | This field applies to Lab Orders only. This is the date the specimen was collected was ordered in the source. | No date shifting.
+measurement_specimen_time| Yes| Provide When Available| Datetime | This field applies to Lab Orders only. This is the time the specimen was collected in the source. | No date shifting. Full date and time. If there is no time associated with the date assert midnight.
 measurement_type_concept_id | Yes |Provide When Available|  Integer | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the measurement. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id =Meas Type)</p> <p>select \* from concept where vocabulary_id =Meas Type yields 5 valid concept_ids.</p> For Pedsnet CDM v2.1, please use the following: <ul><li>Vital Sign= 44818701</li><li>Lab result =  44818702</li><li>Pathology finding = 44818703</li><li>Patient reported value = 44818704</li> <li> Derived Value = 45754907</li></ul> 
 operator_concept_id| No|Provide When Available|  Integer | A foreign key identifier to the mathematical operator that is applied to the value_as_number.Operators are <, ≤, =, ≥, >| Valid operator concept id are found in the concept table <p> select \* from concept where domain_id='Meas Value Operator' yields 5 valid concept ids. <ul> <li> Operator <= : 4171754 </li> <li> Operator >= : 4171755      </li> <li> Operator < : 4171756 </li> <li> Operator =   4172703 </li> <li> Operator > : 4172704 </li> </ul>|
 value_as_number | No (see convention) | Provide When Available| Float | The measurement result stored as a number. This is applicable to measurements where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}.
@@ -811,7 +848,7 @@ value_source_value| Yes|Provide When Available|  Varchar | The source value asso
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
 
 ### **ATTENTION!!: OUTSTANDING ISSUES WITH MEASUREMENT**
-- ***Possible Structural Changes: addition of `result_location`,`lab_order_date`,`lab_order_time`, `result_date`, `result_time`,`specimen_date`, `specimen_time`,'specimen_source_concept_id',`specimen_source_source_value` columns or similar***
+- ***Possible Structural Changes: addition of `result_location`,'specimen_source_concept_id',`specimen_source_source_value` columns or similar - Possible Content changes - qualitative lab results***
 
 ## 1.13 FACT RELATIONSHIP
 
@@ -829,10 +866,8 @@ Relationship_concept_id	|Yes|Provide When Available| Integer |A foreign key to a
 
 #### 1.13.1 Additional Notes
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table.
-- 
-
-### **ATTENTION!!: OUTSTANDING ISSUES WITH FACT RELATIONSHIP*
-- ***FINAL tobacco relationship concept id UNKNOWN***
+- ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table.
+- Procedure Occurrences and applicable Lab Results (Measurment) will be mapped using the fact relationship table.
 
 ## 1.14 VISIT_PAYER
 
