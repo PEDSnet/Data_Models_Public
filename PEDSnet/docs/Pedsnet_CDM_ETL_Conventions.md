@@ -323,6 +323,12 @@ The procedure occurrence domain contains records of significant activities or pr
 
 Procedures records are extracted from structured data in Electronic Health Records that capture source procedure codes using CPT-4, ICD-9-CM (Procedures), HCPCS or OPCS-4 procedures as orders.
 
+More specifically the procedure occurrence domain is intended to stores information about activity or processes involving a patient that has a billable code. This includes but is not limited to the following:
+- LOS Codes ((Eg. 99123) This code may not Not necessarily be a CPT and could require local mapping )
+- Lab Procedures (including a Lab Panel Order)
+- Surgery Procedures
+- Imaging Procedures
+
 **Only instantiated procedures are included in this table. Please exclude cancelled procedures**
 
 Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
@@ -350,10 +356,6 @@ modifier_source_value | No |Provide When Available| Varchar | The source code fo
 - Procedures could reflect the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 - The Visit during which the procedure was performed is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider carrying out the procedure is recorded through a reference to the PROVIDER table. This information is not always available.
-
-### **ATTENTION!!: OUTSTANDING ISSUES WITH PROCEDURE OCCURRENCE**
-- ***The procedure type concept id requires a standard concept assignment from the network.***
-
 
 ## 1.9 OBSERVATION
 
