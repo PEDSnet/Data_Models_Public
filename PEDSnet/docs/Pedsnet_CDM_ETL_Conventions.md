@@ -776,39 +776,6 @@ Numerical value `Examples: 7,8.2,100` | Numerical Value `Examples: 7,8.2,100` | 
 Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Examples: 2, 100, 5`| Limits `Examples: <2, >100, less than 5`
 Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`
 
-**Note 6**: Please use the following as a guide for linking procedure orders to lab results in the FACT_RELATIONSHIP table.
-
-Example: Person_id = 12345 on visit_occurrence_id = 678910 had a basic metablolic panel ordered.
-
-One will be inserted into the procedure_occurrence table. Showing only the relevant columns:
-
-Procedure_Occurrence_id | Person_id | Visit_occurrence_id | procedure_concept_id | procedure_source_value
- --- | --- | --- | --- | --- | --- 
-66661 | 12345 | 678910 | 2212090| BASIC METABOLIC PANEL_80048 |
-
-Multiple rows will be inserted into the measurment table. Showing a sample of componets results only:
-
-Measurement_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | measurement_source_value|measurement_source_concept_id|  Value_as_Number 
- --- | --- | --- | --- | --- | --- | --- | ---
-1232| 12345 | 678910 | 3023103| 44818702 |POTASSIUM_80048 |2212090|4 
-1233| 12345 | 678910 | 3019550| 44818702 |SODIUM_80048|2212090|136 
-2434| 12345 | 678910 | 3013682| 44818702 |UREA NITROGEN_80048 |2212090|3
-
-To link the procedure with the result values, use the fact relationship table:
-
-Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
---- | --- | --- | --- | ---
-Procedure| 66661 | Measurement | 1232 |  Has component *PENDING*
-Procedure| 66661 | Measurement | 1233 |  Has component *PENDING*
-Procedure| 66661| Measurement | 2434 |  Has component *PENDING*
-
-Because the domain concept id and relationship concept id are integers the following is an example of how this data will be represented:
-
-Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
---- | --- | --- | --- | ---
-10| 66661  | 21 |1232  |44818767 *PENDING*
-10| 66661 | 21 | 1233|44818767 *PENDING*
-10| 66661| 21 |2434  |44818767 *PENDING*
 
 Exclusions:
 
@@ -871,7 +838,6 @@ Relationship_concept_id	|Yes|Provide When Available| Integer |A foreign key to a
 #### 1.13.1 Additional Notes
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table.
 - ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table.
-- Procedure Occurrences and applicable Lab Results (Measurment) will be mapped using the fact relationship table.
 
 ## 1.14 VISIT_PAYER
 
