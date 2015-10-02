@@ -703,13 +703,14 @@ Vital | 3009395 | | See Note 2 | Systolic Blood Pressure - Supine
 Vital | 3004249 | | See Note 2 | Systolic BP Unknown/Other
 Vital | 3038553 | | See Note 1 | BMI
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
-Measurement Type | 44818701 | Measurement Type | See Note 3 | Vital sign
+Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from device direct feed
+Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
 Measurement Type | 44818702| Measurement Type | See Note 4 | Lab Result
 
 **Note 1**: For height, weight and BMI observations, insert the recorded measurement into the value_as_number field.
 **Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
-Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood pressure measurements performed as follows:
+Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood pressure measurements performed in the healthcare delivery setting as follows:
 
 - Supine: Systolic BP 120; Diastolic BP 60
 - Standing: Systolic BP 144; Diastolic BP 72
@@ -718,14 +719,14 @@ Four rows will be inserted into the measurement table. Showing only the relevant
 
 Measurement_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_Concept_ID
  --- | --- | --- | --- | --- | --- | --- | ---
-66661 | 12345 | 678910 | 3009395 | 44818701 | 120 | |
-66662 | 12345 | 678910 | 3013940 | 44818701 | 60 | |
-66663 | 12345 | 678910 | 3035856 | 44818701 | 144 | |
-66664 | 12345 | 678910 | 3019962 | 44818701 | 72 | |
+66661 | 12345 | 678910 | 3009395 | 2000000033| 120 | |
+66662 | 12345 | 678910 | 3013940 | 2000000033 | 60 | |
+66663 | 12345 | 678910 | 3035856 | 2000000033 | 144 | |
+66664 | 12345 | 678910 | 3019962 | 2000000033 | 72 | |
 
 - Measurement_concept_id = 3009395 = systolic BP - supine; measurement_concept_id = 3013940 = diastolic BP supine
 - Measurement_concept_id = 3035856 = systolic BP standing; measurement_concept_id = 3019962 = diastolic BP standing
-- measurement_type_concept_id = 44818701 (Vital Sign).
+- measurement_type_concept_id = 2000000033 (Vital Sign from heatlhcare delivery setting).
 
 To link these two values, use the fact relationship table:
 
