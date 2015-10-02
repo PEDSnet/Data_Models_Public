@@ -521,7 +521,7 @@ value_as_number |No (see convention) |Provide When Available| Float | The observ
 value_as_string | No (see convention) | Provide When Available|Varchar | The observation result stored as a string. This is applicable to observations where the result is expressed as verbatim text. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id PCORNet where all three value_as_\* fields are NULL.
 value_as_concept_id | No (see convention) |Provide When Available| Integer | A foreign key to an observation result stored as a concept identifier. This is applicable to observations where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions where all three value_as_\* fields are NULL.
 qualifier_concept_id | No |Provide When Available| Integer | A foreign key to standard concept identifier for a qualifier (e.g severity of drug-drug interaction alert) | <p>Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Observation' and concept_class_id ='Qualifier Value')</p> <p>select \* from concept where domain_id='Observation' and concept_class_id ='Qualifier Value' yields 10912 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
-unit_concept_id | No | Provide When Available|Integer | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Unit' and vocabulary_id ='UCUM')</p> <p>select \* from concept where domain_id='Unit' and vocabulary_id ='UCUM' yields 920 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
+unit_concept_id | No | Provide When Available|Integer | A foreign key to a standard concept identifier of observation units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Unit' and vocabulary_id ='UCUM')</p> <p>select \* from concept where domain_id='Unit' and vocabulary_id ='UCUM' yields 920 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
 provider_id | No | Provide When Available|Integer | A foreign key to the provider in the provider table who was responsible for making the observation.
 visit_occurrence_id | No |Provide When Available| Integer | A foreign key to the visit in the visit table during which the observation was recorded.
 observation_source_value | No |Provide When Available| Varchar | The observation code as it appears in the source data. This code is mapped to a standard concept in the Vocabulary and the original code is, stored here for reference.
@@ -768,13 +768,13 @@ Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li>CPT code 
 Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li>LOINC code  \| Local name</li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is different than PEDSnet LOINC | Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
 
-**Note 5**: Please use the following table as a guide to determine how to populaute the `range_low`,`range_low_source_value`, `range_high` and `range_high_source_value` for LAB Values
+**Note 5**: Please use the following table as a guide to determine how to populaute the `range_low`,`range_low_source_value`,`range_low_operator_concept_id`, `range_high`, `range_high_source_value` and `range_low_operator_concept_id` for LAB Values
 
-You have in your source system | range high/ range low | range high source value / range low source value
---- | --- | ---
-Numerical value `Examples: 7,8.2,100` | Numerical Value `Examples: 7,8.2,100` | Numerical value `Examples: 7,8.2,100`
-Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Examples: 2, 100, 5`| Limits `Examples: <2, >100, less than 5`
-Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`
+You have in your source system | range high/ range low | range high source value / range low source value | range low/high operator concept id
+--- | --- | ---| ---
+Numerical value `Examples: 7,8.2,100` | Numerical Value `Examples: 7,8.2,100` | Numerical value `Examples: 7,8.2,100`|0
+Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Examples: 2, 100, 5`| Limits `Examples: <2, >100, less than 5` | Corresponding concept to the modifier `Examples:4171756,4172704 ,4171756 `
+Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`|0
 
 
 Exclusions:
@@ -800,14 +800,17 @@ value_as_concept_id | No (see convention) |Provide When Available|  Integer | A 
 unit_concept_id | No |Provide When Available|  Integer | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = UCUM yields 912 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet observation listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li></ul>
 range_low | No | Provide When Available| Float |  The lower limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 range_low_source_value | No | Provide When Available| Varchar |  The lower limit of the normal range of the measurement as it appears in the source. | See note 5
+range_low_operator_concept_id | No | Optional | Integer|This corresponds to modifier of lower limit of the normal range of the measurement as it appears in the source. | See note 5
 range_high | No | Provide When Available| Float | The upper limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 range_high_source_value | No | Provide When Available| Varchar | The upper limit of the normal range of the measurement as it appears in the source. | See note 5
+range_high_operator_concept_id | No | Optional | Integer||This corresponds to modifier of higher limit of the normal range of the measurement as it appears in the source. | See note 5
 provider_id | No | Provide When Available| Integer | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to the visit in the visit table during which the observation was recorded.
 measurement_source_value | Yes |Provide When Available|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concacatenating values. For lab values, please see Note 4.
 measurement_source_concept_id| No| Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
 value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight and Height) please insert the raw data before transformation.</li></ul>
+specimen_source_value| No| Provider When Available| Varchar | This field is applicable for lab values only. This source value for the specimen source as it appears in the source||
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -819,7 +822,7 @@ value_source_value| Yes|Provide When Available|  Varchar | The source value asso
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
 
 ### **ATTENTION!!: OUTSTANDING ISSUES WITH MEASUREMENT**
-- ***Possible Structural Changes: addition of `result_location`,'specimen_source_concept_id',`specimen_source_source_value` columns or similar - Possible Content changes - qualitative lab results***
+- ***Possible Content changes - qualitative lab results***
 
 ## 1.13 FACT RELATIONSHIP
 
