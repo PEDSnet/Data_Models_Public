@@ -142,6 +142,7 @@ death_type_concept_id | Yes | Provide When Available|  Integer | A foreign key r
 cause_concept_id | No |Provide When Available|   Integer | A foreign referring to a standard concept identifier in the Vocabulary for conditions. | 
 cause_source_value | No |Provide When Available|   Varchar | The source code for the cause of death as it appears in the source. This code is mapped to a standard concept in the Vocabulary and the original code is stored here for reference.
 cause_source_concept_id | No |Provide When Available| Integer | A foreign key to the vocbaulary concept that refers to the code used in the source.| This links to the concept id of the vocabulary of the cause of death concept id as stored in the source. For example, if the cause of death is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the cause source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+death_impute_concept_id| Yes | Provider When Available| Varchar | A foreign key referring to a standard concept identifier in the vocabulary for death imputation. | p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Imputation Type')</p> <p>select \* from concept where (domain_id ='Death Imputation Type' or (vocabulary_id='PCORNet' and concept_class_id='Undefined')) and invalid_reason is null) yields 4 valid concept_ids. If none are correct, use concept_id = 0</p> <ul> <li>Both month and day imputed: 2000000034</li><li>Day imputed: 2000000035</li><li>Month imputed: 2000000036</li><li>Not imputed:2000000037 </li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul></p>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -149,6 +150,10 @@ cause_source_concept_id | No |Provide When Available| Integer | A foreign key to
 
 - Each Person may have more than one record of death in the source data. It is OK to insert multiple death records for an individual.
 - If the Death Date cannot be precisely determined from the data, the best approximation should be used.
+
+
+### **ATTENTION!!: OUTSTANDING ISSUES WITH DEATH**
+- ***Possible structural changes: Addition of `death_impute_concept_id`, `death_source_concept_id` columns or similiar***
 
 ## 1.3 LOCATION
 
@@ -564,10 +569,6 @@ Observation_period_end_time | No |Provide When Available| Datetime | The end dat
 #### 1.10.1 Additional Notes
 
 - Because the 1/1/2009 date limitation for "active patients" is not used to limit visit_occurrance, the start_date of an observation period for an active PEDSnet patient may be prior to 1/1/ 2009.
-
-
-### **ATTENTION!!: OUTSTANDING ISSUES WITH DEATH**
-- ***Possible structural changes: Addition of `death_impute_concept_id`, `death_source_concept_id` columns or similiar***
 
 
 ## 1.11 DRUG EXPOSURE
