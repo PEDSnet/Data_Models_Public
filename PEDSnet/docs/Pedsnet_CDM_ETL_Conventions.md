@@ -657,6 +657,7 @@ drug_source_value| No|Provide When Available|  Varchar | The source drug value a
 drug_source_concept_id| No |Provide When Available|  Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here. See note 6.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 route_source_value| No|Provide When Available|  Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No|Provide When Available|  Varchar | The information about the dose unit as detailed in the source ||
+frequency| No | Optional | Integer | The discrete frequency information as available from the source ||
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -667,7 +668,6 @@ dose_unit_source_value| No|Provide When Available|  Varchar | The information ab
 - The Provider initating the drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
 
 ### **ATTENTION!!: OUTSTANDING ISSUES WITH DRUG_EXPOSURE**
-- ***Possible Structural Changes: addition of `order_date`, `order_time`,`frequency` columns or similiar***
 - ***Additional RxNorm logic may be implemented for drugs that have both a generic and brand name form. This is an outstanding issue to be discussed with PCORI***
 
 ## 1.12 MEASUREMENT
