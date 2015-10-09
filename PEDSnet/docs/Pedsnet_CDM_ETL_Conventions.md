@@ -772,7 +772,7 @@ You have in your source system | range high/ range low | range high source value
 --- | --- | ---| ---
 Numerical value `Examples: 7,8.2,100` | Numerical Value `Examples: 7,8.2,100` | Numerical value `Examples: 7,8.2,100`|0
 Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Examples: 2, 100, 5`| Limits `Examples: <2, >100, less than 5` | Corresponding concept to the modifier `Examples:4171756,4172704 ,4171756 `
-Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`|0
+Categorical/Qualitative Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical/Qualitative Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`|0
 
 
 Exclusions:
@@ -807,7 +807,7 @@ visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to th
 measurement_source_value | Yes |Provide When Available|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concacatenating values. For lab values, please see Note 4.
 measurement_source_concept_id| No| Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
-value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight and Height) please insert the raw data before transformation.</li></ul>
+value_source_value| Yes|Provide When Available|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight and Height) please insert the raw data before transformation.</li></ul> For Categorical/Qualitative Lab result values, please use this field to store the raw result from the source.
 specimen_source_value| No| Provider When Available| Varchar | This field is applicable for lab values only. This source value for the specimen source as it appears in the source||
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
