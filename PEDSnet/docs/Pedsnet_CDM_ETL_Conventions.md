@@ -625,7 +625,6 @@ You have in your source system | Drug_source_value| Drug_source_conept_id | Drug
 ---|---|---|---
 Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other \| Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
 Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code \| Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping|
-\****PENDING***\**Drug Code is RxNorm and Drug has generic code and branded code* | *SCD\|PCORNET:'RxNormCode'\|Local Code* | *Corresponding SBD RxNorm concept_id mapping*| *Corresponding SBD RxNorm concept_id mapping*
 
 **Note 7**: For medication administration events, please store all events as single drug exposure entries.
 
@@ -667,9 +666,6 @@ frequency| No | Optional | Integer | The discrete frequency information as avail
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to drug exposures. All drug exposures are included for an active patient. 
 - The Visit during which the drug exposure was initiated by is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider initating the drug exposure is recorded through a reference to the PROVIDER table. This information is not always available.
-
-### **ATTENTION!!: OUTSTANDING ISSUES WITH DRUG_EXPOSURE**
-- ***Additional RxNorm logic may be implemented for drugs that have both a generic and brand name form. This is an outstanding issue to be discussed with PCORI***
 
 ## 1.12 MEASUREMENT
 
