@@ -418,7 +418,7 @@ Tobacco |4005823| |4005823 |Tobacco User | | 01 = Current user
 Tobacco |4005823| |45765920 |  Never used Tobacco| |02 = Never
 Tobacco |4005823| |45765917|  Ex-tobacco user| |03 = Quit/Former Smoker
 Tobacco |4005823| |4030580 | Non-smoker's second hand smoke syndrome| |04 = Passive or environmental exposure
-Tobacco |4005823| |*concept id pending* ||| 06 = Not asked
+Tobacco |4005823| |2000000040 ||| 06 = Not asked
 Tobacco |4005823| |44814650 |No information | PCORNet | NI
 Tobacco |4005823| |44814653| Unknown| PCORNet | OT
 Tobacco |4005823| |44814649| Other| PCORNet| UN
@@ -430,12 +430,12 @@ Tobacco Type |4219336 |Multiple Response allowed |4218197 |Snuff tobacco | | 02 
 Tobacco Type |4219336 | Multiple Response allowed|4219234 |Chewing tobacco | | 02 = Non-smoked tobacco only
 Tobacco Type |4219336 | |45765920 |Never used tobacco | | 04 = None
 Tobacco Type |4219336 | |45765917 |Ex tobacco user | | 04 = None
-Tobacco Type |4219336 | |40765262 |40765262 | PhenX-environmental exposures- current environmental tobacco smoke exposure protocol | | 04 = None
+Tobacco Type |4219336 | |4030580 | Non-smoker's second hand smoke syndrome| |04 = Passive or environmental exposure/None
 Tobacco Type |4219336 | | 44814650 |No information | PCORNet| NI
 Tobacco Type |4219336 | |44814653| Unknown| PCORNet | OT
 Tobacco Type |4219336 | |44814649| Other| PCORNet| UN
 Smoking |4275495 | |42709996 |Smokes tobacco daily| | 01 = Current everyday smoker
-Smoking |4275495 | |*concept id pending* |Occasional tobacco smoker| | 02 = current some day smoker
+Smoking |4275495 | |2000000039|Occasional tobacco smoker - SNOMED International Code|PEDSNet | 02 = current some day smoker
 Smoking |4275495 | |4310250|Ex-smoker| | 03 = Former smoker
 Smoking |4275495 | |4144272|Never smoked tobacco| | 04 = Never smoker
 Smoking |4275495 | |4298794|Smoker| | 05 = Smoker, current status unknown
