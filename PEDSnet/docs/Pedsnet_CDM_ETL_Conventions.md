@@ -682,7 +682,7 @@ Specifically this table includes:
     - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Vital source
-- Component Level Labs. The listing can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
+- Component Level Labs. The Lab Listing and PEDSNet LOINC Mapping can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
