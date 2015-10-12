@@ -9,7 +9,7 @@ This document provides the ETL processing assumptions and conventions developed 
 Comments on this specification and ETL rules are welcome. Please send email to pedsnetdcc@email.chop.edu, or contact the PEDSnet project management office (details available via http://www.pedsnet.info).
 
 #### PEDSnet Data Standards and Interoperability Policies:
-
+ 
 1. The PEDSnet data network will store data using structures compatible with the PEDSnet Common Data Model (PCDM).
 
 2. The PEDSnet CDM v2.1 is based on the Observational Medical Outcomes Partnership (OMOP) data model, version 5. 
@@ -202,6 +202,7 @@ The Provider domain contains a list of uniquely identified health care providers
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
+provider_id | Yes |Yes|  Integer | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. See Additional Comments below. Sites should document who they have included as a provider.
 provider_name | No | NO| Varchar | A description of the provider | DO NOT TRASMIT TO DCC
 gender_concept_id | No | Provide When Available|Integer | The gender of the provider | A foreign key to the concept that refers to the code used in the source.|Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
 specialty_concept_id | No | Provide When Available| Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialtity concept associated with the American Medical Board of Specialties as seen in **Appendix A1**. Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Provider Specialty' and  vocabulary_id = Specialty)</p> <p>select \* from concept where domain_id ='Provider Specialty' and vocabulary_id='Specialty' and invalid_reason is null yields 107 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source. If the specialty does not correspond to a value in this listing, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference.
