@@ -105,7 +105,7 @@ The definition of an "in person" clinical encounter remains heuristic -any encou
 
 **NOTE: While the 1/1/2009 date and "in person" clinical encounter restrictions apply to defining an active PEDSnet patient, once a patient has met this criteria, PEDSnet will extract *ALL* available clinical encounters/clinical data of any type across all available dates. That is, 1/1/2009 and 1 'in person' clinical encounter applies only to defining the active patient cohort. It does NOT apply to data extraction on active patients.**
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 person_id | Yes | Provide When Available| Integer | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
 gender_concept_id | Yes |Provide When Available|  Integer |  A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where (domain_id='Gender' or (vocabulary_id='PCORNet' and concept_class_id='Undefined')) and invalid_reason is null): <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
@@ -133,7 +133,7 @@ ethnicity_source_value | No |Provide When Available|  Varchar |  The source code
 
 The death domain contains the clinical event for how and when a person dies. Living patients should not contain any information in the death table.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 person_id | Yes |Provide When Available|   Integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
 death_date | Yes |Provide When Available|   Date | The date the person was deceased. | <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> When the date of death is not present in the source data, use the date the source record was created.
@@ -159,7 +159,7 @@ death_impute_concept_id| Yes | Provider When Available| Varchar | A foreign key 
 
 The Location domain represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons and Care Sites. The most important field is ZIP for location-based queries.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 location_id | Yes | Provide When Available| Integer | A unique identifier for each geographic location. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 state | No |Provide When Available|  Varchar | The state field as it appears in the source data.
@@ -181,7 +181,7 @@ county | No |NO| Varchar | |Do not transmit to DCC
 
 The Care Site domain contains a list of uniquely identified physical or organizational units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.).
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 care_site_id | Yes | Provide When Available| Integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 care_site_name | No |Provide When Available|  Varchar | The description of the care site | 
@@ -204,7 +204,7 @@ specialty_source_value| No |Provide When Available|  Varchar | The source code f
 
 The Provider domain contains a list of uniquely identified health care providers. These are typically physicians, nurses, etc.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 provider_name | No | NO| Varchar | A description of the provider | DO NOT TRASMIT TO DCC
 gender_concept_id | No | Provide When Available|Integer | The gender of the provider | A foreign key to the concept that refers to the code used in the source.|Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
@@ -230,7 +230,7 @@ gender_source_concept_id | No |Provide When Available| Integer | The gender of t
 
 The visit occurrence domain contains the spans of time a person continuously receives medical services from one or more providers at a care site in a given setting within the health care system.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 visit_occurrence_id | Yes |Provide When Available|  Integer | A unique identifier for each person's visits or encounter at a healthcare provider. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. Do not use institutional encounter ID.
 person_id | Yes|Provide When Available|  Integer | A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.
@@ -294,7 +294,7 @@ Conditions are recorded in different sources and levels of standardization. For 
 - Medical claims data include ICD-9-CM diagnosis codes that are submitted as part of a claim for health services and procedures.
 - EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 condition_occurrence_id | Yes |Provide When Available| Integer | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
@@ -336,7 +336,7 @@ More specifically the procedure occurrence domain is intended to stores informat
 
 **Only instantiated procedures are included in this table. Please exclude cancelled procedures**
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 procedure_occurrence_id | Yes |Provide When Available| Integer | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
@@ -514,7 +514,7 @@ Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_con
 
 *For more examples or if you have a specific scenario that you have a question about please contact the DCC*
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 observation_id | Yes |Provide When Available| Integer |  A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.|
@@ -555,7 +555,7 @@ The observation period domain is designed to capture the time intervals in which
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 Observation_period_id | Yes |Provide When Available| Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
@@ -629,7 +629,7 @@ Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm 
 **Note 7**: For medication administration events, please store all events as single drug exposure entries.
 
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
  drug_exposure_id | Yes |Provide When Available| Integer | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available|Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
@@ -780,7 +780,7 @@ Exclusions:
 1. Cancelled Lab orders
 2. Lab orders that are 'NOT DONE' or 'INCOMPLETE'
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 measurement_id | Yes |Provide When Available|  Integer | A system-generated unique identifier for each measurement | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available|  Integer | A foreign key identifier to the person who the measurement is being documented for. The demographic details of that person are stored in the person table.
@@ -826,7 +826,7 @@ specimen_source_value| No| Provider When Available| Varchar | This field is appl
 
 The fact relationship domain contains details of the relationships between facts within one domain or across two domains, and the nature of the relationship. Examples of types of possible fact relationships include: person relationships (mother-child linkage), care site relationships (representing the hierarchical organization structure of facilities within health systems), drug exposures provided due to associated indicated condition, devices used during the course of an associated procedure, and measurements derived from an associated specimen. All relationships are directional, and each relationship is represented twice symmetrically within the fact relationship table. 
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 Domain_concept_id_1|Yes|Provide When Available| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred
 Fact_id_1|	Yes |Provide When Available| Integer |The unique identifier in the table corresponding to the domain of fact one.
@@ -847,7 +847,7 @@ The visit payer table documents insurance information as it relates to a visit i
 
 **Note 1**: There can be multiple payers (primary/secondary) for a single visit. If you are able to obtain mutliple payer information at your site please populate the visit payer table with this information. If you are not able to obtain secondary or additonal payers for your visit occurrences at your site, please populate the primary payer and inform the DCC.
 
-Field |Foreign Key Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 visit_payer_id | Yes |Provide When Available|  Integer |A system-generated unique identifier for each visit payer relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 visit_occurrence_id | Yes |Provide When Available| Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
