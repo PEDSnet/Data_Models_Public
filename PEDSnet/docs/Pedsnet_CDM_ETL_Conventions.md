@@ -683,7 +683,7 @@ Specifically this table includes:
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
-Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
+Domain id | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
  --- | --- | --- | --- | --- | ---
 Vital | 3013762 | | See Note 1 | Weight
 Vital | 3023540 | | See Note 1 | Height
@@ -695,7 +695,13 @@ Vital | 3018586 | | See Note 2 | Systolic Blood Pressure - Sitting
 Vital | 3035856 | | See Note 2 | Systolic Blood Pressure - Standing
 Vital | 3009395 | | See Note 2 | Systolic Blood Pressure - Supine
 Vital | 3004249 | | See Note 2 | Systolic BP Unknown/Other
-Vital | 3038553 | | See Note 1 | BMI
+Vital | 2000000041 | | See Note 3 | Weight for age z score NHANES
+Vital | 2000000042 | | See Note 3 | Height for age z score NHANES
+Vital | 2000000043 | | See Note 3 | BMI for age z score NHANES
+Vital | 2000000044 | | See Note 3 | Weight for age z score WHO
+Vital | 2000000045 | | See Note 3 | Height for age z score WHO
+Vital | 2000000046 | | See Note 3 | Systolic BP for age/height Z score NCBPEP
+Vital | 2000000047 | | See Note 3 | Diastolic BP for age/height Z score NCBPEP
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
 Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from device direct feed
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
