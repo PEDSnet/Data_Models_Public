@@ -832,7 +832,7 @@ Relationship_concept_id	|Yes|Provide When Available| Integer |A foreign key to a
 #### 1.13.1 Additional Notes
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table.
 - ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table.
-- Tobocoo,smoking and tobacco type associations will be mapped using the fact relationship tables
+- Tobocoo,smoking and tobacco type associations will be mapped using the fact relationship table.
 
 ## 1.14 VISIT_PAYER
 
