@@ -291,6 +291,16 @@ Conditions are recorded in different sources and levels of standardization. For 
 - Medical claims data include ICD-9-CM diagnosis codes that are submitted as part of a claim for health services and procedures.
 - EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
 
+**Note 1:**
+Sites should **only** populate the condition occurrence table with concepts that are apart of the `Condition` domain.
+
+Please use the following logic to populate the `condition_concept_id`, `condition_source_concept_id` and `condition_source_value` based on what is available in your source system:
+
+Site Information | condition_concept_id|condition_source_concept_id|condition_source_value
+--- | --- | --- | ---
+IMO to SNOMED Mapping| Corresponding SNOMED concept id |Corresponding SNOMED concept id | Corresponding SNOMED code
+Any diagnosis code that was used for billing (Eg. ICD9/ICD10.. etc for **billing**) | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code | Diagnosis Code
+
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 condition_occurrence_id | Yes |Provide When Available| Integer | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
@@ -540,11 +550,6 @@ qualifier_source_value |No |Provide When Available| Varchar | The source value a
 - The Visit during which the observation was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the observation is recorded through a reference to the PROVIDER table. This information is not always available.
 - Observations obtained using standardized methods (e.g. laboratory assays) that produce discrete results are recorded by preference in the MEASUREMENT table.
-
-
-### **ATTENTION!!: OUTSTANDING ISSUES WITH OBSERVATION**
-- ***Tobacco concept mapping is not 100% complete. There are 2 concepts that require a mapping or are subject to change.***
-
 
 ## 1.10 OBSERVATION PERIOD
 
