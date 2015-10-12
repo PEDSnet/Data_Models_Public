@@ -17,7 +17,7 @@ Please use your local system knowledge to determine this or use the following cr
 1. Addition of `death_impute_concept_id` field and applicable PEDSNet concept values as value options.
 
 ####[1.6 Visit Occurrence ](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
-1. Additon of convention for `visit_end_time` to assert 11:59pm  as the end time for dates that have not time assoicated with them in the source system.
+1. Additon of convention for `visit_end_time` to assert 11:59pm  as the end time for dates that have no time assoicated with them in the source system.
 
 ####[1.7 Condition Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
 1. Additon of convention for `condition_end_time` to assert 11:59pm  as the end time for dates that have not time assoicated with them in the source system.
