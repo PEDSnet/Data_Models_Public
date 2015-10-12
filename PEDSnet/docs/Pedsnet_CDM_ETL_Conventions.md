@@ -151,10 +151,6 @@ death_impute_concept_id| Yes | Provider When Available| Varchar | A foreign key 
 - Each Person may have more than one record of death in the source data. It is OK to insert multiple death records for an individual.
 - If the Death Date cannot be precisely determined from the data, the best approximation should be used.
 
-
-### **ATTENTION!!: OUTSTANDING ISSUES WITH DEATH**
-- ***Possible structural changes: Addition of `death_impute_concept_id`, `death_source_concept_id` columns or similiar***
-
 ## 1.3 LOCATION
 
 The Location domain represents a generic way to capture physical location or address information. Locations are used to define the addresses for Persons and Care Sites. The most important field is ZIP for location-based queries.
