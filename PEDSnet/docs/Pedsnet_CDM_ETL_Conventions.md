@@ -815,9 +815,6 @@ specimen_source_value| No| Provider When Available| Varchar | This field is appl
 - The Visit during which the measurement was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
 
-### **ATTENTION!!: OUTSTANDING ISSUES WITH MEASUREMENT**
-- ***Possible Content changes - qualitative lab results***
-
 ## 1.13 FACT RELATIONSHIP
 
 The fact relationship domain contains details of the relationships between facts within one domain or across two domains, and the nature of the relationship. Examples of types of possible fact relationships include: person relationships (mother-child linkage), care site relationships (representing the hierarchical organization structure of facilities within health systems), drug exposures provided due to associated indicated condition, devices used during the course of an associated procedure, and measurements derived from an associated specimen. All relationships are directional, and each relationship is represented twice symmetrically within the fact relationship table. 
