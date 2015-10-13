@@ -298,8 +298,8 @@ Please use the following logic to populate the `condition_concept_id`, `conditio
 
 Site Information | condition_concept_id|condition_source_concept_id|condition_source_value
 --- | --- | --- | ---
-IMO to SNOMED Mapping| Corresponding SNOMED concept id |Corresponding SNOMED concept id | Corresponding SNOMED code
-Any diagnosis code that was used for billing (Eg. ICD9/ICD10.. etc for **billing**) | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code | Diagnosis Code
+Any diagnosis that was captured as a term or name (e.g. IMO to SNOMED)| Corresponding SNOMED concept id |Corresponding concept for site diagnosis captured | Diagnosis code
+ny diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code | Diagnosis Code
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
