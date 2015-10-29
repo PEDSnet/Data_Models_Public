@@ -340,7 +340,9 @@ More specifically the procedure occurrence domain is intended to stores informat
 - Surgery Procedures
 - Imaging Procedures
 
+Notes:
 **Only instantiated procedures are included in this table. Please exclude cancelled procedures**
+**For CPT Codes, only include codes that are included in the standard CPT4 vocabulary from the distributed vocabulary**
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
@@ -658,7 +660,7 @@ drug_source_value| No|Provide When Available|  Varchar | The source drug value a
 drug_source_concept_id| No |Provide When Available|  Integer | A foreign key to a drug concept that refers to the code used in the source | In this case, if you are transforming drugs from GPI or NDC to RXNorm. The concept id that corresponds to the GPI or NDC value for the drug belongs here. See note 6.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 route_source_value| No|Provide When Available|  Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No|Provide When Available|  Varchar | The information about the dose unit as detailed in the source ||
-frequency| No | Optional | Integer | The discrete frequency information as available from the source ||
+frequency| No | Optional | Varchar | The frequency information as available from the source ||
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
