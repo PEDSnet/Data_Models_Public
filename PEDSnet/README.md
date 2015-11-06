@@ -10,7 +10,7 @@ The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.1 ETL Conventio
 ## Site Responsibility for Version 2.1
 ###Stable Identifiers
 
-For PEDSNet CDMv2.1, sites are responsible for sending **stable** `person_id, visit_occurrence_id, provider_id and care_site_id` identifiers for their dataset. How this is implemented at a particular site, is up to the sites discretion. The value must be stable over time for each data transfer to the DCC.
+For PEDSNet CDMv2.1, sites are responsible for sending **stable** `person_id and visit_occurrence_id identifiers for their dataset. How this is implemented at a particular site, is up to the sites discretion. The value must be stable over time for each data transfer to the DCC.
 
 ## Database Dialects for Version 2.1
 
