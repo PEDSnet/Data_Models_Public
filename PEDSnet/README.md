@@ -9,9 +9,13 @@ The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.1 ETL Conventio
 
 ## Site Responsibility for Version 2.1
 
-###Stable Identifiers
+### Stable Identifiers
 
-For PEDSNet CDMv2.1, sites are responsible for sending **stable** `person_id` and `visit_occurrence_id` identifiers for their dataset. How this is implemented at a particular site, is up to the sites discretion. The value must be stable over time for each data transfer to the DCC.
+For PEDSNet CDMv2.1, sites are responsible for creating and storing a mapping from both `person_id` and `visit_occurrence_id` to stable local identifiers. These `person_id` and `visit_occurrence_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from now on. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id` and `visit_occurrence_id` values to the same person and visit entities. The mappings should not be sent to the DCC, so the DCC will have no way of verifying the work until the next data cycle (in February).
+
+### Data Validation
+
+Sites are responsible for using the data validation tool on all CSV files before sending them to the DCC. You can download the tool [here](https://github.com/chop-dbhi/data-models-validator/releases/tag/1.0.0) and read about its usage and see sample output [here](https://github.com/chop-dbhi/data-models-validator). This should help to reduce data cycle time by allowing sites to fix most data formatting and type errors before transmission to the DCC.
 
 ## Reference Materials for Version 2.1
 
