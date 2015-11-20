@@ -11,9 +11,11 @@ Groups of PEDSnet-maintained terms and relationships are maintained in internall
 
 The process for creating releases of the PEDSnet vocabulary is described in [`PEDSnet_vocabulary_release_management.md`](PEDSnet_vocabulary_release_management.md), with a few supporting files available:
 
-* [`standard_vocab_list.csv`](standard_vocab_list.csv)
-* [`core_release_readme_template.md`](core_release_readme_template.md)
-* [`GPI_supplement_readme_template.md`](GPI_supplement_readme_template.md)
+* [`standard_vocab_list.csv`](standard_vocab_list.csv) - List of OHDSI vocabularies included in PEDSnet release
+* [`core_release_readme_template.md`](core_release_readme_template.md) - Template for main release
+* [`GPI_supplement_readme_template.md`](GPI_supplement_readme_template.md) - Template for GPI supplement release
+* [`generate_load_script.pl`](generate_load_script.pl) - Output (Postgres) bulk loading commands for vocabulary data files.
+* [`generate_metadata_csv.pl`](generate_metadata_csv.pl) - Write a loader-compatible `metadata.csv` file for vocabulary data files.
 
 
 

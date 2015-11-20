@@ -37,8 +37,9 @@ A PEDSnet vocabulary release is assembled in several steps:
 8. Create a new schema using the **PEDSnet DDL** and test the flat files:
    *  Load into the schema using `copy` or `\\copy`.
    *  Apply schema constraints and build indices using the PEDSnet DDL.
-8. Using the [core readme template](./core_release_readme_template.md), create release-specific readme files (typically HTML and PDF).
-9. Place the data files and the readme files in a directory named for the release.  Use this directory to create a compressed archive for distribution. (We typically produce a zipfile for the convenience of Wondows users.)
+9. Use [the generator](generate_metadata_csv.pl) to generate a `metadata.csv` file describing the vocabulary only. 
+10. Using the [core readme template](./core_release_readme_template.md), create release-specific readme files (typically HTML and PDF).
+11. Place the data files and the readme files in a directory named for the release.  Use this directory to create a compressed archive for distribution. (We typically produce a zipfile for the convenience of Wondows users.)
 10. Upload the archive to the DCC Box space, and announce.
 
 A similar procedure should be followed for each supplement.
