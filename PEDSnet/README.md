@@ -8,19 +8,43 @@ The PEDSnet common data model version 2.1 is an update to version 2. A full desc
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.1 ETL Conventions](docs/Pedsnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
 
 ## Site Responsibility for Version 2.1
+
 ###Stable Identifiers
 
 For PEDSNet CDMv2.1, sites are responsible for sending **stable** `person_id` and `visit_occurrence_id` identifiers for their dataset. How this is implemented at a particular site, is up to the sites discretion. The value must be stable over time for each data transfer to the DCC.
 
-## Database Dialects for Version 2.1
+## Reference Materials for Version 2.1
 
-DDL scripts for creating the PEDSnet CDM V2.1 will be available soon!
+### Data Model DDL
 
-- PostgreSQL *link coming soon*
-- MySQL *link coming soon*
-- Oracle *link coming soon*
-- MS SQL Server *link coming soon*
+- Postgres: https://upenn.box.com/s/tnowmeo0sy5gj6m9446q1ivs99kw4xxd
+- Oracle: https://upenn.box.com/s/jn3bivxq7k7ylj9m6jvwsle9wz8l1pjx
+- Microsoft SQL Server: https://upenn.box.com/s/02swf4dz3l52ck582uqlkpdae55f30sd
 
+### Vocabulary Data
+
+- v2.1.1 Core Vocabulary: https://upenn.box.com/s/txrcn5s6ridq8w46chvoyrri7gul84ca
+- GPI supplement (Medispan sites only): https://upenn.box.com/s/2oatwfqt1otnj9aeo2jwfge8or1k8v9g
+
+Please note that the above v2.1.1 Core Vocabulary data is a patch-level update from the originally released v2.1.0 Core Vocabulary data. This patch-level update removes a small number of concept relation records, which referenced non-existent concepts, from the v2.1.0 release and adds the Measurement Type domain record. This change is *NOT* critical, but it does allow the full set of intended foreign key constraints to be applied without error on the vocabulary tables, which was not possible with the v2.1.0 release (see [here](https://github.com/PEDSnet/Data_Models/issues/197#issuecomment-153871511) for details). Also, this change *IS* backwards compatible (no changes were made to the core concept table), so any work you have already done on your ETL for this round will absolutely continue to function with the new vocabulary data.
+
+The process for updating your vocabulary with the newly released data is as follows:
+
+1. Download the v2.1.1 Core Vocabulary files from https://upenn.box.com/s/txrcn5s6ridq8w46chvoyrri7gul84ca
+2. Remove the constraints from your data model using the following code:
+    - Postgres: http://dmsa.a0b.io/pedsnet/2.1.0/drop/postgresql/constraints/
+    - Oracle: http://dmsa.a0b.io/pedsnet/2.1.0/drop/oracle/constraints/
+    - MS SQL Server: http://dmsa.a0b.io/pedsnet/2.1.0/drop/mssql/constraints/
+3. Delete the data from your vocabulary tables.
+4. Load the new data into your vocabulary tables (note that if you are a Medispan site, you will also have to reload the GPI supplement, which has not changed and is still available at https://upenn.box.com/s/2oatwfqt1otnj9aeo2jwfge8or1k8v9g)
+5. Reapply the constraints to your data model using the following code:
+    - Postgres: http://dmsa.a0b.io/pedsnet/2.1.0/ddl/postgresql/constraints/
+    - Oracle: http://dmsa.a0b.io/pedsnet/2.1.0/ddl/oracle/constraints/
+    - MS SQL Server: http://dmsa.a0b.io/pedsnet/2.1.0/ddl/mssql/constraints/
+
+Please complete this process as soon as you are able, so that we are all using the same vocabulary data moving forward. As a reminder, these files are for the November 2015 data cycle, with a data upload/completion date of November 30, 2015, and date of January 01, 2016 for availability of the data and DQA results.
+
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
 ***
 ***
