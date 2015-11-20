@@ -23,7 +23,7 @@ The data files are intended for bulk loading into tables created using the PEDSn
 
 The recommended process for loading the data is
 
-1. Create the vocabulary tables using the PEDSnet CDM DDL for the table structure only.  You may use the OHDSI-distributed DDM as well, but be careful, as the order of columns will differ from that in the data files.
+1. Create the vocabulary tables using the PEDSnet CDM DDL for the table structure only.  You may use the OHDSI-distributed DDL as well, but be careful, as the order of columns will differ from that in the data files.
 2. Use your RDBMS' bulk loading commands (e.g. Postgres' `copy` (or psql `\copy`) or Oracle `load data`) or similar utility to load data into each table.  **_BE CAREFUL_** that the order of columns in the command matches that in the CSV file.  (This will be the case if you created the vocabulary tables using the PEDSnet DDL for the same CDM version as this vocabulary release.)
 3. Execute the DDL commands for constraint definition and index construction once data has been read into all tables.
 
