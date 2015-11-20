@@ -41,4 +41,4 @@ A PEDSnet vocabulary release is assembled in several steps:
 9. Place the data files and the readme files in a directory named for the release.  Use this directory to create a compressed archive for distribution. (We typically produce a zipfile for the convenience of Wondows users.)
 10. Upload the archive to the DCC Box space, and announce.
 
-A similar procedure should be followied for each supplement.
+A similar procedure should be followed for each supplement.
