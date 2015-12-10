@@ -103,7 +103,7 @@ What types of research studies do you think you might be interested in?|20000000
 What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000028|Having surgery for weight loss|PEDSNet
 What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000029|Using technology to help with my weight (for examples apps and texts)|PEDSNet
 What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000030|I am not interested in taking part in studies|PEDSNet
-What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000031|Trying exercise programs|PEDSNet
-What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000032|Trying new medicines|PEDSNet
+What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000053|Trying exercise programs|PEDSNet
+What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000054|Trying new medicines|PEDSNet
 Would you be interested in being added to a list to contact you in the future about research studies?|2000000022|PEDSNet|N|45877994|Yes|LOINC
 Would you be interested in being added to a list to contact you in the future about research studies?|2000000022|PEDSNet|N|45878245|No|LOINC
