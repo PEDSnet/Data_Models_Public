@@ -107,10 +107,10 @@ What types of research studies do you think you might be interested in?|20000000
 What types of research studies do you think you might be interested in?|2000000021|PEDSNet|Y|2000000054|Trying new medicines|PEDSNet
 Would you be interested in being added to a list to contact you in the future about research studies?|2000000022|PEDSNet|N|45877994|Yes|LOINC
 Would you be interested in being added to a list to contact you in the future about research studies?|2000000022|PEDSNet|N|45878245|No|LOINC
-What is your gender? (Parent)|2000000055|PEDSNet|Y|Male|45880669|	LOINC
-What is your gender? (Parent)|2000000055|PEDSNet|Y|Female|45878463|	LOINC
-What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|Y|45883183|Mother|LOINC
-What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|Y|45883182|Father|LOINC
-What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|Y|2000000019|Other Family|PEDSNet
-What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|Y|4236895|Foster Parent|SNOMED
-What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|Y|44814649|Other|PCORNet
+What is your gender? (Parent)|2000000055|PEDSNet|N|Male|45880669|	LOINC
+What is your gender? (Parent)|2000000055|PEDSNet|N|Female|45878463|	LOINC
+What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|N|45883183|Mother|LOINC
+What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|N|45883182|Father|LOINC
+What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|N|2000000019|Other Family|PEDSNet
+What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|N|4236895|Foster Parent|SNOMED
+What is your relationship to the child visiting our clinic?(Parent)|2000000056|PEDSNet|N|44814649|Other|PCORNet
