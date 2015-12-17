@@ -359,6 +359,7 @@ visit_occurrence_id | No |Provide When Available| Integer | A foreign key to the
 procedure_source_value | No |Provide When Available| Varchar | The source code for the procedure as it appears in the source data. This code is mapped to a standard procedure concept in the Vocabulary and the original code is stored here for reference. | Procedure_source_value codes are typically ICD-9, ICD-10 Proc, CPT-4, HCPCS, or OPCS-4 codes. All of these codes are acceptable source values.
 procedure_source_concept_id | No |Provide When Available| Integer | A foreign key to a procedure concept that refers to the code used in the source.| For example, if the procedure is "Anesthesia for procedures on eye; lens surgery" in the source which has a concept code in the vocabulary that is 2100658. The procedure source concept id will be 2100658.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 modifier_source_value | No |Provide When Available| Varchar | The source code for the modifier as it appears in the source data.
+qualifier_source_value|No | Provider When Available | Varchar | The source code for the qualifier as it appears in the source data.
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
