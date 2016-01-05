@@ -107,7 +107,7 @@ The definition of an "in person" clinical encounter remains heuristic -any encou
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-person_id | Yes | Provide When Available| Integer | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
+person_id | Yes | Yes | Integer | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
 gender_concept_id | Yes |Provide When Available|  Integer |  A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where ((domain_id='Gender' and concept_class_id='Gender')or (domain_id='Observation' and vocabulary_id='PCORNet' and concept_class_id in ('Gender','Undefined'))) and concept_code not in ('Sex-F','Sex-M') and invalid_reason is null: <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
 gender_source_concept_id | No |Provide When Available|  Integer | A foreign key to the gender concept that refers to the code used in the source.|  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 year_of_birth | Yes |Provide When Available|  Integer |  The year of birth of the person. | <p>For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.</p> Please keep all accurate/real dates (No date shifting)
@@ -135,7 +135,7 @@ The death domain contains the clinical event for how and when a person dies. Liv
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-person_id | Yes |Provide When Available|   Integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
+person_id | Yes | Yes |   Integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
 death_date | Yes |Provide When Available|   Date | The date the person was deceased. | <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> When the date of death is not present in the source data, use the date the source record was created.
 death_time | Yes |Provide When Available|   Datetime | The date the person was deceased. |<p>**This field is custom to PEDSnet**</p> <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> <p>When the date of death is not present in the source data, use the date the source record was created. If there is no time associated with the date assert midnight.</p>
 death_type_concept_id | Yes | Provide When Available|  Integer | A foreign key referring to the predefined concept identifier in the Vocabulary reflecting how the death was represented in the source data. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id ='Death Type')</p> <p>select \* from concept where concept_class_id ='Death Type' yields 9 valid concept_ids. If none are correct, use concept_id = 0</p> <p>Note: Most current ETLs are extracting data from EHR. The common concept_id to insert here is <ul><li>38003569 ("EHR record patient status "Deceased")</li></ul>. Please assert <ul><li>No information: concept_id =  44814650</li></ul> where there is no information in the source</p> **Note**: These terms only describe the source from which the death was reported. It does not describe our certainty/source of the date of death, which may have been created by one of the heuristics described in death_date.
@@ -157,7 +157,7 @@ The Location domain represents a generic way to capture physical location or add
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-location_id | Yes | Provide When Available| Integer | A unique identifier for each geographic location. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
+location_id | Yes | Yes | Integer | A unique identifier for each geographic location. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 state | No |Provide When Available|  Varchar | The state field as it appears in the source data.
 zip | No|Provide When Available|  Varchar | The zip code. For US addresses, valid zip codes can be 3, 5 or 9 digits long, depending on the source data. | While optional, this is the most important field in this table to support location-based queries.
 location_source_value | No |Provide When Available|  Varchar | <p>Optional - Do not transmit to DCC.</p> The verbatim information that is used to uniquely identify the location as it appears in the source data. | <p>If location source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate location_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> Sites may consider using the location_id field value in this table as the pseudo-identifier as long as a local mapping from location_id to the real site identifier is maintained.
@@ -179,7 +179,7 @@ The Care Site domain contains a list of uniquely identified physical or organiza
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-care_site_id | Yes | Provide When Available| Integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
+care_site_id | Yes | Yes | Integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 care_site_name | No |Provide When Available|  Varchar | The description of the care site | 
 place_of_service_concept_id | No |Provide When Available|   Integer | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Visit' or (vocabulary_id='PCORNet' and concept_class_id='Encounter Type') or (vocabulary_id='PCORNet' and concept_class_id='Undefined') and invalid_reason is null)</p> <p>select \* from concept where domain_id='Visit' or (vocabulary_id='PCORNet' and concept_class_id='Encounter Type') or (vocabulary_id='PCORNet' and concept_class_id='Undefined') and invalid_reason is null yields 13 valid concept_ids.</p> If none are correct, use concept_id = 0 <ul><li>Inpatient Hospital Stay: concept_id = 9201</li> <li>Ambulatory Visit: concept_id = 9202</li> <li>Emergency Department: concept_id = 9203</li> <li>Long Term Care Visit = 42898160 </li><li>Other ambulatory Visit = 44814711</li> <li>Non-Acute Institutional Stay: concept_id = 44814710 )</li><li>Emergency Department Admit to Inpatient Hospital Stay (If sites are unable to split the encounter) = 2000000048</li> <li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul>
 location_id | No |Provide When Available|   Integer | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
@@ -228,7 +228,7 @@ The visit occurrence domain contains the spans of time a person continuously rec
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-visit_occurrence_id | Yes |Provide When Available|  Integer | A unique identifier for each person's visits or encounter at a healthcare provider. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. Do not use institutional encounter ID.
+visit_occurrence_id | Yes |Yes|  Integer | A unique identifier for each person's visits or encounter at a healthcare provider. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. Do not use institutional encounter ID.
 person_id | Yes|Provide When Available|  Integer | A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.
 visit_start_date | Yes|Provide When Available|  Date | The start date of the visit. | No date shifting. Full date.
 visit_end_date | No |Provide When Available| Date | The end date of the visit. | <p>No date shifting. Full date.</p> <p>If this is a one-day visit the end date should match the start date.</p> If the encounter is on-going at the time of ETL, this should be null.
@@ -302,7 +302,7 @@ Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | C
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-condition_occurrence_id | Yes |Provide When Available| Integer | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
+condition_occurrence_id | Yes |Yes| Integer | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 condition_concept_id | Yes |Provide When Available| Integer | A foreign key that refers to a standard condition concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='SNOMED')</p> <p>select \* from concept where vocabulary_id ='SNOMED'  yields ~440,000 valid concept_ids.</p> If none are correct, use concept_id = 0
 condition_start_date | Yes |Provide When Available| Date| The date when the instance of the condition is recorded. | No date shifting.  
@@ -346,7 +346,7 @@ Notes:
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-procedure_occurrence_id | Yes |Provide When Available| Integer | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
+procedure_occurrence_id | Yes |Yes| Integer | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
 procedure_concept_id | Yes |Provide When Available| Integer | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id ='SNOMED'), ICD-9-Procedures (vocabulary_id ='ICD9Proc'), CPT-4 (vocabulary_id ='CPT4' ), and HCPCS (vocabulary_id ='HCPCS')</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 modifier_concept_id | No |Provide When Available| Integer | A foreign key to a standard concept identifier for a modifier to the procedure (e.g. bilateral) |  <p>Valid Modifier Concepts belong to the "Modifier" conept class. select /* from concept where concept_class_id like '%Modifier%'. </p>
@@ -525,7 +525,7 @@ Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_con
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-observation_id | Yes |Provide When Available| Integer |  A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
+observation_id | Yes |Yes| Integer |  A unique identifier for each observation. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person about whom the observation was recorded. The demographic details of that person are stored in the person table.|
 observation_concept_id | Yes |Provide When Available| Integer | A foreign key to the standard observation concept identifier in the Vocabulary. | Lab results and vitals are not stored in this table in V5 but are stored in the Measurement table.
 observation_date | Yes |Provide When Available| Date | The date of the observation. | No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
@@ -561,7 +561,7 @@ While analytic methods can be used to calculate gaps in observation periods that
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-Observation_period_id | Yes |Provide When Available| Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+Observation_period_id | Yes |Yes| Integer | A system-generate unique identifier for each observation period | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 Observation_period_start_date | Yes |Provide When Available| Date | The start date of the observation period for which data are available from the data source | <p>Use the earliest clinical fact date available for this patient.</p> No date shifting.  
 Observation_period_end_date | No | Provide When Available|Date | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL. 
@@ -635,7 +635,7 @@ Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm 
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
- drug_exposure_id | Yes |Provide When Available| Integer | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+ drug_exposure_id | Yes |Yes| Integer | A system-generated unique identifier for each drug exposure | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available|Integer | A foreign key identifier to the person who is experiencing the condition. The demographic details of that person are stored in the person table.
 drug_concept_id| Yes |Provide When Available| Integer | A foreign key that refers to a standard drug concept identifier in the Vocabulary. | Valid drug concept IDs are mapped to RxNorm using the source to concept map table to transform source codes (GPI, NDC etc to the RxNorm target). In the event of multiple RxNorm mappings please see Note 5. See note 6 for guide.
 drug_exposure_start_date| Yes |Provide When Available| Date |The start date of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | If the start date of the drug is null in the source system, use the ordering date as the start date. No date shifting. 
@@ -792,7 +792,7 @@ Exclusions:
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-measurement_id | Yes |Provide When Available|  Integer | A system-generated unique identifier for each measurement | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+measurement_id | Yes |Yes|  Integer | A system-generated unique identifier for each measurement | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Provide When Available|  Integer | A foreign key identifier to the person who the measurement is being documented for. The demographic details of that person are stored in the person table.
 measurement_concept_id | Yes |Provide When Available|  Integer | A foreign key to the standard measurement concept identifier in the Vocabulary. | <p>Valid Measurement Concepts belong to the "Measurement" domain. Measurement Concepts are based mostly on the LOINC vocabulary, with some additions from SNOMED-CT.</p> <p>Measurement must have an object represented as a concept, and a finding. A finding (see below) is represented as a concept, a numerical value or a verbatim string or more than one of these.</p> <p>There are three Standard Vocabularies defined for measurements:</p> <p>Laboratory tests and values: Logical Observation Identifiers Names and Codes (**LOINC**) (Vocabulary_id=LOINC).</p> <p>(FYI: Regenstrief also maintains the **"LOINC Multidimensional Classification"** Vocabulary_id=LOINC Hierarchy)</p> <p>Qualitative lab results: A set of SNOMED-CT Qualifier Value concepts (vocabulary_id=SNOMED)</p> <p>Laboratory units: Unified Code for Units of Measure (**UCUM**( )Vocabulary_id=UCUM)</p> <p>All other findings and observables: SNOMED-CT (Vocabulary_id=SNOMED).</p> For vital signs, pull information from flow sheet rows (EPIC sites only). For lab values, please see Note 4.
 measurement_date| Yes |Provide When Available|  Date | The date of the measurement.|For lab orders, this should be the specimen collection time. No date shifting.
@@ -835,7 +835,7 @@ The fact relationship domain contains details of the relationships between facts
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-Domain_concept_id_1|Yes|Provide When Available| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred
+Domain_concept_id_1|Yes|Yes| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred
 Fact_id_1|	Yes |Provide When Available| Integer |The unique identifier in the table corresponding to the domain of fact one.
 Domain_concept_id_2|Yes|Provide When Available| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.
 Fact_id_2 |	Yes |Provide When Available| Integer |	The unique identifier in the table corresponding to the domain of fact two.
@@ -856,7 +856,7 @@ The visit payer table documents insurance information as it relates to a visit i
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-visit_payer_id | Yes |Provide When Available|  Integer |A system-generated unique identifier for each visit payer relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+visit_payer_id | Yes |Yes|  Integer |A system-generated unique identifier for each visit payer relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 visit_occurrence_id | Yes |Provide When Available| Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
 plan_name | Yes |Provide When Available|  Varchar| The untransformed payer/plan name from the source data
 plan_type | No |Provide When Available|  Varchar |  A standardized interpretation of the plan structure | Please only map your plan type to the following categories: <ul> <li>HMO</li> <li>PPO</li> <li>POS</li> <li>Fee for service</li><li> Other/unknown </li></ul> If the categoires are unclear, please work with your billing department or local experts to determine how to map plans to these values.
