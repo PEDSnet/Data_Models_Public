@@ -454,7 +454,7 @@ Smoking |4275495 | |4298794|Smoker| | 05 = Smoker, current status unknown
 Smoking |4275495 | |4141786|Tobacco smoking consumption(status) unknown| | 06 = Unknown if ever smoked
 Smoking |4275495 |**USE AS DEFAULT FOR CATEGORY** |4044778|Chain smoker | | 07 = Heavy tobacco smoker
 Smoking |4275495 | |4209006|Heavy smoker (over 20 per day)| | 07 = Heavy tobacco smoker
-Smoking |4275495 | |4209585|Moderate smoker (20 or less per day)| | 08 = Light tobacco smoker
+Smoking |4275495 |**USE ONLY IF QUANTITY IS KNOWN** |4209585|Moderate smoker (20 or less per day)| | 08 = Light tobacco smoker
 Smoking |4275495 | | 44814650 |No information | PCORNet| NI
 Smoking |4275495 | |44814653| Unknown| PCORNet | OT
 Smoking |4275495 | |44814649| Other| PCORNet| UN
