@@ -332,7 +332,7 @@ condition_source_concept_id | No |Provide When Available| Integer | A foreign ke
 
 The procedure occurrence domain contains records of significant activities or processes ordered by and/or carried out by a healthcare provider on the patient to have a diagnostic and/or therapeutic purpose that are not fully captured in another table (e.g. drug_exposure).
 
-Procedures records are extracted from structured data in Electronic Health Records that capture source procedure codes using CPT-4, ICD-9-CM (Procedures), HCPCS or OPCS-4 procedures as orders.
+Procedures records are extracted from structured data in Electronic Health Records that capture source procedure codes using CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 procedures as orders.
 
 More specifically the procedure occurrence domain is intended to stores information about activity or processes involving a patient that has a billable code. This includes but is not limited to the following:
 - LOS Codes ((Eg. 99123) This code may not Not necessarily be a CPT and could require local mapping )
@@ -348,7 +348,7 @@ Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Descrip
  --- | --- | --- | --- | ---| ---
 procedure_occurrence_id | Yes |Yes| Integer | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes |Provide When Available| Integer | A foreign key identifier to the person who is subjected to the procedure. The demographic details of that person are stored in the person table.
-procedure_concept_id | Yes |Provide When Available| Integer | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id ='SNOMED'), ICD-9-Procedures (vocabulary_id ='ICD9Proc'), CPT-4 (vocabulary_id ='CPT4' ), and HCPCS (vocabulary_id ='HCPCS')</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
+procedure_concept_id | Yes |Provide When Available| Integer | A foreign key that refers to a standard procedure concept identifier in the Vocabulary. | <p>Valid Procedure Concepts belong to the "Procedure" domain. Procedure Concepts are based on a variety of vocabularies: SNOMED-CT (vocabulary_id ='SNOMED'), ICD-9-Procedures (vocabulary_id ='ICD9Proc'),ICD-10-Procedures (vocabulary_id ='ICD10PCS' **NOT YET AVAILABLE**), CPT-4 (vocabulary_id ='CPT4' ), and HCPCS (vocabulary_id ='HCPCS')</p> <p>Procedures are expected to be carried out within one day. If they stretch over a number of days, such as artificial respiration, usually only the initiation is reported as a procedure (CPT-4 "Intubation, endotracheal, emergency procedure").</p> Procedures could involve the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 modifier_concept_id | No |Provide When Available| Integer | A foreign key to a standard concept identifier for a modifier to the procedure (e.g. bilateral) |  <p>Valid Modifier Concepts belong to the "Modifier" conept class. select /* from concept where concept_class_id like '%Modifier%'. </p>
 quantity | No |Provide When Available|Float |The quantity of procedures ordered or administered.
 procedure_date | Yes | Provide When Available|Date | The date on which the procedure was performed. 
@@ -366,7 +366,7 @@ qualifier_source_value|No | Provider When Available | Varchar | The source code 
 #### 1.8.1 Additional notes
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to procedure_occurrence. All procedures are included for an active patient. For PEDSnet CDM v2.1, we limit procedures_occurrences to billing procedures only (not surgical diagnoses).
-- Procedure Concepts are based on a variety of vocabularies: SNOMED-CT, ICD-9-Proc, CPT-4, HCPCS and OPCS-4.
+- Procedure Concepts are based on a variety of vocabularies: SNOMED-CT, ICD-9-Proc, ICD-10-Proc, CPT-4, HCPCS and OPCS-4.
 - Procedures could reflect the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 - The Visit during which the procedure was performed is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider carrying out the procedure is recorded through a reference to the PROVIDER table. This information is not always available.
