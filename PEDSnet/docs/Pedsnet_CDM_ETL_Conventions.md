@@ -126,8 +126,7 @@ person_source_value | Yes |Provide When Available|  Varchar |  An encrypted key 
 gender_source_value | No |Provide When Available|  Varchar |  The source code for the gender of the person as it appears in the source data. | The person's gender is mapped to a standard gender concept in the Vocabulary; the original value is stored here for reference. See gender_concept_id
 race_source_value | No |Provide When Available|  Varchar |  The source code for the race of the person as it appears in the source data. | <p>The person race is mapped to a standard race concept in the Vocabulary and the original value is stored here for reference.</p> For patients with multiple races (i.e. biracial), race is considered a single concept, meaning there is only one race slot. If there are multiple races in the source system, concatenate all races into one source value, and use the concept_id for Multiple Race.
 ethnicity_source_value | No |Provide When Available|  Varchar |  The source code for the ethnicity of the person as it appears in the source data. | The person ethnicity is mapped to a standard ethnicity concept in the Vocabulary and the original code is, stored here for reference.
-language_concept_id **PENDING**| No| Provide When Available| Integer | A foreign key to the language concept that refers to the code used in the source.| <p>For PEDSNet, please map your source codes to acceptable language values in [appendix 2]
-[appendix 2]</p> <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+language_concept_id **PENDING**| No| Provide When Available| Integer | A foreign key to the language concept that refers to the code used in the source.| <p>For PEDSNet, please map your source codes to acceptable language values in [appendix 2](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a2-pedsnet-person-language-mapping-values) **If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>|
 language_source_value **PENDING** | No| Provide When Available| Varchar | The source code for the language of the person as it appears in the surce data | The person lanuage is mapped to a standard language concept in the Vocabulary and the original code is stored here for reference.
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
@@ -880,7 +879,7 @@ Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Descrip
  --- | --- | --- | --- | ---| ---
 meas_organism_id | Yes |Yes|  Integer |A system-generated unique identifier for each organism culture relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 measurement_id | Yes |Provide When Available| Integer | A foreign key to the lab result in the measurement table where the organism was observed.
-organism_concept_id| Yes |Provide When Available|  Integer| A foreign key to a standard concept identifier for the organism in the Vocabulary.| <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = SNOMED and concept_class_id= Organism and standard_concept=S)</p> <p>select \* from concept where vocabulary_id ='SNOMED' and concept_class_id='Organism' and standard_concept='S' yields 971 valid concept_ids.</p>
+organism_concept_id| Yes |Provide When Available|  Integer| A foreign key to a standard concept identifier for the organism in the Vocabulary.| <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = SNOMED and concept_class_id= Organism and standard_concept=S)</p> <p>select \* from concept where vocabulary_id ='SNOMED' and concept_class_id='Organism' and standard_concept='S' yields 33039 valid concept_ids.</p>
 organism_source_value | No |Provide When Available|  Varchar | The organism value as it appears in the source.
 time_to_postivity| No| Optional | Datetime| The time elapsed between the start of incubation and the alert signal indicating growth for the culture.
 
@@ -892,7 +891,7 @@ time_to_postivity| No| Optional | Datetime| The time elapsed between the start o
 
 * * *
 
-**APPENDIX **
+##***APPENDIX***
 
 **PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0 and 2.0**
 
@@ -1033,7 +1032,7 @@ Vascular Neurology |45756834|Vascular Neurology| Provider Specialty | ABMS
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty   
 
 
-### A2. PEDSNet Person Language Mapping Values
+### A2. PEDSNet Person Language Concept Mapping Values
 
 **PLACEHOLDER**
 
