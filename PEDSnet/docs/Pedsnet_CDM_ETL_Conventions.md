@@ -84,6 +84,8 @@ Please use your local system knowledge to determine this or use the following cr
 
 ####[1.14 Visit Payer](Pedsnet_CDM_ETL_Conventions.md#114-visit_payer)
 
+####[1.15 Measurement Organism](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism-pending)
+
 ####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
