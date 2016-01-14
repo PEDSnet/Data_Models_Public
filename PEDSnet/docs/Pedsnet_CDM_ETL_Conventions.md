@@ -348,6 +348,14 @@ Notes:
 **Only instantiated procedures are included in this table. Please exclude cancelled procedures**
 **For CPT Codes, only include codes that are included in the standard CPT4 vocabulary from the distributed vocabulary**
 
+**Note 1:**
+Please use the following logic to populate the `procedure_concept_id`, `procedure_source_concept_id` and `procedure_source_value` based on what is available in your source system:
+
+Site Information | procedure_concept_id|procedure_source_concept_id|procedure_source_value
+--- | --- | --- | ---
+Procedure codes using CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 procedures as orders | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id |Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id | Procedure Source code
+Custom Procede Coding (That a site has knowledge of corresponding to a standard code but requires manual mapping) | 0 | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id  | Custom Procedure Code
+
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 procedure_occurrence_id | Yes |Yes| Integer | A system-generated unique identifier for each procedure occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
