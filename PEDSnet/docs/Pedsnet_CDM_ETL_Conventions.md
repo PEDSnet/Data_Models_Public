@@ -894,7 +894,7 @@ measurement_id | Yes |Provide When Available| Integer | A foreign key to the lab
 visit_occurrence_id| Yes| Provide When Available | Integer | A foreign key to the visit where the culture lab was ordered|
 organism_concept_id| Yes |Provide When Available|  Integer| A foreign key to a standard concept identifier for the organism in the Vocabulary.| <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = SNOMED and concept_class_id= Organism and standard_concept=S)</p> <p>select \* from concept where vocabulary_id ='SNOMED' and concept_class_id='Organism' and standard_concept='S' yields 33039 valid concept_ids.</p>
 organism_source_value | No |Provide When Available|  Varchar | The organism value as it appears in the source.
-time_to_postivity| No| Optional | Datetime| Description Needed|
+positivity_time| No| Optional | Datetime| The estimated date and time of initial growth as reported in the source.|
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
