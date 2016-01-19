@@ -1047,7 +1047,41 @@ Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | 
 
 ### A2. PEDSNet Person Language Concept Mapping Values
 
-**PLACEHOLDER**
+The below langauge listing is representative of the top 10 spoken languages of each of the 8 contributing sites. This list standard list will be used to map language values for consistency.
+
+Language|concept_id|concept_name|domain_id|concept_class_id|standard_concept
+---|---|---|---|---|---|---|---|---|---|---|---|---
+Amharic|4182354|Amharic language|Observation|Qualifier Value|S
+Arabic|4181374|Arabic language| Observation|Qualifier Value|S
+Bengali|4052786|Bengali language|Observation|Qualifier Value|S
+Burmese|4181727|Burmese language|Observation|Qualifier Value|S
+Bosnian|40481563|Bosnian language|Observation|Qualifier Value|S
+Cape Verde Creole|44814649 | Other        | Observation | Undefined        |                  | 
+Chinese|4182948|Chinese Language|Observation|Qualifier Value|S
+Chinese(Cantonese)|4177463|Cantonese Chinese dialect|Observation|Qualifier Value|S
+Chinese(Mandarin)| 4181724| Mandarin dialect | Observation|Qualifier Value|S
+English|4180186|English Language|Observation|Qualifier Value|S
+French|4180190|French Language|Observation|Qualifier Value|S
+Haitian/Creole|44802876| Haitian Creole Language|Observation|Qualifier Value|S
+Japanese|4181524|Japanese Language|Observation|Qualifier Value|S
+Korean|4175771|Korean Language|Observation|Qualifier Value|S
+Mandarin| 4181724| Mandarin dialect | Observation|Qualifier Value|S
+Nepali|4175908|Nepali language|Observation|Qualifier Value|S
+No information| 44814650 | No information|Observation | Undefined|S                                                                                                                               
+None|44814650 | No information|Observation | Undefined|S                                   
+null|44814650 | No information|Observation | Undefined|S                                   
+Other|44814649 | Other        | Observation | Undefined        |                  | 
+Other Language|44814649 | Other        | Observation | Undefined        |                  | 
+Other/Unknown|44814649 | Other        | Observation | Undefined        |                  | 
+Portuguese|4181536 | Portuguese language                                 | Observation | Qualifier Value  | S
+Russian|4181539 | Russian language                    | Observation | Qualifier Value  | S  
+Sign|40483152 | Sign language                                               | Observation        | Qualifier Value   | S
+Sign Language|40483152 | Sign language                                               | Observation        | Qualifier Value   | S
+Somali|4182350 | Somali language                    | Observation | Qualifier Value  | S
+Spanish|4182511 | Spanish language                    | Observation | Qualifier Value  | S
+Unable to Collect| 44814650 | No information|Observation | Undefined|S        
+Vietnamese|4181526 | Vietnamese language                    | Observation | Qualifier Value  | S
+
 
 
 * * *
