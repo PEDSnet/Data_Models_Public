@@ -881,7 +881,7 @@ plan_class | Yes |Provide When Available|  Varchar | A list of the "payment sour
 #### 1.14.1 Additional Notes
 - If you cannot map your plan to any of the above values for plan_type or plan_class, please map them to Other/unknown, and inform the DCC if the above list of values is not complete or sufficient.
 
-## 1.15 MEASUREMENT_ORGANISM **PENDING**
+## 1.15 MEASUREMENT_ORGANISM
 
 The measurement organism table contains organism information related to laboratory culture results in the measurement table. **This table is CUSTOM to Pedsnet.**
 
