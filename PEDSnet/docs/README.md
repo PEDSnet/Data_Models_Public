@@ -1,4 +1,4 @@
-# PEDSnet CDM V2.1 DDL and Documentation
+# PEDSnet CDM V2.2 DDL and Documentation
 
 ### DDL files
 
