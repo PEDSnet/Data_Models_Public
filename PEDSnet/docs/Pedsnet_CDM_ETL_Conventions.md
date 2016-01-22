@@ -891,6 +891,7 @@ Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Descrip
  --- | --- | --- | --- | ---| ---
 meas_organism_id | Yes |Yes|  Integer |A system-generated unique identifier for each organism culture relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 measurement_id | Yes |Provide When Available| Integer | A foreign key to the lab result in the measurement table where the organism was observed.
+person_id|	Yes|	Provide When Available|	Integer|	A foreign key identifier to the person who the measurement is being documented for. The demographic details of that person are stored in the person table.|	
 visit_occurrence_id| Yes| Provide When Available | Integer | A foreign key to the visit where the culture lab was ordered|
 organism_concept_id| Yes |Provide When Available|  Integer| A foreign key to a standard concept identifier for the organism in the Vocabulary.| <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = SNOMED and concept_class_id= Organism and standard_concept=S)</p> <p>select \* from concept where vocabulary_id ='SNOMED' and concept_class_id='Organism' and standard_concept='S' yields 33039 valid concept_ids.</p>
 organism_source_value | No |Provide When Available|  Varchar | The organism value as it appears in the source.
@@ -1067,7 +1068,7 @@ Japanese|4181524|Japanese Language|Observation|Qualifier Value|S
 Korean|4175771|Korean Language|Observation|Qualifier Value|S
 Mandarin| 4181724| Mandarin dialect | Observation|Qualifier Value|S
 Nepali|4175908|Nepali language|Observation|Qualifier Value|S
-No information| 44814650 | No information|Observation | Undefined|S                                                                                                                               
+No information| 44814650 | No information|Observation | Undefined|S                                                                                                                             
 None|44814650 | No information|Observation | Undefined|S                                   
 null|44814650 | No information|Observation | Undefined|S                                   
 Other|44814649 | Other        | Observation | Undefined        |                  | 
