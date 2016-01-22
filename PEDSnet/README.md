@@ -1,3 +1,40 @@
+## PEDSnet CDM V2.2
+
+The PEDSnet common data model version 2.2 is an update to version 2. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.2 ETL Conventions](docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+
+### ETL Conventions for Version 2.2
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.2 ETL Conventions](docs/Pedsnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+
+## Site Responsibility for Version 2.2
+
+### Stable Identifiers
+
+For PEDSNet CDMv2.2, sites are responsible for creating and storing a mapping from both `person_id` and `visit_occurrence_id` to stable local identifiers. These `person_id` and `visit_occurrence_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id` and `visit_occurrence_id` values to the same person and visit entities. The mappings should not be sent to the DCC.
+
+### Data Validation
+
+Sites are responsible for using the data validation tool on all CSV files before sending them to the DCC. You can download the tool [here](https://github.com/chop-dbhi/data-models-validator/releases/tag/1.0.0) and read about its usage and see sample output [here](https://github.com/chop-dbhi/data-models-validator). This should help to reduce data cycle time by allowing sites to fix most data formatting and type errors before transmission to the DCC.
+
+To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as arguments when running the validator. To verify i2b2-for-PEDSnet-format data, use `-model i2b2_pedsnet` and `-version 2.0.0` as arguments.
+
+## Reference Materials for Version 2.2
+
+### Data Model DDL
+
+- Postgres: ***link coming soon***
+- Oracle: ***link coming soon***
+- Microsoft SQL Server: ***link coming soon***
+
+### Vocabulary Data
+
+- v2.2.0 Core Vocabulary:***link coming soon***
+- GPI supplement (Medispan sites only): ***link coming soon***
+
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
+***
+***
+***
 
 ## PEDSnet CDM V2.1
 
