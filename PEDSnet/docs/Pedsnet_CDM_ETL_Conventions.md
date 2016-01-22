@@ -1,4 +1,4 @@
-# ETL Conventions for use with PEDSnet CDM v2.2 OMOP V5 DRAFT
+# ETL Conventions for use with PEDSnet CDM v2.2 OMOP V5
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
@@ -109,7 +109,7 @@ The definition of an "in person" clinical encounter remains heuristic -any encou
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-person_id | Yes | Yes | Integer | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>Sites may choose to use a sequential value for this field
+person_id | Yes | Provide When Available| Integer | A unique identifier for each person; this is created by each contributing site. | <p>This is not a value found in the EHR.</p> PERSON_ID must be unique for all patients within a single data set.</p><p>**SITE RESPONSIBILITY: This field must remain a stable identifier across submissions to the DCC.**</p> <p>A mapping from the person_id to a real patient ID or MRN from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p>
 gender_concept_id | Yes |Provide When Available|  Integer |  A foreign key that refers to a standard concept identifier in the Vocabulary for the gender of the person. | Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where ((domain_id='Gender' and concept_class_id='Gender')or (domain_id='Observation' and vocabulary_id='PCORNet' and concept_class_id in ('Gender','Undefined'))) and concept_code not in ('Sex-F','Sex-M') and invalid_reason is null: <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
 gender_source_concept_id | No |Provide When Available|  Integer | A foreign key to the gender concept that refers to the code used in the source.|  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 year_of_birth | Yes |Provide When Available|  Integer |  The year of birth of the person. | <p>For data sources with date of birth, the year is extracted. For data sources where the year of birth is not available, the approximate year of birth is derived based on any age group categorization available.</p> Please keep all accurate/real dates (No date shifting)
@@ -232,7 +232,7 @@ The visit occurrence domain contains the spans of time a person continuously rec
 
 Field |Foreign Key/NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-visit_occurrence_id | Yes |Yes|  Integer | A unique identifier for each person's visits or encounter at a healthcare provider. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field. Do not use institutional encounter ID.
+visit_occurrence_id | Yes |Yes|  Integer | A unique identifier for each person's visits or encounter at a healthcare provider. |<p>This is not a value found in the EHR.</p> VISIT_OCCURRENCE_ID must be unique for all patients within a single data set.</p><p>**SITE RESPONSIBILITY: This field must remain a stable identifier across submissions to the DCC.**</p> <p>A mapping from the visit occurrence id to a real patient encounter from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.  Do not use institutional encounter ID.</p>
 person_id | Yes|Provide When Available|  Integer | A foreign key identifier to the person for whom the visit is recorded. The demographic details of that person are stored in the person table.
 visit_start_date | Yes|Provide When Available|  Date | The start date of the visit. | No date shifting. Full date.
 visit_end_date | No |Provide When Available| Date | The end date of the visit. | <p>No date shifting. Full date.</p> <p>If this is a one-day visit the end date should match the start date.</p> If the encounter is on-going at the time of ETL, this should be null.
