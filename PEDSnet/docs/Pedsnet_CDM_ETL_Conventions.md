@@ -871,7 +871,7 @@ The visit payer table documents insurance information as it relates to a visit i
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 visit_payer_id | Yes |Yes|  Integer |A system-generated unique identifier for each visit payer relationship. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
-visit_occurrence_id | Yes |Provide When Available| Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
+visit_occurrence_id | Yes |Yes| Integer | A foreign key to the visit in the visit table where the payer was billed for the visit.
 plan_name | Yes |Yes|  Varchar| The untransformed payer/plan name from the source data
 plan_type | No |Provide When Available|  Varchar |  A standardized interpretation of the plan structure | Please only map your plan type to the following categories: <ul> <li>HMO</li> <li>PPO</li> <li>POS</li> <li>Fee for service</li><li> Other/unknown </li></ul> If the categoires are unclear, please work with your billing department or local experts to determine how to map plans to these values.
 plan_class | Yes |Yes|  Varchar | A list of the "payment sources" most often used in demographic analyses| Please map your plan type to the following categories: <ul> <li>Private/Commercial</li> <li>Medicaid/sCHIP</li> <li>Medicare</li> <li>Other public</li> <li>Self-pay</li> <li>Other/Unknown</li></ul> Please work with your billing department or local experts to determine how to map plans to these values.
