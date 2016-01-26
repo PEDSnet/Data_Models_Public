@@ -1081,6 +1081,7 @@ Sign Language|40483152 | Sign language                                          
 Somali|4182350 | Somali language                    | Observation | Qualifier Value  | S
 Spanish|4182511 | Spanish language                    | Observation | Qualifier Value  | S
 Unable to Collect| 44814650 | No information|Observation | Undefined|S        
+Unknown | 44814653 | Unknown|  Observation | Undefined|S      
 Vietnamese|4181526 | Vietnamese language                    | Observation | Qualifier Value  | S
 
 
