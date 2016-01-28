@@ -4,8 +4,9 @@
 
 ####Specific Table Changes
 ####[1.1 Person](Pedsnet_CDM_ETL_Conventions.md#11-person)
-1. Addition of `language_concept_id` field to store the concept that corresponds to the person's primary language value as it appears in the source. This column has a list of valid concepts to map to for PEDSnet. This listing may be found [here] (Pedsnet_CDM_ETL_Conventions.md#a2-pedsnet-person-language-concept-mapping-values).
-2. Addition of `language_source_value` field to store the person's primary language value as it appears in the source.
+1. Addition of `language_concept_id` field to represent the standard concept identifier in the Vocabulary for the language of the person.  This column has a list of valid concepts to map to for PEDSnet. This listing may be found [here] (Pedsnet_CDM_ETL_Conventions.md#a2-pedsnet-person-language-concept-mapping-values).
+2. Additiin of `language_source_concept_id` field to store the concept that corresponds to the person's primary language value as it appears in the source.
+3. Addition of `language_source_value` field to store the person's primary language value as it appears in the source.
 
 ####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Additon of `priority_concept_id` field to store the concept that corresponds to the lab priority value as it appears in the source. This column has a list of valid concepts to map to for PEDSnet.
