@@ -52,7 +52,7 @@ Please use your local system knowledge to determine this or use the following cr
       
  (usually the case when the sites need to "manually" map the foo_source_value to foo_concept_id)
 
-***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,drug exposure
+***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,measurement_organism,drug exposure
 
 * * *
 ## Table of Contents
@@ -87,6 +87,35 @@ Please use your local system knowledge to determine this or use the following cr
 ####[1.15 Measurement Organism](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism)
 
 ####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
+
+* * *
+#### Data Extraction Guide
+
+Please use the table headings as a guide in extracting and submitting data. These specifications are indicitive of DCC and Network Requirements. All fields must be submitted to the DCC even if you are not submitting data in a field. Here are examples of how the specification should be interpreted:
+
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+ Field Name | <ul><li>Yes</li></ul>|<ul><li>Yes</li></ul>| Data Type | Description| PEDSnet Conventions
+ 
+ - **The above example indicates the data in this field is required by both the DCC and Network. It absolutely must be provided in the data submission.**
+ 
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+ Field Name | <ul><li>No</li></ul>|<ul><li>Provide When Available</li></ul>| Data Type | Description| PEDSnet Conventions
+ 
+ - **The above example indicates the data in this field is required by Network if it is popualted or available at your site. If it is available it must provided in the data submission.**
+ 
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+ Field Name | <ul><li>No</li></ul>|<ul><li>Site Preference</li></ul>| Data Type | Description| PEDSnet Conventions
+ 
+ - **The above example indicates the data in this field is not required by the DCC or Network. A site may choose to send this information if they desire to do so.**
+ 
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+ Field Name | <ul><li>No</li></ul>|<ul><li>Optional</li></ul>| Data Type | Description| PEDSnet Conventions
+ 
+ - **The above example indicates the data in this field is truly optional for submission. A site may choose to send this information if they desire to do so.**
 
 * * *
 ## 1.1 PERSON
