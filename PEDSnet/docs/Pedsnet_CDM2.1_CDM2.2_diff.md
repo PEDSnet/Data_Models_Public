@@ -1,4 +1,4 @@
-## Differences between PEDSnet CDM2.1 and CDM2.0
+## Differences between PEDSnet CDM2.2 and CDM2.1
 
 ## CHANGES from CDM2.1
 
