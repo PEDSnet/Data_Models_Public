@@ -19,7 +19,7 @@
 ####[1.15 Measurement Organism](Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism)
 - The measurement organism table contains organism information related to laboratory culture results in the measurement table. This table is CUSTOM to PEDsnet.
 
-###Stable Indentifer requirement
+###Stable Identifer requirement
 - Stable Identifier requirements have been updated for version 2.2. For PEDSnet CDMv2.2, sites are responsible for creating and storing a mapping from both `person_id` and `visit_occurrence_id` to stable local identifiers. Please see more information [here] (PEDSnet/README.md)
 
 ###PEDSnet Vocabulary
