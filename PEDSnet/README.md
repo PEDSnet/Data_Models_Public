@@ -22,9 +22,9 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Data Model DDL
 
-- Postgres: ***link coming soon***
-- Oracle: ***link coming soon***
-- Microsoft SQL Server: ***link coming soon***
+- Postgres: [here] (http://dmsa.a0b.io/pedsnet/2.2.0/ddl/postgresql/)
+- Oracle: [here] (http://dmsa.a0b.io/pedsnet/2.2.0/ddl/oracle/)
+- Microsoft SQL Server: [here] (http://dmsa.a0b.io/pedsnet/2.2.0/ddl/mssql/)
 
 ### Vocabulary Data
 
