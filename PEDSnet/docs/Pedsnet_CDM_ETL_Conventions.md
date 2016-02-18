@@ -982,7 +982,7 @@ General Family Medicine | 38004453 | Family Practice                           |
 Female Pelvic Medicine and Reconstructive Surgery|45756773 |Female Pelvic Medicine and Reconstructive Surgery| Provider Specialty | ABMS
 Forensic Psychiatry |45756775|Forensic Psychiatry|Provider Specialty |  ABMS
 Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty   
-General Pediatrics |38004477 | Pediatric Medicine            | Provider Specialty | Specialty    
+General Pediatrics (Primary Care)* |2000000063 |General Pediatrics        | Provider Specialty | PEDSNet   
 Geriatric Medicine | 38004478 | Geriatric Medicine                   | Provider Specialty | Specialty   
 Geriatric Psychiatry |45756776|Geriatric Psychiatry|Provider Specialty |  ABMS
 Gynecologic Oncology |38004513 | Gynecology/Oncology              | Provider Specialty | Specialty    
@@ -1029,7 +1029,7 @@ Pathology - Medical Microbiology |45756800 |Pathology - Medical Microbiology| Pr
 Pathology - Molecular Genetic |45756801|Pathology - Molecular Genetic| Provider Specialty | ABMS
 Pathology - Pediatric |45756802|Pathology - Pediatric | Provider Specialty | ABMS
 Pathology-Anatomic/Pathology-Clinical |45756803|Pathology-Anatomic/Pathology-Clinical | Provider Specialty | ABMS
-General Pediatrics | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty   
+Pediatric Medicine** | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty   
 Pediatric Anesthesiology |45756804|Pediatric Anesthesiology| Provider Specialty | ABMS
 Pediatric Cardiology |45756805|Pediatric Cardiology | Provider Specialty | ABMS
 Pediatric Critical Care Medicine |45756806|Pediatric Critical Care Medicine| Provider Specialty | ABMS
@@ -1075,7 +1075,8 @@ Vascular and Interventional Radiology |45756833|Vascular and Interventional Radi
 Vascular Neurology |45756834|Vascular Neurology| Provider Specialty | ABMS
 Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty   
 
-
+* General Pediatrics refers to Primary Care
+** Pediatric Medicine refers to the default assignment if a site is unable to identify that the practice or provider has an assigned specialty
 ### A2. PEDSNet Person Language Concept Mapping Values
 
 The below langauge listing is representative of the top 10 spoken languages of each of the 8 contributing sites. This list standard list will be used to map language values for consistency.
@@ -1098,7 +1099,7 @@ Japanese|4181524|Japanese Language|Observation|Qualifier Value|S
 Korean|4175771|Korean Language|Observation|Qualifier Value|S
 Mandarin| 4181724| Mandarin dialect | Observation|Qualifier Value|S
 Nepali|4175908|Nepali language|Observation|Qualifier Value|S
-No information| 44814650 | No information|Observation | Undefined|S                                                                                                                             
+No information| 44814650 | No information|Observation | Undefined|S                                                                                                                            
 None|44814650 | No information|Observation | Undefined|S                                   
 null|44814650 | No information|Observation | Undefined|S                                   
 Other|44814649 | Other        | Observation | Undefined        |                  | 
