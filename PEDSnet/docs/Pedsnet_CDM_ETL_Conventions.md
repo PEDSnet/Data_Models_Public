@@ -879,18 +879,18 @@ The fact relationship domain contains details of the relationships between facts
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-Domain_concept_id_1|Yes|Yes| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred
-Fact_id_1|	Yes |Yes| Integer |The unique identifier in the table corresponding to the domain of fact one.
-Domain_concept_id_2|Yes |Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.
+Domain_concept_id_1|Yes|Yes| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred| Predefined value set: <ul><li>Visit domain(ED->Inpatient linking)= 8</li><li>Measurement domain(Blood pressure linking) = 21</li><li>Observation domain(Tobacco linking)=27</li></ul>
+Fact_id_1|	Yes |Yes| Integer |The unique identifier in the table corresponding to the domain of fact one.| 
+Domain_concept_id_2|Yes |Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.| Predefined value set: <ul><li>Visit domain(ED->Inpatient linking)= 8</li><li>Measurement domain(Blood pressure linking) = 21</li><li>Observation domain(Tobacco linking)=27</li></ul>
 Fact_id_2 |	Yes |Yes| Integer |	The unique identifier in the table corresponding to the domain of fact two.
-Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.
+Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.| Predefined value set: <ul><li>Occurs before (ED Visit):44818881</li><li>Occurs after (Inpatient Visit):44818783</li><li>Asso with finding(Blood Pressures):44818792</li><li>No matching concept(Tobacco)= 0</li></ul>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
 #### 1.13.1 Additional Notes
-- Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table.
-- ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table.
-- Tobocoo,smoking and tobacco type associations will be mapped using the fact relationship table.
+- Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table. See Note 1 in the [Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1) section of this document for instructions.
+- ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table. See Additional Notes in the [Visit Occurrence](Pedsnet_CDM_ETL_Conventions.md#161-additional-notes) section of this document for instructions.
+- Tobocoo,smoking and tobacco type associations will be mapped using the fact relationship table. See Note 4 in the [Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1) section of this document for instructions.
 
 ## 1.14 VISIT_PAYER
 
