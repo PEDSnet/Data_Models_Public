@@ -32,7 +32,7 @@ Comments on this specification and ETL rules are welcome. Please send email to p
 
     3. Source value obfuscation techniques may include replacing the real source value with a random number, an encrypted derivative value/string, or some other site-specific algorithm.
 
-9. Regarding the nullability of all source value (string) fields only, the PEDSnet CDM will accommodate the following values, taken from the PCORnet CDM:
+9. The PCORnet CDM has specific definitons for null values (as seen below). For the PEDSNet CDM, please use the following logic on which concept value to use for `source_concept_id` fields where there are null values in the source `*_source_value`.
 
 Null Name | Definition of each field
  --- | ---
@@ -42,7 +42,7 @@ NULL | A data field is not present in the source system. Note. This is not a 'NU
 'OT' = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM
 
 10.
-**For populating `'*_source_concept_id'` use the following Logic:**
+**For populating `'*_source_concept_id'` (where there exists non-null values in the source) use the following Logic :**
 
   **Populate `'*_source_concept_id'` (i.e. non-zero) if the source_value is drawn from a standard vocabulary in OMOP**.
        
