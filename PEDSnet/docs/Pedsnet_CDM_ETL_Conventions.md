@@ -260,6 +260,10 @@ gender_source_concept_id | No |Provide When Available| Integer | The gender of t
 
 The visit occurrence domain contains the spans of time a person continuously receives medical services from one or more providers at a care site in a given setting within the health care system.
 
+Exclusions:
+
+1. Future Vists
+
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 visit_occurrence_id | Yes |Yes|  Integer | A unique identifier for each person's visits or encounter at a healthcare provider. |<p>This is not a value found in the EHR.</p> VISIT_OCCURRENCE_ID must be unique for all patients within a single data set.</p><p>**SITE RESPONSIBILITY: This field must remain a stable identifier across submissions to the DCC.**</p> <p>A mapping from the visit occurrence id to a real patient encounter from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.  Do not use institutional encounter ID.</p>
