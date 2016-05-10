@@ -423,9 +423,9 @@ The observation domain captures clinical facts about a patient obtained in the c
 
 NOTE: DRG and DRG Type require special logic/processing described below.
 
-- Admitting source
-- Discharge disposition
-- Discharge status
+- Admitting source (Inpatient and outpatient visit types where available)
+- Discharge disposition (Inpatient and outpatient visit types where available)
+- Discharge status (Inpatient and outpatient visit types where available)
 - DRG (requires special logic - see Note 1 below)
 - Tobacco Information (see Note 4)
 
@@ -517,11 +517,11 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 - If your site has **APR-DRGs** please include these in the observation table. We have requested the APR-DRG vocabulary to be incorporated as apart of the OMOP standard vocabulary. 
 
 **Note 2:** 
-- For each inpatient encounter, there can be 1 admit source, 1 discharge disposition, 1 discharge status, 1 or more DRG
+- For each inpatient encounter or in some cases the outpatient encounter, there can be 1 admit source, 1 discharge disposition, 1 discharge status, 1 or more DRG
   (May not be 1:1:1:1 if patients still admitted (therefore no discharge disposition, discharge details or DRG yet))
 - There should **NOT** be discharges without admission.
 - For each emergency dept (ED) encounters, these 4 records *may* also be populated but this is *optional*.
-- For outpatient encounters (OT, OA), these 4 records should **NOT** be populated
+- For outpatient encounters (OT, OA), these 4 records may be populated
 
 **Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
