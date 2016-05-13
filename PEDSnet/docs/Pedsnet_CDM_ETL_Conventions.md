@@ -329,8 +329,6 @@ Conditions are recorded in different sources and levels of standardization. For 
 - EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
 
 **Note 1:**
-Sites should **only** populate the condition occurrence table with concepts that are apart of the `Condition` domain.
-
 Please use the following logic to populate the `condition_concept_id`, `condition_source_concept_id` and `condition_source_value` based on what is available in your source system:
 
 Site Information | condition_concept_id|condition_source_concept_id|condition_source_value
