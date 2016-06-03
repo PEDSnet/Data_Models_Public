@@ -18,6 +18,9 @@
 ***
 ## NEW in PEDSnet CDM2.2
 
+####[1.2 Death](Pedsnet_CDM_ETL_Conventions.md#12-death-1)
+1. Added `death_cause_id` as the primary key of the death table
+
 ####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Temperature value content added.
 2. Head circumference value  content added.
