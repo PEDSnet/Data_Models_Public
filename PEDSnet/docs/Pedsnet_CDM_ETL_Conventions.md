@@ -521,7 +521,7 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 - For each emergency dept (ED) encounters, these 4 records *may* also be populated but this is *optional*.
 - For outpatient encounters (OT, OA), these 4 records may be populated
 
-**Note 3:** If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
+**Note 3:** Please provide tobacco information from the primary source of data capture at your site. If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
 <a name="observation-note-4"/>**Note 4:** Below are examples of how the observation table and the fact relationship table would be populated for tobacco, smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert. The PEDSnet standard relationship concept id for linking tobacco items will be *0*. This concept id was chosen as there was not a specific concept id that exists in the standard vocabulary that adequately defined an appropriate relationship for linking the tobacco items.
 
