@@ -169,6 +169,7 @@ The death domain contains the clinical event for how and when a person dies. Liv
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
+death_cause_id | Yes | Yes | Integer | A unique identifier for each death cause occurrence | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id | Yes | Yes |   Integer | A foreign key identifier to the deceased person. The demographic details of that person are stored in the person table.| See PERSON.person_id (primary key)
 death_date | Yes |Yes|   Date | The date the person was deceased. | <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> When the date of death is not present in the source data, use the date the source record was created.
 death_time | Yes |Yes|   Datetime | The date the person was deceased. |<p>**This field is custom to PEDSnet**</p> <p>If the precise date including day or month is not known or not allowed, December is used as the default month, and the last day of the month the default day. If no date available, use date recorded as deceased.</p> <p>When the date of death is not present in the source data, use the date the source record was created. If there is no time associated with the date assert '23:59:59'.</p>
