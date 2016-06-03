@@ -15,6 +15,20 @@
 ####[1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)
 1. Updated convention to include outpatient admitting source, discharge disposition and discharge status.
 
+##Vocabulary
+
+Addition of General Pediatrics/Primary Care site mapping to new PEDSNet concept (2000000063). Previously only the Pediatric Medicine concept(38004477) was present as a possible choice for this mapping.
+
+ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
+--- | --- | --- | --- | ---
+General Pediatrics (Primary Care)*|	2000000063|	General Pediatrics|	Provider Specialty|	PEDSNet
+Pediatric Medicine**|	38004477|	Pediatric Medicine|	Provider Specialty|	Specialty
+
+Notes:
+- General Pediatrics refers to Primary Care
+- Pediatric Medicine refers to the default assignment if a site is unable to distinguish which pediatric specialty the care site or provider has an assigned
+
+
 ***
 ## NEW in PEDSnet CDM2.2
 
