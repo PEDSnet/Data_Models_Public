@@ -52,6 +52,12 @@ Please use your local system knowledge to determine this or use the following cr
       
  (usually the case when the sites need to "manually" map the foo_source_value to foo_concept_id)
 
+11.
+**For populating `*_source_value` please make a best effort to provide "human readable" values rather than a coded value where possible from the source.**
+
+  Example for `gender_source_value`, the source value at your site may be `1` for Female and `2` for Male. Please provide the label value of `Female` and `Male`.
+ 
+
 ***ETL Recommendation:*** Due to PK/FK constraints, the most efficient order for ETL table is location, care_site, provider, person, visit_occurrence, condition_occurrence, observation, procedure_occurrence,measurement,measurement_organism,drug exposure
 
 * * *
