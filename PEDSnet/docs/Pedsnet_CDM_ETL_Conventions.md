@@ -327,15 +327,15 @@ The condition occurrence domain captures records of a disease or a medical condi
 Conditions are recorded in different sources and levels of standardization. For example:
 
 - Medical claims data include ICD-9-CM diagnosis codes that are submitted as part of a claim for health services and procedures.
-- EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM codes, but may not have a way to capture out-of-system conditions.
+- EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM or ICD-10-CM codes, but may not have a way to capture out-of-system conditions.
 
 **Note 1:**
 Please use the following logic to populate the `condition_concept_id`, `condition_source_concept_id` and `condition_source_value` based on what is available in your source system:
 
 Site Information | condition_concept_id|condition_source_concept_id|condition_source_value
 --- | --- | --- | ---
-Any diagnosis that was captured as a term or name (e.g. IMO to SNOMED)| Corresponding SNOMED concept id |Corresponding concept for site diagnosis captured | Diagnosis code
-Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code | Diagnosis Code
+Any diagnosis that was captured as a term or name (e.g. IMO to SNOMED)| Corresponding SNOMED concept id |Corresponding concept for site diagnosis captured (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" Diagnosis Code
+Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" Diagnosis Code
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
@@ -350,8 +350,8 @@ condition_type_concept_id | Yes |Yes| Integer | A foreign key to the predefined 
 stop_reason | No |Provide When Available| Varchar | The reason, if available, that the condition was no longer recorded, as indicated in the source data. | <p>Valid values include discharged, resolved, etc. Note that a stop_reason does not necessarily imply that the condition is no longer occurring, and therefore does not mandate that the end date be assigned.</p>
 provider_id | No |Provide When Available| Integer | A foreign key to the provider in the provider table who was responsible for determining (diagnosing) the condition. | **In PEDSnet CDM v1, this field was previously called associated_provider_id**<p>Any valid provider_id allowed (see definition of providers in PROVIDER table)</p> Make a best-guess and document method used. Or leave blank
 visit_occurrence_id | No | Provide When Available|Integer | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
-condition_source_value | Yes |Yes| Varchar | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids.
-condition_source_concept_id | No |Provide When Available| Integer | A foreign key to a condition concept that refers to the code used in the source| For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+condition_source_value | Yes |Yes| Varchar | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM or ICD-10-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids. **Please include the diagnosis name and source code when populating this field, by using the pipe delimiter "\|" when concatenating values.** Example: 	Diagnosis Name "\|" Diagnosis Code
+condition_source_concept_id | No |Provide When Available| Integer | A foreign key to a condition concept that refers to the code used in the source| As a standard convention this code must correspond to the ICD9/ICD10 concept mapping of the source value only. For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
