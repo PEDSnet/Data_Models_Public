@@ -1,4 +1,4 @@
-## Differences between PEDSnet CDM2.2.0 and CDM2.2.1
+## Differences between PEDSnet CDM2.2 and CDM2.3
 
 ## CHANGES from CDM2.2.0
 
@@ -30,7 +30,7 @@ Notes:
 
 
 ***
-## NEW in PEDSnet CDM2.2
+## NEW in PEDSnet CDM2.3
 
 ####[1.2 Death](Pedsnet_CDM_ETL_Conventions.md#12-death-1)
 1. Added `death_cause_id` as the primary key of the death table
