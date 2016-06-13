@@ -731,6 +731,7 @@ Specifically this table includes:
 - Height/length type
 - Weight in kg (use numeric precision as recorded in EHR)
 - Temperature in degrees Celsius
+- Head Circumference in cm (use numeric precision as recorded in EHR)
 - Body mass index in kg/m<sup>2</sup> (extracted only if height and weight are not present)
 - Systolic blood pressure in mmHg
     - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
@@ -761,13 +762,14 @@ Vital | 2000000044 | | See Note 3 | Weight for age z score WHO
 Vital | 2000000045 | | See Note 3 | Height for age z score WHO
 Vital | 2000000046 | | See Note 3 | Systolic BP for age/height Z score NCBPEP
 Vital | 2000000047 | | See Note 3 | Diastolic BP for age/height Z score NCBPEP
-Vital | 3020891 || See Note 2 | Temperature 
+Vital | 3020891 || See Note 1 | Temperature 
+Vital | 3001537|| See Note 1| Head Circumference
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
 Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from device direct feed
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
 Measurement Type | 44818702| Measurement Type | See Note 4 | Lab Result
 
-**Note 1**: For height, weight, temperature and BMI observations, insert the recorded measurement into the value_as_number field.
+**Note 1**: For height, weight, temperature, head circumference and BMI observations, insert the recorded measurement into the value_as_number field.
 
 <a name="measurement-note-2"/>**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
@@ -871,7 +873,7 @@ visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to th
 measurement_source_value | Yes |Yes|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concatenating values. For lab values, please see Note 4.
 measurement_source_concept_id| No| Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
-value_source_value| Yes |Yes|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight,Height and Temperature) please insert the raw data before transformation.</li></ul> For Categorical/Qualitative Lab result values, please use this field to store the raw result from the source.
+value_source_value| Yes |Yes|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight,Height, Head Circumference and Temperature) please insert the raw data before transformation.</li></ul> For Categorical/Qualitative Lab result values, please use this field to store the raw result from the source.
 specimen_source_value| No| Provide When Available| Varchar | This field is applicable for lab values only. This source value for the specimen source as it appears in the source||
 priority_concept_id| No| Provide When Available | Integer| This field applies to Lab Orders only. A foreign key to a concept that refers to the lab priority as described in the source|<p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value')</p> <p>select \* from concept where (domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value') or (vocabulary_id='PCORNet' and concept_class_id='Undefined')  yields 7 valid concept_ids.</p> For Pedsnet CDM v2.2, please use the following: <ul><li>Expedited (includes Today)=2000000059 </li><li>STAT (includes ASAP)=2000000060</li><li>Routine = 2000000061 </li><li>Timed = 2000000062 </li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> 
 priority_source_value| No| Provide When Available |  Varchar|This field applies to Lab Orders only. The lab priority as described in the source|
