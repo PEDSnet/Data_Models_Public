@@ -732,11 +732,22 @@ Specifically this table includes:
 - Weight in kg (use numeric precision as recorded in EHR)
 - Temperature in degrees Celsius
 - Head Circumference in cm (use numeric precision as recorded in EHR)
+- FVC in liters
+- FVC pre (if recorded differently) in liters
+- FVC post in liters
+- FEV 1 in liters
+- FEV 1 pre (if recorded differently) in liters
+- FEV 1 post in liters
+- FEF 25-75 in liters per minute
+- FEF 25-75 pre (if recorded differently) in liters per minute
+- FEF 25-75 post in liters per minute
+- Peak Flow (PF) in milliteres per second
+- Peak Flow post in milliteres per second
 - Body mass index in kg/m<sup>2</sup> (extracted only if height and weight are not present)
 - Systolic blood pressure in mmHg
-    - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
+    - Where multiple readings are present on the same encounter, create measurement records for \*\*ALL\*\* readings
 - Diastolic blood pressure in mmHg
-    - Where multiple readings are present on the same encounter, create observation records for \*\*ALL\*\* readings
+    - Where multiple readings are present on the same encounter, create measurement records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Vital source
 - Component Level Labs. The Lab Listing and PEDSNet LOINC Mapping can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
@@ -764,12 +775,23 @@ Vital | 2000000046 | | See Note 3 | Systolic BP for age/height Z score NCBPEP
 Vital | 2000000047 | | See Note 3 | Diastolic BP for age/height Z score NCBPEP
 Vital | 3020891 || See Note 1 | Temperature 
 Vital | 3001537|| See Note 1| Head Circumference
+Vital | 3020158|| See Note 1|  FVC
+Vital | 3037879|| See Note 1|  FVC pre (if recorded differently)
+Vital | 3001668|| See Note 1|  FVC post
+Vital | 3024653|| See Note 1| FEV 1
+Vital | 3005025|| See Note 1|  FEV 1 pre (if recorded differently)
+Vital | 3023550|| See Note 1|  FEV 1 post
+Vital | 42868460|| See Note 1|  FEF 25-75
+Vital | 42868461|| See Note 1|  FEF 25-75 pre (if recorded differently)
+Vital | 42868462|| See Note 1|  FEF 25-75 post
+Vital | 3023329|| See Note 1|  Peak Flow (PF)
+Vital | 2000000064|| See Note 1|  Peak Flow post
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
 Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from device direct feed
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
 Measurement Type | 44818702| Measurement Type | See Note 4 | Lab Result
 
-**Note 1**: For height, weight, temperature, head circumference and BMI observations, insert the recorded measurement into the value_as_number field.
+**Note 1**: For height, weight, temperature, head circumference, BMI and Pulmary Function measurements, insert the recorded measurement into the value_as_number field.
 
 <a name="measurement-note-2"/>**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
@@ -861,7 +883,7 @@ measurement_type_concept_id | Yes |Yes|  Integer | A foreign key to the predefin
 operator_concept_id| No|Provide When Available|  Integer | A foreign key identifier to the mathematical operator that is applied to the value_as_number.Operators are <, ≤, =, ≥, >| Valid operator concept id are found in the concept table <p> select \* from concept where domain_id='Meas Value Operator' yields 5 valid concept ids. <ul> <li> Operator <= : 4171754 </li> <li> Operator >= : 4171755      </li> <li> Operator < : 4171756 </li> <li> Operator =   4172703 </li> <li> Operator > : 4172704 </li> </ul>|
 value_as_number | No (see convention) | Provide When Available| Float | The measurement result stored as a number. This is applicable to measurements where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}.
 value_as_concept_id | No (see convention) |Provide When Available|  Integer | A foreign key to an observation result stored as a concept identifier. This is applicable to observations where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. Valid concepts are found in the concept table <p> select \* from concept where domain_id='Meas Value' yields 86 valid concept ids.</p>
-unit_concept_id | No |Provide When Available|  Integer | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = 'UCUM' yields 971 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet measurements listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li> <li>degree Celsius (C): 8653</li></ul>
+unit_concept_id | No |Provide When Available|  Integer | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = 'UCUM' yields 971 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet measurements listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li> <li>degree Celsius (C): 8653</li> <li>Liters (L): 8519 </li><li>Liters per minute (L/min): 8698 </li><li>Milliliters per second (mL/sec): 44777614 </li></ul>
 range_low | No | Provide When Available| Float |  The lower limit of the normal range of the measurement. It is not applicable if the observation results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 range_low_source_value | No | Provide When Available| Varchar |  The lower limit of the normal range of the measurement as it appears in the source. | See note 5
 range_low_operator_concept_id | No | Optional | Integer|A foreign key to the modifier of lower limit of the normal range of the measurement as it appears in the source as a concept identifier. | See note 5
@@ -873,7 +895,7 @@ visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to th
 measurement_source_value | Yes |Yes|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concatenating values. For lab values, please see Note 4.
 measurement_source_concept_id| No| Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 unit_source_value| No| Provide When Available| Varchar | The source code for the unit as it appears in the source data. This code is mapped to a standard unit concept in the Standardized Vocabularies and the original code is, stored here for reference.| Raw unit value (Ounces,Inches etc) For lab values, please see Note 4.
-value_source_value| Yes |Yes|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight,Height, Head Circumference and Temperature) please insert the raw data before transformation.</li></ul> For Categorical/Qualitative Lab result values, please use this field to store the raw result from the source.
+value_source_value| Yes |Yes|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight,Height, Head Circumference, Pulmonary Function Values and Temperature) please insert the raw data before transformation.</li></ul> For Categorical/Qualitative Lab result values, please use this field to store the raw result from the source.
 specimen_source_value| No| Provide When Available| Varchar | This field is applicable for lab values only. This source value for the specimen source as it appears in the source||
 priority_concept_id| No| Provide When Available | Integer| This field applies to Lab Orders only. A foreign key to a concept that refers to the lab priority as described in the source|<p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value')</p> <p>select \* from concept where (domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value') or (vocabulary_id='PCORNet' and concept_class_id='Undefined')  yields 7 valid concept_ids.</p> For Pedsnet CDM v2.2, please use the following: <ul><li>Expedited (includes Today)=2000000059 </li><li>STAT (includes ASAP)=2000000060</li><li>Routine = 2000000061 </li><li>Timed = 2000000062 </li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> 
 priority_source_value| No| Provide When Available |  Varchar|This field applies to Lab Orders only. The lab priority as described in the source|
