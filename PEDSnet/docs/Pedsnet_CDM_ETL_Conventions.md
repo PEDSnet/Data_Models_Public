@@ -2,7 +2,7 @@
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
-Version 3 of the PEDSnet CDM reflects the ETL processes developed after several iterations of network development. As such, it proposes to align with version 3 of the PCORnet CDM.
+Version 2.3 of the PEDSnet CDM reflects the ETL processes developed after several iterations of network development. As such, it proposes to align with version 3 of the PCORnet CDM.
 
 This document provides the ETL processing assumptions and conventions developed by the PEDSnet data partners that should be used by a data partner for ensuring common ETL business rules. This document will be modified as new situations are identified, incorrect business rules are identified and replaced, as new analytic use cases impose new/different ETL rules, and as the PEDSnet CDM continues to evolve.
 
