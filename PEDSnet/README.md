@@ -26,14 +26,13 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Data Model DDL
 
-- Postgres: [here] (http://dmsa.a0b.io/pedsnet/2.3.0/ddl/postgresql/)
-- Oracle: [here] (http://dmsa.a0b.io/pedsnet/2.3.0/ddl/oracle/)
-- Microsoft SQL Server: [here] (http://dmsa.a0b.io/pedsnet/2.3.0/ddl/mssql/)
+- Postgres: [here] (https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.3.0/ddl/postgresql/)
+- Oracle: [here] (https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.3.0/ddl/oracle/)
+- Microsoft SQL Server: [here] (https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.3.0/ddl/mssql/)
 
 ### Vocabulary Data
 
-- v2.3.0 Core Vocabulary:***link coming soon***
-- GPI supplement (Medispan sites only): ***link coming soon***
+- v2.3.0 Core Vocabulary: [here] (https://chop.sharefile.com/d-s9e5beff4c82444d9)
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 ***
