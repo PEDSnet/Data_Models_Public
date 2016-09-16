@@ -334,6 +334,7 @@ Conditions are recorded in different sources and levels of standardization. For 
 
 - Medical claims data include ICD-9-CM diagnosis codes that are submitted as part of a claim for health services and procedures.
 - EHRs may capture a person's conditions in the form of diagnosis codes and symptoms as ICD-9-CM or ICD-10-CM codes, but may not have a way to capture out-of-system conditions.
+- EHRs may also capture External Injury codes in different place in the source system. These types of codes are also to be included.
 
 **Note 1:**
 Please use the following logic to populate the `condition_concept_id`, `condition_source_concept_id` and `condition_source_value` based on what is available in your source system:
