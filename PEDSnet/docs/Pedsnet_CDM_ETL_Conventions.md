@@ -393,8 +393,8 @@ Please use the following logic to populate the `procedure_concept_id`, `procedur
 
 Site Information | procedure_concept_id|procedure_source_concept_id|procedure_source_value
 --- | --- | --- | ---
-Procedure codes using CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 procedures as orders | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id |Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id | Procedure Name "\|" Procedure Source Code
-Custom Procedure Coding (That a site has knowledge of corresponding to a standard code but requires manual mapping) | 0 | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id  |Procedure Name "\|" Custom Procedure Code
+Procedure codes using CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 procedures as orders | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id |Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id | Procedure Name \| Procedure Source Code
+Custom Procedure Coding (That a site has knowledge of corresponding to a standard code but requires manual mapping) | 0 | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id  |Procedure Name \| Custom Procedure Code
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
@@ -851,8 +851,8 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 You have in your source system | Measurement_source_value| Measurement_source_concept_id | measurement_concept_id
 ---|---|---|---
 Lab code is institutional-specific code (not CPT/not LOINC) |<ul><li> Local code or</li><li>Local name or</li><li>Local code \| Local name</li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
-Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li>CPT code \| Local name</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
-Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li>LOINC code  \| Local name</li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is different than PEDSnet LOINC | Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
 
 **Note 5**: Please use the following table as a guide to determine how to populate the `range_low`,`range_low_source_value`,`range_low_operator_concept_id`, `range_high`, `range_high_source_value` and `range_low_operator_concept_id` for LAB Values
