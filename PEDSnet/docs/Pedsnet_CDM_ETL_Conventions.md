@@ -863,6 +863,7 @@ Numerical value `Examples: 7,8.2,100` | Numerical Value `Examples: 7,8.2,100` | 
 Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Examples: 2, 100, 5`| Limits `Examples: <2, >100, less than 5` | Corresponding concept to the modifier `Examples:4171756,4172704 ,4171756 `
 Categorical/Qualitative Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical/Qualitative Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`|0
 
+**Note 6**: Please only include final Lab Results.
 
 Exclusions:
 
