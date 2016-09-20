@@ -679,8 +679,8 @@ No discrete dosing information | | 0|
 
 You have in your source system | Drug_source_value| Drug_source_conept_id | Drug_concept_id
 ---|---|---|---
-Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>GPI/Multum/Other \| Local name</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
-Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>RxNorm code \| Local name</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping|
+Drug code is GPI/Multum/Other code | <ul><li> GPI/Multum/Other Code</li><li>Local name \| GPI/Multum/Other</li></ul> (any above are OK) | OMOP’s concept_id for GPI/Multum/Other code | RxNorm code that corresponds to a mapping from `concept_relationship`
+Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>Local name \| RxNorm code</li></ul> (any above are OK) |Corresponding RxNorm concept_id mapping| Corresponding RxNorm concept_id mapping|
 
 **Note 7**: For medication administration events, please store all events as single drug exposure entries.
 
