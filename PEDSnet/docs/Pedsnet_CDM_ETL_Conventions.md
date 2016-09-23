@@ -389,7 +389,7 @@ Procedures records are extracted from structured data in Electronic Health Recor
 
 More specifically the procedure occurrence domain is intended to stores information about activity or processes involving a patient that has a billable code. This includes but is not limited to the following:
 - LOS Codes ((Eg. 99123) This code may not Not necessarily be a CPT and could require local mapping )
-- Lab Procedures (including a Lab Panel Order)
+- Lab Procedures (including a Lab Panel Order and Culture Orders)
 - Surgery Procedures
 - Imaging Procedures
 
