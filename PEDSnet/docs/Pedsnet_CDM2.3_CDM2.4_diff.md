@@ -69,6 +69,7 @@ and standard_concept='S'
 **Note 1:**
  For Outpatient visits, please use the following logic to assign visit concept ids:
  Visit Concept Id |Concept Name| Visit Type Inclusion
+ --- | --- | ---
  9202 |Ambulatory Visit (AV) |Outpatient Visits where the patient was seen in person 
  44814711|Other ambulatory Visit (OA) | All other outpatient visits
  ```
