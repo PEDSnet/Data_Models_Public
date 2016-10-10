@@ -859,7 +859,7 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 
 You have in your source system | Measurement_source_value| Measurement_source_concept_id | measurement_concept_id
 ---|---|---|---
-Lab code is institutional-specific code (not CPT/not LOINC) |<ul><li> Local code or</li><li>Local name or</li><li>Local code \| Local name</li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
+Lab code is institutional-specific code (not CPT/not LOINC) |<ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code/li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
 Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is different than PEDSnet LOINC | Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
