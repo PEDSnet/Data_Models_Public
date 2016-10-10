@@ -21,8 +21,8 @@ and invalid_reason is null)
 select * from concept 
 where domain_id='Visit' 
 or (vocabulary_id='PCORNet' and concept_class_id='Encounter Type')
-or (vocabulary_id='PCORNet' and concept_class_id='Undefined') a
-nd invalid_reason is null
+or (vocabulary_id='PCORNet' and concept_class_id='Undefined') 
+and invalid_reason is null
 ```
 ####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Updated Conventions document to explicitly state to only include final results
