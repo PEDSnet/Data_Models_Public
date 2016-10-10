@@ -32,13 +32,27 @@ or (vocabulary_id='PCORNet' and concept_class_id='Encounter Type')
 or (vocabulary_id='PCORNet' and concept_class_id='Undefined') 
 and invalid_reason is null
 ```
+
 ####[1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
 1. Updatied Condition_Occurrence Table to reflect inclusion of external injury codes
 
 ####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Updated Conventions document to explicitly state to only include final results
+2. Updated Covnentions to clarify that lab orders include culture 
 
+```
+(Taken from conventions document)
+....
+Lab Procedures (including a Lab Panel Order and Culture Orders)
+```
+3. Updated `value_as_concept_id` query
 
+```
+select * from concept 
+where domain_id='Meas Value' 
+and concept_class_id='Qualifier Value' 
+and standard_concept='S'
+```
 ***
 ## NEW in PEDSnet CDM2.3
 
