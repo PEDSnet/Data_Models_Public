@@ -38,7 +38,7 @@ and invalid_reason is null
 
 ####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Updated Conventions document to explicitly state to only include final results
-2. Updated Covnentions to clarify that lab orders include culture 
+2. Updated Conventions to clarify that lab orders include culture orders
 
 ```
 (Taken from conventions document)
