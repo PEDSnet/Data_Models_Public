@@ -42,8 +42,22 @@ and invalid_reason is null
 ***
 ## NEW in PEDSnet CDM2.3
 
-####[1.2 Template](Pedsnet_CDM_ETL_Conventions.md#12-death-1)
-1. Template
+####[1.6 Visit_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
+1. Expanded exlcusion criteria and introduced outpatient concept definitions.
+
+```
+(Taken from conventions document)
+ Exclusions:
+  
+ 1. Future Vists
+ 2. Cancelled Visits (where the patient was not seen)
+ 
+**Note 1:**
+ For Outpatient visits, please use the following logic to assign visit concept ids:
+ Visit Concept Id |Concept Name| Visit Type Inclusion
+ 9202 |Ambulatory Visit (AV) |Outpatient Visits where the patient was seen in person 
+ 44814711|Other ambulatory Visit (OA) | All other outpatient visits
+ ```
 
 ###PEDSnet Vocabulary
 
