@@ -92,6 +92,8 @@ Please use your local system knowledge to determine this or use the following cr
 
 ####[1.15 Measurement Organism](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism)
 
+####[1.16 Visit_Segment](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-visit_segment) **DRAFT***
+
 ####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
@@ -980,6 +982,25 @@ positivity_time| No| Optional | Datetime| The estimated date and time of initial
 
 #### 1.15.1 Additional Notes
 - The time to positivity field is marked as optional. Please inform the DCC in the provenance files if this data is available at your site.
+
+## 1.15 VISIT_SEGMENT *******DRAFT!!!********
+
+The visit_segment table contains information about distinct intervals of time that constitute a clinical visit.  The typical use case is to identify parts of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The start and end times of each segment must fall between the start and end times of the associated visit_occurrence_id.  However, segments may overlap or be discontiguous; there may be points in time within the visit that are covered by multiple or no segments.  **This table is CUSTOM to Pedsnet.**
+
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+ visit_segment_id| 	Yes	| Yes| 	Integer| 	A unique identifier for each visit segment.	
+person_id| 	Yes| 	Yes	| Integer| 	A  foreign key identifier to the person for whom the visit is recorded.	
+visit_occurrence_id| 	Yes| 	Yes| 	Integer	| A foreign key identifier to the visit containing this segment.	
+segment_start_date| 	Yes| 	Yes| 	Date	| The start date of the segment	
+segment_start_time	| Yes| 	Yes	| Datetime	| The starting datetime of the segment|	No date shifting. Full date and time. If there is no time associated with the date assert midnight for the start time.
+segment_end_date	| No	| Provide when available	| Date	| The end date of the segment	|No date shifting. If this is a one-day visit the end time should match the start time. If the segment is on-going at the time of ETL, this should be null.
+segment_end_time| 	No	| Provide when available| Datetime	| The ending datetime of the segment |	No date shifting. If this is a one-day visit the end time should match the start time. If the segment is on-going at the time of ETL, this should be null. If there is no time associated with the date assert 11:59:59 pm for the end time
+care_site_id| 	No| 	Provide when available| 	Integer| 	A foreign key to the care site in which this segment occurred.	
+service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a segment service concept identifier in the vocabulary.  This concept describes the type of service associated with this segment.	|**In PEDSnet CDM v2.4, only the Critical Care service is included.**<p>The value set available for PEDSnet includes:<ul><li>	Critical care = XXX </li><li>	Intermediate care = XXX </li><li>	Acute care = XXX </li><li>	Observation care = XXX </li><li>	Surgical site (includes OR, ASC) = XXX </li><li>	Procedural service = XXX </li><li> Behavioral health = XXX </li><li> Rehabilitative service (includes PT, OT, ST) = XXX </li><li>	Specialty service = XX </li><li> Radiology = XXX </li></ul></p>
+service_source_value| 	No| 	Provide when available	| Varchar	| The source data used to derive the service type for this segment.  It will typically be a level of care designator from an appointment or ADT event.	
+
+
 
 
 * * *
