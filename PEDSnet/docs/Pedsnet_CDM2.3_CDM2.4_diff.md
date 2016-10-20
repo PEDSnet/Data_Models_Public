@@ -80,7 +80,8 @@ Visit Concept Id |Concept Name| Visit Type Inclusion
  9202 |Ambulatory Visit (AV) |Outpatient Visits where the patient was seen in person 
  44814711|Other ambulatory Visit (OA) | All other outpatient visits
  
- 
+ ####[1.16 Visit_Segment]
+ 1. Created a new table to store ICU admission information.
 
 ###PEDSnet Vocabulary
 
