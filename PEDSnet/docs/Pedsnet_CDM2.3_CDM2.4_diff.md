@@ -34,7 +34,12 @@ and invalid_reason is null
 ```
 
 ####[1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
-1. Updatied Condition_Occurrence Table to reflect inclusion of external injury codes
+1. Updated Condition_Occurrence Table to reflect inclusion of external injury codes
+2. Updated instructions on how to populate the table based on physician diagnsois as opposed to billing/coder diagnosis.
+
+```
+For the PEDSNet network, please provide clinical physician based diagnosis as opposed to billing or claim based diangosis data.
+```
 
 ####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Updated Conventions document to explicitly state to only include final results
@@ -74,6 +79,8 @@ Visit Concept Id |Concept Name| Visit Type Inclusion
  --- | --- | ---
  9202 |Ambulatory Visit (AV) |Outpatient Visits where the patient was seen in person 
  44814711|Other ambulatory Visit (OA) | All other outpatient visits
+ 
+ 
 
 ###PEDSnet Vocabulary
 
