@@ -983,7 +983,7 @@ positivity_time| No| Optional | Datetime| The estimated date and time of initial
 #### 1.15.1 Additional Notes
 - The time to positivity field is marked as optional. Please inform the DCC in the provenance files if this data is available at your site.
 
-## 1.15 VISIT_SEGMENT *******DRAFT!!!********
+## 1.16 VISIT_SEGMENT *******DRAFT!!!********
 
 The visit_segment table contains information about distinct intervals of time that constitute a clinical visit.  The typical use case is to identify parts of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The start and end times of each segment must fall between the start and end times of the associated visit_occurrence_id.  However, segments may overlap or be discontiguous; there may be points in time within the visit that are covered by multiple or no segments.  **This table is CUSTOM to Pedsnet.**
 
@@ -999,6 +999,8 @@ segment_end_time| 	No	| Provide when available| Datetime	| The ending datetime o
 care_site_id| 	No| 	Provide when available| 	Integer| 	A foreign key to the care site in which this segment occurred.	
 service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a segment service concept identifier in the vocabulary.  This concept describes the type of service associated with this segment.	|**In PEDSnet CDM v2.4, only the Critical Care service is included.**<p>The value set available for PEDSnet includes:<ul><li>	Critical care = XXX </li><li>	Intermediate care = XXX </li><li>	Acute care = XXX </li><li>	Observation care = XXX </li><li>	Surgical site (includes OR, ASC) = XXX </li><li>	Procedural service = XXX </li><li> Behavioral health = XXX </li><li> Rehabilitative service (includes PT, OT, ST) = XXX </li><li>	Specialty service = XX </li><li> Radiology = XXX </li></ul></p>
 service_source_value| 	No| 	Provide when available	| Varchar	| The source data used to derive the service type for this segment.  It will typically be a level of care designator from an appointment or ADT event.	
+
+
 
 
 
