@@ -682,11 +682,17 @@ No discrete dosing information | | 0|
 ```
 **Note 5:** If there are multiple RxNorm mappings associate with a mapping, choose the mapping in the following order and stop when you find your first match.
 
-1. SBD
-2. SCD
-3. MIN
-4. PIN
-5. IN
+1. BPCK (Branded Pack)
+2. GPCK (Clinical Pack)
+3. SBD (Branded Drug, Quant Branded Drug)
+4. SCD (Clinical Drug, Quant Clinical Drug)
+5. SBDF (Branded Drug Form)
+6. SCDF (Clinical Drug Form)
+7. MIN (Ingredient)
+8. SBDC
+9. SCDC
+10. PIN (Ingredient)
+11. IN (Ingredient)
 
 **Note 6**: Please use the following table as a guide to determine how to populate the `drug_source_value`, `drug_source_concept_id` and `drug_concept_id` for Drug Exposure Values
 
