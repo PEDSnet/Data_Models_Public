@@ -5,16 +5,16 @@ A PEDSnet core vocabulary release is assembled in several steps:
 1. Create a base schema containing an OHDSI vocabulary snapshot (cf. [OHDSI_snapshot.md](../dcc_maintenance/OHDSI_snapshot.md)).
 1. Merge PEDSnet-specific additions from the `vocabulary_pedsnet_addon` schema, as described in the [PEDSnet addon guide](./Adding_PEDSnet_addon.md).
 1. Dump CSV files for each table into a clean directory (in practice, you may want to use the client-side `\copy` rather than the server-side `copy`:
-  1. `copy vocabulary to './vocabulary.csv' with (format csv encoding 'UTF-8' header delimiter ',' quote '"' force_quote *);`
-  1. `copy relationship to './relationship.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy domain to './domain.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy concept_class to './concept_class.csv' with (format csv encoding 'UTF-8' ) header delimiter ',' quote '"' force_quote *);`
-  1. `copy concept to './concept.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy concept_relationship to './concept_relationship.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy concept_ancestor to './concept_ancestor.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy concept_synonym to './concept_synonym.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy source_to_concept_map to './source_to_concept_map.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
-  1. `copy drug_strength to './drug_strength.csv' with (format csv encoding 'UTF-8'  header delimiter ',' quote '"' force_quote *);`
+  1. `copy vocabulary to './vocabulary.csv' with csv encoding 'UTF-8' header delimiter ',' quote '"' force quote *;`
+  1. `copy relationship to './relationship.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote *;`
+  1. `copy domain to './domain.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote *;`
+  1. `copy concept_class to './concept_class.csv' with csv encoding 'UTF-8' ) header delimiter ',' quote '"' force quote *;`
+  1. `copy concept to './concept.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote *;`
+  1. `copy concept_relationship to './concept_relationship.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote *;`
+  1. `copy concept_ancestor to './concept_ancestor.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote *;`
+  1. `copy concept_synonym to './concept_synonym.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote *;`
+  1. `copy source_to_concept_map to './source_to_concept_map.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote * ;`
+  1. `copy drug_strength to './drug_strength.csv' with csv encoding 'UTF-8'  header delimiter ',' quote '"' force quote * ;`
 1. Use [the load script generator](generate_load_script.pl) to generate a series of `psql` commands that will bulk load the flat files.  (Hint: `(export SD="$PWD"; cd `_release\_dir_`; "$SD"/generate_load_script.pl [cdsrv]*.csv >|load_vocabulary_files.sql)`)
 1. Create a new schema using the **PEDSnet DDL** and test the flat files:
    *  Load into the schema using the load script you just generated, or individual `copy` or `\copy` commands.
