@@ -12,8 +12,8 @@ our $VERSION = '1.00';
 #  - the third is replaced with the name of the file
 
 # Postgres
-my $cmd = q[\\copy %s (%s) from '%s' with (format csv header] .
-  q[ encoding 'UTF-8' delimiter ',' escape '"');];
+my $cmd = q[\\copy %s (%s) from '%s' with csv header] .
+  q[ encoding 'UTF-8' delimiter ',' escape '"';];
 
 use File::Basename qw(basename);
 
