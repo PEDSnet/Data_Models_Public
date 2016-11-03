@@ -1,6 +1,6 @@
 ## PEDSnet CDM V2.4
 
-The PEDSnet common data model version 2.4 is an update to version 2.2. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.4 ETL Conventions](docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.4 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 2.4 is an update to version 2.3. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.4 ETL Conventions](docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.4 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 2.4
 
