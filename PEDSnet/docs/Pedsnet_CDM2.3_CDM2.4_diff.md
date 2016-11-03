@@ -4,6 +4,8 @@
 
 ####Network Convention Changes 
 
+1. `Provider.provider_id` now required as stable field across submissions.
+
 ####Source Value Alignment
 All source values must follow the `NAME | CODE` convention.
 
