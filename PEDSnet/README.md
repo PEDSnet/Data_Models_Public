@@ -14,7 +14,7 @@ Please see the applicable change document for changes and additions for the v2.4
 
 ### Stable Identifiers
 
-For PEDSNet CDMv2.4, sites are responsible for creating and storing a mapping from both `person_id` and `visit_occurrence_id` to stable local identifiers. These `person_id` and `visit_occurrence_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id` and `visit_occurrence_id` values to the same person and visit entities. The mappings should not be sent to the DCC.
+For PEDSNet CDMv2.4, sites are responsible for creating and storing a mapping from both `person_id` and `visit_occurrence_id` to stable local identifiers. These `person_id` , `visit_occurrence_id` and `provider_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id` and `visit_occurrence_id` values to the same person and visit entities. The mappings should not be sent to the DCC.
 
 ### Data Validation
 
