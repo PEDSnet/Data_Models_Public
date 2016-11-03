@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.00';
+our $VERSION = '1.10';
 
 # Template for bulk loading command, with three %s patterns:
 #  - the first is replaced with the name of the table
@@ -22,7 +22,7 @@ if (!@ARGV or $ARGV[0] =~ /^--?[h?]/) {
   Construct a list of bulk loading commands for vocabulary data.
 
   More detailed information is available via
-  perdoc $0
+  perldoc $0
 ];
 }
 
@@ -120,7 +120,7 @@ Are there, for certain, but have yet to be cataloged.
 
 =head1 VRESION
 
-1.00
+1.10
 
 =head1 AUTHOR
 
