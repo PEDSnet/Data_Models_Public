@@ -92,7 +92,7 @@ Please use your local system knowledge to determine this or use the following cr
 
 ####[1.15 Measurement Organism](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism)
 
-####[1.16 Visit_Segment](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-visit_segment) **DRAFT***
+####[1.16 ADT_Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence) **DRAFT***
 
 ####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
@@ -989,26 +989,24 @@ positivity_time| No| Optional | Datetime| The estimated date and time of initial
 #### 1.15.1 Additional Notes
 - The time to positivity field is marked as optional. Please inform the DCC in the provenance files if this data is available at your site.
 
-## 1.16 VISIT_SEGMENT *******DRAFT!!!********
+## 1.16 ADT_OCCURRENCE *******DRAFT!!!********
 
-The visit_segment table contains information about distinct intervals of time that constitute a clinical visit.  The typical use case is to identify parts of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The start and end times of each segment must fall between the start and end times of the associated visit_occurrence_id.  However, segments may overlap or be discontiguous; there may be points in time within the visit that are covered by multiple or no segments.  **This table is CUSTOM to Pedsnet.**
+The adt_occurrence table contains information about distinct admission, discharge, or transfer events that occur as part of a clinical visit.  The typical use case is to identify portions of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The time of each event must fall between the start and end times of the associated visit_occurrence.  **This table is CUSTOM to Pedsnet.**
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
- visit_segment_id| 	Yes	| Yes| 	Integer| 	A unique identifier for each visit segment.	
+ adt_occurrence_id| 	Yes	| Yes| 	Integer| 	A unique identifier for each ADT event.
 person_id| 	Yes| 	Yes	| Integer| 	A  foreign key identifier to the person for whom the visit is recorded.	
-visit_occurrence_id| 	Yes| 	Yes| 	Integer	| A foreign key identifier to the visit containing this segment.	
-segment_start_date| 	Yes| 	Yes| 	Date	| The start date of the segment	
-segment_start_time	| Yes| 	Yes	| Datetime	| The starting datetime of the segment|	No date shifting. Full date and time. If there is no time associated with the date assert midnight for the start time.
-segment_end_date	| No	| Provide when available	| Date	| The end date of the segment	|No date shifting. If this is a one-day visit the end time should match the start time. If the segment is on-going at the time of ETL, this should be null.
-segment_end_time| 	No	| Provide when available| Datetime	| The ending datetime of the segment |	No date shifting. If this is a one-day visit the end time should match the start time. If the segment is on-going at the time of ETL, this should be null. If there is no time associated with the date assert 11:59:59 pm for the end time
-care_site_id| 	No| 	Provide when available| 	Integer| 	A foreign key to the care site in which this segment occurred.	
-service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a segment service concept identifier in the vocabulary.  This concept describes the type of service associated with this segment.	|**In PEDSnet CDM v2.4, only the NICU,CICU and PICU services are included.**<p>The value set available for PEDSnet includes:<ul><li>	Critical care = 2000000067</li><li>	Intermediate care = 2000000068 </li><li>	Acute care = 2000000069 </li><li>	Observation care = 2000000070 </li><li>	Surgical site (includes OR, ASC) = 2000000071  </li><li>	Procedural service = 2000000072  </li><li> Behavioral health =  2000000073  </li><li> Rehabilitative service (includes PT, OT, ST) = 2000000074 </li><li>	Specialty service = 2000000075</li><li> Radiology = 2000000076 </li><li> Hospital Outpatient = 2000000077 </li> <li>	CICU (cardiac care) = 2000000079</li><li> NICU (neonatal care) = 2000000080</li><li> PICU (catch-all for everything else) = 2000000078 </li><li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul></p>
+visit_occurrence_id| 	Yes| 	Yes| 	Integer	| A foreign key identifier to the visit containing this event.	
+adt_date| 	Yes| 	Yes| 	Date	| The date of the adt event
+adt_time	| Yes| 	Yes	| Datetime	| The datetime of the adt event|	No date shifting. Full date and time. If there is no time associated with the date assert midnight for the start time.
+care_site_id| 	No| 	Provide when available| 	Integer| 	A foreign key to the care site in which this adt event occurred.	
+service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a adt event service concept identifier in the vocabulary.  This concept describes the type of service associated with this adt event.	|<p>select \* from concept where vocabulary_id ='PEDSnet' and concept_class_id='Service Type' and standard_concept='S' yields 14 valid concept_ids.</p> **In PEDSnet CDM v2.4, only the NICU,CICU and PICU services are included.**<p>The value set available for PEDSnet includes:<ul> <li>	CICU (cardiac care) = 2000000079</li><li> NICU (neonatal care) = 2000000080</li><li> PICU (all other ICU) = 2000000078 </li><li>	Critical care = 2000000067</li><li>	Intermediate care = 2000000068 </li><li>	Acute care = 2000000069 </li><li>	Observation care = 2000000070 </li><li>	Surgical site (includes OR, ASC) = 2000000071  </li><li>	Procedural service = 2000000072  </li><li> Behavioral health =  2000000073  </li><li> Rehabilitative service (includes PT, OT, ST) = 2000000074 </li><li>	Specialty service = 2000000075</li><li> Radiology = 2000000076 </li><li> Hospital Outpatient = 2000000077 </li>li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul></p>
+adt_type_concept_id|No| Provide when available| Integer| A foreign key that refers to an adt event type concept identifier in the vocabulary. This concept describes the type of the adt event. | <p>select \* from concept where vocabulary_id ='PEDSnet' and concept_class_id='ADT Event Type' and standard_concept='S' yields 5 valid concept_ids.</p> <p> The value set for PEDSnet includes: <ul><li>Admission = 2000000083 </li><li>Discharge = 2000000084 </li>Transfer in = 2000000085 <li>Transfer out = 2000000086</li><li>Census = 2000000087</li></ul></p>
+prior_adt_occurrence_id| No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately preceding this record in the event stream for the visit.  Must be populated for all but the first ADT even within a visit.
+next_adt_occurrence_id | No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately following this record in the event stream for the visit.  Must be populated for all but the last ADT even within a visit.
+adt_event_source_value| No| Provide when available| Varchar | The source data used to identify this ADT event 
 service_source_value| 	No| 	Provide when available	| Varchar	| The source data used to derive the service type for this segment.  It will typically be a level of care designator from an appointment or ADT event.	
-
-
-
-
 
 
 * * *
