@@ -27,44 +27,14 @@ and invalid_reason is null)
 ```
 ####[1.6 Visit_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
 1. Updated visit concept id and place of service concept id valid concept id query
-```
-select * from concept 
-where domain_id='Visit' 
-or (vocabulary_id='PCORNet' and concept_class_id='Encounter Type')
-or (vocabulary_id='PCORNet' and concept_class_id='Undefined') 
-and invalid_reason is null
-```
-
-####[1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
-1. Updated Condition_Occurrence Table to reflect inclusion of external injury codes
-2. Updated instructions on how to populate the table based on physician diagnsois as opposed to billing/coder diagnosis.
-
-```
-For the PEDSNet network, please provide clinical physician based diagnosis as opposed to billing or claim based diangosis data.
-```
-
-####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
-1. Updated Conventions document to explicitly state to only include final results
-2. Updated Conventions to clarify that lab orders include culture orders
-
-```
-(Taken from conventions document)
-....
-Lab Procedures (including a Lab Panel Order and Culture Orders)
-```
-3. Updated `value_as_concept_id` query
-
-```
-select * from concept 
-where domain_id='Meas Value' 
-and concept_class_id='Qualifier Value' 
-and standard_concept='S'
-```
-***
-## NEW in PEDSnet CDM2.3
-
-####[1.6 Visit_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
-1. Expanded exlcusion criteria and introduced outpatient concept definitions.
+   ```
+   select * from concept 
+   where domain_id='Visit' 
+   or (vocabulary_id='PCORNet' and concept_class_id='Encounter Type')
+   or (vocabulary_id='PCORNet' and concept_class_id='Undefined') 
+   and invalid_reason is null
+   ```
+2. Expanded exlcusion criteria and introduced outpatient concept definitions.
 
 ```
 (Taken from conventions document)
@@ -82,6 +52,56 @@ Visit Concept Id |Concept Name| Visit Type Inclusion
  9202 |Ambulatory Visit (AV) |Outpatient Visits where the patient was seen in person 
  44814711|Other ambulatory Visit (OA) | All other outpatient visits
  
+####[1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
+1. Updated Condition_Occurrence Table to reflect inclusion of external injury codes
+2. Updated instructions on how to populate the table based on physician diagnsois as opposed to billing/coder diagnosis.
+ ```
+ For the PEDSNet network, please provide clinical physician based diagnosis as opposed to billing or claim based diangosis data.
+ ```
+3. Updated conventions for `condition_source_concept_id` and `condition_concept_id`
+
+- Condition source concept id: ICD codes
+- Condition concept id: IMO -> SNOMED (no ICD intermediary mappings)
+
+####[1.11 Drug_Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
+1. Updated RxNorm Term Type Mapping order (NOTE 5)
+ - BPCK (Branded Pack)
+ - GPCK (Clinical Pack)
+ - SBD (Branded Drug, Quant Branded Drug)
+ - SCD (Clinical Drug, Quant Clinical Drug)
+ - SBDF (Branded Drug Form)
+ - SCDF (Clinical Drug Form)
+ - MIN (Ingredient)
+ - SBDC
+ - SCDC
+ - PIN (Ingredient)
+ - IN (Ingredient)
+ 
+
+####[1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
+1. Updated Conventions document to explicitly state to only include final results
+2. Updated Conventions to clarify that lab orders include culture orders
+
+ ```
+ (Taken from conventions document)
+ ....
+ Lab Procedures (including a Lab Panel Order and Culture Orders)
+ ```
+3. Updated `value_as_concept_id` query
+
+```
+select * from concept 
+where domain_id='Meas Value' 
+and concept_class_id='Qualifier Value' 
+and standard_concept='S'
+```
+
+
+***
+
+## NEW in PEDSnet CDM2.3
+
+
  ####[1.16 Visit_Segment]
  1. Created a new table to store ICU admission information.
 
