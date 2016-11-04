@@ -92,7 +92,7 @@ Please use your local system knowledge to determine this or use the following cr
 
 ####[1.15 Measurement Organism](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism)
 
-####[1.16 ADT_Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence) **DRAFT***
+####[1.16 ADT Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence) **DRAFT***
 
 ####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
