@@ -92,7 +92,7 @@ Please use your local system knowledge to determine this or use the following cr
 
 ####[1.15 Measurement Organism](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#115-measurement_organism)
 
-####[1.16 ADT Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence) **DRAFT***
+####[1.16 ADT Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence)
 
 ####[Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
@@ -989,7 +989,7 @@ positivity_time| No| Optional | Datetime| The estimated date and time of initial
 #### 1.15.1 Additional Notes
 - The time to positivity field is marked as optional. Please inform the DCC in the provenance files if this data is available at your site.
 
-## 1.16 ADT_OCCURRENCE *******DRAFT!!!********
+## 1.16 ADT_OCCURRENCE
 
 The adt_occurrence table contains information about distinct admission, discharge, or transfer events that occur as part of a clinical visit.  The typical use case is to identify portions of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The time of each event must fall between the start and end times of the associated visit_occurrence.  **This table is CUSTOM to Pedsnet.**
 
