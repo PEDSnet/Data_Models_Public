@@ -1005,7 +1005,7 @@ service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a adt ev
 adt_type_concept_id|No| Provide when available| Integer| A foreign key that refers to an adt event type concept identifier in the vocabulary. This concept describes the type of the adt event. | <p>select \* from concept where vocabulary_id ='PEDSnet' and concept_class_id='ADT Event Type' and standard_concept='S' yields 5 valid concept_ids.</p> <p> The value set for PEDSnet includes: <ul><li>Admission = 2000000083 </li><li>Discharge = 2000000084 </li>Transfer in = 2000000085 <li>Transfer out = 2000000086</li><li>Census = 2000000087</li></ul></p>
 prior_adt_occurrence_id| No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately preceding this record in the event stream for the visit.  Must be populated for all but the first ADT even within a visit.
 next_adt_occurrence_id | No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately following this record in the event stream for the visit.  Must be populated for all but the last ADT even within a visit.
-service_source_value| 	No| 	Provide when available	| Varchar	| The source data used to derive the service type for this segment.  It will typically be a department code from the ADT event.| 	
+service_source_value| 	No| 	Provide when available	| Varchar	| The source data used to derive the service type for this event.  It will typically be a department code from the ADT event.| 	
 adt_type_source_value| No | Provide when available| Varchar| The source data used to identify the adt event type |
 
 * * *
