@@ -995,7 +995,7 @@ The adt_occurrence table contains information about distinct admission, discharg
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
- adt_occurrence_id| 	Yes	| Yes| 	Integer| 	A unique identifier for each ADT event.
+ adt_occurrence_id| 	Yes	| Yes| 	Integer| 	A unique identifier for each ADT event.| This is not a value found in the EHR. Sites may choose to use a sequential value for this field
 person_id| 	Yes| 	Yes	| Integer| 	A  foreign key identifier to the person for whom the visit is recorded.	
 visit_occurrence_id| 	Yes| 	Yes| 	Integer	| A foreign key identifier to the visit containing this event.	
 adt_date| 	Yes| 	Yes| 	Date	| The date of the adt event
