@@ -102,7 +102,7 @@ and standard_concept='S'
 ## NEW in PEDSnet CDM2.3
 
 
- ####[1.16 Visit_Segment]
+ ####[1.16 ADT Occurrence](Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence)
  1. Created a new table to store ICU admission information.
 
 ###PEDSnet Vocabulary
