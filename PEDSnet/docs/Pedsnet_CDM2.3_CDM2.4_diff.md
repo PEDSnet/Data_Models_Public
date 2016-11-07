@@ -107,4 +107,32 @@ and standard_concept='S'
 
 ###PEDSnet Vocabulary
 
+The following concepts are new to the PEDSnet vocabulary:
+
+ concept_id |                 concept_name                 |   domain_id    | concept_class_id | vocabulary_id 
+------------|----------------------------------------------|----------------|------------------|---------------
+ 2000000065 | Service Type                                 | Metadata       | Domain           | Domain
+ 2000000081 | ADT Event Type                               | Metadata       | Concept Class    | Concept Class
+ 2000000076 | Radiology                                    | Service Type   | Service Type     | PEDSnet
+ 2000000087 | Census                                       | ADT Event Type | ADT Event Type   | PEDSnet
+ 2000000084 | Discharge                                    | ADT Event Type | ADT Event Type   | PEDSnet
+ 2000000073 | Behavioral health                            | Service Type   | Service Type     | PEDSnet
+ 2000000086 | Transfer out                                 | ADT Event Type | ADT Event Type   | PEDSnet
+ 2000000066 | Service Type                                 | Metadata       | Concept Class    | Concept Class
+ 2000000070 | Observation care                             | Service Type   | Service Type     | PEDSnet
+ 2000000083 | Admission                                    | ADT Event Type | ADT Event Type   | PEDSnet
+ 2000000068 | Intermediate care                            | Service Type   | Service Type     | PEDSnet
+ 2000000079 | CICU                                         | Service Type   | Service Type     | PEDSnet
+ 2000000074 | Rehabilitative service (includes PT, OT, ST) | Service Type   | Service Type     | PEDSnet
+ 2000000075 | Specialty service                            | Service Type   | Service Type     | PEDSnet
+ 2000000077 | Hospital Outpatient                          | Service Type   | Service Type     | PEDSnet
+ 2000000080 | NICU                                         | Service Type   | Service Type     | PEDSnet
+ 2000000072 | Procedural service                           | Service Type   | Service Type     | PEDSnet
+ 2000000071 | Surgical site (includes OR, ASC)             | Service Type   | Service Type     | PEDSnet
+ 2000000085 | Transfer in                                  | ADT Event Type | ADT Event Type   | PEDSnet
+ 2000000067 | Critical Care                                | Service Type   | Service Type     | PEDSnet
+ 2000000078 | PICU                                         | Service Type   | Service Type     | PEDSnet
+ 2000000082 | ADT Event Type                               | Metadata       | Domain           | Domain
+ 2000000069 | Acute care                                   | Service Type   | Service Type     | PEDSnet
+
 ***
