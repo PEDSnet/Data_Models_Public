@@ -303,7 +303,7 @@ visit_source_concept_id | No |Provide When Available| Integer | A foreign key to
 
 - The 1/1/2009 date limitation that is used to define a PEDSnet active patient is **NOT** applied to visit_occurrence. All visits, of all types (physical and virtual) are included for an active patient.
 - A Visit Occurrence is recorded for each visit to a healthcare facility.
-- **If a visit includes moving between different visit_concepts (ED -\> inpatient) this should be split into separate visit_occurrence records to meet PCORnet's definitions**.
+- **If a visit includes moving between different visit_concepts (ED -\> inpatient) sites may opt to split the record into separate visit_occurrence records**.
 
 **To show the relationship of the split (ED -\> inpatient) encounter, use the FACT_RELATIONSHIP table**.
 
@@ -1007,6 +1007,9 @@ prior_adt_occurrence_id| No | Provide when available | Integer| Foreign key into
 next_adt_occurrence_id | No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately following this record in the event stream for the visit.  Must be populated for all but the last ADT even within a visit.
 service_source_value| 	No| 	Provide when available	| Varchar	| The source data used to derive the service type for this event.  It will typically be a department code from the ADT event.| 	
 adt_type_source_value| No | Provide when available| Varchar| The source data used to identify the adt event type |
+
+#### 1.16.1 Additional Notes
+- If a site is splitting (ED->Inpatient) encounters into two records in visit_occurrence, the ADT_OCCURRENCE.visit_occurence_id should link to the Inpatient visit_occurrence_id.
 
 * * *
 
