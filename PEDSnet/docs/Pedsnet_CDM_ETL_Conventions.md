@@ -750,6 +750,7 @@ Specifically this table includes:
 - Height/length in cm (use numeric precision as recorded in EHR)
 - Height/length type
 - Weight in kg (use numeric precision as recorded in EHR)
+- Body Mass Index 
 - Temperature in degrees Celsius
 - Head Circumference in cm (use numeric precision as recorded in EHR)
 - FVC in liters
@@ -778,6 +779,7 @@ Domain id | Observation concept ID | Vocab ID | Value as concept ID | Concept de
  --- | --- | --- | --- | --- | ---
 Vital | 3013762 | | See Note 1 | Weight
 Vital | 3023540 | | See Note 1 | Height
+Vital | 3038553 | | See Note 3 | BMI kg/m<sup>2</sup>
 Vital | 3034703 | | See Note 2 | Diastolic Blood Pressure - Sitting
 Vital | 3019962 | | See Note 2 | Diastolic Blood Pressure - Standing
 Vital | 3013940 | | See Note 2 | Diastolic Blood Pressure - Supine
