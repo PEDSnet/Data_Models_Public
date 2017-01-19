@@ -448,9 +448,9 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 - DRG (requires special logic - see Note 1 below)
 - Tobacco Information (see Note 4)
 
-Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary column is used to highlight non-standard codes from vocabulary_id='Observation Type' and vocabulary_id='PCORNet' and one newly added standard concept from vocabulary_id='SNOMED'.
+Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary id 'PCORNet' contains concept specific to PCORNet requirements and standards.
 
-**Table 1: Observation concept IDs for PCORnet concepts. The vocabulary id 'PCORNet' contains concept specific to PCORNet requirements and standards.**
+**Table 1: Valid Observation concept IDs and Value as concept IDs for PEDSNet v2.4.** 
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID| PCORNet Mapping
  --- | --- | --- | --- | --- | ---| ---
