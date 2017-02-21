@@ -380,6 +380,10 @@ provider_id | No |Provide When Available| Integer | A foreign key to the provide
 visit_occurrence_id | No | Provide When Available|Integer | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
 condition_source_value | Yes |Yes| Varchar | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM or ICD-10-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids. **Please include the diagnosis name and source code when populating this field, by using the pipe delimiter "\|" when concatenating values.** Example: 	Diagnosis Name "\|" Diagnosis Code
 condition_source_concept_id | No |Provide When Available| Integer | A foreign key to a condition concept that refers to the code used in the source| As a standard convention this code must correspond to the ICD9/ICD10 concept mapping of the source value only. For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+condition_status_concept_id |No | Optional| Integer|A foreign key to the predefined concept in the standard vocabulary reflecting the condition status. | <p> For PEDSnet v2.5 we are only reporting final diagnosis, please use the following concept id:</p><ul> <li> Final Diagnosis=4230359 </li></ul>
+condition_status_source_value| No| Optional | Varchar|  The source code for the condition status as it appears in the source data.
+
+
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
