@@ -1,4 +1,4 @@
-# ETL Conventions for use with PEDSnet CDM v2.5 OMOP V5 *** ***DRAFT**** ****
+# ETL Conventions for use with PEDSnet CDM v2.5 OMOP V5.1 *** ***DRAFT**** ****
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
@@ -299,6 +299,7 @@ visit_concept_id | Yes |Yes| Integer | A foreign key that refers to a place of s
 visit_type_concept_id | Yes |Yes| Integer | A foreign key to the predefined concept identifier in the standard vocabulary reflecting the type of source data from which the visit record is derived.| <p> select \* from concept where concept_class_id='Visit Type' yields 3 valid concept_ids.</p> If none are correct, user concept_id=0. The majority of visits should be type 'Visit derived from EHR record' which is concept_id=44818518
 visit_source_value | No |Provide When Available| Varchar | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
 visit_source_concept_id | No |Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source. | If a site is using HCPS or CPT for their visit source value, the standard concept id that maps to the particular vocabulary can be used here.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+preceding_visit_occurrence_id| No | NO | Integer | A foreign key to the VISIT_OCCURRENCE table record of the visit immediately preceding this visit.| Do not transmit to DCC
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
