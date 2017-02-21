@@ -300,9 +300,8 @@ visit_type_concept_id | Yes |Yes| Integer | A foreign key to the predefined conc
 visit_source_value | No |Provide When Available| Varchar | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
 visit_source_concept_id | No |Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source. | If a site is using HCPS or CPT for their visit source value, the standard concept id that maps to the particular vocabulary can be used here.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 preceding_visit_occurrence_id| No | NO | Integer | A foreign key to the VISIT_OCCURRENCE table record of the visit immediately preceding this visit.| Do not transmit to DCC
-admitting_source_concept_id| No|Optional|Integer|A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the admitting source for a visit.| <p>Please use the following valid concept id set for Admitting source: <ul>
-<li> 44814670=Adult Foster Home</li><li>44814671=Assisted Living Facility</li><li>44814672=Ambulatory Visit</li><li>8870=Emergency Department</li><li>44814674=Home Health</li><li>44814675=Home / Self Care</li><li>8546=Hospice</li><li>38004279=Other Acute Inpatient Hospital</li><li>44814678=Nursing Home (Includes ICF)</li><li>44814679=Rehabilitation Facility</li><li>44814680=Residential Facility</li><li>8863=Skilled Nursing Facility</li><li>44814650=No information</li><li>44814653=nknown</li><li>44814649=Other</li></ul></p>|
-discharge_to_concept_id|No|Optional|Integer | A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition (destination) for a visit.|
+admitting_source_concept_id| No|Optional|Integer|A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the admitting source for a visit.| <p>Please use the following valid concept id set for Admitting source:</p><ul><li>Adult Foster Home=44814670</li><li>Assisted Living Facility=44814671</li><li>Ambulatory Visit=44814672</li><li>Emergency Department=8870=</li><li>Home Health=44814674</li><li>Home / Self Care=44814675</li><li>Hospice=8546</li><li>Other Acute Inpatient Hospital=38004279</li><li>Nursing Home (Includes ICF)=44814678</li><li>Rehabilitation Facility=44814679</li><li>Residential Facility=44814680</li><li>Skilled Nursing Facility=8863</li><li>No information=44814650</li><li>Unknown=44814653</li><li>Other=44814649</li></ul> This list can also be found [here]((Pedsnet_CDM_ETL_Conventions.md#19-observation-1))|
+discharge_to_concept_id|No|Optional|Integer | A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition (destination) for a visit.|<p>Please use the following valid concept id set for Discharge Destination:</p><ul><li>Adult Foster Home=38004205</li>	<li>Assisted Living Facility=38004301</li><li>Against Medical Advice=4021968</li><li>Absent without leave=44814693</li>	<li>Expired=4216643</li><li>Home Health=38004195</li><li>Home / Self Care=8536</li><li>Hospice=8546</li><li>Other Acute Inpatient Hospital=38004279</li><li>Nursing Home (Includes ICF)=8676</li><li>Rehabilitation Facility=8920</li>	<li>Residential Facility=44814701</li><li>Still In Hospital=8717</li><li>Skilled Nursing Facility=8863</li><li>No information=44814650</li><li>Unknown=44814653</li><li>Other=44814649</li></ul> This list can also be found [here]((Pedsnet_CDM_ETL_Conventions.md#19-observation-1))
 admitting_source_value|No|Optional|Varchar | The source code for the admitting source as it appears in the source data.
 discharge_to_source_value|No|Optional|Varchar | The source code for the discharge disposition as it appears in the source data.
 
@@ -478,28 +477,28 @@ Admitting source | 4145666 | | 8863 | Skilled Nursing Facility
 Admitting source | 4145666 | | 44814650 | No information | PCORNet
 Admitting source | 4145666 | | 44814653 | Unknown | PCORNet
 Admitting source | 4145666 | | 44814649 | Other | PCORNet
-Discharge disposition (See Note 3) | 44813951 | SNOMED | 4161979 | Discharged alive
-Discharge disposition | 44813951 | SNOMED | 4216643 | Expired
-Discharge disposition | 44813951 | SNOMED | 44814650 | No information | PCORNet
-Discharge disposition | 44813951 | SNOMED | 44814653 | Unknown | PCORNet
-Discharge disposition | 44813951 | SNOMED | 44814649 | Other | PCORNet
-Discharge status (see Note 3) | 4137274 | | 38004205 | Adult Foster Home
-Discharge status | 4137274 | | 38004301 | Assisted Living Facility
-Discharge status | 4137274 | | 4021968 | Against Medical Advice
-Discharge status | 4137274 | | 44814693 | Absent without leave | PCORNet
-Discharge status | 4137274 | | 4216643 | Expired
-Discharge status | 4137274 | | 38004195 | Home Health
-Discharge status | 4137274 | | 8536 | Home / Self Care
-Discharge status | 4137274 | | 8546 | Hospice
-Discharge status | 4137274 | | 38004279 | Other Acute Inpatient Hospital
-Discharge status | 4137274 | | 8676 | Nursing Home (Includes ICF)
-Discharge status | 4137274 | | 8920 | Rehabilitation Facility
-Discharge status | 4137274 | | 44814701 | Residential Facility | PCORNet
-Discharge status | 4137274 | | 8717 | Still In Hospital
-Discharge status | 4137274 | | 8863 | Skilled Nursing Facility
-Discharge status | 4137274 | | 44814653 | Unknown | PCORNet
-Discharge status | 4137274 | | 44814649 | Other | PCORNet
-Discharge status | 4137274 | | 44814650 | No information | PCORNet
+Discharge status(See Note 3) | 44813951 | SNOMED | 4161979 | Discharged alive
+Discharge status| 44813951 | SNOMED | 4216643 | Expired
+Discharge status | 44813951 | SNOMED | 44814650 | No information | PCORNet
+Discharge status | 44813951 | SNOMED | 44814653 | Unknown | PCORNet
+Discharge status | 44813951 | SNOMED | 44814649 | Other | PCORNet
+Discharge disposition (see Note 3) | 4137274 | | 38004205 | Adult Foster Home
+Discharge disposition | 4137274 | | 38004301 | Assisted Living Facility
+Discharge disposition | 4137274 | | 4021968 | Against Medical Advice
+Discharge disposition | 4137274 | | 44814693 | Absent without leave | PCORNet
+Discharge disposition | 4137274 | | 4216643 | Expired
+Discharge disposition | 4137274 | | 38004195 | Home Health
+Discharge disposition | 4137274 | | 8536 | Home / Self Care
+Discharge disposition | 4137274 | | 8546 | Hospice
+Discharge disposition | 4137274 | | 38004279 | Other Acute Inpatient Hospital
+Discharge disposition | 4137274 | | 8676 | Nursing Home (Includes ICF)
+Discharge disposition | 4137274 | | 8920 | Rehabilitation Facility
+Discharge disposition | 4137274 | | 44814701 | Residential Facility | PCORNet
+Discharge disposition | 4137274 | | 8717 | Still In Hospital
+Discharge disposition | 4137274 | | 8863 | Skilled Nursing Facility
+Discharge disposition | 4137274 | | 44814653 | Unknown | PCORNet
+Discharge disposition | 4137274 | | 44814649 | Other | PCORNet
+Discharge disposition | 4137274 | | 44814650 | No information | PCORNet
 Tobacco |4005823| |4005823 |Tobacco User | | 01 = Current user
 Tobacco |4005823| |45765920 |  Never used Tobacco| |02 = Never
 Tobacco |4005823| |45765917|  Ex-tobacco user| |03 = Quit/Former Smoker
