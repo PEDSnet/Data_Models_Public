@@ -6,9 +6,21 @@
 
 ####Specific Table Changes
 
-####[1.4 Care_Site](Pedsnet_CDM_ETL_Conventions.md#14-care_site 
+####[1.4 Care_Site](Pedsnet_CDM_ETL_Conventions.md#14-care_site)
+1. Update of valid value set for `place_of_service_concept_id`. Please map to the following concepts:
 
-
+concept_id |    concept_name | Examples
+--- | ---  | --            
+8782 | Urgent Care Facility
+8761 | Rural Health Clinic
+8756 | Outpatient Hospital | Dialysis, HOD, Day Hospital, Day MEdicine
+ 8844 | Other Place of Service
+ 8892 | Other Inpatient Care
+8940 | Office
+ 8971 | Inpatient Psychiatric Facility
+  8717 | Inpatient Hospital |
+8716 | Independent Clinic
+8870 | Emergency Room - Hospital
 
 
 
