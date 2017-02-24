@@ -1,4 +1,4 @@
-# Differences between PEDSnet CDM2.3 and CDM2.4
+# Differences between PEDSnet CDM2.4 and CDM2.5 ****IN PROGRESS****
 
 ## CHANGES from CDM2.4.0
 
@@ -7,6 +7,16 @@
 ####Source Value Alignment
 
 ####Specific Table Changes
+
+####[1.6 Visit_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
+1. Addition of `preceding_visit_occurrence_id`. This field is marked as optional. Sites no need to transmit this information.
+2. Addition of `admitting_source_concept_id`.This field is marked as optional.This information is already being captured in the `observation table`. If you do decide to populate this table moving forward please let the DCC know in your provenance files. Transmitting this data in this column will be a requirement in future versions.
+3. Addition of `discharge_to_concept_id`.This field is marked as optional.This information is already being captured in the `observation table`. If you do decide to populate this table moving forward please let the DCC know in your provenance files. Transmitting this data in this column will be a requirement in future versions.
+4. Addition of `admitting_source_value`.This field is marked as optional.This information is already being captured in the `observation table`. If you do decide to populate this table moving forward please let the DCC know in your provenance files. 5ransmitting this data in this column will be a requirement in future versions.
+2. Addition of `discharge_to_source_value`.This field is marked as optional.This information is already being captured in the `observation table`. If you do decide to populate this table moving forward please let the DCC know in your provenance files. Transmitting this data in this column will be a requirement in future versions.
+
+
+
 
 ***
 
