@@ -35,6 +35,25 @@ concept_id |    concept_name | Examples
 ####[1.6 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)
 1. Addition of `condition_status_concept_id`. This field is marked as optional. If populating please use the Final diagnosis concept id:4230359 as no prelminary diagnosis should be reported. This change is a result of OMOP v5.1.
 2. Addition of `condition_status_source_value`.This field is marked as optional. If populating please use the 'Final diagnosis' as the source value corresponding to the This field is marked as optional. If populating please use the concept id. This change is a result of OMOP v5.1.
+3. Update of valid value set for `condition_type_concept_id`. Please map to the following concepts:
+ 
+ concept_id |                   concept_name                    
+------------|---------------------------------------------------
+ 2000000089 | EHR problem list entry - Order Origin
+ 2000000090 | EHR problem list entry - Billing Origin
+ 2000000091 | EHR problem list entry - Claim Origin
+ 2000000092 | Inpatient header - primary - Order Origin
+ 2000000093 | Inpatient header - primary - Billing Origin
+ 2000000094 | Inpatient header - primary - Claim Origin
+ 2000000095 | Outpatient header - 1st position - Order Origin
+ 2000000096 | Outpatient header - 1st position - Billing Origin
+ 2000000097 | Outpatient header - 1st position - Claim Origin
+ 2000000098 | Inpatient header - 2nd position - Order Origin
+ 2000000099 | Inpatient header - 2nd position - Billing Origin
+ 2000000100 | Inpatient header - 2nd position - Claim Origin
+ 2000000101 | Outpatient header - 2nd position - Order Origin
+ 2000000102 | Outpatient header - 2nd position - Billing Origin
+ 2000000103 | Outpatient header - 2nd position - Claim Origin
 
 ***
 
