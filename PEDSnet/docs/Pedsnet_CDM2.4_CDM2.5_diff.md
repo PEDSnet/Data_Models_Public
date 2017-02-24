@@ -2,8 +2,6 @@
 
 ## CHANGES from CDM2.4.0
 
-####Network Convention Changes 
-
 ####Specific Table Changes
 
 ####[1.4 Care_Site](Pedsnet_CDM_ETL_Conventions.md#14-care_site)
