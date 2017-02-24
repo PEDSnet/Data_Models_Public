@@ -9,11 +9,11 @@
 ####[1.4 Care_Site](Pedsnet_CDM_ETL_Conventions.md#14-care_site)
 1. Update of valid value set for `place_of_service_concept_id`. Please map to the following concepts:
 
-concept_id |    concept_name | Examples
+concept_id |    concept_name 
 --- | ---  | ---            
 8782 | Urgent Care Facility
 8761 | Rural Health Clinic
-8756 | Outpatient Hospital | Dialysis, HOD, Day Hospital, Day MEdicine
+8756 | Outpatient Hospital 
  8844 | Other Place of Service
  8892 | Other Inpatient Care
 8940 | Office
@@ -21,7 +21,6 @@ concept_id |    concept_name | Examples
   8717 | Inpatient Hospital |
 8716 | Independent Clinic
 8870 | Emergency Room - Hospital
-
 
 
 ####[1.6 Visit_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
@@ -57,15 +56,26 @@ concept_id |    concept_name | Examples
 
 ***
 
-## NEW in PEDSnet CDM2.5
-
-
-
 ###PEDSnet Vocabulary
 
 The following concepts are new to the PEDSnet vocabulary:
 
  concept_id |                 concept_name                 |   domain_id    | concept_class_id | vocabulary_id 
 ------------|----------------------------------------------|----------------|------------------|---------------
- 
+  2000000088 | Observation Stay - PCORNet                        | Visit        | Encounter Type   | PEDSnet
+ 2000000089 | EHR problem list entry - Order Origin             | Type Concept | Condition Type   | PEDSnet
+ 2000000090 | EHR problem list entry - Billing Origin           | Type Concept | Condition Type   | PEDSnet
+ 2000000091 | EHR problem list entry - Claim Origin             | Type Concept | Condition Type   | PEDSnet
+ 2000000092 | Inpatient header - primary - Order Origin         | Type Concept | Condition Type   | PEDSnet
+ 2000000093 | Inpatient header - primary - Billing Origin       | Type Concept | Condition Type   | PEDSnet
+ 2000000094 | Inpatient header - primary - Claim Origin         | Type Concept | Condition Type   | PEDSnet
+ 2000000095 | Outpatient header - 1st position - Order Origin   | Type Concept | Condition Type   | PEDSnet
+ 2000000096 | Outpatient header - 1st position - Billing Origin | Type Concept | Condition Type   | PEDSnet
+ 2000000097 | Outpatient header - 1st position - Claim Origin   | Type Concept | Condition Type   | PEDSnet
+ 2000000098 | Inpatient header - 2nd position - Order Origin    | Type Concept | Condition Type   | PEDSnet
+ 2000000099 | Inpatient header - 2nd position - Billing Origin  | Type Concept | Condition Type   | PEDSnet
+ 2000000100 | Inpatient header - 2nd position - Claim Origin    | Type Concept | Condition Type   | PEDSnet
+ 2000000101 | Outpatient header - 2nd position - Order Origin   | Type Concept | Condition Type   | PEDSnet
+ 2000000102 | Outpatient header - 2nd position - Billing Origin | Type Concept | Condition Type   | PEDSnet
+ 2000000103 | Outpatient header - 2nd position - Claim Origin   | Type Concept | Condition Type   | PEDSnet
 ***
