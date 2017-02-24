@@ -55,6 +55,7 @@ concept_id |    concept_name
  2000000103 | Outpatient header - 2nd position - Claim Origin
 
 ***
+## NEW in PEDSnet CDM2.3
 
 ###PEDSnet Vocabulary
 
