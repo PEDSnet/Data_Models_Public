@@ -10,7 +10,7 @@
 1. Update of valid value set for `place_of_service_concept_id`. Please map to the following concepts:
 
 concept_id |    concept_name | Examples
---- | ---  | --            
+--- | ---  | ---            
 8782 | Urgent Care Facility
 8761 | Rural Health Clinic
 8756 | Outpatient Hospital | Dialysis, HOD, Day Hospital, Day MEdicine
