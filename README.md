@@ -7,7 +7,7 @@ The `master` branch may contain changes that do not apply to the latest released
 
 PEDSnet Release | ETL Conventions Document
 --------|--------------------------
-***v2.5 branch coming soon *** | ***v2.5 ETL Conventions coming soon *** 
+[v2.5 branch] (https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.5.0_1/) | [v2.5 ETL Conventions] (https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)
 [v2.4 branch] (https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.4.0_1/) | [v2.4 ETL Conventions] (https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.4.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)
 [v2.3 branch](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.3.0_1/) | [v2.3 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.3.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)
 [v2.2 branch](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.2.0_1/) | [v2.2 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.2.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)
