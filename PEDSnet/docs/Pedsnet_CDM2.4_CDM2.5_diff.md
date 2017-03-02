@@ -1,4 +1,4 @@
-# Differences between PEDSnet CDM2.4 and CDM2.5 ****IN PROGRESS****
+# Differences between PEDSnet CDM2.4 and CDM2.5
 
 ## CHANGES from CDM2.4.0
 
