@@ -59,7 +59,7 @@ concept_id |    concept_name
 ***
 ## NEW in PEDSnet CDM2.3
 
-###PEDSnet Vocabulary
+### PEDSnet Vocabulary
 
 The following concepts are new to the PEDSnet vocabulary:
 
