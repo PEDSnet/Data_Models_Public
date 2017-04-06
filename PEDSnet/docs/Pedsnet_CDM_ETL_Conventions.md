@@ -41,6 +41,15 @@ NULL | A data field is not present in the source system. Note. This is not a 'NU
 'UN' = Unknown | A data field is present in the source system, but the source value explicitly denotes an unknown value
 'OT' = Other | A data field is present in the source system, but the source value cannot be mapped to the CDM
 
+Guidelines for populating `'*_concept_id'`,`'*_source_concept_id'`  and `'*_source_value'` for flavors of null:
+
+Null Name| '*_concept_id' |'*_source_concept_id'| '*_source_value'
+--- | ---| --- |---
+null|TBD |TBD |TBD
+'NI'|TBD|TBD| TBD
+'UN'|TBD|TBD| TBD
+'OT'|TBD|TBD|TBD
+
 10.
 **For populating `'*_source_concept_id'` (where there exists non-null values in the source) use the following Logic :**
 
