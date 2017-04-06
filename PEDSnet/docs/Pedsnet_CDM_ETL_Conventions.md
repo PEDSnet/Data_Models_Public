@@ -94,7 +94,7 @@ Please use your local system knowledge to determine this or use the following cr
 
 #### [1.16 ADT Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence)
 
-#### [Appendix] (Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
+#### [Appendix](Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
 #### Data Extraction Guide
