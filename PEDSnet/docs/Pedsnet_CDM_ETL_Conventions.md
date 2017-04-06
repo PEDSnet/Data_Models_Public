@@ -840,7 +840,7 @@ Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood
 Four rows will be inserted into the measurement table. Showing only the relevant columns:
 
 Measurement_id | Person_id | Visit_occurrence_id | measurement_concept_id | measurement_type_concept_id | Value_as_Number | Value_as_Concept_ID
- --- | --- | --- | --- | --- | --- | --- | ---
+ --- | --- | --- | --- | --- | --- | ---
 66661 | 12345 | 678910 | 3009395 | 2000000033| 120 | |
 66662 | 12345 | 678910 | 3013940 | 2000000033 | 60 | |
 66663 | 12345 | 678910 | 3035856 | 2000000033 | 144 | |
