@@ -1188,7 +1188,7 @@ Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | 
 The below langauge listing is representative of the top 10 spoken languages of each of the 8 contributing sites. This list standard list will be used to map language values for consistency.
 
 Language|concept_id|concept_name|domain_id|concept_class_id|standard_concept
----|---|---|---|---|---|---|---|---|---|---|---|---
+---|---|---|---|---|---|
 Amharic|4182354|Amharic language|Observation|Qualifier Value|S
 Arabic|4181374|Arabic language| Observation|Qualifier Value|S
 Bengali|4052786|Bengali language|Observation|Qualifier Value|S
