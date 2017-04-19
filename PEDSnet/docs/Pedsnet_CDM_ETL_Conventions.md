@@ -45,10 +45,9 @@ Guidelines for populating `'*_concept_id'`,`'*_source_concept_id'`  and `'*_sour
 
 Null Name| '*_concept_id' |'*_source_concept_id'| '*_source_value'
 --- | ---| --- |---
-null|TBD |TBD |TBD
-'NI'|TBD|TBD| TBD
-'UN'|TBD|TBD| TBD
-'OT'|TBD|TBD|TBD
+'NI'|	44814650|	0|	value as in source (leave as null)
+'UN'|	44814653	|0|	value as in source (denoting an unknown value)
+'OT'|	44814649	|0|	value as in source
 
 10.
 **For populating `'*_source_concept_id'` (where there exists non-null values in the source) use the following Logic :**
