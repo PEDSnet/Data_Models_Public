@@ -1,13 +1,13 @@
 ## PEDSnet CDM V2.5
 
-The PEDSnet common data model version 2.5 is an update to version 2.4. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.5 ETL Conventions(https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.5 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 2.5 is an update to version 2.4. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.5 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.5 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 2.5
 
-The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.5 ETL Conventions]https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here(https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.5 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here(https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
 ### Changes from Version 2.4
 
-Please see the applicable change document for changes and additions for the v2.5 data model [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.4_CDM2.5_diff.md)
+Please see the applicable change document for changes and additions for the v2.5 data model [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.4_CDM2.5_diff.md)
 
 ## Site Responsibility for Version 2.5
 
@@ -50,7 +50,7 @@ The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.4 ETL Conventio
 
 ### Changes from Version 2.3
 
-Please see the applicable change document for changes and additions for the v2.4 data model [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.3_CDM2.4_diff.md)
+Please see the applicable change document for changes and additions for the v2.4 data model [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.3_CDM2.4_diff.md)
 
 ## Site Responsibility for Version 2.4
 
@@ -68,9 +68,9 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Data Model DDL
 
-- Postgres: [here] (https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.4.0/ddl/postgresql/)
-- Oracle: [here] (https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.4.0/ddl/oracle/)
-- Microsoft SQL Server: [here] (https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.4.0/ddl/mssql/)
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.4.0/ddl/postgresql/)
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.4.0/ddl/oracle/)
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.4.0/ddl/mssql/)
 
 ### Vocabulary Data
 
@@ -90,7 +90,7 @@ The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.3 ETL Conventio
 
 ### Changes from Version 2.2
 
-Please see the applicable change document for changes and additions for the v2.3 data model [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.2_CDM2.3_diff.md)
+Please see the applicable change document for changes and additions for the v2.3 data model [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.2_CDM2.3_diff.md)
 
 ## Site Responsibility for Version 2.3
 
@@ -114,7 +114,7 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Vocabulary Data
 
-- v2.3.0 Core Vocabulary: [here] (https://chop.sharefile.com/d-s9e5beff4c82444d9)
+- v2.3.0 Core Vocabulary: [here](https://chop.sharefile.com/d-s9e5beff4c82444d9)
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 ***
@@ -144,9 +144,9 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Data Model DDL
 
-- Postgres: [here] (http://dmsa.a0b.io/pedsnet/2.2.0/ddl/postgresql/)
-- Oracle: [here] (http://dmsa.a0b.io/pedsnet/2.2.0/ddl/oracle/)
-- Microsoft SQL Server: [here] (http://dmsa.a0b.io/pedsnet/2.2.0/ddl/mssql/)
+- Postgres: [here](http://dmsa.a0b.io/pedsnet/2.2.0/ddl/postgresql/)
+- Oracle: [here](http://dmsa.a0b.io/pedsnet/2.2.0/ddl/oracle/)
+- Microsoft SQL Server: [here](http://dmsa.a0b.io/pedsnet/2.2.0/ddl/mssql/)
 
 ### Vocabulary Data
 
