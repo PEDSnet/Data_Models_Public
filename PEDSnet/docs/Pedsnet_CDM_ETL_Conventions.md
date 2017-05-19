@@ -148,7 +148,7 @@ PEDSnet uses a specific definition of an active PEDSnet patient. Only patients w
 
 - Is not a test patient or a research-only patient
 
-The definition of an "in person" clinical encounter remains heuristic -any encounter type that involves a meaningful \*\*physical\*\* interaction with a clinician that involved clinical content. An encounter for a suture removal or a telephone encounter or a lab blood draw does not meet this definition.
+The definition of an "in person" clinical encounter remains heuristic -any encounter type that involves a meaningful \*\*physical\*\* interaction with a clinician that involved clinical content. An encounter for a telephone encounter or a lab blood draw does not meet this definition.
 
 **NOTE: While the 1/1/2009 date and "in person" clinical encounter restrictions apply to defining an active PEDSnet patient, once a patient has met this criteria, PEDSnet will extract *ALL* available clinical encounters/clinical data of any type across all available dates. That is, 1/1/2009 and 1 'in person' clinical encounter applies only to defining the active patient cohort. It does NOT apply to data extraction on active patients.**
 
