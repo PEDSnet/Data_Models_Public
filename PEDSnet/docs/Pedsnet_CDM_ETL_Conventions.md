@@ -798,7 +798,7 @@ Specifically this table includes:
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
-Domain id | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
+Domain id | Measurement concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID
  --- | --- | --- | --- | --- | ---
 Vital | 3013762 | | See Note 1 | Weight
 Vital | 3023540 | | See Note 1 | Height
