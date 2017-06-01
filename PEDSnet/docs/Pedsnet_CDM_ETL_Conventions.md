@@ -150,6 +150,18 @@ PEDSnet uses a specific definition of an active PEDSnet patient. Only patients w
 
 The definition of an "in person" clinical encounter remains heuristic -any encounter type that involves a meaningful \*\*physical\*\* interaction with a clinician that involved clinical content. An encounter for a telephone encounter or a lab blood draw does not meet this definition.
 
+For reference `Visit_concept_ids` that correspond to an "in person" clinical encounter are:
+
+Visit Type | Visit_concept_id
+---| ---
+Inpatient Hospital Stay: concept_id | 9201
+Ambulatory Visit: concept_id | 9202
+Emergency Department: concept_id | 9203
+Long Term Care Visit | 42898160
+Non-Acute Institutional Stay: concept_id | 44814710
+Emergency Department Admit to Inpatient Hospital Stay (If sites are unable to split the encounter) | 2000000048
+Observation Stay | 2000000088
+
 **NOTE: While the 1/1/2009 date and "in person" clinical encounter restrictions apply to defining an active PEDSnet patient, once a patient has met this criteria, PEDSnet will extract *ALL* available clinical encounters/clinical data of any type across all available dates. That is, 1/1/2009 and 1 'in person' clinical encounter applies only to defining the active patient cohort. It does NOT apply to data extraction on active patients.**
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
