@@ -154,11 +154,11 @@ For reference `Visit_concept_ids` that correspond to an "in person" clinical enc
 
 Visit Type | Visit_concept_id
 ---| ---
-Inpatient Hospital Stay: concept_id | 9201
-Ambulatory Visit: concept_id | 9202
-Emergency Department: concept_id | 9203
+Inpatient Hospital Stay | 9201
+Ambulatory Visit | 9202
+Emergency Department | 9203
 Long Term Care Visit | 42898160
-Non-Acute Institutional Stay: concept_id | 44814710
+Non-Acute Institutional Stay | 44814710
 Emergency Department Admit to Inpatient Hospital Stay (If sites are unable to split the encounter) | 2000000048
 Observation Stay | 2000000088
 
