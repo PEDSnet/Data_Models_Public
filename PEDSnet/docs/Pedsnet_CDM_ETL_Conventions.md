@@ -1050,9 +1050,9 @@ adt_type_source_value| No | Provide when available| Varchar| The source data use
 
 * * *
 
-##***APPENDIX***
+## ***APPENDIX***
 
-**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0 and 2.0**
+**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0, 2.0 and 3.0**
 
 ### A1. ABMS Specialty Category to OMOP V5 Specialty Mapping
 http://www.abms.org/member-boards/specialty-subspecialty-certificates/
