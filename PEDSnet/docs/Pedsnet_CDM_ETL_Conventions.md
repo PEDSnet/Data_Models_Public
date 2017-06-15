@@ -667,6 +667,8 @@ Observation_period_start_date | Yes |Yes| Date | The start date of the observati
 Observation_period_end_date | Yes | Yes|Date | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact date available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> 
 Observation_period_start_time | Yes | Yes|Datetime | The start date of the observation period for which data are available from the data source | <p>Use the earliest clinical fact time available for this patient.</p> No date shifting.  Full date and time. **If there is no time associated with the date assert midnight for the start time**
 Observation_period_end_time | Yes |Yes| Datetime | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact time available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.  Full date and time.  **If there is no time associated with the date assert 11:59:59 pm for the end time**
+period_type_concept_id|Yes|Yes|Integer|A unique identifier for each observation period.
+person_id|Yes|Yes| Integer| A foreign key identifier to the person for whom the observation period is defined. The demographic details of that person are stored in the person table.
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
