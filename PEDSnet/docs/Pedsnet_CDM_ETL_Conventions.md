@@ -810,7 +810,7 @@ Specifically this table includes:
     - Where multiple readings are present on the same encounter, create measurement records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
 - Vital source
-- Component Level Labs. The Lab Listing and PEDSNet LOINC Mapping can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
+- All available component Level Labs. The Lab Listing and PEDSNet LOINC Mapping can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
 
 **Table 3: Measurement concept IDs for PCORnet concepts. Concept_ids from vocabulary_id 99 are non-standard codes.**
 
@@ -906,14 +906,24 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 - Systolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
-**Note 4**: Please use the following table as a guide to determine how to populate the `measurement_source_value`, `measurement_source_concept_id` and `measurement_concept_id` for LAB Values
+**Note 4**: For PEDSnet v2.6, PCORI has requested that sites provide all labs available. 
+- Sites will determine what labs constitute "all labs" at their site. There is no obligation to go outside your main lab result system or source tables.
+- Sites will not send text labs that potentially contain PHI in the source value.
 
-You have in your source system | Measurement_source_value| Measurement_source_concept_id | measurement_concept_id
----|---|---|---
-Lab code is institutional-specific code (not CPT/not LOINC) |<ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code/li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
-Lab code is CPT code | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
-Lab code is LOINC code that is same as PEDSnet’s LOINC code | <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
-Lab code is LOINC code that is different than PEDSnet LOINC | Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Please use the following table as a guide to determine how to populate the `measurement_source_value`, `measurement_source_concept_id` and `measurement_concept_id` for LAB Values. 
+
+*As a general rule, first map to the PEDSnet standard LOINC List for corresponding labs in the network listing. If the lab does not exist in the network listing, send local LOINC Code where available. If there is no local LOINC Code available, map to zero for the `measurement_concept_id`*
+
+You have in your source system |Network Listing Lab| Measurement_source_value| Measurement_source_concept_id | measurement_concept_id
+---|---|---|--- | ---
+Lab code is institutional-specific code (not CPT/not LOINC) | **Yes**| <ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code/li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
+Lab code is CPT code | **Yes** | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is LOINC code that is same as PEDSnet’s LOINC code **Yes**| <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is LOINC code that is different than PEDSnet LOINC | **Yes**|  Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is institutional-specific code (not CPT/not LOINC) | **No** | <ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code/li></ul> (any above are OK) | 0 (zero) | 0 (zero)
+Lab code is CPT code | **No** | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | 0 (zero)
+Lab code is LOINC code |**No** | <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |OMOP’s concept_id for your LOINC code| OMOP’s concept_id for your LOINC code
+
 
 **Note 5**: Please use the following table as a guide to determine how to populate the `range_low`,`range_low_source_value`,`range_low_operator_concept_id`, `range_high`, `range_high_source_value` and `range_low_operator_concept_id` for LAB Values
 
