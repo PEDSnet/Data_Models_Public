@@ -918,7 +918,7 @@ You have in your source system |Network Listing Lab| Measurement_source_value| M
 ---|---|---|--- | ---
 Lab code is institutional-specific code (not CPT/not LOINC) | **Yes**| <ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code/li></ul> (any above are OK) | 0 (zero) | PEDSnet LOINC code’s concept_id (provided by DCC)
 Lab code is CPT code | **Yes** | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
-Lab code is LOINC code that is same as PEDSnet’s LOINC code **Yes**| <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
+Lab code is LOINC code that is same as PEDSnet’s LOINC code |**Yes**| <ul><li> LOINC Code</li><li>Local name or</li><li> Local name \| LOINC code  </li></ul> (any above are OK) |PEDSnet’s LOINC code’s concept_id (provided by DCC)| PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is LOINC code that is different than PEDSnet LOINC | **Yes**|  Same as above | OMOP’s concept_id for your LOINC code | PEDSnet’s LOINC code’s concept_id (provided by DCC)
 Lab code is institutional-specific code (not CPT/not LOINC) | **No** | <ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code/li></ul> (any above are OK) | 0 (zero) | 0 (zero)
 Lab code is CPT code | **No** | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | 0 (zero)
