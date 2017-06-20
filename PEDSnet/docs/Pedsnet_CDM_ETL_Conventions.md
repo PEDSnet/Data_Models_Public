@@ -836,17 +836,17 @@ Vital | 2000000046 | | See Note 3 | Systolic BP for age/height Z score NCBPEP
 Vital | 2000000047 | | See Note 3 | Diastolic BP for age/height Z score NCBPEP
 Vital | 3020891 || See Note 1 | Temperature 
 Vital | 3001537|| See Note 1| Head Circumference
-Vital | 3020158|| See Note 1|  FVC
-Vital | 3037879|| See Note 1|  FVC pre (if recorded differently)
-Vital | 3001668|| See Note 1|  FVC post
-Vital | 3024653|| See Note 1| FEV 1
-Vital | 3005025|| See Note 1|  FEV 1 pre (if recorded differently)
-Vital | 3023550|| See Note 1|  FEV 1 post
-Vital | 42868460|| See Note 1|  FEF 25-75
-Vital | 42868461|| See Note 1|  FEF 25-75 pre (if recorded differently)
-Vital | 42868462|| See Note 1|  FEF 25-75 post
-Vital | 3023329|| See Note 1|  Peak Flow (PF)
-Vital | 2000000064|| See Note 1|  Peak Flow post
+Lab | 3020158|| See Note 1|  FVC
+Lab | 3037879|| See Note 1|  FVC pre (if recorded differently)
+Lab | 3001668|| See Note 1|  FVC post
+Lab | 3024653|| See Note 1| FEV 1
+Lab | 3005025|| See Note 1|  FEV 1 pre (if recorded differently)
+Lab | 3023550|| See Note 1|  FEV 1 post
+Lab | 42868460|| See Note 1|  FEF 25-75
+Lab | 42868461|| See Note 1|  FEF 25-75 pre (if recorded differently)
+Lab | 42868462|| See Note 1|  FEF 25-75 post
+Lab | 3023329|| See Note 1|  Peak Flow (PF)
+Lab | 2000000064|| See Note 1|  Peak Flow post
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
 Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from device direct feed
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
