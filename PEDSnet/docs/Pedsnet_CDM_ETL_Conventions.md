@@ -322,10 +322,10 @@ visit_type_concept_id | Yes |Yes| Integer | A foreign key to the predefined conc
 visit_source_value | No |Provide When Available| Varchar | The source code used to reflect the type or source of the visit in the source data. Valid entries include office visits, hospital admissions, etc. These source codes can also be type-of service codes and activity type codes.
 visit_source_concept_id | No |Provide When Available| Integer | A foreign key to a concept that refers to the code used in the source. | If a site is using HCPS or CPT for their visit source value, the standard concept id that maps to the particular vocabulary can be used here.  <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 preceding_visit_occurrence_id| No | NO | Integer | A foreign key to the VISIT_OCCURRENCE table record of the visit immediately preceding this visit.| Do not transmit to DCC
-admitting_source_concept_id| No|Optional|Integer|A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the admitting source for a visit.| <p>Please use the following valid concept id set for Admitting source:</p><ul><li>Adult Foster Home=44814670</li><li>Assisted Living Facility=44814671</li><li>Ambulatory Visit=44814672</li><li>Emergency Department=8870=</li><li>Home Health=44814674</li><li>Home / Self Care=44814675</li><li>Hospice=8546</li><li>Other Acute Inpatient Hospital=38004279</li><li>Nursing Home (Includes ICF)=44814678</li><li>Rehabilitation Facility=44814679</li><li>Residential Facility=44814680</li><li>Skilled Nursing Facility=8863</li><li>No information=44814650</li><li>Unknown=44814653</li><li>Other=44814649</li></ul> This list can also be found [here]((Pedsnet_CDM_ETL_Conventions.md#19-observation-1))|
-discharge_to_concept_id|No|Optional|Integer | A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition (destination) for a visit.|<p>Please use the following valid concept id set for Discharge Destination:</p><ul><li>Adult Foster Home=38004205</li>	<li>Assisted Living Facility=38004301</li><li>Against Medical Advice=4021968</li><li>Absent without leave=44814693</li>	<li>Expired=4216643</li><li>Home Health=38004195</li><li>Home / Self Care=8536</li><li>Hospice=8546</li><li>Other Acute Inpatient Hospital=38004279</li><li>Nursing Home (Includes ICF)=8676</li><li>Rehabilitation Facility=8920</li>	<li>Residential Facility=44814701</li><li>Still In Hospital=8717</li><li>Skilled Nursing Facility=8863</li><li>No information=44814650</li><li>Unknown=44814653</li><li>Other=44814649</li></ul> This list can also be found [here]((Pedsnet_CDM_ETL_Conventions.md#19-observation-1))
-admitting_source_value|No|Optional|Varchar | The source code for the admitting source as it appears in the source data.
-discharge_to_source_value|No|Optional|Varchar | The source code for the discharge disposition as it appears in the source data.
+admitting_source_concept_id| No|Provide When Available|Integer|A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the admitting source for a visit.| <p>Please use the following valid concept id set for Admitting source:</p><ul><li>Adult Foster Home=44814670</li><li>Assisted Living Facility=44814671</li><li>Ambulatory Visit=44814672</li><li>Emergency Department=8870=</li><li>Home Health=44814674</li><li>Home / Self Care=44814675</li><li>Hospice=8546</li><li>Other Acute Inpatient Hospital=38004279</li><li>Nursing Home (Includes ICF)=44814678</li><li>Rehabilitation Facility=44814679</li><li>Residential Facility=44814680</li><li>Skilled Nursing Facility=8863</li><li>No information=44814650</li><li>Unknown=44814653</li><li>Other=44814649</li></ul> This should be populated for inpatient encounters in the source but may vary for emergency department (ED) visits and outpatient encounters (OT,OA).|
+discharge_to_concept_id|No|Provide When Available|Integer | A foreign key to the predefined concept in the Place of Service Vocabulary reflecting the discharge disposition (destination) for a visit.|<p>Please use the following valid concept id set for Discharge Destination:</p><ul><li>Adult Foster Home=38004205</li>	<li>Assisted Living Facility=38004301</li><li>Against Medical Advice=4021968</li><li>Absent without leave=44814693</li>	<li>Expired=4216643</li><li>Home Health=38004195</li><li>Home / Self Care=8536</li><li>Hospice=8546</li><li>Other Acute Inpatient Hospital=38004279</li><li>Nursing Home (Includes ICF)=8676</li><li>Rehabilitation Facility=8920</li>	<li>Residential Facility=44814701</li><li>Still In Hospital=8717</li><li>Skilled Nursing Facility=8863</li><li>No information=44814650</li><li>Unknown=44814653</li><li>Other=44814649</li></ul> This should be populated for inpatient encounters in the source but may vary for emergency department (ED) visits and outpatient encounters (OT,OA).
+admitting_source_value|No|Provide When Available|Varchar | The source code for the admitting source as it appears in the source data. This should be populated for inpatient encounters in the source but may vary for emergency department (ED) visits and outpatient encounters (OT,OA).
+discharge_to_source_value|No|Provide When Available|Varchar | The source code for the discharge disposition as it appears in the source data. This should be populated for inpatient encounters in the source but may vary for emergency department (ED) visits and outpatient encounters (OT,OA).
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC
 
@@ -365,6 +365,8 @@ Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship
 - At any one day, there could be more than one visit.
 - One visit may involve multiple attending or billing providers (e.g. billing, attending, etc), in which case the ETL must specify how a single provider id is selected or leave the provider_id field null.
 - One visit may involve multiple care sites, in which case the ETL must specify how a single care_site id is selected or leave the care_site_id field null.
+
+
 
 
 ## 1.7 CONDITION_OCCURRENCE
@@ -491,43 +493,11 @@ Use the following table to populate observation_concept_ids for the observations
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID| PCORNet Mapping
  --- | --- | --- | --- | --- | ---| ---
-Admitting source | 4145666 | | 44814670 | Adult Foster Home
-Admitting source | 4145666 | | 44814671 | Assisted Living Facility
-Admitting source | 4145666 | | 44814672 | Ambulatory Visit
-Admitting source | 4145666 | | 8870 | Emergency Department
-Admitting source | 4145666 | | 44814674 | Home Health
-Admitting source | 4145666 | | 44814675 | Home / Self Care
-Admitting source | 4145666 | | 8546 | Hospice
-Admitting source | 4145666 | | 38004279 | Other Acute Inpatient Hospital
-Admitting source | 4145666 | | 44814678 | Nursing Home (Includes ICF)
-Admitting source | 4145666 | | 44814679 | Rehabilitation Facility
-Admitting source | 4145666 | | 44814680 | Residential Facility | PCORNet
-Admitting source | 4145666 | | 8863 | Skilled Nursing Facility
-Admitting source | 4145666 | | 44814650 | No information | PCORNet
-Admitting source | 4145666 | | 44814653 | Unknown | PCORNet
-Admitting source | 4145666 | | 44814649 | Other | PCORNet
 Discharge status(See Note 3) | 44813951 | SNOMED | 4161979 | Discharged alive
 Discharge status| 44813951 | SNOMED | 4216643 | Expired
 Discharge status | 44813951 | SNOMED | 44814650 | No information | PCORNet
 Discharge status | 44813951 | SNOMED | 44814653 | Unknown | PCORNet
 Discharge status | 44813951 | SNOMED | 44814649 | Other | PCORNet
-Discharge disposition (see Note 3) | 4137274 | | 38004205 | Adult Foster Home
-Discharge disposition | 4137274 | | 38004301 | Assisted Living Facility
-Discharge disposition | 4137274 | | 4021968 | Against Medical Advice
-Discharge disposition | 4137274 | | 44814693 | Absent without leave | PCORNet
-Discharge disposition | 4137274 | | 4216643 | Expired
-Discharge disposition | 4137274 | | 38004195 | Home Health
-Discharge disposition | 4137274 | | 8536 | Home / Self Care
-Discharge disposition | 4137274 | | 8546 | Hospice
-Discharge disposition | 4137274 | | 38004279 | Other Acute Inpatient Hospital
-Discharge disposition | 4137274 | | 8676 | Nursing Home (Includes ICF)
-Discharge disposition | 4137274 | | 8920 | Rehabilitation Facility
-Discharge disposition | 4137274 | | 44814701 | Residential Facility | PCORNet
-Discharge disposition | 4137274 | | 8717 | Still In Hospital
-Discharge disposition | 4137274 | | 8863 | Skilled Nursing Facility
-Discharge disposition | 4137274 | | 44814653 | Unknown | PCORNet
-Discharge disposition | 4137274 | | 44814649 | Other | PCORNet
-Discharge disposition | 4137274 | | 44814650 | No information | PCORNet
 Tobacco |4005823| |4005823 |Tobacco User | | 01 = Current user
 Tobacco |4005823| |45765920 |  Never used Tobacco| |02 = Never
 Tobacco |4005823| |45765917|  Ex-tobacco user| |03 = Quit/Former Smoker
@@ -573,11 +543,9 @@ Smoking |4275495 | |44814649| Other| PCORNet| UN
 - If your site has **APR-DRGs** please include these in the observation table. We have requested the APR-DRG vocabulary to be incorporated as apart of the OMOP standard vocabulary. 
 
 **Note 2:** 
-- For each inpatient encounter or in some cases the outpatient encounter, there can be 1 admit source, 1 discharge disposition, 1 discharge status, 1 or more DRG
-  (May not be 1:1:1:1 if patients still admitted (therefore no discharge disposition, discharge details or DRG yet))
+- For each inpatient encounter or in some cases the outpatient encounter, there can be 1 discharge status and 1 or more DRG
+  (May not be 1:1 if patients still admitted (therefore no discharge disposition, discharge details or DRG yet))
 - There should **NOT** be discharges without admission.
-- For each emergency dept (ED) encounters, these 4 records *may* also be populated but this is *optional*.
-- For outpatient encounters (OT, OA), these 4 records may be populated
 
 **Note 3:** Please provide tobacco information from the primary source of data capture at your site. If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
