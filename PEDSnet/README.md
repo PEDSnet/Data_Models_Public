@@ -1,3 +1,45 @@
+## PEDSnet CDM V2.6
+
+The PEDSnet common data model version 2.6 is an update to version 2.5. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.6 ETL Conventions]**COMING SOON** file. The PEDSnet CDM V2.6 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+
+### ETL Conventions for Version 2.6
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V2.6 ETL Conventions]**COMING SOON** file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here(https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+### Changes from Version 2.6
+
+Please see the applicable change document for changes and additions for the v2.6 data model [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM2.5_CDM2.6_diff.md)
+
+## Site Responsibility for Version 2.6
+
+### Stable Identifiers
+
+For PEDSNet CDMv2.6, sites are responsible for creating and storing a mapping from both `person_id`,`visit_occurrence_id` and `provider_id` to stable local identifiers. These `person_id` , `visit_occurrence_id` and `provider_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id`, `visit_occurrence_id` and `provider_id` values to the same person, visit and provider entities. The mappings should not be sent to the DCC.
+
+### Data Validation
+
+Sites are responsible for using the data validation tool on all CSV files before sending them to the DCC. You can download the tool [here](https://github.com/chop-dbhi/data-models-validator/releases/tag/1.0.0) and read about its usage and see sample output [here](https://github.com/chop-dbhi/data-models-validator). This should help to reduce data cycle time by allowing sites to fix most data formatting and type errors before transmission to the DCC.
+
+To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as arguments when running the validator. To verify i2b2-for-PEDSnet-format data, use `-model i2b2_pedsnet` and `-version 2.0.0` as arguments.
+
+## Reference Materials for Version 2.6
+
+### Data Model DDL
+
+- Postgres: **COMING SOON**
+- Oracle: **COMING SOON**
+- Microsoft SQL Server: **COMING SOON**
+
+### Vocabulary Data
+
+- v2.6.0 Core Vocabulary: [here](https://chop.sharefile.com/d-s67a4bdea3204436b)
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
+
+
+***
+***
+***
+
+
 ## PEDSnet CDM V2.5
 
 The PEDSnet common data model version 2.5 is an update to version 2.4. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.5 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.5 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
