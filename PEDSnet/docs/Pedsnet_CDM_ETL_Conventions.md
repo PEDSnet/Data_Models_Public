@@ -304,7 +304,7 @@ Visit Concept Id |Concept Name| Visit Type Inclusion | In Person| Examples/Logic
 9201 | Inpatient Visit (IP) |Visits that resulted in a patient admission| Yes | Hospital Admissions
 9202 |Ambulatory Visit (AV) |Outpatient Visits | Yes| Office Visits or Appointments
 9203 | Emergency Department Visit (ED) | Emergency Department visits | Yes|Emergency Room Visits
-44814711 |Other ambulatory Visit (OA) | Other outpatient visits that do not meet the 9202 criteria.|No| Refills and Orders Only Encounters
+44814711 |Other ambulatory Visit (OA) | Other outpatient visits that do not meet the 9202 criteria.|No| Telemedicine, Refills and Orders Only Encounters
 42898160 | Long Term Care Visit | Formal or Informal long term care for chronic illness management | Yes| Site discretion
 44814710| Non-Acute Institutional | Non-Acute long term management of care| Yes| Site discretion
 2000000048 | Emergency Department Admit to Inpatient Hospital Stay| Combination of 9203 and 9201 visits| Yes| Use only if unable to split the ED and inpatient visit.
