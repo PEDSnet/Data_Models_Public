@@ -11,6 +11,9 @@
 2. Addition of `discharge_to_source_value`This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.
 4. Addition of "Administrative Visit" Visit Type. This is a new concept id option for the visit_concept_id field. Please see NOTE 1 for ETL guidance on the various visit categories.
 
+#### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
+1. Updating conventions for route_concept_id mapping guidance to first map to the standard concept (standard_concept='S') in the case where duplicates exists among the 70 valid concept_ids and in all other cases map to the non-standard concept_id.
+
 #### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. PCORnet requirement to pull all labs. Please see conventions for detailed instructions and logic on how to populate the measurement table due to this new requirement.
 2. FEV/FVC Measurements are now required to be mapped using the lab `measurement_type_concept_id` (44818702).
