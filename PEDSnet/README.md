@@ -25,9 +25,9 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Data Model DDL
 
-- Postgres: **COMING SOON**
-- Oracle: **COMING SOON**
-- Microsoft SQL Server: **COMING SOON**
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.6.0/ddl/postgresql/)
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.6.0/ddl/oracle/)
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/2.6.0/ddl/mssql/)
 
 ### Vocabulary Data
 
