@@ -5,11 +5,14 @@
 #### Specific Table Changes
 
 #### [1.6 Visit_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
-2. Addition of `admitting_source_concept_id`.This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.
-3. Addition of `discharge_to_concept_id`.This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.
-4. Addition of `admitting_source_value`.This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.
-2. Addition of `discharge_to_source_value`This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.
+2. Addition of `admitting_source_concept_id`.This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6. This information should only be populated in the visit_occurrence table as of 2.6. Please do not report this information in the observation table.
+3. Addition of `discharge_to_concept_id`.This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6. This information should only be populated in the visit_occurrence table as of 2.6. Please do not report this information in the observation table.
+4. Addition of `admitting_source_value`.This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.This information should only be populated in the visit_occurrence table as of 2.6. Please do not report this information in the observation table.
+2. Addition of `discharge_to_source_value`This field was prevsiously marked as optional for v2.5, it is now required if available in version 2.6.This information should only be populated in the visit_occurrence table as of 2.6. Please do not report this information in the observation table.
 4. Addition of "Administrative Visit" Visit Type. This is a new concept id option for the visit_concept_id field. Please see NOTE 1 for ETL guidance on the various visit categories.
+
+#### [1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)
+1. Admitting source and Discharge Destination information is no longer recorded in the Observation table as of 2.6. Please report this information in the visit_occurrence table.
 
 #### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
 1. Updating conventions for route_concept_id mapping guidance to first map to the standard concept (standard_concept='S') in the case where duplicates exists among the 70 valid concept_ids and in all other cases map to the non-standard concept_id.
