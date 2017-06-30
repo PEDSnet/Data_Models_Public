@@ -31,7 +31,7 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as argu
 
 ### Vocabulary Data
 
-- v2.6.0 Core Vocabulary: [here](https://chop.sharefile.com/d-s815dbfe82354062a)
+- v2.6.1 Core Vocabulary: [here](https://chop.sharefile.com/d-s1af791df3ad45d68)
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
 
