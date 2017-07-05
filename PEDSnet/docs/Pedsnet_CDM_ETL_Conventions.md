@@ -393,7 +393,7 @@ Site Information | condition_concept_id|condition_source_concept_id|condition_so
 Any diagnosis that was captured as a term or name (e.g. IMO to SNOMED)| Corresponding SNOMED concept id |Corresponding concept for site diagnosis captured (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" IMO Code "\|" Diagnosis Code 
 Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" IMO Code "\|" Diagnosis Code
 
-For diagnosis codes, please make the effort to provide the IMO to SNOMED mapping where it exists in the source system. Research has showed that the IMO to SNOMED native mapping and IMO to ICD to SNOMED OMOP mapping produces highly variable results. The IMO Code For a particular IMO Code when comparing the two mapping options the same SNOMED concept id is only produced 25% of the time. See below examples of the mapping differences (IMO-SNOMED, ICD10 and ICD9):
+For diagnosis codes, please make the effort to provide the IMO to SNOMED mapping where it exists in the source system. Research has showed that the IMO to SNOMED native mapping and IMO to ICD to SNOMED OMOP mapping produces highly variable results. For a particular IMO Code, when comparing the two mapping options, the same SNOMED concept id is only produced 25% of the time. See below examples of the mapping differences (IMO-SNOMED, ICD10 and ICD9):
 
 IMO Description | Direct SNOMED | Via ICD 
 --- | --- | --- 
