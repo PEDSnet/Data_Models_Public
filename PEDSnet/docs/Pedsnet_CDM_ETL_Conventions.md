@@ -386,14 +386,7 @@ Conditions are recorded in different sources and levels of standardization. For 
 For the PEDSNet network, please provide **clinical physician based diagnosis** as opposed to billing or claim based diangosis data.
 
 **Note 1:**
-Please use the following logic to populate the `condition_concept_id`, `condition_source_concept_id` and `condition_source_value` based on what is available in your source system:
-
-Site Information | condition_concept_id|condition_source_concept_id|condition_source_value
---- | --- | --- | ---
-Any diagnosis that was captured as a term or name (e.g. IMO to SNOMED)| Corresponding SNOMED concept id |Corresponding concept for site diagnosis captured (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" IMO Code "\|" Diagnosis Code 
-Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" IMO Code "\|" Diagnosis Code
-
-For diagnosis codes, please make the effort to provide the IMO to SNOMED mapping where it exists in the source system. Research has showed that the IMO to SNOMED native mapping and IMO to ICD to SNOMED OMOP mapping produces highly variable results. For a particular IMO Code, when comparing the two mapping options, the same SNOMED concept id is only produced 25% of the time. See below examples of the mapping differences (IMO-SNOMED, ICD10 and ICD9):
+For the PEDSNet network, we are coding all diagnosis codes to the SNOMED-CT Vocabulary. Research has showed that the IMO to SNOMED native mapping and IMO to ICD to SNOMED OMOP mapping produces highly variable results. For a particular IMO Code, when comparing the two mapping options, the same SNOMED concept id is only produced 25% of the time. See below examples of the mapping differences (IMO-SNOMED, ICD10 and ICD9):
 
 IMO Description | Direct SNOMED | Via ICD 
 --- | --- | --- 
@@ -404,7 +397,17 @@ Intestional malrotation | Congenital malrotation of intestine | Congenital anoma
 Genetic disease carrier status testing| Genetic finding| Genetic disorder carrier
 Duchenne muscular dystrophy |Duchenne muscular dystrophy |Hereditary progressive muscular dystrophy
 
+For diagnosis codes, please provide the IMO to SNOMED mapping where it exists in the source system. 
+
 If the IMO to SNOMED mapping is not available in the system, utilize the IMO to ICD to SNOMED OMOP mapping in the vocabulary.
+
+Please use the following logic to populate the `condition_concept_id`, `condition_source_concept_id` and `condition_source_value` based on what is available in your source system:
+
+You have in your source system | condition_concept_id|condition_source_concept_id|condition_source_value
+--- | --- | --- | ---
+Any diagnosis that was captured as a term or name (e.g. IMO to SNOMED)| Corresponding SNOMED concept id |Corresponding concept for site diagnosis captured (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" IMO Code "\|" Diagnosis Code 
+Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | Corresponding SNOMED concept id | Corresponding concept for site diagnosis code (must correspond to ICD9/ICD10 concept mapping) | Diagnosis Name "\|" IMO Code "\|" Diagnosis Code
+
 
 **Note 2:**
 For the PEDSNet network, please provide clinical physician based diagnosis as opposed to billing or claim based diangosis data. The clinical physician based diagnosis corresponds to the "Order origin" concept ids for `condition_type_concept_id`. If you are providing billing or claim diagnosis data, please use the "Billing" or "Claim" concept_ids for `condition_type_concept_id`.
