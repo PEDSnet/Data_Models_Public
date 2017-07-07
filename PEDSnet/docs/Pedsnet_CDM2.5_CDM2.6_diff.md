@@ -53,7 +53,11 @@ Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | C
 ***
 ## NEW in PEDSnet CDM2.6
 
-All `*_time` fields will now be renamed to `*_datetime` fields as a result of a change in OMOP v5.1.
+All `*_time` fields will now be renamed to `*_datetime` fields as a result of a change in OMOP v5.1. The following exceptions apply:
+
+- person.time_of_bith renamed to person.birth_datetime
+- observation_period.observation_period_start_time will remain unchanged. *(Name change problematic for ORACLE)*
+- observation_period.observation_period_end_time will remain unchanged.* (Name change problematic for ORACLE)*
 
 ### PEDSnet Vocabulary
  concept_id |                 concept_name                 |   domain_id    | concept_class_id | vocabulary_id 
