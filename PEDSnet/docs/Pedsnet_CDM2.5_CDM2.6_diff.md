@@ -1,6 +1,6 @@
-# Differences between PEDSnet CDM2.5 and CDM2.6
+# Differences between PEDSnet CDM 2.5 and CDM 2.6
 
-## CHANGES from CDM2.5.0
+## CHANGES from CDM 2.5.0
 
 #### Specific Table Changes
 
