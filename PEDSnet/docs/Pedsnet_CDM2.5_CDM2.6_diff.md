@@ -13,6 +13,8 @@
 
 #### [1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
 1. Addition of Note 1 for guidance on populating the condition_concept_id, condition_source_concept_id, condition_source_value. This change was present in the change documentation for v2.3 to v2.4 but not as explicitly defined. Please follow the conventions for version 2.6.
+
+
 **Note 1**
 For the PEDSNet network, we are coding all diagnosis codes to the SNOMED-CT Vocabulary. Research has showed that the IMO to SNOMED native mapping and IMO to ICD to SNOMED OMOP mapping produces highly variable results. For a particular IMO Code, when comparing the two mapping options, the same SNOMED concept id is only produced 25% of the time. See below examples of the mapping differences (IMO-SNOMED, ICD10 and ICD9):
 
