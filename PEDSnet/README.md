@@ -19,7 +19,7 @@ For PEDSNet CDMv2.6, sites are responsible for creating and storing a mapping fr
 
 Sites are responsible for using the data validation tool on all CSV files before sending them to the DCC. You can download the tool [here](https://github.com/chop-dbhi/data-models-validator/releases/tag/1.0.0) and read about its usage and see sample output [here](https://github.com/chop-dbhi/data-models-validator). This should help to reduce data cycle time by allowing sites to fix most data formatting and type errors before transmission to the DCC.
 
-To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.1.0` as arguments when running the validator. To verify i2b2-for-PEDSnet-format data, use `-model i2b2_pedsnet` and `-version 2.0.0` as arguments.
+To verify PEDSnet-format data, use `-model pedsnet` and `-version 2.6.0` as arguments when running the validator. 
 
 ## Reference Materials for Version 2.6
 
