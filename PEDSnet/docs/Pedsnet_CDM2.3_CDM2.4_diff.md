@@ -99,7 +99,7 @@ and standard_concept='S'
 
 ***
 
-## NEW in PEDSnet CDM2.3
+## NEW in PEDSnet CDM2.4
 
 
  ####[1.16 ADT Occurrence](Pedsnet_CDM_ETL_Conventions.md#116-adt_occurrence)
