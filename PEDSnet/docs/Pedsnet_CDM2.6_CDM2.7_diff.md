@@ -14,4 +14,10 @@ It is required to format the `condition_source_value` as `Diagnosis Name | IMO C
 ***
 ## NEW in PEDSnet CDM2.7
 
+#### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
+1. Mean Arterial Pressure Values with appopriate unit. Optional.
+2. Heart Rate Values with appopriate unit. Optional.
+3. Oxygen Saturation Values with appopriate unit. Optional.
+4. Respiratory Rate Values with appopriate unit. Optional.
+
 ***
