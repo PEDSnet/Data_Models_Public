@@ -793,6 +793,10 @@ Specifically this table includes:
 - Diastolic blood pressure in mmHg
     - Where multiple readings are present on the same encounter, create measurement records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
+- **PENDING** Mean arterial pressure (MAP)
+- **PENDING** Heart Rate
+- **PENDING** Oxygen Saturation (SpO2)
+- **PENDING** Respiration Rate
 - Vital source
 - All available component Level Labs. The Lab Listing and PEDSNet LOINC Mapping can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
 
@@ -802,6 +806,10 @@ Domain id | Measurement concept ID | Vocab ID | Value as concept ID | Concept de
  --- | --- | --- | --- | --- | ---
 Vital | 3013762 | | See Note 1 | Weight
 Vital | 3023540 | | See Note 1 | Height
+Vital | **PENDING**| | See Note 1 | Mean arterial pressure (MAP)
+Vital | **PENDING** | | See Note 1 | Heart Rate
+Vital | **PENDING** | | See Note 1 | Oxygen Saturation (SpO2)
+Vital | **PENDING** | | See Note 1 | Respiration Rate
 Vital | 3038553 | | See Note 3 | BMI kg/m<sup>2</sup>
 Vital | 3034703 | | See Note 2 | Diastolic Blood Pressure - Sitting
 Vital | 3019962 | | See Note 2 | Diastolic Blood Pressure - Standing
@@ -836,7 +844,7 @@ Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from d
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
 Measurement Type | 44818702| Measurement Type | See Note 4 | Clinical and Laboratory Results
 
-**Note 1**: For height, weight, temperature, head circumference, BMI and Pulmary Function measurements, insert the recorded measurement into the value_as_number field.
+**Note 1**: For height, weight, temperature, head circumference, BMI, Pulmary Function, **PENDING** heart rate, oxygen saturation, respiratory rate, and mean arterial pressure (MAP) measurements insert the recorded measurement into the value_as_number field.
 
 <a name="measurement-note-2"/>**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
