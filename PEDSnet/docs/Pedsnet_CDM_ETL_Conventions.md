@@ -793,10 +793,11 @@ Specifically this table includes:
 - Diastolic blood pressure in mmHg
     - Where multiple readings are present on the same encounter, create measurement records for \*\*ALL\*\* readings
 - Blood pressure position is described by the selection of a concept_id that contains the BP position as describe below. For example, in Table 1, concept_id 3018586 is Systolic Blood Pressure, Sitting. This concept_id identifies both the measurement (Systolic BP) and the BP position (sitting).
-- **PENDING** Mean arterial pressure (MAP)
-- **PENDING** Heart Rate
-- **PENDING** Oxygen Saturation (SpO2)
-- **PENDING** Respiration Rate
+-  Invasive Mean arterial pressure (MAP)
+-  Non - Invasive Mean arterial pressure (MAP)
+-  Heart Rate
+-  Oxygen Saturation (SpO2)
+-  Respiration Rate
 - Vital source
 - All available component Level Labs. The Lab Listing and PEDSNet LOINC Mapping can be found [here] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Component_Loinc_Mapping.xlsx)
 
@@ -806,10 +807,11 @@ Domain id | Measurement concept ID | Vocab ID | Value as concept ID | Concept de
  --- | --- | --- | --- | --- | ---
 Vital | 3013762 | | See Note 1 | Weight
 Vital | 3023540 | | See Note 1 | Height
-Vital | **PENDING**| | See Note 1 | Mean arterial pressure (MAP)
-Vital | **PENDING** | | See Note 1 | Heart Rate
-Vital | **PENDING** | | See Note 1 | Oxygen Saturation (SpO2)
-Vital | **PENDING** | | See Note 1 | Respiration Rate
+Vital | 21490852| | See Note 1 | Invasive Mean arterial pressure (MAP)
+Vital | 21492241| | See Note 1 | Non-Invasive Mean arterial pressure (MAP)
+Vital | 3027018 | | See Note 1 | Heart Rate
+Vital | 40762499 | | See Note 1 | Oxygen Saturation (SpO2)
+Vital | 3024171  | | See Note 1 | Respiration Rate
 Vital | 3038553 | | See Note 3 | BMI kg/m<sup>2</sup>
 Vital | 3034703 | | See Note 2 | Diastolic Blood Pressure - Sitting
 Vital | 3019962 | | See Note 2 | Diastolic Blood Pressure - Standing
@@ -947,7 +949,7 @@ measurement_type_concept_id | Yes |Yes|  Integer | A foreign key to the predefin
 operator_concept_id| No|Provide When Available|  Integer | A foreign key identifier to the mathematical operator that is applied to the value_as_number.Operators are <, ≤, =, ≥, >| Valid operator concept id are found in the concept table <p> select \* from concept where domain_id='Meas Value Operator' yields 5 valid concept ids. <ul> <li> Operator <= : 4171754 </li> <li> Operator >= : 4171755      </li> <li> Operator < : 4171756 </li> <li> Operator =   4172703 </li> <li> Operator > : 4172704 </li> </ul>|
 value_as_number | No (see convention) | Provide When Available| Float | The measurement result stored as a number. This is applicable to measurements where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}.
 value_as_concept_id | No (see convention) |Provide When Available|  Integer | A foreign key to a measurement result stored as a concept identifier. This is applicable to measurements where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. Valid concepts are found in the concept table <p> select \* from concept where domain_id='Meas Value' and concept_class_id='Qualifier Value' and standard_concept='S' yields 186 valid concept ids.</p>
-unit_concept_id | No |Provide When Available|  Integer | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = 'UCUM' yields 971 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet measurements listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li> <li>degree Celsius (C): 8653</li> <li>Liters (L): 8519 </li><li>Liters per minute (L/min): 8698 </li><li>Milliliters per second (mL/sec): 44777614 </li></ul>
+unit_concept_id | No |Provide When Available|  Integer | A foreign key to a standard concept identifier of measurement units in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> <p>select \* from concept where vocabulary_id = 'UCUM' yields 971 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet measurements listed above, use the following concept_ids: <ul><li>Centimeters (cm): concept_id = 8582</li> <li>Kilograms (kg): concept_id = 9529</li> <li>Kilograms per square meter (kg/m<sup>2</sup>): concept_id = 9531</li> <li>Millimeters mercury (mmHG): concept_id = 8876</li> <li>degree Celsius (C): 8653</li> <li>Liters (L): 8519 </li><li>Liters per minute (L/min): 8698 </li><li>Milliliters per second (mL/sec): 44777614 </li> <li>Per Min (/min): 8541</li><li>Pecent (%): 8554</li></ul>
 range_low | No | Provide When Available| Float |  The lower limit of the normal range of the measurement. It is not applicable if the measurement results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 range_low_source_value | No | Provide When Available| Varchar |  The lower limit of the normal range of the measurement as it appears in the source. | See note 5
 range_low_operator_concept_id | No | Optional | Integer|A foreign key to the modifier of lower limit of the normal range of the measurement as it appears in the source as a concept identifier. | See note 5
