@@ -846,7 +846,7 @@ Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from d
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
 Measurement Type | 44818702| Measurement Type | See Note 4 | Clinical and Laboratory Results
 
-**Note 1**: For height, weight, temperature, head circumference, BMI, Pulmary Function, **PENDING** heart rate, oxygen saturation, respiratory rate, and mean arterial pressure (MAP) measurements insert the recorded measurement into the value_as_number field.
+**Note 1**: For height, weight, temperature, head circumference, BMI, Pulmary Function, heart rate, oxygen saturation, respiratory rate, and mean arterial pressure (MAP) measurements insert the recorded measurement into the value_as_number field.
 
 <a name="measurement-note-2"/>**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
