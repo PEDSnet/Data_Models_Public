@@ -1078,6 +1078,27 @@ adt_type_source_value| No | Provide when available| Varchar| The source data use
 #### 1.16.1 Additional Notes
 - If a site is splitting (ED->Inpatient) encounters into two records in visit_occurrence, the ADT_OCCURRENCE.visit_occurence_id should link to the Inpatient visit_occurrence_id.
 
+
+## 1.17 Immunizations
+
+The immunization domain captures immunization records.**This table is CUSTOM to Pedsnet.**
+
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+immunization_id | Yes |Yes|  Integer | A system-generated unique identifier for each immunization record | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+person_id | Yes |Yes|  Integer | A foreign key identifier to the person who the immunization record is being documented for. The demographic details of that person are stored in the person table.
+immunization_concept_id | Yes |Yes|  Integer | A foreign key to the standard immunization concept identifier in the Vocabulary. |  <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id='CVX')</p> <p>select \* from concept where vocabulary_id='CVX' and invalid_reason is null yields 188 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
+immunization_source_concept_id| No |Provide When Available|  Integer | A foreign key to an immunization concept that refers to the code used in the source |   <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+immunization_date|  Yes |Yes|  Date | The date of the immunization.|This should be the date the immunization was administered. No date shifting.
+immunization_datetime|  Yes |Yes|  Datetime | The time of the immunization. |This should be the date the immunization was administered. No date shifting. Full date and time. If there is no time associated with the date assert midnight.
+immunization_source_value| Yes |Yes|  Varchar |  The immunization name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concatenating values.
+provider_id | No | Provide When Available| Integer | A foreign key to the provider in the provider table who was responsible for the immunization.
+imm_route_concept_id| No |Provide When Available| Integer | A foreign key that refers to a standard immunization administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Route')</p> <p>select * from concept where domain_id='Route' and invalid_reason is null yields 70 valid concept_ids.</p> <p><ul><li>Within the set of 70 valid concept ids, duplicates may exist. If this is the case, use the standard concept (standard_concept='S') first for mapping and then the non-standard concept for all other cases</li></ul> If none are correct, use concept_id = 0. </p>
+immunization_dose| No |Provide When Available| Float | Numerical value of immunization dose for this immunization record| |
+imm_dose_unit_concept_id| No |Provide When Available| Integer | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the immunization_dose value is expressed| <p> Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> select * from concept where vocabulary_id = 'UCUM' yields 971 valid concept_ids.|
+imm_dose_unit_source_value| No|Provide When Available|  Varchar | The information about the immunization dose unit as detailed in the source ||
+imm_route_source_value| No|Provide When Available|  Varchar |The information about the route of immunization as detailed in the source ||
+
 * * *
 
 ## ***APPENDIX***
