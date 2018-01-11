@@ -21,7 +21,7 @@
 ***
 ## NEW in PEDSnet CDM2.8
 
-#### [1.17 Immunization](Pedsnet_CDM_ETL_Conventions.md#17-immunization)
+#### [1.17 Immunization](Pedsnet_CDM_ETL_Conventions.md#117-immunization-1)
 1. This table has been created to inlcude immunization records for persons in the PEDSnet network. Please see the table specification in the ETL Conventions for guidance on how to populate the table.
 
 ***
