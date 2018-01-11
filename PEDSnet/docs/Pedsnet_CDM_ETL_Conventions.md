@@ -1086,15 +1086,24 @@ adt_type_source_value| No | Provide when available| Varchar| The source data use
 
 The immunization domain captures immunization records.**This table is CUSTOM to Pedsnet.**
 
+**Note 1:**
+Please use the following logic to populate the `immunization_concept_id`, `immunization_source_concept_id` and `immunization_source_value` based on what is available in your source system:
+
+Site Information | procedure_concept_id|procedure_source_concept_id|procedure_source_value
+--- | --- | --- | ---
+Immunization Codes (NDC,RxNorm,CVX CPT-4, ICD-9-CM,ICD-10, HCPCS or OPCS-4) |Corresponding CVX Concept Code (may require manual mapping) |Corresponding Immunization Codes (NDC,RxNorm,CVX CPT-4, ICD-9-CM,ICD-10, HCPCS or OPCS-4) concept id | Immunization Name \| Immunization Source Code
+Custom Immunization Coding (that site can map to coding within standard vocabulary) | Corresponding CVX Concept Code ( requires manual mapping) | Corresponding Immunization Codes (NDC,RxNorm,CVX CPT-4, ICD-9-CM,ICD-10, HCPCS or OPCS-4) concept id  |Immunization Name \| Custom Immunization Code
+Custom Immunization Coding (that cannot be mapped using the standard vocabulary) | Corresponding CVX Concept Code (requires manual mapping) | 0  |Immunization Name \| Custom Immunization Code
+
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 immunization_id | Yes |Yes|  Integer | A system-generated unique identifier for each immunization record | This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id | Yes |Yes|  Integer | A foreign key identifier to the person who the immunization record is being documented for. The demographic details of that person are stored in the person table.
-immunization_concept_id | Yes |Yes|  Integer | A foreign key to the standard immunization concept identifier in the Vocabulary. |  <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id='CVX')</p> <p>select \* from concept where vocabulary_id='CVX' and invalid_reason is null yields 188 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p>
-immunization_source_concept_id| No |Provide When Available|  Integer | A foreign key to an immunization concept that refers to the code used in the source |   <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
+immunization_concept_id | Yes |Yes|  Integer | A foreign key to the standard immunization concept identifier in the Vocabulary. |  <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id='CVX')</p> <p>select \* from concept where vocabulary_id='CVX' and invalid_reason is null yields 188 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> Please see **Note 1** for guidance.
+immunization_source_concept_id| No |Provide When Available|  Integer | A foreign key to an immunization concept that refers to the code used in the source |   <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p> Please see **Note 1** for guidance.
 immunization_date|  Yes |Yes|  Date | The date of the immunization.|This should be the date the immunization was administered. No date shifting.
 immunization_datetime|  Yes |Yes|  Datetime | The time of the immunization. |This should be the date the immunization was administered. No date shifting. Full date and time. If there is no time associated with the date assert midnight.
-immunization_source_value| Yes |Yes|  Varchar |  The immunization name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concatenating values.
+immunization_source_value| Yes |Yes|  Varchar |  The immunization name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concatenating values. Please see **Note 1** for guidance.
 provider_id | No | Provide When Available| Integer | A foreign key to the provider in the provider table who was responsible for the immunization.
 imm_route_concept_id| No |Provide When Available| Integer | A foreign key that refers to a standard immunization administration route concept identifier in the Vocabulary. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Route')</p> <p>select * from concept where domain_id='Route' and invalid_reason is null yields 70 valid concept_ids.</p> <p><ul><li>Within the set of 70 valid concept ids, duplicates may exist. If this is the case, use the standard concept (standard_concept='S') first for mapping and then the non-standard concept for all other cases</li></ul> If none are correct, use concept_id = 0. </p>
 immunization_dose| No |Provide When Available| Float | Numerical value of immunization dose for this immunization record| |
