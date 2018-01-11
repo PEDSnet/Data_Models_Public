@@ -1081,7 +1081,7 @@ adt_type_source_value| No | Provide when available| Varchar| The source data use
 - If a site is splitting (ED->Inpatient) encounters into two records in visit_occurrence, the ADT_OCCURRENCE.visit_occurence_id should link to the Inpatient visit_occurrence_id.
 
 
-## 1.17 Immunizations
+## 1.17 Immunization
 
 The immunization domain captures immunization records.**This table is CUSTOM to Pedsnet.**
 
