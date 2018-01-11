@@ -547,7 +547,14 @@ Smoking |4275495 |**USE ONLY IF QUANTITY OF CIGARETTES IS KNOWN** |4209585|Moder
 Smoking |4275495 | | 44814650 |No information | PCORNet| NI
 Smoking |4275495 | |44814653| Unknown| PCORNet | OT
 Smoking |4275495 | |44814649| Other| PCORNet| UN
-
+Delivery Mode (see note 5)|40760190| SNOMED|394699000|Born by cesarean section|SNOMED|
+Delivery Mode|40760190| SNOMED|395682006|Born by elective cesarean section|SNOMED|
+Delivery Mode|40760190| SNOMED|407615002|Born by emergency cesarean section|SNOMED|
+Delivery Mode|40760190| SNOMED|395683001|Born by normal vaginal delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|395681004|Born by forceps delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|407614003|Born by ventouse delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|407613009|Born by breech delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|407613009|Born by breech delivery|SNOMED|
 
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
@@ -609,6 +616,10 @@ Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_con
 27|	0004|	27	|0007|	0
 
 *For more examples, or if you have a specific scenario that you have a question about, please contact the DCC.*
+
+**Note 5**: 
+- For delivery mode, if you are unable to discern between elective (concept_id = 395682006) and emergency (concept_id = 407615002) cesarean, please default to the born by cesarean section (concept_id = 394699000).
+
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
@@ -777,6 +788,10 @@ Specifically this table includes:
 - Body Mass Index 
 - Temperature in degrees Celsius
 - Head Circumference in cm (use numeric precision as recorded in EHR)
+- BIRTH Height/length in cm (use numeric precision as recorded in EHR)
+- BIRTH Height/length type
+- BIRTH Weight in kg (use numeric precision as recorded in EHR)
+- BIRTH Head Circumference in cm (use numeric precision as recorded in EHR)
 - FVC in liters
 - FVC pre (if recorded differently) in liters
 - FVC post in liters
@@ -842,6 +857,9 @@ Lab | 42868461|| See Note 1|  FEF 25-75 pre (if recorded differently)
 Lab | 42868462|| See Note 1|  FEF 25-75 post
 Lab | 3023329|| See Note 1|  Peak Flow (PF)
 Lab | 2000000064|| See Note 1|  Peak Flow post
+Vital | 3013762 | | See Note 7 | BIRTH Weight
+Vital | 3023540 | | See Note 7 | BIRTH Height
+Vital | 3001537|| See Note 7| BIRTH Head Circumference
 Measurement Type | 44818704 | Measurement Type | See Note 3 | Patient reported
 Measurement Type | 2000000032| Measurement Type | See Note 3 | Vital sign from device direct feed
 Measurement Type | 2000000033| Measurement Type | See Note 3 | Vital sign from healthcare delivery setting
@@ -929,6 +947,9 @@ Limits `Examples: <2, >100, less than 5` | Numerical Value of the limit `Example
 Categorical/Qualitative Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`||Categorical/Qualitative Value `Examples: HIGH,LOW,POSITIVE,NEGATIVE`|0
 
 **Note 6**: Please only include final Lab Results.
+
+**Note 7**: For BIRTH height, weight and head cirucmference records please use the `measurement_type_concept_id` = 44818704.
+
 
 Exclusions:
 
