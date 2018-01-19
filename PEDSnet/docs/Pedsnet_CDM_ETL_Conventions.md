@@ -1109,6 +1109,8 @@ immunization_dose| No |Provide When Available| Float | Numerical value of immuni
 imm_dose_unit_concept_id| No |Provide When Available| Integer | A foreign key to a predefined concept in the Standard Vocabularies reflecting the unit the immunization_dose value is expressed| <p> Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id = UCUM)</p> select * from concept where vocabulary_id = 'UCUM' yields 971 valid concept_ids.|
 imm_dose_unit_source_value| No|Provide When Available|  Varchar | The information about the immunization dose unit as detailed in the source ||
 imm_route_source_value| No|Provide When Available|  Varchar |The information about the route of immunization as detailed in the source ||
+visit_occurrence_id|No|Optional| Integer | A foreign key that refers to the visit associated with the immunization record.
+procedure_occurrence_id|No|Optional| Integer | A foreign key that refers to the procedure associated with the immunization record.
 
 * * *
 
