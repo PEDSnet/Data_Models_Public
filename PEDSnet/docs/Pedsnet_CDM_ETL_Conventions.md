@@ -554,7 +554,6 @@ Delivery Mode|40760190| SNOMED|395683001|Born by normal vaginal delivery|SNOMED|
 Delivery Mode|40760190| SNOMED|395681004|Born by forceps delivery|SNOMED|
 Delivery Mode|40760190| SNOMED|407614003|Born by ventouse delivery|SNOMED|
 Delivery Mode|40760190| SNOMED|407613009|Born by breech delivery|SNOMED|
-Delivery Mode|40760190| SNOMED|407613009|Born by breech delivery|SNOMED|
 
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
