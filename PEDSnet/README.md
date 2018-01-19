@@ -1,6 +1,6 @@
 ## PEDSnet CDM V2.8
 
-The PEDSnet common data model version 2.8 is an update to version 2.7. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.8 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.7.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.7 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 2.8 is an update to version 2.7. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V2.8 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.8.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V2.7 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 2.8
 
