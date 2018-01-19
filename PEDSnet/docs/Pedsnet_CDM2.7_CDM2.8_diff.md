@@ -1,5 +1,3 @@
-# DRAFT
-
 # Differences between PEDSnet CDM 2.7 and CDM 2.8
 
 ## CHANGES from CDM 2.7.0
