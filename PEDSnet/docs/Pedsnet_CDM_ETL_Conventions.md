@@ -572,7 +572,7 @@ Delivery Mode|40760190| SNOMED|407613009|Born by breech delivery|SNOMED|
 
 **Note 3:** Please provide tobacco information from the primary source of data capture at your site. If tobacco information is available at the visit level, please provide this information. If it is not, sites are welcomed to make a high level assertion about tobacco use and tobacco type information for individuals in the cohort.
 
-<a name="observation-note-4"/>**Note 4:** Below are examples of how the observation table and the fact relationship table would be populated for tobacco, smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert. The PEDSnet standard relationship concept id for linking tobacco items will be *0*. This concept id was chosen as there was not a specific concept id that exists in the standard vocabulary that adequately defined an appropriate relationship for linking the tobacco items.
+<a name="observation-note-4"/>**Note 4:**</a> Below are examples of how the observation table and the fact relationship table would be populated for tobacco, smoking and tobacco type scenarios. In the case where tobacco information is recorded at a visit but there is missing information for tobacco, smoking or tobacco type please assert. The PEDSnet standard relationship concept id for linking tobacco items will be *0*. This concept id was chosen as there was not a specific concept id that exists in the standard vocabulary that adequately defined an appropriate relationship for linking the tobacco items.
 
 *Example 1:*
 
@@ -866,7 +866,7 @@ Measurement Type | 44818702| Measurement Type | See Note 4 | Clinical and Labora
 
 **Note 1**: For height, weight, temperature, head circumference, BMI, Pulmary Function, heart rate, oxygen saturation, respiratory rate, and mean arterial pressure (MAP) measurements insert the recorded measurement into the value_as_number field.
 
-<a name="measurement-note-2"/>**Note 2**: Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
+<a name="measurement-note-2"/>**Note 2**:</a> Systolic and diastolic pressure measurements will generate two observation records one for storing the systolic blood pressure measurement and a second for storing the diastolic blood pressure measurement. Select the right SBP or DBP concept code that also represents the CORRECT recording position (supine, sitting, standing, other/unknown). To tie the two measurements together (the systolic BP measurement and the diastolic BP measurement records), use the FACT_RELATIONSHIP table.
 
 Example: Person_id = 12345 on visit_occurrence_id = 678910 had orthostatic blood pressure measurements performed in the healthcare delivery setting as follows:
 
