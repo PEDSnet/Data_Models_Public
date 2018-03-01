@@ -466,7 +466,7 @@ Please use the following logic to populate the `procedure_concept_id`, `procedur
 Site Information | procedure_concept_id|procedure_source_concept_id|procedure_source_value
 --- | --- | --- | ---
 Procedure codes using CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 procedures as orders | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id |Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id | Procedure Name \| Procedure Source Code
-Custom Procedure Coding (That a site has knowledge of corresponding to a standard code but requires manual mapping) | 0 | Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id  |Procedure Name \| Custom Procedure Code
+Custom Procedure Coding (That a site has knowledge of corresponding to a standard code but requires manual mapping) |Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id  | 0 | Procedure Name \| Custom Procedure Code
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
