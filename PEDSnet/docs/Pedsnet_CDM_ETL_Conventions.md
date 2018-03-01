@@ -547,13 +547,13 @@ Smoking |4275495 |**USE ONLY IF QUANTITY OF CIGARETTES IS KNOWN** |4209585|Moder
 Smoking |4275495 | | 44814650 |No information | PCORNet| NI
 Smoking |4275495 | |44814653| Unknown| PCORNet | OT
 Smoking |4275495 | |44814649| Other| PCORNet| UN
-Delivery Mode (see note 5)|40760190| SNOMED|394699000|Born by cesarean section|SNOMED|
-Delivery Mode|40760190| SNOMED|395682006|Born by elective cesarean section|SNOMED|
-Delivery Mode|40760190| SNOMED|407615002|Born by emergency cesarean section|SNOMED|
-Delivery Mode|40760190| SNOMED|395683001|Born by normal vaginal delivery|SNOMED|
-Delivery Mode|40760190| SNOMED|395681004|Born by forceps delivery|SNOMED|
-Delivery Mode|40760190| SNOMED|407614003|Born by ventouse delivery|SNOMED|
-Delivery Mode|40760190| SNOMED|407613009|Born by breech delivery|SNOMED|
+Delivery Mode (see note 5)|40760190| SNOMED|4192676 |Born by cesarean section|SNOMED|
+Delivery Mode|40760190| SNOMED|4212794|Born by elective cesarean section|SNOMED|
+Delivery Mode|40760190| SNOMED|4250010|Born by emergency cesarean section|SNOMED|
+Delivery Mode|40760190| SNOMED|4216797|Born by normal vaginal delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|4217586|Born by forceps delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|4236293|Born by ventouse delivery|SNOMED|
+Delivery Mode|40760190| SNOMED|4250009|Born by breech delivery|SNOMED|
 
 
 **Note 1**: For DRG, use the following logic (must use vocabulary version 5):
@@ -617,7 +617,7 @@ Domain_concept_id_1|	Fact_id_1|	Domain_concept_id_2|	Fact_id_2	|relationship_con
 *For more examples, or if you have a specific scenario that you have a question about, please contact the DCC.*
 
 **Note 5**: 
-- For delivery mode, if you are unable to discern between elective (concept_id = 395682006) and emergency (concept_id = 407615002) cesarean, please default to the born by cesarean section (concept_id = 394699000).
+- For delivery mode, if you are unable to discern between elective (concept_id = 4212794) and emergency (concept_id = 4250010) cesarean, please default to the born by cesarean section (concept_id = 4192676).
 
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
