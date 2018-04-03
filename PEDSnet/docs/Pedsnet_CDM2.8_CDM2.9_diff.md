@@ -1,22 +1,24 @@
+# DRAFT - WORKING DOCUMENT
+
 # Differences between PEDSnet CDM 2.8 and CDM 2.9
 
 ## Focus for v2.9
 
-Please work on refinging and improving the quality of data for the following domains and fields:
+Please work on refining and improving the quality of data for the following domains and fields:
 
-Drug Exposure
+#### Drug Exposure
 1. Frequency
 2. Effective Dose
 
-Measurement Organism
+#### Measurement Organism
 1. Specimen Source Value
 
-Provider
+#### Provider
 1. Provider Specialty
 
 ## CHANGES from CDM 2.8.0
 
-#### Updates to the conventions document
+#### Required updates to the conventions document
 
 1. Correcting concepts for delivery mode. In the v2.8 conventions, the concept code was erroneously noted as the concept id
 
@@ -30,13 +32,17 @@ Born by forceps delivery|SNOMED|395681004|4217586
 Born by ventouse delivery|SNOMED|407614003|4236293
 Born by breech delivery|SNOMED|407613009|4250009
 
+2. Correcting the logic for mapping custom procedure codes.
+
+Site Information | procedure_concept_id|procedure_source_concept_id|procedure_source_value
+  --- | --- | --- | ---
+Custom Procedure Coding (That a site has knowledge of corresponding to a standard code but requires manual mapping) |**Corresponding CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept id**  | **0** | Procedure Name \| Custom Procedure Code
 
 ***
 
 ***
-## NEW in PEDSnet CDM2.9 -- Option
+## NEW in PEDSnet CDM2.9 -- Optional 
 
-#### [1.17 Immunization](Pedsnet_CDM_ETL_Conventions.md#117-immunization-1)
-1. This table has been created to inlcude immunization records for persons in the PEDSnet network. Please see the table specification in the ETL Conventions for guidance on how to populate the table.
+#### The following fields and conventions have been included as optional mappings and columns for v2.9. Please do not feel obligated to make these changes. They are optional for v2.9. We anticipate that these will be required values for v3.0.
 
 ***
