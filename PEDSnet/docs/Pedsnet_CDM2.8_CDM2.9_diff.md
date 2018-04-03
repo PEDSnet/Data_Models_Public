@@ -45,4 +45,19 @@ Custom Procedure Coding (That a site has knowledge of corresponding to a standar
 
 #### The following fields and conventions have been included as optional mappings and columns for v2.9. Please do not feel obligated to make these changes. They are optional for v2.9. We anticipate that these will be required values for v3.0.
 
+#### Condition Occurrence
+1. Present on Admission Column
+
+#### Observation
+1. Addition of Primary and Secondary DRG Concept Ids to observation type concept id
+
+#### Visit Payer
+1. Addition of visit_payer_type_concept_id for Primary and Secondary Payer status
+
+#### Measurement Organism
+1. Addition of specimen_concept_id
+2. Updated convention for specimen_source_value (pipe delimited SPECIMEN TYPE|SPECIMEN SOURCE)
+
+#### Drug Exposure
+1. Addition of dispense as written Column
 ***
