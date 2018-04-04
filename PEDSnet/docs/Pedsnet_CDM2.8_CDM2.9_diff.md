@@ -56,7 +56,8 @@ Custom Procedure Coding (That a site has knowledge of corresponding to a standar
 
 #### Measurement Organism
 1. Addition of specimen_concept_id
-2. Updated convention for specimen_source_value (pipe delimited SPECIMEN TYPE|SPECIMEN SOURCE) Eg. "URINE|CATHETER"
+2. Updated convention for specimen_source_value (pipe delimited SPECIMEN TYPE|SPECIMEN SOURCE) 
+Eg. "URINE|CATHETER"
 
 #### Drug Exposure
 1. Addition of dispense as written Column
