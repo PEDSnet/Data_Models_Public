@@ -6,15 +6,16 @@
 
 Please work on refining and improving the quality of data for the following domains and fields:
 
-#### Drug Exposure
+#### [1.5 Provider](Pedsnet_CDM_ETL_Conventions.md#15-provider-1)
+1. Provider Specialty
+
+#### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
 1. Frequency
 2. Effective Dose
 
-#### Measurement
-1. Specimen Source Value
+#### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
+1. `specimen_source_value`
 
-#### Provider
-1. Provider Specialty
 
 ## CHANGES from CDM 2.8.0
 
@@ -45,20 +46,21 @@ Custom Procedure Coding (That a site has knowledge of corresponding to a standar
 
 #### The following fields and conventions have been included as optional mappings and columns for v2.9 as a result of changes required by PCORNet V4.0. Please do not feel obligated to make these changes for v2.9 as they are optional at this time. Ongoing Disucssions within the Data Committee will determine if and when these elements will be required in future versions of the data model.
 
-#### Condition Occurrence
-1. Present on Admission Column
+#### [1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
+1. `Present_on_admission` column
 
-#### Observation
-1. Addition of Primary and Secondary DRG Concept Ids to observation type concept id
+#### [1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)
+1. Addition of Primary and Secondary DRG Concept Ids to `observation_type_concept_id`
 
-#### Visit Payer
-1. Addition of visit_payer_type_concept_id for Primary and Secondary Payer status
 
-#### Measurement
-1. Addition of specimen_concept_id
-2. Updated convention for specimen_source_value (pipe delimited SPECIMEN TYPE|SPECIMEN SOURCE) 
+#### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
+1. Addition of dispense as written Column
+
+#### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
+1. Addition of `specimen_concept_id`
+2. Updated convention for `specimen_source_value` (pipe delimited SPECIMEN TYPE|SPECIMEN SOURCE) 
 Eg. "URINE|CATHETER"
 
-#### Drug Exposure
-1. Addition of dispense as written Column
+#### [1.14 Visit Payer](Pedsnet_CDM_ETL_Conventions.md#114-visit_payer)
+1. Addition of `visit_payer_type_concept_id` for Primary and Secondary Payer status
 ***
