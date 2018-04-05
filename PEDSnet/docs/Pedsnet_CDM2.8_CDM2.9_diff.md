@@ -43,7 +43,7 @@ Custom Procedure Coding (That a site has knowledge of corresponding to a standar
 ***
 ## NEW in PEDSnet CDM2.9 -- Optional 
 
-#### The following fields and conventions have been included as optional mappings and columns for v2.9 as a result of changes required by PCORNet V4.0. Please do not feel obligated to make these changes. They are optional for v2.9. We anticipate that these will be required values for PEDSnet v3.0.
+#### The following fields and conventions have been included as optional mappings and columns for v2.9 as a result of changes required by PCORNet V4.0. Please do not feel obligated to make these changes for v2.9 as they are optional.
 
 #### Condition Occurrence
 1. Present on Admission Column
