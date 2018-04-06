@@ -7,11 +7,11 @@
 Please work on refining and improving the quality of data for the following domains and fields:
 
 #### [1.5 Provider](Pedsnet_CDM_ETL_Conventions.md#15-provider-1)
-1. Provider Specialty
+1. `specialty_concept_id`, `specialty_source_concept_id`, `specialty_source_value`
 
 #### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
-1. Frequency
-2. Effective Dose
+1. `Frequency`
+2. `Effective_Dose`
 
 #### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. `specimen_source_value`
@@ -54,7 +54,7 @@ Custom Procedure Coding (That a site has knowledge of corresponding to a standar
 
 
 #### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
-1. Addition of dispense as written Column
+1. Addition of `dispense_as_written` Column
 
 #### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Addition of `specimen_concept_id`
