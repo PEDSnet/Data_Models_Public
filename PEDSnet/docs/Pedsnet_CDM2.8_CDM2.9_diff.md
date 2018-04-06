@@ -1,4 +1,3 @@
-# DRAFT - WORKING DOCUMENT
 
 # Differences between PEDSnet CDM 2.8 and CDM 2.9
 
