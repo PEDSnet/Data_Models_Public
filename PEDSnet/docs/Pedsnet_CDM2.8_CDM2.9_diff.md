@@ -46,14 +46,14 @@ Custom Procedure Coding (That a site has knowledge of corresponding to a standar
 #### The following fields and conventions have been included as optional mappings and columns for v2.9 as a result of changes required by PCORNet V4.0. Please do not feel obligated to make these changes for v2.9 as they are optional at this time. Ongoing Disucssions within the Data Committee will determine if and when these elements will be required in future versions of the data model.
 
 #### [1.7 Condition_Occurrence](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)
-1. `Present_on_admission` column
+1. `Present_on_admission_concept_id` column
 
 #### [1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)
-1. Addition of Primary and Secondary DRG Concept Ids to `observation_type_concept_id`
+1. Addition of Primary and Secondary DRG Concept Ids to `qualifier_concept_id`
 
 
 #### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
-1. Addition of `dispense_as_written` Column
+1. Addition of `dispense_as_written_concept_id` Column
 
 #### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. Addition of `specimen_concept_id`
