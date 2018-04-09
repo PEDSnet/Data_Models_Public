@@ -767,6 +767,7 @@ drug_source_concept_id| No |Provide When Available|  Integer | A foreign key to 
 route_source_value| No|Provide When Available|  Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No|Provide When Available|  Varchar | The information about the dose unit as detailed in the source ||
 frequency| No | Optional | Varchar | The frequency information as available from the source ||
+dispense_as_written_concept_id|No|Optional|Integer| A foreign key to value in the source for that determines if the medication is to be dispensed as written| <p> For Pedsnet CDM v2.9, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
