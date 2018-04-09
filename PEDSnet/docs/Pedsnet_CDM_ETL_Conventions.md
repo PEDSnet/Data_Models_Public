@@ -429,6 +429,8 @@ condition_source_value | Yes |Yes| Varchar | The source code for the condition a
 condition_source_concept_id | No |Provide When Available| Integer | A foreign key to a condition concept that refers to the code used in the source| As a standard convention this code must correspond to the ICD9/ICD10 concept mapping of the source value only. For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 condition_status_concept_id |No | Optional| Integer|A foreign key to the predefined concept in the standard vocabulary reflecting the condition status. | <p> For PEDSnet v2.9 we are only reporting final diagnosis, please use the following concept id:</p><ul> <li> Final Diagnosis=4230359 </li></ul>
 condition_status_source_value| No| Optional | Varchar|  The source code for the condition status as it appears in the source data.
+present_on_admission_concept_id|No|Optional|Integer| A foreign key to value in the source for that determines if the diagnosis is present on admission| <p> For Pedsnet CDM v2.9, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
+
 
 
 
