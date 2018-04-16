@@ -5,6 +5,9 @@
 
 Please work on refining and improving the quality of data for the following domains and fields:
 
+#### [1.4 Care_Site](Pedsnet_CDM_ETL_Conventions.md#14-caresite)
+1. `specialty_concept_id`, `specialty_source_concept_id`, `specialty_source_value`
+
 #### [1.5 Provider](Pedsnet_CDM_ETL_Conventions.md#15-provider-1)
 1. `specialty_concept_id`, `specialty_source_concept_id`, `specialty_source_value`
 
@@ -14,6 +17,8 @@ Please work on refining and improving the quality of data for the following doma
 
 #### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. `specimen_source_value`
+2. `measurement_source_value` (labs)
+3. `range_low` and `range_high` 
 
 
 ## CHANGES from CDM 2.8.0
