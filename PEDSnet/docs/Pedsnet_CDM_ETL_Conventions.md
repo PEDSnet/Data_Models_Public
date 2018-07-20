@@ -740,6 +740,44 @@ Drug code is RxNorm | <ul><li> RxNorm Code</li><li>Local name or</li><li>Local n
 
 **Note 7**: For medication administration events, please store all events as single drug exposure entries.
 
+**Note 8**: Please make an effort to include the inpatient medication order in the drug_exposure table and ***if*** able to please link these orders using the fact relationship table. Below is an example of how to do so:
+Example: Person_id = 12345 during their inpatient stay (visit_occurrence_id = 678910) had a medication order for Diazepam Oral Soln 1 MG/ML and it was administered 3 times (every 12 hours).
+
+Four rows will be inserted into the drug_exposure table. Showing only the relevant columns:
+
+drug_exposure_id | Person_id | Visit_occurrence_id | drug_concept_id | drug_type_concept_id |effective_drug_dose
+ --- | --- | --- | --- | --- | --- |
+1111 | 12345 | 678910 | 19076372 |581373 (Physician Administered-EHR Order)|0.12 |  
+1112 | 12345 | 678910 | 19076372 | 38000180 (Inpatient Administration) | 0.12 |
+1113 | 12345 | 678910 | 19076372 | 38000180 (Inpatient Administration) |0.12 |
+1114 | 12345 | 678910 | 19076372 | 38000180 (Inpatient Administration) |0.12|
+
+- drug_type_concept_id for Inpatient Medication Order = 581373 (Physician administered drug (identified from EHR order))
+- drug_type_concept_id for Inpatient Administration= 38000180 (Inpatient Administration)
+
+To link these two values, use the fact relationship table (**OPTIONAL FOR PEDSnet v3.0**):
+
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+Drug | 1111 | Drug  | 1112 |  Occurrance of
+Drug|  1111 | Drug | 1113 |  Occurrance of
+Drug | 1111| Drug |  1114 |  Occurrance of
+Drug| 1112 | Drug| 1111 |  Subsumes
+Drug| 1113 | Drug | 1111 |  Subsumes
+Drug| 1114 | Drug | 1111 |  Subsumes
+
+Because the domain concept id and relationship concept id are integers the following is an example of how this data will be represented:
+
+Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
+--- | --- | --- | --- | ---
+13 | 1111 | 13 | 1112 |  44818848
+13|  1111 | 13 | 1113 |  44818848
+13 | 1111| 13 |  1114 | 44818848
+13| 1112 | 13 | 1111 |  44818723 
+13| 1113 | 13 | 1111 |  44818723 
+13| 1114 | 13 | 1111 |  44818723 
+
+
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
@@ -752,7 +790,7 @@ drug_exposure_order_date| No | Provider When available| Date | The order date of
 drug_exposure_start_datetime| Yes |Yes| Datetime |The start date and time of the utilization of the drug. The start date of the prescription, the date the prescription was filled, the date a drug was dispensed or the date on which a drug administration procedure was recorded are acceptable. | No date shifting. Full date and time. **If there is no time associated with the date assert midnight for the start time**|
 drug_exposure_end_datetime| No |Provide When Available|Datetime | The end date and time of the utilization of the drug | No date shifting. Full date and time.  **If there is no time associated with the date assert 11:59:59 pm for the end time**|
 drug_exposure_order_datetime| No | Provider When available| Datetime | The order date and time of the drug |If the start datetime of the drug is null in the source system, use the ordering datetime as the start datetime. No date shifting.Full date and time. **If there is no time associated with the date assert midnight for the start time**
-drug_type_concept_id| Yes | Yes|Integer | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represented in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id ='Drug Type')</p> <p>select \* from concept where domain_id ='Drug Type' yields 13 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet drug types listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written: concept_id = 38000177</li></ul>
+drug_type_concept_id| Yes | Yes|Integer | A foreign key to a standard concept identifier of the type of drug exposure in the Vocabulary as represented in the source data | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id ='Drug Type')</p> <p>select \* from concept where domain_id ='Drug Type' yields 13 valid concept_ids.</p> <p>If none are correct, use concept_id = 0.</p> For the PEDSnet drug types listed above, use the following concept_ids: <ul><li>Prescription dispensed in pharmacy (dispensed meds pharma information): concept_id = 38000175</li> <li>Inpatient Medication Order: 581373</li><li>Inpatient administration (MAR entries): concept_id = 38000180</li> <li>Prescription written: concept_id = 38000177</li></ul>
 stop_reason| No | Provide When Available|Varchar | The reason, if available, where the medication was stopped, as indicated in the source data. | <p>Valid values include therapy completed, changed, removed, side effects, etc. Note that a stop_reason does not necessarily imply that the medication is no longer being used at all, and therefore does not mandate that the end date be assigned.</p>
 refills| No | Provide When Available|Integer | The number of refills after the initial prescription| See Note 2. Extract numbers as much as possible , full value should be a part of the xml sig field.|
 quantity| No |Provide When Available| Integer | The quantity of the drugs as recorded in the original prescription or dispensing record| See Note 2. Extract numbers as much as possible , full value should be a part of the xml sig field.|
