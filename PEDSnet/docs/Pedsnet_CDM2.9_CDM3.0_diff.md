@@ -66,6 +66,9 @@ Please continue to work on refining and improving the quality of data for the fo
 
 #### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. `specimen_source_value`
-2. `measurement_source_value` (labs)
-3. `range_low` and `range_high` 
+2. `specimen_concept_id`
+3. `measurement_source_value` (labs)
+4. `range_low` and `range_high` 
 
+
+## **The DCC will be in touch with your specific site the week of 7/23 if there are site-specific issues to focus on for this cycle. **
