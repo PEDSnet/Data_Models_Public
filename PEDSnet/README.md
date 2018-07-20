@@ -1,6 +1,6 @@
 ## PEDSnet CDM V3.0
 
-The PEDSnet common data model version 3.0 is an update to version 2.8. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.0 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v3.0.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.0 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 3.0 is an update to version 2.9. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.0 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v3.0.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.0 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 3.0
 
