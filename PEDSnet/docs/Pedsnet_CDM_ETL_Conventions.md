@@ -1045,11 +1045,11 @@ The fact relationship domain contains details of the relationships between facts
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
-Domain_concept_id_1|Yes|Yes| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred.| Predefined value set: <ul><li>Visit domain (ED->Inpatient linking) = 8</li><li>Measurement domain (blood pressure linking) = 21</li><li>Observation domain (tobacco linking) = 27</li></ul>
+Domain_concept_id_1|Yes|Yes| Integer |	The concept representing the domain of fact one, from which the corresponding table can be inferred.| Predefined value set: <ul><li>Visit domain (ED->Inpatient linking) = 8</li><li>Measurement domain (blood pressure linking) = 21</li><li>Observation domain (tobacco linking) = 27</li><li> Drug Domain (Inpatient Medication Orders) = 13</li></ul>
 Fact_id_1|	Yes |Yes| Integer |The unique identifier in the table corresponding to the domain of fact one.| 
-Domain_concept_id_2|Yes |Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.| Predefined value set: <ul><li>Visit domain (ED->Inpatient linking) = 8</li><li>Measurement domain (blood pressure linking) = 21</li><li>Observation domain (tobacco linking) = 27</li></ul>
+Domain_concept_id_2|Yes |Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.| Predefined value set: <ul><li>Visit domain (ED->Inpatient linking) = 8</li><li>Measurement domain (blood pressure linking) = 21</li><li>Observation domain (tobacco linking) = 27</li><li> Drug Domain (Inpatient Medication Orders) = 13</li></ul>
 Fact_id_2 |	Yes |Yes| Integer |	The unique identifier in the table corresponding to the domain of fact two.
-Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.| Predefined value set: <ul><li>Occurs before (ED Visit) = 44818881</li><li>Occurs after (Inpatient Visit) = 44818783</li><li>Associated with finding (blood pressures) = 44818792</li><li>No matching concept (tobacco) = 0</li></ul>
+Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.| Predefined value set: <ul><li>Occurs before (ED Visit) = 44818881</li><li>Occurs after (Inpatient Visit) = 44818783</li><li>Associated with finding (blood pressures) = 44818792</li><li>Occurrance of (Inpatient Medication Orders=44818848 </li><li>Subsumes (Inpatient Medication Orders=44818723 </li><li>No matching concept (tobacco) = 0</li></ul>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -1057,6 +1057,7 @@ Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept 
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table. See [Note 2 in the Measurement section](Pedsnet_CDM_ETL_Conventions.md#measurement-note-2) for instructions.
 - ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table. See [Additional Notes in the Visit Occurrence section](Pedsnet_CDM_ETL_Conventions.md#161-additional-notes) for instructions.
 - Tobacco, smoking and tobacco type associations will be mapped using the fact relationship table. See [Note 4 in the Observation section](Pedsnet_CDM_ETL_Conventions.md#observation-note-4) for instructions.
+- For version 3.0 of PEDSnet, the inpatient medication orders and administrations linking is ***optional***. See [Note 8 in the Drug_Exposure section](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
 
 ## 1.14 VISIT_PAYER
 
