@@ -27,9 +27,9 @@ To link these two values, use the fact relationship table (**OPTIONAL FOR PEDSne
 
 Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
 --- | --- | --- | --- | ---
-Drug | 1111 | Drug  | 1112 |  Occurrance of
-Drug|  1111 | Drug | 1113 |  Occurrance of
-Drug | 1111| Drug |  1114 |  Occurrance of
+Drug | 1111 | Drug  | 1112 |  Occurrence of
+Drug|  1111 | Drug | 1113 |  Occurrence of
+Drug | 1111| Drug |  1114 |  Occurrence of
 Drug| 1112 | Drug| 1111 |  Subsumes
 Drug| 1113 | Drug | 1111 |  Subsumes
 Drug| 1114 | Drug | 1111 |  Subsumes
