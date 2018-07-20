@@ -23,7 +23,7 @@ drug_exposure_id | Person_id | Visit_occurrence_id | drug_concept_id | drug_type
 - drug_type_concept_id for Inpatient Medication Order = 581373 (Physician administered drug (identified from EHR order))
 - drug_type_concept_id for Inpatient Administration= 38000180 (Inpatient Administration)
 
-To link these two values, use the fact relationship table (***OPTIONAL FOR PEDSNet v3.0****):
+To link these two values, use the fact relationship table (**OPTIONAL FOR PEDSnet v3.0**):
 
 Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
 --- | --- | --- | --- | ---
