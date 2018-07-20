@@ -7,7 +7,7 @@
 1. We have been made aware that there are a significant amount of conditions that route to a domain of Procedure, Measurement etc. Please **DO NOT** route these conditions to those domains or tables (i.e. Procedure_Occurrence, Measurement). Instead, include all records coming out of our source tables for diagnosis data in the Condition_Cccurrence table. 
 
 ### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
-1. medDRA Codes were previously unavailable in version 2.9. They will now be available in the 3.0 vocabulary release.
+1. **medDRA** Codes were previously unavailable in version 2.9. They will now be available in the 3.0 vocabulary release.
 2. Please make an effort to include the inpatient medication order in the drug_exposure table and *if* able to please link these orders using the fact relationship table. Below is an example of how to do so:
 Example: Person_id = 12345 during their inpatient stay (visit_occurrence_id = 678910) had a medication order for Diazepam Oral Soln 1 MG/ML and it was administered 3 times (every 12 hours).
 
