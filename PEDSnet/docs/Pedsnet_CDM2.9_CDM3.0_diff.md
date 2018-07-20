@@ -45,7 +45,7 @@ Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship
 13| 1113 | 13 | 1111 |  44818723 
 13| 1114 | 13 | 1111 |  44818723 
 
-#### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
+### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
 1. For lab results, please include the closest result to the **final** result available at the time of your extraction from the source.
 
 ***
