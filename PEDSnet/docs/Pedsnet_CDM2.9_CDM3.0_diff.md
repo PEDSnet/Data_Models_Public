@@ -50,7 +50,7 @@ Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship
 
 ***
 
-## Reminder
+## REMINDER
 
 Please continue to work on refining and improving the quality of data for the following domains and fields:
 
