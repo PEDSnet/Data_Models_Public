@@ -759,9 +759,9 @@ To link these two values, use the fact relationship table (**OPTIONAL FOR PEDSne
 
 Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
 --- | --- | --- | --- | ---
-Drug | 1111 | Drug  | 1112 |  Occurrance of
-Drug|  1111 | Drug | 1113 |  Occurrance of
-Drug | 1111| Drug |  1114 |  Occurrance of
+Drug | 1111 | Drug  | 1112 |  Occurrence of
+Drug|  1111 | Drug | 1113 |  Occurrence of
+Drug | 1111| Drug |  1114 |  Occurrence of
 Drug| 1112 | Drug| 1111 |  Subsumes
 Drug| 1113 | Drug | 1111 |  Subsumes
 Drug| 1114 | Drug | 1111 |  Subsumes
@@ -1049,7 +1049,7 @@ Domain_concept_id_1|Yes|Yes| Integer |	The concept representing the domain of fa
 Fact_id_1|	Yes |Yes| Integer |The unique identifier in the table corresponding to the domain of fact one.| 
 Domain_concept_id_2|Yes |Yes| Integer |	The concept representing the domain of fact two, from which the corresponding table can be inferred.| Predefined value set: <ul><li>Visit domain (ED->Inpatient linking) = 8</li><li>Measurement domain (blood pressure linking) = 21</li><li>Observation domain (tobacco linking) = 27</li><li> Drug Domain (Inpatient Medication Orders) = 13</li></ul>
 Fact_id_2 |	Yes |Yes| Integer |	The unique identifier in the table corresponding to the domain of fact two.
-Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.| Predefined value set: <ul><li>Occurs before (ED Visit) = 44818881</li><li>Occurs after (Inpatient Visit) = 44818783</li><li>Associated with finding (blood pressures) = 44818792</li><li>Occurrance of (Inpatient Medication Orders=44818848 </li><li>Subsumes (Inpatient Medication Orders=44818723 </li><li>No matching concept (tobacco) = 0</li></ul>
+Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept identifier of relationship in the Standardized Vocabularies.| Predefined value set: <ul><li>Occurs before (ED Visit) = 44818881</li><li>Occurs after (Inpatient Visit) = 44818783</li><li>Associated with finding (blood pressures) = 44818792</li><li>Occurrence of (Inpatient Medication Orders=44818848 </li><li>Subsumes (Inpatient Medication Orders=44818723 </li><li>No matching concept (tobacco) = 0</li></ul>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
