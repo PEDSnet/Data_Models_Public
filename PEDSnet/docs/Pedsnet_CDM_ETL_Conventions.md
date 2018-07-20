@@ -412,6 +412,10 @@ Any diagnosis that was captured directly as a code (e.g. ICD9/10) by a coder | C
 **Note 2:**
 For the PEDSNet network, please provide clinical physician based diagnosis as opposed to billing or claim based diangosis data. The clinical physician based diagnosis corresponds to the "Order origin" concept ids for `condition_type_concept_id`. If you are providing billing or claim diagnosis data, please use the "Billing" or "Claim" concept_ids for `condition_type_concept_id`.
 
+**Note 3:***
+ We have been made aware that there are a significant amount of conditions that route to a domain of Procedure, Measurement etc. Please **DO NOT** route these conditions to those domains or tables (i.e. Procedure_Occurrence, Measurement). Instead, include all records coming out of our source tables for diagnosis data in the Condition_Cccurrence table. 
+ 
+
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 condition_occurrence_id | Yes |Yes| Integer | A unique identifier for each condition occurrence event. | This is not a value found in the EHR. Sites may choose to use a sequential value for this field
