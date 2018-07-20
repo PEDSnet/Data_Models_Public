@@ -972,8 +972,7 @@ Please use the following table as a guide to determine how to populate the `meas
 
 *As a general rule, first map to the PEDSnet standard LOINC List for corresponding labs in the network listing. If the lab does not exist in the network listing, send local LOINC Code where available. If there is no local LOINC Code available, map to zero for the `measurement_concept_id`*
 
-**Note 5:***
-For lab results, please include the closest result to the **final** result available at the time of your extraction from the source.
+**Note 5**:For lab results, please include the closest result to the **final** result available at the time of your extraction from the source.
 
 
 You have in your source system |Network Listing Lab| Measurement_source_value| Measurement_source_concept_id | measurement_concept_id
