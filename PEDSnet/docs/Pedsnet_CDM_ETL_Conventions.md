@@ -303,7 +303,7 @@ Visit Concept Id |Concept Name| Visit Type Inclusion | In Person| Examples/Logic
 --- | --- | --- | --- | ---
 9201 | Inpatient Visit (IP) |Visits that resulted in a patient admission| Yes | Hospital Admissions
 9202 |Ambulatory Visit (AV)/Outpatient | In person Outpatient Visits visits where the patient was seen by a physician  |Yes| Office Visits or Appointments
-2000000469 |Outpatient Non Physician (OP-Non Physician) | In person Outpatient Visits visits where the patient was **NOT** seen by a physician  |Yes| Office Visits or Appointments
+2000000469 |Outpatient Non Physician (OP-Non Physician) | In person Outpatient Visits visits where the patient was **NOT** seen by a physician  |Yes| Lab Visits, Radiology
 9203 | Emergency Department Visit (ED) | Emergency Department visits | Yes|Emergency Room Visits
 44814711 |Other ambulatory Visit (OA) | Outpatient visits where the patient was not seen in person.|No| Telemedicine,Telephone, Emails, Refills and Orders Only Encounters
 42898160 | Long Term Care Visit | Formal or Informal long term care for chronic illness management | Yes| Site discretion
