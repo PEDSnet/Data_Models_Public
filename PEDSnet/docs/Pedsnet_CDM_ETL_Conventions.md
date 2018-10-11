@@ -157,7 +157,8 @@ For reference `Visit_concept_ids` that correspond to an "in person" clinical enc
 Visit Type | Visit_concept_id
 ---| ---
 Inpatient Hospital Stay | 9201
-Ambulatory Visit | 9202
+Ambulatory/Outpatient Visit (With a Physician) | 9202
+Outpatient Non Physician | 2000000469 
 Emergency Department | 9203
 Long Term Care Visit | 42898160
 Non-Acute Institutional Stay | 44814710
