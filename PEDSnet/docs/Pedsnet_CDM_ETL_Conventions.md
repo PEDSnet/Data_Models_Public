@@ -1,4 +1,4 @@
-# **DRAFT** ETL Conventions for use with PEDSnet CDM v3.2 OMOP V5.2 **DRAFT** 
+# DRAFT!! ETL Conventions for use with PEDSnet CDM v3.2 OMOP V5.2 DRAFT!!
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
