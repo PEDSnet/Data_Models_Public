@@ -104,6 +104,8 @@ Please use your local system knowledge to determine this or use the following cr
 
 #### [1.17 Immunization](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#117-immunization-1)
 
+#### [1.18 Device Exposure](Pedsnet_CDM_ETL_Conventions.md#118-device_exposure)
+
 #### [Appendix](Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
