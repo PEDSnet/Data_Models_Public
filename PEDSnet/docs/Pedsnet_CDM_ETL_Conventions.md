@@ -1163,6 +1163,28 @@ imm_route_source_value| No|Provide When Available|  Varchar |The information abo
 visit_occurrence_id|No|Optional| Integer | A foreign key that refers to the visit associated with the immunization record.
 procedure_occurrence_id|No|Optional| Integer | A foreign key that refers to the procedure associated with the immunization record.
 
+
+## 1.18 DEVICE_EXPOSURE
+
+The 'Device' domain captures information about a person's exposure to a foreign physical object or instrument which is used for diagnostic or therapeutic purposes through a mechanism beyond chemical action. Devices include implantable objects (e.g. pacemakers, stents, artificial joints), medical equipment and supplies (e.g. bandages, crutches, syringes), other instruments used in medical procedures (e.g. sutures, defibrillators) and material used in clinical care (e.g. adhesives, body material, dental material, surgical material).
+
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+device_exposure_id|	Yes|	Yes|	Integer|	A system-generated unique identifier for each Device Exposure.|This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
+person_id|	Yes|	Yes|	Integer|	A foreign key identifier to the Person who is subjected to the Device. The demographic details of that Person are stored in the PERSON table.|
+device_concept_id|	Yes|	Yes|	Integer|	A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Device' domain.| **For PEDSnet 3.2, Please use concept_id = 0.**
+device_exposure_start_date|	Yes	|	Yes|	Date|	The date the Device or supply was applied or used.|No date shifting. Full date.
+device_exposure_start_datetime|	Yes| Yes	| Datetime |	The date and time the Device or supply was applied or used.|No date shifting. Full date and time. If there is no time associated with the date assert midnight for the start time
+device_exposure_end_date|	No|	No|	Date	|The date use of the Device or supply was ceased.|No date shifting. Full date.
+device_exposure_end_datetime|	No|	No |	Datetime|	The date and time use of the Device or supply was ceased.| No date shifting. Full date.If there is no time associated with the date assert 11:59:59 pm for the end time
+device_type_concept_id|	Yes| Yes|	Integer|	A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Device Exposure recorded.|<p>select * from concept where concept_class_id='Device Type' yields 4 valid concept ids.</p><p> FOR PEDSnet CDM v3.2, all of our observations are coming from electronic health records so set this field to concept_id = 44818707 (observation recorded from EHR Detail). </p>
+unique_device_id|	No	|	Provide when available|	Varchar|	A UDI or equivalent identifying the instance of the Device used in the Person.|
+quantity|	No|	No| Integer |	The number of individual Devices used in the exposure.|
+provider_id	|No |Provide when Available|	Integer |	A foreign key to the provider in the PROVIDER table who initiated or administered the Device.|
+visit_occurrence_id	|No	|Provide when available| Integer |	A foreign key to the visit in the VISIT_OCCURRENCE table during which the Device was used.|
+device_source_value	|No| Yes|	Varchar |	The source code for the Device as it appears in the source data. This code is mapped to a Standard Device Concept in the Standardized Vocabularies and the original code is stored here for reference. | Please include the device name, model number and lot number when populating this field, by using the pipe delimiter "\|" when concatenating values. **Example: Device Name "\|" Model Number "\|" Lot Number**
+device_source_concept_id	|Yes| Yes|	Integer |	A foreign key to a Device Concept that refers to the code used in the source.| If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0
+
 * * *
 
 ## ***APPENDIX***
