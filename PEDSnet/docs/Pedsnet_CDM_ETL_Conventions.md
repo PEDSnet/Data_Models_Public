@@ -465,7 +465,7 @@ More specifically the procedure occurrence domain is intended to stores informat
 - Lab Procedures (including a Lab Panel Order and Culture Orders)
 - Surgery Procedures
 - Imaging Procedures
-- Ancilliary Therpaies (Speech, Physical, Occupational etc)
+- Ancilliary Therapies (Speech, Physical, Occupational etc)
 
 Notes:
 **Only instantiated procedures are included in this table. Please exclude cancelled procedures**
