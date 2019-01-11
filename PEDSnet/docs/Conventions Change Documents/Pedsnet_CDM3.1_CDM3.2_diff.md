@@ -28,7 +28,7 @@ Visit_concept_id | Condition_type_concept_id
 
 ***Note:*** For sites that are splitting the ED to Inpatient) encounters into 1 "9203- Emergency" visit and 1 "9201- Inpatient" visit, not using the "2000000048- ED to Inpatient" visit type, apply diagnosis values from the inpatient setting to the "9203-Emergency visit" with an inpatient condition_type_concept_id. 
 
-### [1.8 Procedure_Occurrence](Pedsnet_CDM_ETL_Conventions.md#18-procedure_occurrence) **NOTE 1**
+### [1.8 Procedure_Occurrence](Pedsnet_CDM_ETL_Conventions.md#18-procedure_occurrence)
 1. Please include procedure codes (CPT/HCPCS/LOINC) for ancillary therapies (Speech, Physical, Occupational etc) where it is available at your site.
 
 ## NEW in PEDSnet CDM3.2
