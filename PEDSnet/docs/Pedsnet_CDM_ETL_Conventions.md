@@ -1184,7 +1184,7 @@ unique_device_id|	No	|	Provide when available|	Varchar|	A UDI or equivalent iden
 quantity|	No|	No| Integer |	The number of individual Devices used in the exposure.|
 provider_id	|No |Provide when Available|	Integer |	A foreign key to the provider in the PROVIDER table who initiated or administered the Device.|
 visit_occurrence_id	|No	|Provide when available| Integer |	A foreign key to the visit in the VISIT_OCCURRENCE table during which the Device was used.|
-device_source_value	|No| Yes|	Varchar |	The source code for the Device as it appears in the source data. This code is mapped to a Standard Device Concept in the Standardized Vocabularies and the original code is stored here for reference. | Please include the device name, model number and lot number when populating this field, by using the pipe delimiter "\|" when concatenating values. **Example: Device Name "\|" Model Number "\|" Lot Number**
+device_source_value	|No| Yes|	Varchar |	The source code for the Device as it appears in the source data. This code is mapped to a Standard Device Concept in the Standardized Vocabularies and the original code is stored here for reference. | Please include the device name and model number when populating this field, by using the pipe delimiter "\|" when concatenating values. **Example: Device Name "\|" Model Number**
 device_source_concept_id	|Yes| Yes|	Integer |	A foreign key to a Device Concept that refers to the code used in the source.| If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0
 
 * * *
