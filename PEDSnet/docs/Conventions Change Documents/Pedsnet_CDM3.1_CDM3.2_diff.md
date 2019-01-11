@@ -28,6 +28,9 @@ Visit_concept_id | Condition_type_concept_id
 
 ***Note:*** For sites that are splitting the ED to Inpatient) encounters into 1 "9203- Emergency" visit and 1 "9201- Inpatient" visit, not using the "2000000048- ED to Inpatient" visit type, apply diagnosis values from the inpatient setting to the "9203-Emergency visit" with an inpatient condition_type_concept_id. 
 
+### [1.8 Procedure_Occurrence](Pedsnet_CDM_ETL_Conventions.md#18-procedure_occurrence) **NOTE 1**
+1. Please include procedure codes (CPT/HCPCS/LOINC) for ancillary therapies (Speech, Physical, Occupational etc) where it is available at your site.
+
 ## NEW in PEDSnet CDM3.2
 ### [1.18 Device Exposure](Pedsnet_CDM_ETL_Conventions.md#118-device_exposure)
 1.This table has been created to capture information about a person's exposure to a foreign physical object or instrument which is used for diagnostic or therapeutic purposes through a mechanism beyond chemical action. Devices include implantable objects (e.g. pacemakers, stents, artificial joints), medical equipment and supplies (e.g. bandages, crutches, syringes), other instruments used in medical procedures (e.g. sutures, defibrillators) and material used in clinical care (e.g. adhesives, body material, dental material, surgical material).
@@ -36,3 +39,13 @@ Visit_concept_id | Condition_type_concept_id
 
 ## REMINDER
 
+Please continue to work on refining and improving the quality of data for the following domains and fields:
+
+#### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
+1. Please make an effort to include both the inpatient medication order and the inpatient medication administration record as **separate entries** in the drug_exposure table and ***if*** able to please link these orders using the fact relationship table.
+
+#### [1.12 Measurement](Pedsnet_CDM_ETL_Conventions.md#112-measurement-1)
+1. `specimen_source_value`
+2. `specimen_concept_id`
+3. `measurement_source_value` (labs)
+4. `range_low` and `range_high` 
