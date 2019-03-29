@@ -1,5 +1,9 @@
+# ETL Sources
 
-Domain| Epic Source | Cerner Source
+### This document is meant to be a starter for locating information from the various EHR sources for extraction to the PEDSnet data model.
+
+
+Domain| Epic | Cerner
 ---|---|---
 [1.1 Person](Pedsnet_CDM_ETL_Conventions.md#11-person-1)|<ul><li>clarity.patient</li><li>clarity.patient_3</li><li>clarity.patient_race</li><li>clarity.ethnic_background</li></ul>|
 [1.2 Death](Pedsnet_CDM_ETL_Conventions.md#12-death-1)||
