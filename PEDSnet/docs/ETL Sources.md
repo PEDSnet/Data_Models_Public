@@ -12,7 +12,7 @@ Domain| Epic | Cerner
 [1.5 Provider](Pedsnet_CDM_ETL_Conventions.md#15-provider-1)|<ul><li>clarity_ser</li><li>clarity_emp</li></ul>|
 [1.6 Visit Occurrence ](Pedsnet_CDM_ETL_Conventions.md#16-visit_occurrence)|<ul><li>pat_enc</li><li>pat_enc_hsp</li><li>clarity_prc</li></ul>|
 [1.7 Condition Occurrence](Pedsnet_CDM_ETL_Conventions.md#17-condition_occurrence)|<ul><li>pat_enc_dx</li><li>hsp_acct_dx_list</li><li>problem_list</li><li>clarity_edg</li><li>edg_current_icd9</li><li>edg_current_icd10</li><li>snomed_concept</li></ul>|
-[1.8 Procedure Occurrence](Pedsnet_CDM_ETL_Conventions.md#18-procedure_occurrence)|<ul><li>order_proc</li><li>order_proc_3</li><li>clarity_eap</li><li>eap_synonyms</li><li>hsp_acct_cpt_codes</li></ul>|
+[1.8 Procedure Occurrence](Pedsnet_CDM_ETL_Conventions.md#18-procedure_occurrence)|<ul><li>order_proc</li><li>order_proc_3</li><li>clarity_eap</li><li>eap_synonyms</li><li>hsp_acct_cpt_codes</li><li>hsp_acct_px_list</li></ul>|
 [1.9 Observation](Pedsnet_CDM_ETL_Conventions.md#19-observation-1)|<ul><li>hsp_acct_mult_drgs</li><li>clarity_drg</li><li>clarity_drg_mpi_id</li><li>social_hx</li></ul>|
 [1.10 Observation Period](Pedsnet_CDM_ETL_Conventions.md#110-observation-period-1)|*derived by DCC*|*derived by DCC*
 [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)|<ul><li>order_med</li><li>mar_admin_info</li><li>clarity_medication</li><li>rxnorm_codes</li><li>rx_ndc</li><li>clarity_ndc_codes</li></ul>|
