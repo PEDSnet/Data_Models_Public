@@ -687,7 +687,6 @@ Observation_period_end_date | Yes | Yes|Date | The end date of the observation p
 Observation_period_start_time | Yes | Yes|Datetime | The start date of the observation period for which data are available from the data source | <p>Use the earliest clinical fact time available for this patient.</p> No date shifting.  Full date and time. **If there is no time associated with the date assert midnight for the start time**
 Observation_period_end_time | Yes |Yes| Datetime | The end date of the observation period for which data are available from the source. | <p>Use the latest clinical fact time available for this patient. If there exists one or more records in the DEATH table for this patient, use the latest date recorded in that table.</p> For patients who are still in the hospital or ED or other facility at the time of data extraction, leave this field NULL.  Full date and time.  **If there is no time associated with the date assert 11:59:59 pm for the end time**
 period_type_concept_id|Yes|Yes|Integer|A unique identifier for each observation period.
-person_id|Yes|Yes| Integer| A foreign key identifier to the person for whom the observation period is defined. The demographic details of that person are stored in the person table.
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -1040,7 +1039,7 @@ range_low_source_value | No | Provide When Available| Varchar |  The lower limit
 range_low_operator_concept_id | No | Optional | Integer|A foreign key to the modifier of lower limit of the normal range of the measurement as it appears in the source as a concept identifier. | See note 5
 range_high | No | Provide When Available| Float | The upper limit of the normal range of the measurement. It is not applicable if the measurement results are non-numeric or categorical, and must be in the same units of measure as the measurement value.
 range_high_source_value | No | Provide When Available| Varchar | The upper limit of the normal range of the measurement as it appears in the source. | See note 5
-range_high_operator_concept_id | No | Optional | Integer||A foreign key to the modifier of higher limit of the normal range of the measurement as it appears in the source as a concept identifier. | See note 5
+range_high_operator_concept_id | No | Optional | Integer|A foreign key to the modifier of higher limit of the normal range of the measurement as it appears in the source as a concept identifier. | See note 5
 provider_id | No | Provide When Available| Integer | A foreign key to the provider in the provider table who was responsible for making the measurement.
 visit_occurrence_id | No |Provide When Available|  Integer | A foreign key to the visit in the visit table during which the observation was recorded.
 measurement_source_value | Yes |Yes|  Varchar | The measurement name as it appears in the source data. This code is mapped to a standard concept in the Standardized Vocabularies and the original code is, stored here for reference.| This is the name of the value as it appears in the source system. Please use the pipe delimiter "\|" when concatenating values. For lab values, please see Note 4.
@@ -1083,7 +1082,7 @@ Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept 
 
 ## 1.14 VISIT_PAYER
 
-The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and visit_payer_id. **This table is CUSTOM to Pedsnet.**
+The visit payer table documents insurance information as it relates to a visit in visit_occurrence. For this reason the key of this table will be visit_occurrence_id and visit_payer_id. **This table is CUSTOM to PEDSnet.**
 
 **Note 1**: There can be multiple payers (primary/secondary) for a single visit. If you are able to obtain multiple payer information at your site please populate the visit payer table with this information. If you are not able to obtain secondary or additional payers for your visit occurrences at your site, please populate the primary payer and inform the DCC.
 
@@ -1103,7 +1102,7 @@ visit_payer_type_concept_id| No| Optional| Integer| A foreign key to a concept t
 
 ## 1.15 MEASUREMENT_ORGANISM
 
-The measurement organism table contains organism information related to laboratory culture results in the measurement table. **This table is CUSTOM to Pedsnet.**
+The measurement organism table contains organism information related to laboratory culture results in the measurement table. **This table is CUSTOM to PEDSnet.**
 
 **Note 1**: There can be multiple organisms for a single culture laboratory result.
 
@@ -1124,7 +1123,7 @@ positivity_datetime| No| Optional | Datetime| The estimated date and time of ini
 
 ## 1.16 ADT_OCCURRENCE
 
-The adt_occurrence table contains information about distinct admission, discharge, or transfer events that occur as part of a clinical visit.  The typical use case is to identify portions of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The time of each event must fall between the start and end times of the associated visit_occurrence.  **This table is CUSTOM to Pedsnet.**
+The adt_occurrence table contains information about distinct admission, discharge, or transfer events that occur as part of a clinical visit.  The typical use case is to identify portions of an inpatient admission that represent different levels of care or locations within a facility, but it can be used for additional characteristics of a visits (e.g. specialty consultation).  The time of each event must fall between the start and end times of the associated visit_occurrence.  **This table is CUSTOM to PEDSnet.**
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
@@ -1147,7 +1146,7 @@ adt_type_source_value| No | Provide when available| Varchar| The source data use
 
 ## 1.17 Immunization
 
-The immunization domain captures immunization records.**This table is CUSTOM to Pedsnet.**
+The immunization domain captures immunization records.**This table is CUSTOM to PEDSnet.**
 
 **Note 1:**
 Please use the following logic to populate the `immunization_concept_id`, `immunization_source_concept_id` and `immunization_source_value` based on what is available in your source system:
