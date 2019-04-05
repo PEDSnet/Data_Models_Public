@@ -1,7 +1,7 @@
 Data_Models
 ===========
 
-The home for usage standards for the network's data models: PEDSnet/OMOP, PCORnet, and i2b2 for PEDSnet.
+The home for usage standards for the network's data models: PEDSnet/OMOP and PCORnet for PEDSnet.
 
 The `master` branch may contain changes that do not apply to the latest released PEDSnet version. Always refer to one of the [official releases](https://github.com/PEDSnet/Data_Models/releases).  For convenience, the DCC will maintain an up-to-date list of release branch and ETL document links here:
 
