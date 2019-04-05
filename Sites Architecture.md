@@ -19,7 +19,7 @@ PEDSnet Sites Architecture
 <ul><li>EHR/EDW: Epic Clarity </li></ul>
 
 ## Seattle
-<ul><li>EHR/EDW: Epic Clarity <b>AND</b> Cerner </li></ul>>
+<ul><li>EHR/EDW: Epic Clarity <b>AND</b> Cerner </li></ul>
 
   
   
