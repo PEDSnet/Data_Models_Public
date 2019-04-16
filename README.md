@@ -21,6 +21,6 @@ PEDSnet Release | ETL Conventions Document
 [v2.1 branch](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.1.0_2) | [v2.1 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.1.0_2/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)
 [v2.0 branch](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v2.0.0_1) | [v2.0 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v2.0.0_1/PEDSnet/V2/docs/Pedsnet_CDM_V2_OMOPV5_ETL_Conventions.md)
 
-Please find all PDF verions of the conventions documents [here](https://github.com/PEDSnet/Data_Models/tree/master/PEDSnet/docs/Convention_PDFs).
+Please find all PDF verions of the conventions documents [here](https://github.com/PEDSnet/Data_Models/tree/master/PEDSnet/docs/Convention%PDFs).
 
 The [data models DDL service](http://data-models-sqlalchemy.research.chop.edu/) generates official network DDL automatically from the authoritative [definitions for the data models](https://github.com/chop-dbhi/data-models).  Of more esoteric interest is the [intermediate models service](http://data-models-service.research.chop.edu/) that serves the model definitions, mostly to other services.
