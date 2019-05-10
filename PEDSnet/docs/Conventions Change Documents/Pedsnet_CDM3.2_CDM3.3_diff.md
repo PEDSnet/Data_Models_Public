@@ -7,7 +7,7 @@ Please continue to work on refining and improving the quality of data for the fo
 
 - care_site or provider `specialty_concept_id` for 9202 visits
 - valid `drug_concept_id` for prescriptions in drug_exposure
-- valid `visit_occurrence_id`’s in procedure_occurrance
+- valid `visit_occurrence_id`’s in procedure_occurrence
 - Ensure `drug_concept_id` at least at SCDG level (where `drug_concept_id` <> 0)
 
 
