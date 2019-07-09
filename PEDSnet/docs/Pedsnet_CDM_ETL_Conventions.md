@@ -1,8 +1,8 @@
-# ETL Conventions for use with PEDSnet CDM v3.3 OMOP V5.2
+# ETL Conventions for use with PEDSnet CDM v3.4 OMOP V5.2
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
-Version 3.3 of the PEDSnet CDM reflects the ETL processes developed after several iterations of network development. As such, it proposes to align with version 4.1 of the PCORnet CDM.
+Version 3.4 of the PEDSnet CDM reflects the ETL processes developed after several iterations of network development. As such, it proposes to align with version 4.1 of the PCORnet CDM.
 
 This document provides the ETL processing assumptions and conventions developed by the PEDSnet data partners that should be used by a data partner for ensuring common ETL business rules. This document will be modified as new situations are identified, incorrect business rules are identified and replaced, as new analytic use cases impose new/different ETL rules, and as the PEDSnet CDM continues to evolve.
 
@@ -12,7 +12,7 @@ Comments on this specification and ETL rules are welcome. Please send email to p
  
 1. The PEDSnet data network will store data using structures compatible with the PEDSnet Common Data Model (PCDM).
 
-2. The PEDSnet CDM v3.3 is based on the Observational Medical Outcomes Partnership (OMOP) data model, version 5.2. 
+2. The PEDSnet CDM v3.4 is based on the Observational Medical Outcomes Partnership (OMOP) data model, version 5.2. 
 
 3. A subset of data elements in the PCDM will be identified as principal data elements (PDEs). The PDEs will be used for population-level queries. Data elements which are NOT PDEs will be marked as Optional (ETL at site discretion) or Non-PDE (ETL required, but data need not be transmitted to DCC), and will not be used in queries without prior approval of site.
 
@@ -20,7 +20,7 @@ Comments on this specification and ETL rules are welcome. Please send email to p
 
 5. The data elements classified as PDEs and those included in the PCDM will be approved by the PEDSnet Executive Committee (comprised of each PEDSnet institution's site principal investigator).
 
-6. Concept IDs are taken from OMOP 5 vocabularies for PEDSnet CDM v3.3, using the complete (restricted) version that includes licensed terminologies such as CPT and others.
+6. Concept IDs are taken from OMOP 5 vocabularies for PEDSnet CDM v3.4, using the complete (restricted) version that includes licensed terminologies such as CPT and others.
 
 7. PCORnet CDM v4.1 requires data elements that are not currently considered "standard concepts". Vocabulary version 5 has a new vocabulary (vocabulary_id=PCORNet) that was added by OMOP to capture all of the PCORnet concepts that are not in the standard terminologies. We use concept_ids from vocabulary_id=PCORNet where there are no existing standard concepts. We highlight where we are pulling concept_ids from vocabulary_id=PCORNet in the tables. While terms from vocabulary_id=PCORNet violates the OMOP rule to use only concept_ids from standard vocabularies vocabulary_id=PCORNet is a non-standard vocabulary), this convention enables a clean extraction from PEDSnet CDM to PCORnet CDM.
 
@@ -183,7 +183,7 @@ race_source_concept_id| Yes |Yes|  Integer| A foreign key to the race concept th
 ethnicity_concept_id | Yes | Yes|  Integer | A foreign key that refers to the standard concept identifier in the Vocabulary for the ethnicity of the person. | <p>For PEDSnet, a person with Hispanic ethnicity is defined as "A person of Cuban, Mexican, Puerto Rican, South or Central American, or other Spanish culture or origin, regardless of race."</p> Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='Ethnicity' or (vocabulary_id=PCORNet and concept_class_id='Undefined) where noted): <ul><li>Hispanic: concept_id = 38003563</li> <li>Not Hispanic: concept_id = 38003564</li> <li>No Information: concept_id = 44814650 (vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653 (vocabulary_id='PCORNet')</li> <li>Other: concept_id = 44814649 (vocabulary_id='PCORNet')</li></ul>
 ethnicity_source_concept_id | Yes | Yes|Integer | A foreign key to the ethnicity concept that refers to the code used in the source.| <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
 location_id | No |Provide When Available| Integer |  A foreign key to the place of residency (ZIP code) for the person in the location table, where the detailed address information is stored.
-provider_id | No |Provide When Available| Integer |  Foreign key to the primary care provider the person is seeing in the provider table.| <p>For PEDSnet CDM v3.3.0: Sites will use site-specific logic to determine the best primary care provider and document how that decision was made (e.g., billing provider).</p>
+provider_id | No |Provide When Available| Integer |  Foreign key to the primary care provider the person is seeing in the provider table.| <p>For PEDSnet CDM v3.4.0: Sites will use site-specific logic to determine the best primary care provider and document how that decision was made (e.g., billing provider).</p>
 care_site_id | Yes |Yes| Integer |  A foreign key to the site of primary care in the care_site table, where the details of the care site are stored | For patients who receive care at multiple care sites, use site-specific logic to select a care site that best represents where the patient obtains the majority of their recent care. If a specific site within the institution cannot be identified, use a care_site_id representing the institution as a whole.
 pn_gestational_age | No |Provide When Available| Integer |  The post-menstrual age in weeks of the person at birth, if known | Use granularity of age in weeks as is recorded in local EHR.
 person_source_value | No |Provide When Available|  Varchar |  An encrypted key derived from the person identifier in the source data. | <p>Insert a unique pseudo-identifier (random number, encrypted identifier) into the field. Do not insert the actual MRN or PAT_ID from your site. A mapping from the pseudo-identifier for person_source_value in this field to a real patient ID or MRN from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p>
@@ -236,7 +236,7 @@ county | No |NO| Varchar | |Do not transmit to DCC
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
-#### 1.3.3 Additional Notes
+#### 1.3.4 Additional Notes
 
 - Each address or Location is unique and is present only once in the table
 - Locations in this table are restricted to locations that are applicable to persons and care_sites in the Pedsnet cohort at each site. When external data is implemented, valid(data containing) locations may be expanded beyond locations of those only present in clinical tables.
@@ -249,11 +249,11 @@ Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSn
  --- | --- | --- | --- | ---| ---
 care_site_id | Yes | Yes | Integer | A unique identifier for each defined location of care within an organization. Here, an organization is defined as a collection of one or more care sites that share a single EHR database. | <p>This is not a value found in the EHR.</p> Sites may choose to use a sequential value for this field
 care_site_name | No |Provide When Available|  Varchar | The description of the care site | 
-place_of_service_concept_id | No |Provide When Available|   Integer | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv5.1). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id = 'Place of Service' and invalid_reason is null)</p> <p>select \* from concept where concept_class_id = 'Place of Service' and invalid_reason is null yields 49 valid concept_ids.</p> Please use the following value set for PEDSnet v3.3: <ul><li><b>Urgent Care Facility = 	8782</b></li><li>Rural Health Clinic	 = 8761</li><li>Outpatient (Examples: Hospital	Dialysis, HOD, Day Hospital, Day Medicine) = 8756	</li><li>Office	=8940	</li><li>Inpatient Psychiatric Facility	=8971	</li><li>Inpatient Hospital	=8717	</li><li>Independent Clinic	=8716	</li><li>Emergency Room - Hospital = 8870	</li><li>Other Place of Service	=8844	</li><li>Other Inpatient Care	=8892	</li><li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul>
+place_of_service_concept_id | No |Provide When Available|   Integer | A foreign key that refers to a place of service concept identifier in the Vocabulary | <p>Please include valid concept ids (consistent with OMOP CDMv5.1). Predefined value set (valid concept_ids found in CONCEPT table where concept_class_id = 'Place of Service' and invalid_reason is null)</p> <p>select \* from concept where concept_class_id = 'Place of Service' and invalid_reason is null yields 49 valid concept_ids.</p> Please use the following value set for PEDSnet v3.4: <ul><li><b>Urgent Care Facility = 	8782</b></li><li>Rural Health Clinic	 = 8761</li><li>Outpatient (Examples: Hospital	Dialysis, HOD, Day Hospital, Day Medicine) = 8756	</li><li>Office	=8940	</li><li>Inpatient Psychiatric Facility	=8971	</li><li>Inpatient Hospital	=8717	</li><li>Independent Clinic	=8716	</li><li>Emergency Room - Hospital = 8870	</li><li>Other Place of Service	=8844	</li><li>Other Inpatient Care	=8892	</li><li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul>
 location_id | No |Provide When Available|   Integer | A foreign key to the geographic location of the administrative offices of the organization in the location table, where the detailed address information is stored.
 care_site_source_value | Yes  | Yes|  Varchar | The identifier for the organization in the source data, stored here for reference. | <p>If care site source values are deemed sensitive by your organization, insert a pseudo-identifier (random number, encrypted identifier) into the field. Sites electing to obfuscate care site_source_values will keep the mapping between the value in this field and the original clear text location source value. This value is only used for site-level re-identification for study recruitment and for data quality review.</p> <p>For EPIC EHRs, map care_site_id to Clarity Department.</p> Sites may consider using the care_site_id field value in this table as the pseudo-identifier as long as a local mapping from care_site_id to the real site identifier is maintained.
 place_of_service_source_value | No |Provide When Available|  Varchar | The source code for the place of service as it appears in the source data, stored here for reference.
-specialty_concept_id|No|Provide When Available| Integer|The specialty of the department linked to a standard specialty concept as it appears in the Vocabulary | <p>Care sites could have one or more specialties or a Care site could have no specialty information.</p><p>**Valid specialty concept ids for PEDSnet are found in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p><p>**Please use the following rules:**</p><ul><li><p> If care site specialty information is unavailable, please follow the convention on reporting values that are unknown,null or unavailable. </p></li><li><p> If a care site has a single specialty associated with it, sites should link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**. If the specialty does not correspond to a value in this listing, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference. </p></li><li><p> If there are multiple specialties associated with a particular care site and sites are not able to assign a specialty value on the visit occurrence level, sites should use the specialty concept id=38004477 "Pediatric Medicine". </p></li><li><p> If there are multiple specialties associated with a particular care site and this information is attainable, sites should document the strategy used to obtain this information and the strategy used to link the correct care site/specialty pair for each visit occurrence. Sites should also link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p> If the specialty does not correspond to a value in this listing, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference. </li><li>If the speciality does not correspond to a value in the NUCC Listing and no value in the ABMS Listing, please use the Specialty listing (vocabulary_id='Specialty') as a reference</li></ul>|
+specialty_concept_id|No|Provide When Available| Integer|The specialty of the department linked to a standard specialty concept as it appears in the Vocabulary | <p>Care sites could have one or more specialties or a Care site could have no specialty information.</p><p>**Valid specialty concept ids for PEDSnet are found in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p><p>**Please use the following rules:**</p><ul><li><p> If care site specialty information is unavailable, please follow the convention on reporting values that are unknown,null or unavailable. </p></li><li><p> If a care site has a single specialty associated with it, sites should link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**. If the specialty does not correspond to a value in this listing, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference. </p></li><li><p> If there are multiple specialties associated with a particular care site and sites are not able to assign a specialty value on the visit occurrence level, sites should use the specialty concept id=38004477 "Pediatric Medicine". </p></li><li><p> If there are multiple specialties associated with a particular care site and this information is attainable, sites should document the strategy used to obtain this information and the strategy used to link the correct care site/specialty pair for each visit occurrence. Sites should also link the specialty to the **valid specialty concepts as assigned in the [appendix] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)**</p> If the specialty does not correspond to a value in this listing, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference. </li><li>If the speciality does not correspond to a value in the NUCC Listing and no value in the ABMS Listing, please use the Specialty listing (vocabulary_id=' Medicare Specialty') as a reference</li></ul>|
 specialty_source_value| No |Provide When Available|  Varchar | The source code for the specialty as it appears in the source data, stored here for reference.
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
@@ -272,7 +272,7 @@ Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSn
 provider_id | Yes |Yes|  Integer | A unique identifier for each provider. Each site must maintain a map from this value to the identifier used for the provider in the source data. | This is not a value found in the EHR. <p>**SITE RESPONSIBILITY: This field must remain a stable identifier across submissions to the DCC.**</p> <p>A mapping from the provider_id to a real provider from the source EHR must be kept at the local site. This mapping is not shared with the data coordinating center. It is used only by the site for re-identification for study recruitment or for data quality review.</p> Sites should document who they have included as a provider.
 provider_name | No | NO| Varchar | A description of the provider | DO NOT TRANSMIT TO DCC
 gender_concept_id | No | Provide When Available|Integer | The gender of the provider | A foreign key to the concept that refers to the code used in the source.|Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table select \* from concept where domain_id='Gender'): <ul><li>Ambiguous: concept_id = 44814664 </li> <li>Female: concept_id = 8532</li> <li>Male: concept_id = 8507</li> <li>No Information: concept_id = 44814650 (Vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul>
-specialty_concept_id | No | Provide When Available| Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialty concept associated with the American Medical Board of Specialties as seen in [**Appendix A1**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Provider Specialty' and  vocabulary_id in ('Specialty', 'ABMS','NUCC','PEDsnet'))</p> <p>select \* from concept where domain_id ='Provider Specialty' and vocabulary_id in ('Specialty', 'ABMS','NUCC','PEDsnet') and invalid_reason is null yields 1025 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source. As a first guide please use the ABMS and PEDsnet vocabulary specialty listing listing to map your specialtity values. If the specialty does not correspond to a value in these listings, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference and the Specialty (vocabulary_id='Specialty') if no correspond value exists in the NUCC Listing.
+specialty_concept_id | No | Provide When Available| Integer | A foreign key to a standard provider's specialty concept identifier in the Vocabulary. | <p>Please map the source data to the mapped provider specialty concept associated with the American Medical Board of Specialties as seen in [**Appendix A1**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id in ('Medicare Specialty', 'ABMS','NUCC','PEDSnet'))</p> <p>select \* from concept where vocabulary_id in (' Medicare Specialty', 'ABMS','NUCC','PEDSnet') and invalid_reason is null yields 2200 valid concept_ids.</p> <p>If none are correct, use concept_id = 0</p> For providers with more than one specialty, use site-specific logic to select one specialty and document the logic used. For example, sites may decide to always assert the \*\*first\*\* specialty listed in their data source. As a first guide please use the ABMS and PEDsnet vocabulary specialty listing listing to map your specialtity values. If the specialty does not correspond to a value in these listings, please use the NUCC Listing (vocabulary_id='NUCC') provided in the vocabulary as a reference and the Specialty (vocabulary_id='Medicare Specialty') if no correspond value exists in the NUCC Listing.
 care_site_id | Yes |Yes|  Integer | A foreign key to the main care site where the provider is practicing. | See CARE_SITE.care_site_id (primary key)
 year_of_birth | No |Provide When Available| Integer | The year of birth of the provider||
 NPI | No | Site Preference|Varchar | The National Provider Identifier (NPI) of the provider. |
@@ -445,9 +445,9 @@ provider_id | No |Provide When Available| Integer | A foreign key to the provide
 visit_occurrence_id | No | Provide When Available|Integer | A foreign key to the visit in the visit table during which the condition was determined (diagnosed).
 condition_source_value | Yes |Yes| Varchar | The source code for the condition as it appears in the source data. This code is mapped to a standard condition concept in the Vocabulary and the original code is, stored here for reference. | Condition source codes are typically ICD-9-CM or ICD-10-CM diagnosis codes from medical claims or discharge status/visit diagnosis codes from EHRs. Use source_to_concept maps to translation from source codes to OMOP concept_ids. **Please include the diagnosis name and source code when populating this field, by using the pipe delimiter "\|" when concatenating values.** Example: Diagnosis Name "\|" IMO Code "\|" Diagnosis Code
 condition_source_concept_id | No |Provide When Available| Integer | A foreign key to a condition concept that refers to the code used in the source| As a standard convention this code must correspond to the ICD9/ICD10 concept mapping of the source value only. For example, if the condition is "Acute myeloid leukemia, without mention of having achieved remission" which has an icd9 code of 205.00 the condition source concept id is 44826430 which is the icd9 code concept that corresponds to the diagnosis 205.00. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p>
-condition_status_concept_id |No | Optional| Integer|A foreign key to the predefined concept in the standard vocabulary reflecting the condition status. | <p> For PEDSnet v3.3 we are only reporting final diagnosis, please use the following concept id:</p><ul> <li> Final Diagnosis=4230359 </li></ul>
+condition_status_concept_id |No | Optional| Integer|A foreign key to the predefined concept in the standard vocabulary reflecting the condition status. | <p> For PEDSnet v3.4 we are only reporting final diagnosis, please use the following concept id:</p><ul> <li> Final Diagnosis=4230359 </li></ul>
 condition_status_source_value| No| Optional | Varchar|  The source code for the condition status as it appears in the source data.
-poa_concept_id|No|Optional|Integer| A foreign key to value in the source for that determines if the diagnosis is present on admission| <p> For Pedsnet CDM v3.3, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 </li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
+poa_concept_id|No|Optional|Integer| A foreign key to value in the source for that determines if the diagnosis is present on admission| <p> For Pedsnet CDM v3.4, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 </li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
 
 
 
@@ -456,7 +456,7 @@ poa_concept_id|No|Optional|Integer| A foreign key to value in the source for tha
 
 #### 1.7.1 Additional Notes
 
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to condition_occurrence. All conditions are included for an active patient. For PEDSnet CDM v3.3, we limit condition_occurrences to final diagnoses only (not reason-for-visit and provisional surgical diagnoses such as those recored in EPIC OPTIME). In EPIC, final diagnoses includes both encounter diagnoses and billing diagnoses, problem lists (all problems, not filtered on "chronic" versus "provisional" unless local practices use this flag as intended). Medical History diagnosis are optional.
+- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to condition_occurrence. All conditions are included for an active patient. For PEDSnet CDM v3.4, we limit condition_occurrences to final diagnoses only (not reason-for-visit and provisional surgical diagnoses such as those recored in EPIC OPTIME). In EPIC, final diagnoses includes both encounter diagnoses and billing diagnoses, problem lists (all problems, not filtered on "chronic" versus "provisional" unless local practices use this flag as intended). Medical History diagnosis are optional.
 - Condition records are inferred from diagnostic codes recorded in the source data by a clinician or abstractionist for a specific visit. In the current version of the CDM, diagnoses extracted from unstructured data (such as notes) are not included.
 - Source code systems, like ICD-9-CM, ICD-10-CM, etc., provide coverage of conditions. However, if the code does not define a condition, but rather is an observation or a procedure, then such information is not stored in the CONDITION_OCCURRENCE table, but in the respective tables instead. An example are ICD-9-CM procedure codes. For example, OMOP source-to-concept table uses the MAPPING_TYPE column to distinguish ICD9 codes that represent procedures rather than conditions.
 - Condition source values are mapped to standard concepts for conditions in the Vocabulary. For mapping ICD9 Codes to SNOMED, use the concept_relationship table where the icd9_code = concept_id_1 and relationship_id='Maps to'. Concept_id_2 will be the SNOMED concept_id mapping you need to populate the condition_concept_id.
@@ -509,7 +509,7 @@ modifier_source_value | No |Provide When Available| Varchar | The source code fo
 
 #### 1.8.1 Additional notes
 
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to procedure_occurrence. All procedures are included for an active patient. For PEDSnet CDM v3.3, we limit procedures_occurrences to billing procedures only (not surgical diagnoses).
+- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to procedure_occurrence. All procedures are included for an active patient. For PEDSnet CDM v3.4, we limit procedures_occurrences to billing procedures only (not surgical diagnoses).
 - Procedure Concepts are based on a variety of vocabularies: SNOMED-CT, ICD-9-Proc, ICD-10-Proc, CPT-4, HCPCS and OPCS-4.
 - Procedures could reflect the administration of a drug, in which case the procedure is recorded in the procedure table and simultaneously the administered drug in the drug table.
 - The Visit during which the procedure was performed is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
@@ -517,7 +517,7 @@ modifier_source_value | No |Provide When Available| Varchar | The source code fo
 
 ## 1.9 OBSERVATION
 
-The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. The observation domain supports capture of data not represented by other domains such as unstructured measurements. For the PEDSnet CDM version 3.3, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id ='PCORNet').
+The observation domain captures clinical facts about a patient obtained in the context of examination, questioning or a procedure. The observation domain supports capture of data not represented by other domains such as unstructured measurements. For the PEDSnet CDM version 3.4, the observations listed below are extracted from source data. Please assign the specific concept_ids listed in the table below to these observations as observation_concept_ids. Non-standard PCORnet concepts require concepts that have been entered into an OMOP-generated vocabulary (OMOP provided vocabulary_id ='PCORNet').
 
 NOTE: DRG and DRG Type require special logic/processing described below.
 
@@ -527,7 +527,7 @@ NOTE: DRG and DRG Type require special logic/processing described below.
 
 Use the following table to populate observation_concept_ids for the observations listed above. The vocabulary id 'PCORNet' contains concept specific to PCORNet requirements and standards.
 
-**Table 1: Valid Observation concept IDs and Value as concept IDs for PEDSNet v3.3.** 
+**Table 1: Valid Observation concept IDs and Value as concept IDs for PEDSNet v3.4.** 
 
 Concept Name | Observation concept ID | Vocab ID | Value as concept ID | Concept description | Vocab ID| PCORNet Mapping
  --- | --- | --- | --- | --- | ---| ---
@@ -649,7 +649,7 @@ person_id | Yes |Yes| Integer | A foreign key identifier to the person about who
 observation_concept_id | Yes |Yes| Integer | A foreign key to the standard observation concept identifier in the Vocabulary. | Lab results and vitals are not stored in this table in V5 but are stored in the Measurement table.
 observation_date | Yes |Yes| Date | The date of the observation. | No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
 observation_datetime | No |Provide When Available| Datetime | The time of the observation. | No date shifting.  Full date and time. If there is no time associated with the date assert midnight.
-observation_type_concept_id | Yes |Yes| Integer | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the observation. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='Observation Type')</p> <p>select \* from concept where vocabulary_id = 'Observation Type' yields 11 valid concept_ids.</p> FOR PEDSnet CDM v3.3, all of our observations are coming from electronic health records so *set this field to concept_id = 38000280* (observation recorded from EMR). When we get data from patients, we will include the concept_id = 44814721
+observation_type_concept_id | Yes |Yes| Integer | A foreign key to the predefined concept identifier in the Vocabulary reflecting the type of the observation. | <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='Observation Type')</p> <p>select \* from concept where vocabulary_id = 'Observation Type' yields 11 valid concept_ids.</p> FOR PEDSnet CDM v3.4, all of our observations are coming from electronic health records so *set this field to concept_id = 38000280* (observation recorded from EMR). When we get data from patients, we will include the concept_id = 44814721
 value_as_number |No (see convention) |Provide When Available| Float | The observation result stored as a number. This is applicable to observations where the result is expressed as a numeric value. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id PCORNet where all three value_as_\* fields are NULL.
 value_as_string | No (see convention) | Provide When Available|Varchar | The observation result stored as a string. This is applicable to observations where the result is expressed as verbatim text. | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id PCORNet where all three value_as_\* fields are NULL.
 value_as_concept_id | No (see convention) |Provide When Available| Integer | A foreign key to an observation result stored as a concept identifier. This is applicable to observations where the result can be expressed as a standard concept from the Vocabulary (e.g., positive/negative, present/absent, low/high, etc.). | Value must be represented as at least one of {value_as_number, value_as_string or values_as_concept_id}. There are a few exceptions in vocabulary id PCORNet where all three value_as_\* fields are NULL.
@@ -666,7 +666,7 @@ qualifier_source_value |No |Provide When Available| Varchar | The source value a
 
 #### 1.9.1 Additional Notes
 
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to observations. All observations are included for an active patient. For PEDSnet CDM v3.3, we limit observations to only those that appear in Table 1.
+- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to observations. All observations are included for an active patient. For PEDSnet CDM v3.4, we limit observations to only those that appear in Table 1.
 - Observations have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
 - The Visit during which the observation was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the observation is recorded through a reference to the PROVIDER table. This information is not always available.
@@ -674,7 +674,7 @@ qualifier_source_value |No |Provide When Available| Varchar | The source value a
 
 ## 1.10 OBSERVATION PERIOD
 
-The observation period domain is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have a clinical fact represented in the PEDSNet version 3.3 data model. This table is used to generate the PCORnet CDM enrollment table.
+The observation period domain is designed to capture the time intervals in which data are being recorded for the person. An observation period is the span of time when a person is expected to have a clinical fact represented in the PEDSNet version 3.4 data model. This table is used to generate the PCORnet CDM enrollment table.
 
 While analytic methods can be used to calculate gaps in observation periods that will generate multiple records (observation periods) per person, for PEDSnet, the logic has been simplified to generate a single observation period row for each patient. This logic can be found [here] (https://github.com/PEDSnet/dcc-loader/blob/master/load-data/generate_obs_period.psql)
 
@@ -773,7 +773,7 @@ drug_exposure_id | Person_id | Visit_occurrence_id | drug_concept_id | drug_type
 - drug_type_concept_id for Inpatient Medication Order = 581373 (Physician administered drug (identified from EHR order))
 - drug_type_concept_id for Inpatient Administration= 38000180 (Inpatient Administration)
 
-To link these two values, use the fact relationship table (**OPTIONAL FOR PEDSnet v3.3**):
+To link these two values, use the fact relationship table (**OPTIONAL FOR PEDSnet v3.4**):
 
 Domain_concept_id_1 | fact_id_1 | Domain_concept_id_2 | fact_id_2 | relationship_concept_id
 --- | --- | --- | --- | ---
@@ -826,7 +826,7 @@ drug_source_concept_id| No |Provide When Available|  Integer | A foreign key to 
 route_source_value| No|Provide When Available|  Varchar |The information about the route of administration as detailed in the source ||
 dose_unit_source_value| No|Provide When Available|  Varchar | The information about the dose unit as detailed in the source ||
 frequency| No | Optional | Varchar | The frequency information as available from the source ||
-dispense_as_written_concept_id|No|Optional|Integer| A foreign key to value in the source for that determines if the medication is to be dispensed as written| <p> For Pedsnet CDM v3.3, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
+dispense_as_written_concept_id|No|Optional|Integer| A foreign key to value in the source for that determines if the medication is to be dispensed as written| <p> For Pedsnet CDM v3.4, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -978,7 +978,7 @@ In addition, the following observations are derived via the DCC (concept_ids to 
 - Systolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 - Diastolic BP z score for age/sex/height using NHBPEP task force fourth report norms.
 
-**Note 4**: For PEDSnet v3.3, PCORI has requested that sites provide all labs available. 
+**Note 4**: For PEDSnet v3.4, PCORI has requested that sites provide all labs available. 
 - Sites will determine what labs constitute "all labs" at their site. There is no obligation to go outside your main lab result system or source tables.
 - Sites will not send text labs that potentially contain PHI in the source value.
 
@@ -1048,14 +1048,14 @@ unit_source_value| No| Provide When Available| Varchar | The source code for the
 value_source_value| Yes |Yes|  Varchar | The source value associated with the structured value stored as numeric or concept. This field can be used in instances where the source data are transformed|<ul> <li>For BP values include the raw 'systolic/diastolic' value E.g. 120/60</li><li>If there are transformed values (E.g. Weight,Height, Head Circumference, Pulmonary Function Values and Temperature) please insert the raw data before transformation.</li></ul> For Categorical/Qualitative Lab result values, please use this field to store the raw result from the source.
 specimen_concept_id| No| Optional | Integer| This field is applicable for lab values only. A foreign key to a concept that refers to the specimen source.| This is the concept id that maps to the specimen source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p> <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Specimen' and vocabulary_id='SNOMED' and concept_class_id='Specimen' and standard_concept='S' and invalid_reason is null)</p> <p>select \* from concept where domain_id='Specimen' and vocabulary_id='SNOMED' and concept_class_id='Specimen' and standard_concept='S' and invalid_reason is null</p> **The specimen_source_value column consists of the "SPECIMEN TYPE\|SPECIMEN SOURCE". When mapping using the above mentioned valueset, please attempt to map using the "SPECIMEN TYPE" first. If the "SPECIMEN TYPE" is not available at your site, please map using the "SPECIMEN SOURCE"**
 specimen_source_value| No| Provide When Available| Varchar | This field is applicable for lab values only. This source value for the specimen source as it appears in the source| Please populate this value as a pipe delimited field "SPECIMEN TYPE\|SPECIMEN SOURCE" Eg. "URINE\|CATHETER"
-priority_concept_id| No| Provide When Available | Integer| This field applies to Lab Orders only. A foreign key to a concept that refers to the lab priority as described in the source|<p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value')</p> <p>select \* from concept where (domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value') or (vocabulary_id='PCORNet' and concept_class_id='Undefined')  yields 7 valid concept_ids.</p> For Pedsnet CDM v3.3, please use the following: <ul><li>Expedited (includes Today)=2000000059 </li><li>STAT (includes ASAP)=2000000060</li><li>Routine = 2000000061 </li><li>Timed = 2000000062 </li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> 
+priority_concept_id| No| Provide When Available | Integer| This field applies to Lab Orders only. A foreign key to a concept that refers to the lab priority as described in the source|<p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value')</p> <p>select \* from concept where (domain_id='Procedure' and vocabulary_id='PEDSnet' and concept_class_id='Qualifier Value') or (vocabulary_id='PCORNet' and concept_class_id='Undefined')  yields 7 valid concept_ids.</p> For Pedsnet CDM v3.4, please use the following: <ul><li>Expedited (includes Today)=2000000059 </li><li>STAT (includes ASAP)=2000000060</li><li>Routine = 2000000061 </li><li>Timed = 2000000062 </li><li>No Information: concept_id = 44814650 vocabulary_id='PCORNet')</li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> 
 priority_source_value| No| Provide When Available |  Varchar|This field applies to Lab Orders only. The lab priority as described in the source|
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
 #### 1.12.1 Additional Notes
 
-- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to measurements. All measurements are included for an active patient. For PEDSnet CDM v3.3, we limit measurements to only those that appear in Table 3 (for vital signs).
+- The 1/1/2009 date limitation that is used to define a PEDSnet active patient is \*\*NOT\*\* applied to measurements. All measurements are included for an active patient. For PEDSnet CDM v3.4, we limit measurements to only those that appear in Table 3 (for vital signs).
 - Measurements have a value represented by one of a concept ID, a string, \*\*OR\*\* a numeric value.
 - The Visit during which the measurement was made is recorded through a reference to the VISIT_OCCURRENCE table. This information is not always available.
 - The Provider making the measurement is recorded through a reference to the PROVIDER table. This information is not always available.
@@ -1074,11 +1074,11 @@ Relationship_concept_id	|Yes |Yes| Integer |A foreign key to a standard concept 
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
-#### 1.13.3 Additional Notes
+#### 1.13.4 Additional Notes
 - Blood Pressure Systolic and Diastolic Blood Pressure Values will be mapped using the fact relationship table. See [Note 2 in the Measurement section](Pedsnet_CDM_ETL_Conventions.md#measurement-note-2) for instructions.
 - ER Visits that result in an Inpatient Encounter will be mapped using the fact relationship table. See [Additional Notes in the Visit Occurrence section](Pedsnet_CDM_ETL_Conventions.md#161-additional-notes) for instructions.
 - Tobacco, smoking and tobacco type associations will be mapped using the fact relationship table. See [Note 4 in the Observation section](Pedsnet_CDM_ETL_Conventions.md#observation-note-4) for instructions.
-- For version 3.3 of PEDSnet, the inpatient medication orders and administrations linking is ***optional***. See [Note 8 in the Drug_Exposure section](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
+- For version 3.4 of PEDSnet, the inpatient medication orders and administrations linking is ***optional***. See [Note 8 in the Drug_Exposure section](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
 
 ## 1.14 VISIT_PAYER
 
@@ -1093,7 +1093,7 @@ visit_occurrence_id | Yes |Yes| Integer | A foreign key to the visit in the visi
 plan_name | Yes |Yes|  Varchar| The untransformed payer/plan name from the source data
 plan_type | No |Provide When Available|  Varchar |  A standardized interpretation of the plan structure | Please only map your plan type to the following categories: <ul> <li>HMO</li> <li>PPO</li> <li>POS</li> <li>Fee for service</li><li> Other/Unknown </li></ul> If the categories are unclear, please work with your billing department or local experts to determine how to map plans to these values.
 plan_class | Yes |Yes|  Varchar | A list of the "payment sources" most often used in demographic analyses| Please map your plan type to the following categories: <ul> <li>Private/Commercial</li> <li>Medicaid/sCHIP</li> <li>Medicare</li> <li>Other public</li> <li>Self-pay</li> <li>Other/Unknown</li></ul> Please work with your billing department or local experts to determine how to map plans to these values.
-visit_payer_type_concept_id| No| Optional| Integer| A foreign key to a concept that refers to the status of the payer in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p> For PEDSnet v3.3, use the following concept_ids: <ul><li>Payer is primary" concept_id = 31968</li> <li>Payer is secondary: concept_id = 31969</li></ul> <p>If you are unable to distinguish between primary and secondary payers. Please map to the following: <ul><li>Payer is secondary: concept_id = 31969</li></ul></p>
+visit_payer_type_concept_id| No| Optional| Integer| A foreign key to a concept that refers to the status of the payer in the source.| This is the concept id that maps to the source value in the standard vocabulary. <p>**If there is not a mapping for the source code in the standard vocabulary, use concept_id = 0**</p> For PEDSnet v3.4, use the following concept_ids: <ul><li>Payer is primary" concept_id = 31968</li> <li>Payer is secondary: concept_id = 31969</li></ul> <p>If you are unable to distinguish between primary and secondary payers. Please map to the following: <ul><li>Payer is secondary: concept_id = 31969</li></ul></p>
 
 **If a field marked as "Provide when available" for the network requirement is not available at your site, please relay this information to the DCC**
 
@@ -1133,7 +1133,7 @@ visit_occurrence_id| 	Yes| 	Yes| 	Integer	| A foreign key identifier to the visi
 adt_date| 	Yes| 	Yes| 	Date	| The date of the adt event
 adt_datetime	| Yes| 	Yes	| Datetime	| The datetime of the adt event|	No date shifting. Full date and time. If there is no time associated with the date assert midnight for the start time.
 care_site_id| 	No| 	Provide when available| 	Integer| 	A foreign key to the care site in which this adt event occurred.	
-service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a adt event service concept identifier in the vocabulary.  This concept describes the type of service associated with this adt event.	|<p>select \* from concept where vocabulary_id ='PEDSnet' and concept_class_id='Service Type' and standard_concept='S' yields 14 valid concept_ids.</p> **In PEDSnet CDM v3.3, only the NICU,CICU and PICU services are included.**<p>The value set available for PEDSnet includes:<ul> <li>	CICU (cardiac care) = 2000000079</li><li> NICU (neonatal care) = 2000000080</li><li> PICU (all other ICU) = 2000000078 </li><li>	Critical care = 2000000067</li><li>	Intermediate care = 2000000068 </li><li>	Acute care = 2000000069 </li><li>	Observation care = 2000000070 </li><li>	Surgical site (includes OR, ASC) = 2000000071  </li><li>	Procedural service = 2000000072  </li><li> Behavioral health =  2000000073  </li><li> Rehabilitative service (includes PT, OT, ST) = 2000000074 </li><li>	Specialty service = 2000000075</li><li> Radiology = 2000000076 </li><li> Hospital Outpatient = 2000000077 </li>li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul></p>
+service_concept_id| 	Yes	| Yes| 	Integer	| A foreign key that refers to a adt event service concept identifier in the vocabulary.  This concept describes the type of service associated with this adt event.	|<p>select \* from concept where vocabulary_id ='PEDSnet' and concept_class_id='Service Type' and standard_concept='S' yields 14 valid concept_ids.</p> **In PEDSnet CDM v3.4, only the NICU,CICU and PICU services are included.**<p>The value set available for PEDSnet includes:<ul> <li>	CICU (cardiac care) = 2000000079</li><li> NICU (neonatal care) = 2000000080</li><li> PICU (all other ICU) = 2000000078 </li><li>	Critical care = 2000000067</li><li>	Intermediate care = 2000000068 </li><li>	Acute care = 2000000069 </li><li>	Observation care = 2000000070 </li><li>	Surgical site (includes OR, ASC) = 2000000071  </li><li>	Procedural service = 2000000072  </li><li> Behavioral health =  2000000073  </li><li> Rehabilitative service (includes PT, OT, ST) = 2000000074 </li><li>	Specialty service = 2000000075</li><li> Radiology = 2000000076 </li><li> Hospital Outpatient = 2000000077 </li>li>Unknown: concept_id = 44814653 </li> <li>Other: concept_id =  44814649 </li> <li>No information: concept_id =  44814650</li></ul></p>
 adt_type_concept_id|No| Provide when available| Integer| A foreign key that refers to an adt event type concept identifier in the vocabulary. This concept describes the type of the adt event. | <p>select \* from concept where vocabulary_id ='PEDSnet' and concept_class_id='ADT Event Type' yields 5 valid concept_ids.</p> <p> The value set for PEDSnet includes: <ul><li>Admission = 2000000083 </li><li>Discharge = 2000000084 </li>Transfer in = 2000000085 <li>Transfer out = 2000000086</li><li>Census = 2000000087</li></ul></p>
 prior_adt_occurrence_id| No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately preceding this record in the event stream for the visit.  Must be populated for all but the first ADT even within a visit.
 next_adt_occurrence_id | No | Provide when available | Integer| Foreign key into the adt_occurrence table pointing to the ADT record immediately following this record in the event stream for the visit.  Must be populated for all but the last ADT even within a visit.
@@ -1184,12 +1184,12 @@ Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSn
  --- | --- | --- | --- | ---| ---
 device_exposure_id|	Yes|	Yes|	Integer|	A system-generated unique identifier for each Device Exposure.|This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 person_id|	Yes|	Yes|	Integer|	A foreign key identifier to the Person who is subjected to the Device. The demographic details of that Person are stored in the PERSON table.|
-device_concept_id|	Yes|	Yes|	Integer|	A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Device' domain.| **For PEDSnet 3.3, Please use concept_id = 0.**
+device_concept_id|	Yes|	Yes|	Integer|	A foreign key that refers to a Standard Concept identifier in the Standardized Vocabularies belonging to the 'Device' domain.| **For PEDSnet 3.4, Please use concept_id = 0.**
 device_exposure_start_date|	Yes	|	Yes|	Date|	The date the Device or supply was applied or used.|No date shifting. Full date.
 device_exposure_start_datetime|	Yes| Yes	| Datetime |	The date and time the Device or supply was applied or used.|No date shifting. Full date and time. If there is no time associated with the date assert midnight for the start time
 device_exposure_end_date|	No|	No|	Date	|The date use of the Device or supply was ceased.|No date shifting. Full date.
 device_exposure_end_datetime|	No|	No |	Datetime|	The date and time use of the Device or supply was ceased.| No date shifting. Full date.If there is no time associated with the date assert 11:59:59 pm for the end time
-device_type_concept_id|	Yes| Yes|	Integer|	A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Device Exposure recorded.|<p>select * from concept where concept_class_id='Device Type' yields 4 valid concept ids.</p><p> FOR PEDSnet CDM v3.3, all of our observations are coming from electronic health records so set this field to concept_id = 44818707 (observation recorded from EHR Detail). </p>
+device_type_concept_id|	Yes| Yes|	Integer|	A foreign key to the predefined Concept identifier in the Standardized Vocabularies reflecting the type of Device Exposure recorded.|<p>select * from concept where concept_class_id='Device Type' yields 4 valid concept ids.</p><p> FOR PEDSnet CDM v3.4, all of our observations are coming from electronic health records so set this field to concept_id = 44818707 (observation recorded from EHR Detail). </p>
 unique_device_id|	No	|	Provide when available|	Varchar|	A UDI or equivalent identifying the instance of the Device used in the Person.|
 quantity|	No|	No| Integer |	The number of individual Devices used in the exposure.|
 provider_id	|No |Provide when Available|	Integer |	A foreign key to the provider in the PROVIDER table who initiated or administered the Device.|
@@ -1201,143 +1201,144 @@ device_source_concept_id	|Yes| Yes|	Integer |	A foreign key to a Device Concept 
 
 ## ***APPENDIX***
 
-**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0, 2.0 and 3.3**
+**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0, 2.0 and 3.4**
 
 ### A1. ABMS Specialty Category to OMOP V5 Specialty Mapping
 http://www.abms.org/member-boards/specialty-subspecialty-certificates/
 
-ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Domain_id | Vocabulary id
---- | --- | --- | --- | ---
-Addiction Psychiatry |38004498 | Addiction Medicine | Provider Specialty | Specialty   
-Adolescent Medicine |45756747 |Adolescent Medicine|Provider Specialty | ABMS
-Adult Congenital Heart Disease |45756748  |Adult Congenital Heart Disease|Provider Specialty |  ABMS
-Advanced Heart Failure and Transplant Cardiology |45756749 |Advanced Heart Failure and Transplant Cardiology|  Provider Specialty | ABMS
-Aerospace Medicine |45756750 |Aerospace Medicine| Provider Specialty | ABMS
-Allergy and Immunology | 38004448 | Allergy/Immunology                | Provider Specialty | Specialty    
-Anesthesiology |38004450 | Anesthesiology   | Provider Specialty | Specialty    
-Anesthesiology Critical Care Medicine |45756751 |Anesthesiology Critical Care Medicine|Provider Specialty | Specialty
-Blood Banking/Transfusion Medicine |45756752|Blood Banking/Transfusion Medicine|Provider Specialty |  ABMS
-Brain Injury Medicine |45756753 |Brain Injury Medicine|Provider Specialty |  ABMS
-Cardiology |38004451 | Cardiology                       | Provider Specialty | Specialty 
-Cardiovascular Disease |45756754 |Cardiovascular Disease|Provider Specialty |  ABMS
-Child Abuse Pediatrics |45756755 |Child Abuse Pediatrics |Provider Specialty |  ABMS
-Child and Adolescent Psychiatry |45756756|Child and Adolescent Psychiatry|Provider Specialty |  ABMS
-Clinical Biochemical Genetics |45756757|Clinical Biochemical Genetics|Provider Specialty |  ABMS
-Clinical Cardiac Electrophysiology |45756758|Clinical Cardiac Electrophysiology |Provider Specialty |  ABMS
-Clinical Cytogenetics |45756759 |Clinical Cytogenetics|Provider Specialty |  ABMS
-Clinical Genetics (MD) |45756760|Clinical Genetics (MD)|Provider Specialty |  ABMS
-Clinical Informatics |45756761|Clinical Informatics|Provider Specialty |  ABMS
-Clinical Molecular Genetics |45756762|Clinical Molecular Genetics|Provider Specialty |  ABMS
-Clinical Neurophysiology |45756763|Clinical Neurophysiology |Provider Specialty |  ABMS
-Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Provider Specialty | Specialty   
-Complex General Surgical Oncology |45756764|Complex General Surgical Oncology| Provider Specialty | ABMS
-Congenital Cardiac Surgery |45756765|Congenital Cardiac Surgery |Provider Specialty |  ABMS
-Critical Care Medicine | 38004500 | Critical care (intensivist)      | Provider Specialty | Specialty    
-Cytopathology |45756766|Cytopathology |Provider Specialty |  ABMS
-Dermatology  |38004452 | Dermatology                        | Provider Specialty | Specialty    
-Dermatopathology |45756767|Dermatopathology|Provider Specialty |  ABMS
-Developmental-Behavioral Pediatrics |45756768|Developmental-Behavioral Pediatrics|Provider Specialty |  ABMS
-Diagnostic Radiology |45756769|Diagnostic Radiology|Provider Specialty |  ABMS
-Emergency Medical Services |45756770|Emergency Medical Services|Provider Specialty |  ABMS
-Emergency Medicine | 38004510 | Emergency Medicine         | Provider Specialty | Specialty   
-Endocrinology, Diabetes and Metabolism |45756771  |Endocrinology, Diabetes and Metabolism|Provider Specialty |  ABMS
-Epilepsy |45756772   |Epilepsy|Provider Specialty |  ABMS
-General Family Medicine | 38004453 | Family Practice                           | Provider Specialty | Specialty   
-Female Pelvic Medicine and Reconstructive Surgery|45756773 |Female Pelvic Medicine and Reconstructive Surgery| Provider Specialty | ABMS
-Forensic Psychiatry |45756775|Forensic Psychiatry|Provider Specialty |  ABMS
-Gastroenterology |38004455 | Gastroenterology                    | Provider Specialty | Specialty   
-General Pediatrics (Primary Care)* |2000000063 |General Pediatrics        | Provider Specialty | PEDSNet   
-Geriatric Medicine | 38004478 | Geriatric Medicine                   | Provider Specialty | Specialty   
-Geriatric Psychiatry |45756776|Geriatric Psychiatry|Provider Specialty |  ABMS
-Gynecologic Oncology |38004513 | Gynecology/Oncology              | Provider Specialty | Specialty    
-Hematology | 38004501 | Hematology                           | Provider Specialty | Specialty   
-Hospice and Pallative Medicine |45756777 |Hospice and Pallative Medicine|Provider Specialty |  ABMS
-Infectious Disease | 38004484 | Infectious Disease                | Provider Specialty | Specialty   
-General Internal Medicine | 38004456 | Internal Medicine| Provider Specialty | Specialty   
-Internal Medicine - Critical Care Medicine |45756778|Internal Medicine - Critical Care Medicine|Provider Specialty |  ABMS
-Interventional Cardiology |45756779 |Interventional Cardiology|Provider Specialty |  ABMS
-Interventional Radiology and Diagnostic Radiology |38004511 | Interventional Radiology | Provider Specialty | Specialty   
-Maternal and Fetal Medicine |45756780|Maternal and Fetal Medicine |Provider Specialty |  ABMS
-Medical Biochemical Genetics |45756781|Medical Biochemical Genetics|Provider Specialty |  ABMS
-Medical Genetics and Genomics |45756782 |Medical Genetics and Genomics|Provider Specialty |  ABMS
-Medical Oncology |38004507 | Medical Oncology | Provider Specialty | Specialty   
-Medical Physics |45756783|Medical Physics|Provider Specialty |  ABMS
-Medical Toxicology|45756784|Medical Toxicology|Provider Specialty |  ABMS
-Molecular Genetic Pathology |45756785|Molecular Genetic Pathology|Provider Specialty |  ABMS
-Neonatal-Perinatal Medicine |45756786|Neonatal-Perinatal Medicine|Provider Specialty |  ABMS
-Nephrology | 38004479 | Nephrology                   | Provider Specialty | Specialty   
-Neurodevelopmental Disabilities |45756787|Neurodevelopmental Disabilities|Provider Specialty |  ABMS
-Neurological Surgery | 38004459 | Neurosurgery                    | Provider Specialty | Specialty   
-General Neurology | 38004458 | Neurology                                     | Provider Specialty | Specialty   
-Neurology with Special Qualification in Child Neurology |45756788|Neurology with Special Qualification in Child Neurology|Provider Specialty |  ABMS
-Neuromuscular Medicine |45756789|Neuromuscular Medicine|Provider Specialty |  ABMS
-Neuropathology |45756790 |Neuropathology|Provider Specialty |  ABMS
-Neuroradiology |45756791|Neuroradiology|Provider Specialty |  ABMS
-Neurotology |45756792|Neurotology|Provider Specialty |  ABMS
-Nuclear Medicine |38004476 | Nuclear Medicine                  | Provider Specialty | Specialty   
-Nuclear Radiology |45756793 |Nuclear Radiology|Provider Specialty |  ABMS
-Obstetrics and Gynecology | 38004461 | Obstetrics/Gynecology              | Provider Specialty | Specialty   
-Occupational Medicine |38004492 | Occupational Therapy              | Provider Specialty | Specialty   
-Ophthalmology |  38004463 | Ophthalmology                       | Provider Specialty | Specialty     
-Orthopaedic Sports Medicine |45756794|Orthopaedic Sports Medicine|Provider Specialty |  ABMS
-Orthopedics/Orthopaedic Surgery |38004465 |Orthopedics/Orthopedic Surgery                | Provider Specialty | Specialty   
-Otolaryngology | 38004449 | Otolaryngology                           | Provider Specialty | Specialty   
-Pain Medicine | 38004494 | Pain Management                           | Provider Specialty | Specialty   
-Pathology |38004466 | Pathology                                  | Provider Specialty | Specialty   
-Pathology - Anatomic |45756795|Pathology - Anatomic| Provider Specialty | ABMS
-Pathology - Chemical |45756796|Pathology - Chemical | Provider Specialty | ABMS
-Pathology - Clinical |45756797|Pathology - Clinical| Provider Specialty | ABMS
-Pathology - Forensic |45756798|Pathology - Forensic| Provider Specialty | ABMS
-Pathology - Hematology |45756799|Pathology - Hematology| Provider Specialty | ABMS
-Pathology - Medical Microbiology |45756800 |Pathology - Medical Microbiology| Provider Specialty | ABMS
-Pathology - Molecular Genetic |45756801|Pathology - Molecular Genetic| Provider Specialty | ABMS
-Pathology - Pediatric |45756802|Pathology - Pediatric | Provider Specialty | ABMS
-Pathology-Anatomic/Pathology-Clinical |45756803|Pathology-Anatomic/Pathology-Clinical | Provider Specialty | ABMS
-Pediatric Medicine** | 38004477 | Pediatric Medicine               | Provider Specialty | Specialty   
-Pediatric Anesthesiology |45756804|Pediatric Anesthesiology| Provider Specialty | ABMS
-Pediatric Cardiology |45756805|Pediatric Cardiology | Provider Specialty | ABMS
-Pediatric Critical Care Medicine |45756806|Pediatric Critical Care Medicine| Provider Specialty | ABMS
-Pediatric Dermatology |45756807|Pediatric Dermatology| Provider Specialty | ABMS
-Pediatric Emergency Medicine |45756808|Pediatric Emergency Medicine| Provider Specialty | ABMS
-Pediatric Endocrinology |45756809|Pediatric Endocrinology| Provider Specialty | ABMS
-Pediatric Gastroenterology |45756810 |Pediatric Gastroenterology | Provider Specialty | ABMS
-Pediatric Hematology-Oncology |45756811 |Pediatric Hematology-Oncology| Provider Specialty | ABMS
-Pediatric Infectious Diseases |45756812 |Pediatric Infectious Diseases| Provider Specialty | ABMS
-Pediatric Nephrology |45756813 |Pediatric Nephrology| Provider Specialty | ABMS 
-Pediatric Otolaryngology |45756814|Pediatric Otolaryngology | Provider Specialty | ABMS
-Pediatric Pulmonology |45756815|Pediatric Pulmonology | Provider Specialty | ABMS
-Pediatric Radiology |45756816|Pediatric Radiology| Provider Specialty | ABMS
-Pediatric Rehabilitation Medicine |45756817|Pediatric Rehabilitation Medicine| Provider Specialty | ABMS
-Pediatric Rheumatology |45756818|Pediatric Rheumatology| Provider Specialty | ABMS
-Pediatric Surgery |45756819|Pediatric Surgery| Provider Specialty | ABMS
-Pediatric Transplant Hepatology |45756820|Pediatric Transplant Hepatology | Provider Specialty | ABMS
-Pediatric Urology|45756821|Pediatric Urology| Provider Specialty | ABMS
-Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Provider Specialty | Specialty   
-Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Provider Specialty | Specialty    
-Plastic Surgery Within the Head and Neck |45756822|Plastic Surgery Within the Head and Neck| Provider Specialty | ABMS
-Preventative Medicine | 38004503 | Preventive Medicine                | Provider Specialty | Specialty   
-Psychiatry |38004469 | Psychiatry                             | Provider Specialty | Specialty   
-Psychosomatic Medicine |45756823 |Psychosomatic Medicine | Provider Specialty | ABMS
-Public Health and General Preventive Medicine |45756824|Public Health and General Preventive Medicine| Provider Specialty | ABMS
-Pulmonary Disease | 38004472 | Pulmonary Disease         | Provider Specialty | Specialty   
-Radiation Oncology |38004509 | Radiation Oncology    | Provider Specialty | Specialty   
-Radiology |45756825|Radiology| Provider Specialty | ABMS
-Reproductive Endocrinology/Infertility |45756826|Reproductive Endocrinology/Infertility| Provider Specialty | ABMS
-Rheumatology |38004491 | Rheumatology                  | Provider Specialty | Specialty   
-Sleep Medicine |45756827|Sleep Medicine| Provider Specialty | ABMS
-Spinal Cord Injury Medicine| concept id requested |Spinal Cord Injury Medicine | Provider Specialty | ABMS|
-Sports Medicine |45756828|Sports Medicine| Provider Specialty | ABMS
-General Surgery | 38004447 | General Surgery            | Provider Specialty | Specialty   
-Surgery of the Hand | 38004480 | Hand Surgery                  | Provider Specialty | Specialty   
-Surgical Critical Care |45756829|Surgical Critical Care | Provider Specialty | ABMS
-Thoracic Surgery | 38004473 | Thoracic Surgery                  | Provider Specialty | Specialty     
-Thoracic and Cardiac Surgery |45756830|Thoracic and Cardiac Surgery| Provider Specialty | ABMS
-Transplant Hepatology |45756831|Transplant Hepatology| Provider Specialty | ABMS
-Undersea and Hyperbaric Medicine |45756832 |Undersea and Hyperbaric Medicine| Provider Specialty | ABMS
-Urology | 38004474 | Urology                                   | Provider Specialty | Specialty   
-Vascular and Interventional Radiology |45756833|Vascular and Interventional Radiology| Provider Specialty | ABMS
-Vascular Neurology |45756834|Vascular Neurology| Provider Specialty | ABMS
-Vascular Surgery | 38004496 | Vascular Surgery           | Provider Specialty | Specialty   
+ABMS Specialty Category | OMOP Supported Concept for Provider ID | OMOP Concept_name | Concept_class_id | Vocabulary id| Domain_id
+--- | --- | --- | --- | --- | ---
+Addiction Psychiatry |38004498 | Addiction Medicine | Physician Specialty| Medicare Specialty| Provider   
+Adolescent Medicine |45756747 |Adolescent Medicine|Physician Specialty | ABMS | Provider
+Adult Congenital Heart Disease |45756748  |Adult Congenital Heart Disease|Physician Specialty |  ABMS | Provider
+Advanced Heart Failure and Transplant Cardiology |45756749 |Advanced Heart Failure and Transplant Cardiology|  Physician Specialty | ABMS | Provider
+Aerospace Medicine |45756750 |Aerospace Medicine| Physician Specialty | ABMS | Provider
+Allergy and Immunology | 38004448 | Allergy/Immunology                | Physician Specialty | Medicare Specialty | Provider    
+Anesthesiology |38004450 | Anesthesiology   | Physician Specialty | Medicare Specialty | Provider    
+Anesthesiology Critical Care Medicine |45756751 |Anesthesiology Critical Care Medicine|Physician Specialty | Medicare Specialty| Provider
+Blood Banking/Transfusion Medicine |45756752|Blood Banking/Transfusion Medicine|Physician Specialty |  ABMS| Provider
+Brain Injury Medicine |45756753 |Brain Injury Medicine|Physician Specialty |  ABMS| Provider
+Cardiology |38004451 | Cardiology                       | Physician Specialty | Medicare Specialty | Provider 
+Cardiovascular Disease |45756754 |Cardiovascular Disease|Physician Specialty |  ABMS| Provider
+Child Abuse Pediatrics |45756755 |Child Abuse Pediatrics |Physician Specialty |  ABMS| Provider
+Child and Adolescent Psychiatry |45756756|Child and Adolescent Psychiatry|Physician Specialty |  ABMS| Provider
+Clinical Biochemical Genetics |45756757|Clinical Biochemical Genetics|Physician Specialty |  ABMS| Provider
+Clinical Cardiac Electrophysiology |45756758|Clinical Cardiac Electrophysiology |Physician Specialty |  ABMS| Provider
+Clinical Cytogenetics |45756759 |Clinical Cytogenetics|Physician Specialty |  ABMS| Provider
+Clinical Genetics (MD) |45756760|Clinical Genetics (MD)|Physician Specialty |  ABMS| Provider
+Clinical Informatics |45756761|Clinical Informatics|Physician Specialty |  ABMS| Provider
+Clinical Molecular Genetics |45756762|Clinical Molecular Genetics|Physician Specialty |  ABMS| Provider
+Clinical Neurophysiology |45756763|Clinical Neurophysiology |Physician Specialty |  ABMS| Provider
+Colon and Rectal Surgery | 38004471 | Colorectal Surgery              | Physician Specialty | Medicare Specialty | Provider   
+Complex General Surgical Oncology |45756764|Complex General Surgical Oncology| Physician Specialty | ABMS| Provider
+Congenital Cardiac Surgery |45756765|Congenital Cardiac Surgery |Physician Specialty |  ABMS| Provider
+Critical Care Medicine | 38004500 | Critical care (intensivist)      | Physician Specialty | Medicare Specialty | Provider    
+Cytopathology |45756766|Cytopathology |Physician Specialty |  ABMS| Provider
+Dermatology  |38004452 | Dermatology                        | Physician Specialty | Medicare Specialty | Provider    
+Dermatopathology |45756767|Dermatopathology|Physician Specialty |  ABMS| Provider
+Developmental-Behavioral Pediatrics |45756768|Developmental-Behavioral Pediatrics|Physician Specialty |  ABMS| Provider
+Diagnostic Radiology |45756769|Diagnostic Radiology|Physician Specialty |  ABMS| Provider
+Emergency Medical Services |45756770|Emergency Medical Services|Physician Specialty |  ABMS| Provider
+Emergency Medicine | 38004510 | Emergency Medicine         | Physician Specialty | Medicare Specialty | Provider   
+Endocrinology, Diabetes and Metabolism |45756771  |Endocrinology, Diabetes and Metabolism|Physician Specialty |  ABMS| Provider
+Epilepsy |45756772   |Epilepsy|Physician Specialty |  ABMS| Provider
+General Family Medicine | 38004453 | Family Practice                           | Physician Specialty | Medicare Specialty | Provider   
+Female Pelvic Medicine and Reconstructive Surgery|45756773 |Female Pelvic Medicine and Reconstructive Surgery| Physician Specialty | ABMS| Provider
+Forensic Psychiatry |45756775|Forensic Psychiatry|Physician Specialty |  ABMS| Provider
+Gastroenterology |38004455 | Gastroenterology                    | Physician Specialty | Medicare Specialty | Provider  
+General Pediatrics (Primary Care)* |2000000063 |General Pediatrics        | Specialty | PEDSNet | Provider   
+Geriatric Medicine | 38004478 | Geriatric Medicine                   | Physician Specialty | Medicare Specialty | Provider   
+Geriatric Psychiatry |45756776|Geriatric Psychiatry|Physician Specialty |  ABMS| Provider
+Gynecologic Oncology |38004513 | Gynecology/Oncology              | Physician Specialty | Medicare Specialty | Provider    
+Hematology | 38004501 | Hematology                           | Physician Specialty | Medicare Specialty | Provider   
+Hospice and Pallative Medicine |45756777 |Hospice and Pallative Medicine|Physician Specialty |  ABMS| Provider
+Infectious Disease | 38004484 | Infectious Disease                | Physician Specialty | Medicare Specialty | Provider   
+General Internal Medicine | 38004456 | Internal Medicine| Physician Specialty | Medicare Specialty | Provider   
+Internal Medicine - Critical Care Medicine |45756778|Internal Medicine - Critical Care Medicine|Physician Specialty |  ABMS| Provider
+Interventional Cardiology |45756779 |Interventional Cardiology|Physician Specialty |  ABMS| Provider
+Interventional Radiology and Diagnostic Radiology |38004511 | Interventional Radiology | Physician Specialty | Medicare Specialty | Provider   
+Maternal and Fetal Medicine |45756780|Maternal and Fetal Medicine |Physician Specialty |  ABMS| Provider
+Medical Biochemical Genetics |45756781|Medical Biochemical Genetics|Physician Specialty |  ABMS| Provider
+Medical Genetics and Genomics |45756782 |Medical Genetics and Genomics|Physician Specialty |  ABMS| Provider
+Medical Oncology |38004507 | Medical Oncology | Physician Specialty | Medicare Specialty | Provider   
+Medical Physics |45756783|Medical Physics|Physician Specialty |  ABMS| Provider
+Medical Toxicology|45756784|Medical Toxicology|Physician Specialty |  ABMS| Provider
+Molecular Genetic Pathology |45756785|Molecular Genetic Pathology|Physician Specialty |  ABMS| Provider
+Neonatal-Perinatal Medicine |45756786|Neonatal-Perinatal Medicine|Physician Specialty |  ABMS| Provider
+Nephrology | 38004479 | Nephrology                   | Physician Specialty | Medicare Specialty | Provider   
+Neurodevelopmental Disabilities |45756787|Neurodevelopmental Disabilities|Physician Specialty |  ABMS| Provider
+Neurological Surgery | 38004459 | Neurosurgery                    | Physician Specialty | Medicare Specialty | Provider   
+General Neurology | 38004458 | Neurology                                     | Physician Specialty | Medicare Specialty | Provider   
+Neurology with Special Qualification in Child Neurology |45756788|Neurology with Special Qualification in Child Neurology|Physician Specialty |  ABMS| Provider
+Neuromuscular Medicine |45756789|Neuromuscular Medicine|Physician Specialty |  ABMS| Provider
+Neuropathology |45756790 |Neuropathology|Physician Specialty |  ABMS| Provider
+Neuroradiology |45756791|Neuroradiology|Physician Specialty |  ABMS| Provider
+Neurotology |45756792|Neurotology|Physician Specialty |  ABMS| Provider
+Nuclear Medicine |38004476 | Nuclear Medicine                  | Physician Specialty | Medicare Specialty | Provider   
+Nuclear Radiology |45756793 |Nuclear Radiology|Physician Specialty |  ABMS| Provider
+Obstetrics and Gynecology | 38004461 | Obstetrics/Gynecology              | Physician Specialty | Medicare Specialty | Provider   
+Occupational Medicine |38004492 | Occupational Therapy              | Physician Specialty | Medicare Specialty| Provider   
+Ophthalmology |  38004463 | Ophthalmology                       | Physician Specialty | Medicare Specialty | Provider     
+Orthopaedic Sports Medicine |45756794|Orthopaedic Sports Medicine|Physician Specialty |  ABMS| Provider
+Orthopedics/Orthopaedic Surgery |38004465 |Orthopedics/Orthopedic Surgery                | Physician Specialty | Medcicare Specialty | Provider   
+Otolaryngology | 38004449 | Otolaryngology                           | Physician Specialty | Medicare Specialty | Provider     
+Pain Medicine | 38004494 | Pain Management                           | Physician Specialty | Medicare Specialty  | Provider    
+Pathology |38004466 | Pathology                                  | Physician Specialty | Medicare Specialty   | Provider   
+Pathology - Anatomic |45756795|Pathology - Anatomic| Physician Specialty | ABMS| Provider
+Pathology - Chemical |45756796|Pathology - Chemical | Physician Specialty | ABMS| Provider
+Pathology - Clinical |45756797|Pathology - Clinical| Physician Specialty | ABMS| Provider
+Pathology - Forensic |45756798|Pathology - Forensic| Physician Specialty | ABMS| Provider
+Pathology - Hematology |45756799|Pathology - Hematology| Physician Specialty | ABMS| Provider
+Pathology - Medical Microbiology |45756800 |Pathology - Medical Microbiology| Physician Specialty | ABMS| Provider
+Pathology - Molecular Genetic |45756801|Pathology - Molecular Genetic| Physician Specialty | ABMS| Provider
+Pathology - Pediatric |45756802|Pathology - Pediatric | Physician Specialty | ABMS| Provider
+Pathology-Anatomic/Pathology-Clinical |45756803|Pathology-Anatomic/Pathology-Clinical | Physician Specialty | ABMS| Provider
+Pediatric Medicine** | 38004477 | Pediatric Medicine               | Physician Specialty | Medicare Specialty   | Provider   
+Pediatric Anesthesiology |45756804|Pediatric Anesthesiology| Physician Specialty | ABMS| Provider
+Pediatric Cardiology |45756805|Pediatric Cardiology | Physician Specialty | ABMS| Provider
+Pediatric Critical Care Medicine |45756806|Pediatric Critical Care Medicine| Physician Specialty | ABMS| Provider
+Pediatric Dermatology |45756807|Pediatric Dermatology| Physician Specialty | ABMS| Provider
+Pediatric Emergency Medicine |45756808|Pediatric Emergency Medicine| Physician Specialty | ABMS| Provider
+Pediatric Endocrinology |45756809|Pediatric Endocrinology| Physician Specialty | ABMS| Provider
+Pediatric Gastroenterology |45756810 |Pediatric Gastroenterology | Physician Specialty | ABMS| Provider
+Pediatric Hematology-Oncology |45756811 |Pediatric Hematology-Oncology| Physician Specialty | ABMS| Provider
+Pediatric Infectious Diseases |45756812 |Pediatric Infectious Diseases| Physician Specialty | ABMS| Provider
+Pediatric Nephrology |45756813 |Pediatric Nephrology| Physician Specialty | ABMS | Provider   
+Pediatric Otolaryngology |45756814|Pediatric Otolaryngology | Physician Specialty | ABMS| Provider
+Pediatric Pulmonology |45756815|Pediatric Pulmonology | Physician Specialty | ABMS| Provider
+Pediatric Radiology |45756816|Pediatric Radiology| Physician Specialty | ABMS| Provider
+Pediatric Rehabilitation Medicine |45756817|Pediatric Rehabilitation Medicine| Physician Specialty | ABMS| Provider
+Pediatric Rheumatology |45756818|Pediatric Rheumatology| Physician Specialty | ABMS| Provider
+Pediatric Surgery |45756819|Pediatric Surgery| Physician Specialty | ABMS| Provider
+Pediatric Transplant Hepatology |45756820|Pediatric Transplant Hepatology | Physician Specialty | ABMS| Provider
+Pediatric Urology|45756821|Pediatric Urology| Physician Specialty | ABMS| Provider
+Physical Medicine and Rehabilitation |38004468 | Physical Medicine And Rehabilitation | Physician Specialty | Medicare Specialty  | Provider    
+Plastic Surgery | 38004467 | Plastic And Reconstructive Surgery  | Physician Specialty | Medicare Specialty | Provider     
+Plastic Surgery Within the Head and Neck |45756822|Plastic Surgery Within the Head and Neck| Physician Specialty | ABMS| Provider
+Preventative Medicine | 38004503 | Preventive Medicine                | Physician Specialty | Medicare Specialty | Provider     
+Psychiatry |38004469 | Psychiatry                             | Physician Specialty | Medicare Specialty   | Provider   
+Psychosomatic Medicine |45756823 |Psychosomatic Medicine | Physician Specialty | ABMS| Provider
+Public Health and General Preventive Medicine |45756824|Public Health and General Preventive Medicine| Physician Specialty | ABMS| Provider
+Pulmonary Disease | 38004472 | Pulmonary Disease         | Physician Specialty | Medicare Specialty   | Provider   
+Radiation Oncology |38004509 | Radiation Oncology    | Physician Specialty | Medicare Specialty  | Provider    
+Radiology |45756825|Radiology| Physician Specialty | ABMS| Provider
+Reproductive Endocrinology/Infertility |45756826|Reproductive Endocrinology/Infertility| Physician Specialty | ABMS| Provider
+Rheumatology |38004491 | Rheumatology                  | Physician Specialty | Medicare Specialty   | Provider   
+Sleep Medicine |45756827|Sleep Medicine| Physician Specialty | ABMS| Provider
+Spinal Cord Injury Medicine| concept id requested |Spinal Cord Injury Medicine | Physician Specialty | ABMS|
+Sports Medicine |45756828|Sports Medicine| Physician Specialty | ABMS| Provider
+General Surgery | 38004447 | General Surgery            | Physician Specialty | Medicare Specialty   | Provider   
+Surgery of the Hand | 38004480 | Hand Surgery                  | Physician Specialty | Medicare Specialty   | Provider   
+Surgical Critical Care |45756829|Surgical Critical Care | Physician Specialty | ABMS| Provider
+Thoracic Surgery | 38004473 | Thoracic Surgery                  | Physician Specialty | Medicare Specialty  | Provider      
+Thoracic and Cardiac Surgery |45756830|Thoracic and Cardiac Surgery| Physician Specialty | ABMS| Provider
+Transplant Hepatology |45756831|Transplant Hepatology| Physician Specialty | ABMS| Provider
+Undersea and Hyperbaric Medicine |45756832 |Undersea and Hyperbaric Medicine| Physician Specialty | ABMS| Provider
+Urology | 38004474 | Urology                                   | Physician Specialty | Medicare Specialty | Provider    
+Vascular and Interventional Radiology |45756833|Vascular and Interventional Radiology| Physician Specialty | ABMS| Provider
+Vascular Neurology |45756834|Vascular Neurology| Physician Specialty | ABMS| Provider
+Vascular Surgery | 38004496 | Vascular Surgery           | Physician Specialty | Medicare Specialty   | Provider   
+
 
 **NOTES:**
 - General Pediatrics refers to Primary Care
