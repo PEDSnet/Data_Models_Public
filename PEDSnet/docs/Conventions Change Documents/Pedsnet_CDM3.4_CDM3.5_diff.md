@@ -24,7 +24,8 @@ Please see the conventions document for full details.
 
 ## NEW in PEDSnet CDM3.5
 ### NEW Table
-#### [1.19 Location History](Pedsnet_CDM_ETL_Conventions.md#119-location_history)
+#### [1.19 Location History
+(https://github.com/PEDSnet/Data_Models/blob/pedsnet_v3.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#119-location_history)
 - In reponse to the PCORNetv5 addition of the LDS_ADDRESS_HISTORY table we have included and adapted the OHDSI location_history table. For full details please see the conventions document.
 
 ## Increased Data Quality Focus for PEDSnet Key Data Elements
