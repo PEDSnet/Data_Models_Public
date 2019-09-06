@@ -1179,7 +1179,7 @@ procedure_occurrence_id|No|Optional| Integer | A foreign key that refers to the 
 imm_recorded_date|No| Provide when available| Date| The date the immunization was recorded.| This date is applicable for immunizations that have been reported by the patient and not administered at the visit. No date shifting.
 imm_recorded_datetime|No| Provide when available|Datetime |The time the immunization was recorded.| This date and time is applicable for immunizations that have been reported by the patient and not administered at the visit. No date shifting.
 imm_manufacturer|No| Provide when available| Varchar| The information about the immunization manufacturer||
-imm_lot_num|No| Provide when available| Integer|The information about the immunization lot number||
+imm_lot_num|No| Provide when available|Varchar|The information about the immunization lot number||
 imm_exp_date|No| Provide when available|Date| The date of the immunization expiration.| No date shifting.|
 imm_exp_datetime|No| Provide when available|Datetime| The date and time of the immunization expiration.| No date shifting.|
 immunization_type_concept_id| 	Yes	| Yes| Integer| A foreign key that refers to source of immunization record.| <p>Please include valid concept ids (consistent with OMOP CDMv5). Predefined value set (valid concept_ids found in CONCEPT table where vocabulary_id ='PEDSnet' and concept_class_id='Immunization Type') <p> The value set for PEDSnet includes: <ul><li>Internal administration(OD) = 2000001288 </li><li>External feed (EF) =2000001289  </li>Immunization Information Systems (IS) = 2000001290  <li>Patient Reported (PR) = 2000001291 </li><li>No Information: concept_id = 44814650 </li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul></p>
