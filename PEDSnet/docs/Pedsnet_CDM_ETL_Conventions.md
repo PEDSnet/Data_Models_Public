@@ -1215,8 +1215,8 @@ The 'Location_History' domain is intended to store historical location informati
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 location_id | Yes |Yes| Integer | A foreign key to the location table.|
-relationship_type_concept_id | Yes |Yes | Varchar | The type of relationship between location and entity.|
-domain_id | Yes |Yes| Varchar | The domain of the entity that is related to the location. Either PERSON, PROVIDER, or CARE_SITE.| For PEDSNet v3.5, only patient address histories are present in this table. Due to this the domain_id = Person for all records.
+relationship_type_concept_id | Yes |Yes | Varchar | The type of relationship between location and entity.| At this time OMOP/OHDSI has not released a valid value set for this field.  **For PEDSNet v3.5, use concept_id = 0.**
+domain_id | Yes |Yes| Varchar | The domain of the entity that is related to the location. Either PERSON, PROVIDER, or CARE_SITE.| For PEDSNet v3.5, only patient address histories are present in this table. Due to this **use domain_id = 'Person'** for all records.
 entity_id | Yes |Yes| Integer | The unique identifier for the entity. References either person_id, provider_id, or care_site_id, depending on domain_id.|For PEDSNet v3.5, only patient address histories are present in this table. Due to this, please populate this field with the corresponding person_id.
 location_preferred_concept_id| Yes | Yes| Integer | A foreign key that indicates if the location is the preferred location.| <p> For Pedsnet CDM v3.5, please use the following: <ul><li>Yes=4188539 </li><li>No=4188540</li><li>No Information: concept_id = 44814650 </li> <li>Unknown: concept_id = 44814653</li> <li>Other: concept_id = 44814649</li></ul> If none are correct, use concept_id = 0. </p>
 start_date | Yes| Yes| Date | The date the relationship started.| No date shifting.
