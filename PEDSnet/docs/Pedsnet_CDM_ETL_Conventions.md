@@ -1214,6 +1214,7 @@ The 'Location_History' domain is intended to store historical location informati
 
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
+location_history_id | Yes |Yes| Integer | A system-generated unique identifier for each Location History.|This is not a value found in the EHR. Sites may choose to use a sequential value for this field.
 location_id | Yes |Yes| Integer | A foreign key to the location table.|
 relationship_type_concept_id | Yes |Yes | Varchar | The type of relationship between location and entity.| At this time OMOP/OHDSI has not released a valid value set for this field.  **For PEDSNet v3.5, use concept_id = 0.**
 domain_id | Yes |Yes| Varchar | The domain of the entity that is related to the location. Either PERSON, PROVIDER, or CARE_SITE.| For PEDSNet v3.5, only patient address histories are present in this table. Due to this **use domain_id = 'Person'** for all records.
