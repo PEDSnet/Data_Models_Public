@@ -1,7 +1,7 @@
 
 # Differences between PEDSnet CDM 3.5 and CDM 3.6
 
-## NEW in PEDSnet CDM3.5
+## NEW in PEDSnet CDM3.6
 ### NEW Field
 #### [1.1 Person](Pedsnet_CDM_ETL_Conventions.md#11-person)
 1. `birth_date`. For consistency in the model, we have included the birthdate field. 
