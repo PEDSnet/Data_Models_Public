@@ -2,7 +2,7 @@
 
 The PEDSnet Common Data Model is an evolving specification, based in structure on the OMOP Common Data Model, but expanded to accommodate requirements of both the PCORnet Common Data Model and the primary research cohorts established in PEDSnet.
 
-Version 3.6 of the PEDSnet CDM reflects the ETL processes developed after several iterations of network development. As such, it proposes to align with version 4.1 of the PCORnet CDM.
+Version 3.6 of the PEDSnet CDM reflects the ETL processes developed after several iterations of network development. As such, it proposes to align with version 5.2 of the PCORnet CDM.
 
 This document provides the ETL processing assumptions and conventions developed by the PEDSnet data partners that should be used by a data partner for ensuring common ETL business rules. This document will be modified as new situations are identified, incorrect business rules are identified and replaced, as new analytic use cases impose new/different ETL rules, and as the PEDSnet CDM continues to evolve.
 
@@ -22,7 +22,7 @@ Comments on this specification and ETL rules are welcome. Please send email to p
 
 6. Concept IDs are taken from OMOP 5 vocabularies for PEDSnet CDM v3.6, using the complete (restricted) version that includes licensed terminologies such as CPT and others.
 
-7. PCORnet CDM v4.1 requires data elements that are not currently considered "standard concepts". Vocabulary version 5 has a new vocabulary (vocabulary_id=PCORNet) that was added by OMOP to capture all of the PCORnet concepts that are not in the standard terminologies. We use concept_ids from vocabulary_id=PCORNet where there are no existing standard concepts. We highlight where we are pulling concept_ids from vocabulary_id=PCORNet in the tables. While terms from vocabulary_id=PCORNet violates the OMOP rule to use only concept_ids from standard vocabularies vocabulary_id=PCORNet is a non-standard vocabulary), this convention enables a clean extraction from PEDSnet CDM to PCORnet CDM.
+7. PCORnet CDM v5.2 requires data elements that are not currently considered "standard concepts". Vocabulary version 5 has a new vocabulary (vocabulary_id=PCORNet) that was added by OMOP to capture all of the PCORnet concepts that are not in the standard terminologies. We use concept_ids from vocabulary_id=PCORNet where there are no existing standard concepts. We highlight where we are pulling concept_ids from vocabulary_id=PCORNet in the tables. While terms from vocabulary_id=PCORNet violates the OMOP rule to use only concept_ids from standard vocabularies vocabulary_id=PCORNet is a non-standard vocabulary), this convention enables a clean extraction from PEDSnet CDM to PCORnet CDM.
 
 8. Some source fields may be considered sensitive by data sites. Potential examples include patient_source_value, provider_source_value, care_site_source_value. Many of these fields are used to generate an ID field, such as PERSON.patient_source_value PERSON.person_id, that is used as a primary key in PERSON and a foreign key in many other tables. Sites are free to obfuscate or not provide source values that are used to create ID variables. Sites must maintain a mapping from the ID variable back to the original site-specific value for local re-identification tasks.
 
@@ -1231,7 +1231,7 @@ end_datetime | No |No| Datetime | The date the relationship ended.|This field sh
 
 ## ***APPENDIX***
 
-**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for PCORnet CDM V1.0, 2.0 and 3.6**
+**PEDSnet-specific is supported by OMOP-supported Vocabulary id=PCORNet, which contains all of the additional concept_id codes needed in PEDSnet for the PCORnet CDM**
 
 ### A1. ABMS Specialty Category to OMOP V5 Specialty Mapping
 http://www.abms.org/member-boards/specialty-subspecialty-certificates/
