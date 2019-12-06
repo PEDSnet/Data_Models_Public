@@ -14,11 +14,11 @@ Provider|x||||x||x|
 
 Site| Challenges 
 ---|---
-CCHMC|
+CCHMC|<ul><li>A substantial amount of providers do not have specialty information in the source system. </li> <li> Specialty concept mapped manually. </li></ul>
 CHCO|<ul><li>A substantial amount of providers do not have specialty information in the source system. </li><li>Providers who have left the organization noted as "referring provider" without specialty.</li></ul>
 CHOP|<ul><li>A substantial amount of providers do not have specialty information in the source system. </li> <li> Specialty concept mapped manually. </li></ul>
 Nationwide| <ul><li> Both providers and non-providers exist in the provider table.</li><li>Speciality changes to occur in 2019 to decrease the number of specialties (~100 to 40)</li></ul>
-Nemours|
+Nemours|<li>Care site currently mapped to location level as opposed to department level.</li>
 Seattle| <ul><li> Specialty concept mapped manually.</li></ul>
 St Louis| <ul><li>Considering NPI to help map specialty.</li></ul>
 
