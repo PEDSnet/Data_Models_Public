@@ -26,9 +26,9 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.7.0` as argu
 
 ### Data Model DDL
 
-- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.7.0/ddl/postgresql/)
-- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.7.0/ddl/oracle/)
-- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.7.0/ddl/mssql/)
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.7.0/ddl/postgresql/) ** ***COMING SOON*** **
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.7.0/ddl/oracle/) * ***COMING SOON*** **
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.7.0/ddl/mssql/) * ***COMING SOON*** **
 
 ### Vocabulary Data
 
