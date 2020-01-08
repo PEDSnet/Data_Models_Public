@@ -108,6 +108,8 @@ Please use your local system knowledge to determine this or use the following cr
 
 #### [1.19 Location History](Pedsnet_CDM_ETL_Conventions.md#119-location_history)
 
+#### [1.20 Hash_Token](Pedsnet_CDM_ETL_Conventions.md#120-hash_token)
+
 #### [Appendix](Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
 * * *
@@ -1224,6 +1226,19 @@ start_datetime | Yes| Yes| Datetime | The date the relationship started.| No dat
 end_date | No |No| Date | The date the relationship ended.| This field should be NULL for the current location of the entity. No date shifting.
 end_datetime | No |No| Datetime | The date the relationship ended.|This field should be NULL for the current location of the entity. No date shifting. 
 
+## 1.20 HASH_TOKEN
+
+The 'Hash_Token' domain is intended to store encrypted and keyed secure hash tokens that are used to match patient records across DataMarts using privacy-preserving record linkage methods. This table requirement comes from the PCORnet data model.
+
+Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
+ --- | --- | --- | --- | ---| ---
+person_id| Yes |Yes| Integer | A foreign key identifier to the Person who is subjected to the Device. The demographic details of that Person are stored in the PERSON table.
+TOKEN_01|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 01 in Datavant DeID.
+TOKEN_02|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 02 in Datavant DeID
+TOKEN_03|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 03 in Datavant DeID
+TOKEN_04|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 04 in Datavant DeID
+TOKEN_05|No|Provide When Available|Varchar| Encrypted keyed hash generated from PII using token strategy 05 in Datavant DeID
+TOKEN_16|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 16 in Datavant DeID
 
 * * *
 
