@@ -1233,12 +1233,12 @@ The 'Hash_Token' domain is intended to store encrypted and keyed secure hash tok
 Field |NOT Null Constraint |Network Requirement |Data Type | Description | PEDSnet Conventions
  --- | --- | --- | --- | ---| ---
 person_id| Yes |Yes| Integer | A foreign key identifier to the Person who is subjected to the Device. The demographic details of that Person are stored in the PERSON table.
-TOKEN_01|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 01 in Datavant DeID.
-TOKEN_02|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 02 in Datavant DeID
-TOKEN_03|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 03 in Datavant DeID
-TOKEN_04|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 04 in Datavant DeID
-TOKEN_05|No|Provide When Available|Varchar| Encrypted keyed hash generated from PII using token strategy 05 in Datavant DeID
-TOKEN_16|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 16 in Datavant DeID
+token_01|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 01 in Datavant DeID.
+token_02|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 02 in Datavant DeID
+token_03|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 03 in Datavant DeID
+token_04|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 04 in Datavant DeID
+token_05|No|Provide When Available|Varchar| Encrypted keyed hash generated from PII using token strategy 05 in Datavant DeID
+token_16|No|Provide When Available|Varchar|Encrypted keyed hash generated from PII using token strategy 16 in Datavant DeID
 
 * * *
 
