@@ -108,7 +108,7 @@ Please use your local system knowledge to determine this or use the following cr
 
 #### [1.19 Location History](Pedsnet_CDM_ETL_Conventions.md#119-location_history)
 
-#### [1.20 Hash_Token](Pedsnet_CDM_ETL_Conventions.md#120-hash_token)
+#### [1.20 Hash Token](Pedsnet_CDM_ETL_Conventions.md#120-hash_token)
 
 #### [Appendix](Pedsnet_CDM_ETL_Conventions.md#a1-abms-specialty-category-to-omop-v5-specialty-mapping)
 
