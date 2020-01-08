@@ -4,7 +4,7 @@
 ## NEW in PEDSnet CDMv3.7
 
 ### New Table
-#### [1.20 Hash Token](Pedsnet_CDM_ETL_Conventions.md#120-hash_token)
+#### [1.20 Hash Token](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#120-hash_token)
 - To support the data linkage effort, we have included and adapted the HASH_TOKEN table from the PCORNetv5.1 CDM. Please store the Datavant hashes to be transmitted to the DCC in this table. For full details please see the conventions document.
  
 
