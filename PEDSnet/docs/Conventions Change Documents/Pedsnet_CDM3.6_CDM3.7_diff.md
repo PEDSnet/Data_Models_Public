@@ -1,8 +1,14 @@
 
 # Differences between PEDSnet CDM 3.6 and CDM 3.7
 
+## NEW in PEDSnet CDMv3.7
 
-## NEW Conventions
+### New Table
+#### [1.20 Hash Token](Pedsnet_CDM_ETL_Conventions.md#120-hash_token)
+- To support the data linkage effort, we have included and adapted the HASH_TOKEN table from the PCORNetv5.1 CDM. Please store the Datavant hashes to be transmitted to the DCC in this table. For full details please see the conventions document.
+ 
+
+### NEW Conventions
 #### [1.11 Drug Exposure](Pedsnet_CDM_ETL_Conventions.md#111-drug-exposure-1)
 
 ***CHANGE: The requirement to calculate a dose basis is removed in PEDSnet v3.7***
@@ -46,7 +52,6 @@ Lab code is LOINC code that is same as PEDSnet’s LOINC code |**Yes**| <ul><li>
 Lab code is institutional-specific code (not CPT/not LOINC) | **No** | <ul><li> Local code or</li><li>Local name or</li><li>Local name \| Local code</li></ul> (any above are OK) | 0 (zero) | 0 (zero)
 Lab code is CPT code | **No** | <ul><li> CPT Code</li><li>Local name or</li><li> Local name \|CPT code</li></ul> (any above are OK) | OMOP’s concept_id for CPT code | 0 (zero)
 
- 
 
 ## Continued Data Quality Focus for PEDSnet Key Data Elements
 
