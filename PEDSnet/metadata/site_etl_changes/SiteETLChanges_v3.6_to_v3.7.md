@@ -1,0 +1,50 @@
+# Site ETL Changes PEDSnet v3.6 to v3.7
+
+### This document is intended to track major ETL changes between v3.6 and v3.7.
+
+## CCHMC
+
+Domain| ETL Change|Type|Anticipated Effect
+---|---|---|---
+
+## CHCO
+
+Domain| ETL Change|Type|Anticipated Effect
+---|---|---|---
+
+## CHOP
+
+Domain| ETL Change|Type|Anticipated Effect
+---|---|---|---
+Measurment(Labs)| Removal of default '999999' numeric result for non-numeric labs|Bug Fix| <li>Decrease in numeric lab count</li><li>Increases in overall coverage for PCORnet lab thresholds</li>
+Measurement(Labs)|Improve unit mapping|Improvement| Increase in unit_concept_id coverage
+Measurement(Labs)|Include unmapped labs that were previously being excluded|Bug Fix| Increase in overall lab count
+Drug Exposure|Removal of calcualated doses|Convention Change| Decrease in coverage <li>effective_drug_dose</li><li>dose_unit_conceptid=id</li>
+Drug Exposure|Removal of duplicate 1 to many NDC mapping|Bug Fix| Minor Decrease in overal drug_exposure count
+
+## Nationwide
+
+## Nemours
+
+Domain| ETL Change|Type|Anticipated Effect
+---|---|---|---
+Measurement(Labs)| Removal of lab components (e.g. point of Care Testing ID,Lot #, INTERNAL QC VERIFIED (YES\/NO),unit number,status of unit)|Improvement| Decrease in overall lab count
+
+
+## Seattle
+
+Domain| ETL Change|Type|Anticipated Effect
+---|---|---|---
+
+## St.Louis
+
+Domain| ETL Change|Type|Anticipated Effect
+---|---|---|---
+Measurement(Labs)| Removal of duplicate records|Bug Fix| Decrease in overall lab count
+Measurement(Labs)| Progress mapping the specimen source values|Improvement| Increase in specimen_concept_id coverage
+Measurement(Labs)| Progress mapping the unit source values|Improvement| Increase in unit_concept_id coverage
+Measurement(Labs)| Inlcuded the name of the lab in source value|Improvement| More descriptive measurement_source_values
+Drug Exposure|Mapped additional medications to the Tier 1 level|Improvement| Increase in Tier 1 threshold coverage
+Drug Exposure| Inlcuded the name of the drug in source value|Improvement| More descriptive drug_source_values
+Procedure Occurrence| Assigned visits to procedures |Improvement| Increase in visit/procedure coverage
+Visit Occurrence|Assigned future dates ('9999-12-31') to NULL |Improvement| Removal of future date flags/alerts
