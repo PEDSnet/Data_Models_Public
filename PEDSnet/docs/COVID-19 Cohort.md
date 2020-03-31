@@ -73,7 +73,8 @@ concept_id|concept_name|concept_code|vocabulary
 </p>
 </details>
 
-Acute Respiratory Illness Categories:
+<details><summary>Acute Respiratory Illness Codes</summary>
+<p>
 <ul>
 <li>[Acute Respiratory Distress Syndrome (ARDS)]()</li>
 <li>[Bronchitis]()</li>
@@ -84,7 +85,8 @@ Acute Respiratory Illness Categories:
 <li>[Influenza]()</li>
 <li>[Upper Respiratory Infections]()</li>
 </ul>
-
+</p>
+</details>
 
 ## Vocabulary Snapshot
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
