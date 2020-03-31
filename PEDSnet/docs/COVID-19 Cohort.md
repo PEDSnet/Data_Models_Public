@@ -17,7 +17,7 @@ Patients should be included they were:
  
  <ul><li>Diagnosied with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
- <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness (excluding exacerbation of known chronic conditions such as asthma)</li></ul>
+ <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness or pnemonia (excluding exacerbation of known chronic conditions such as asthma)</li></ul>
 
 
 
