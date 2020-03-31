@@ -30,7 +30,10 @@ Standaridized codes have been rapidly developed to support the identification an
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 45756093|Emergency use of U07.1 \| Disease caused by severe acute respiratory syndrome coronavirus 2|U07.1|ICD10
+45600471|Other coronavirus as the cause of diseases classified elsewhere|B97.29|ICD10CM
+45542411|Contact with and (suspected) exposure to other viral communicable diseases|Z20.828|ICD10CM
 37311061|Disease caused by severe acute respiratory syndrome coronavirus 2|840539006|SNOMED
+
 
 #### Testing Codes
 
