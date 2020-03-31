@@ -1,5 +1,7 @@
 # COVID-19 Cohort ETL Guidance 
 
+**\**DRAFT - VERSION\****
+
 ## Background
 
 The COVID-19 pandemic presents a “100 year” challenge to public health, threatening mortality into the hundreds of thousands and severe socioeconomic dislocation.  Although children as a group appear to be less severely affected than older patients, but many important questions remain unanswered.  Little is known about risk factors for severe illness, particularly in young infants, immunocompromised children, and children with chronic pulmonary disease.  Moreover, the role children with mild infection play in transmission, both in the community and in the pediatric workforce, is not well understood.
@@ -21,19 +23,23 @@ Patients should be included they were:
 
 ## Vocabulary Updates and Snapshot
 
-Standaridized codes have been rapidly developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing.
+Standaridized codes have been rapidly developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be useful in identifying the covid-19 cohort.
 
 #### Diagnosis Codes
 
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
-
+45756093|Emergency use of U07.1 \| Disease caused by severe acute respiratory syndrome coronavirus 2|U07.1|ICD10
+37311061|Disease caused by severe acute respiratory syndrome coronavirus 2|840539006|SNOMED
 
 #### Testing Codes
 
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
-
+40218805|Testing for SARS-CoV-2 in CDC laboratory|U0001|HCPCS
+40218804|Testing for SARS-CoV-2 in non-CDC laboratory|U0002|HCPCS
+706163|SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|LOINC
+700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
 
 
 A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
