@@ -71,6 +71,19 @@ This is version [3.7.2](**coming soon**) of the vocabulary.
 
 ## Data Submission
 
+### Initial Patient List
+
+To begin to understand the population, we ask that each site generate a patient list of patients currently in the PEDSnet dataset that meet the inclusion criteria.
+
+This file should be in the following format:
+
+person_id|inclusion_criteria|inclusion_date
+---|---|---
+1234|Covid Diagnosis|01-30-2020
+2345|Covid Test|02-30-2020
+3456|Respiratory Admission|03-30-2020
+
+### Weekly Submission
 Using the data resource, we will maintain up to date **(weekly)** descriptions of the demographics and major clinical characteristics of COVID-19 cohorts, as well as an overall picture of health care utilization, to inform public health and health system responses.
 
 Please utilize the PEDSnet data submission resource **transfer2.chop.edu** to submit the covid-19 cohort for your site. 
