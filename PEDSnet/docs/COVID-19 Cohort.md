@@ -76,15 +76,52 @@ This is version [3.7.2](**coming soon**) of the vocabulary.
 
 ### Initial Patient List
 
-To begin to understand the population, we ask that each site generate a patient list of patients currently in the PEDSnet dataset that meet the inclusion criteria.
+To begin to understand the population, we ask that each site generate a patient list for patients meeting the aforementioned criteira.
 
-This file should be in the following format:
+We recognize that these patients may not currently exist in the PEDSnet cohort for your site. In this case, please create a *new stable* `person_id` for these patients so that they may be included in the subsequent full data submission.
 
-person_id|inclusion_criteria|inclusion_date
+When making a note of the inclusion criterion met please use the following valueset:
+
+<ul>
+<li>COVID-19 Diagnosis</li>
+<li>COVID-19 Test Positive</li>
+<li>COVID-19 Test Negative</li>
+<li>COVID-19 Test Result Unknown</li>
+<li>ED Admission and Respiratory Diagnosis</li>
+<li>Inpatient Admission and Respiratory Diagnosis</li></ul>
+
+Additional Notes:
+- For patients meeting multiple criteria, include multiple rows.
+- For ED->Inpatient visits with a respiratory diagnosis use the `Inpatient Admission and Respiratory Diagnosis` criterion.
+- If you are unable to determine a positive or negative result for the COVID-19 test, use the `COVID-19 Test Result Unknown` criterion.
+
+Please see the example below for formatting guidelines:
+
+person_id|inclusion_criterion
+---|---
+1234|COVID-19 Diagnosis
+1234|COVID-19 Test Positive
+2345|COVID-19 Test Negative
+6789|COVID-19 Test Result Unknown
+9020|ED Admission and Respiratory Diagnosis
+2424|Inpatient Admission and Respiratory Diagnosis
+
+
+
+
+
+
+
+### Lab Mapping
+
+In an effort to standardize the way the COVID-19 test appear in the network, we have chosen conical mappings for the lab tests. Please include mappings to these in the [PEDSnet Lab Mapping File](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Labs_Site_Mappings.csv) in the data submission.
+
+Lab name|pedsnet_loinc_code|pedsnet_concept_id
 ---|---|---
-1234|Covid Diagnosis|01-30-2020
-2345|Covid Test|02-30-2020
-3456|Respiratory Admission|03-30-2020
+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|706163
+SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Immunoassay|94507-1|706181
+SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Immunoassay|94508-9|706180
+
 
 ### Weekly Submission
 Using the data resource, we will maintain up to date **(weekly)** descriptions of the demographics and major clinical characteristics of COVID-19 cohorts, as well as an overall picture of health care utilization, to inform public health and health system responses.
