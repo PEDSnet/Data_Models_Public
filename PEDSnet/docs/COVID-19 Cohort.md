@@ -23,6 +23,10 @@ Patients should be included they were:
 
 ## Vocabulary Snapshot
 
+A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
+
+This is version [3.7.2](**coming soon**) of the vocabulary. 
+
 Standaridized codes have been rapidly developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be useful in identifying the covid-19 cohort.
 
 #### Diagnosis Codes
@@ -47,11 +51,6 @@ concept_id|concept_name|concept_code|vocabulary
 706169|SARS Coronavirus 2 RNA panel - Unspecified specimen by NAA with probe detection|94306-8|LOINC
 706165|SARS coronavirus+SARS-like coronavirus+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94502-2|LOINC
 700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
-
-
-A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
-
-This is version [3.7.2](**coming soon**) of the vocabulary. 
 
 
 ## Data Submission
