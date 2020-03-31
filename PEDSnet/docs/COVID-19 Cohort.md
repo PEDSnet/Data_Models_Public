@@ -29,7 +29,9 @@ This is version [3.7.2](**coming soon**) of the vocabulary.
 
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be *useful* in identifying the covid-19 cohort.
 
-#### Diagnosis Codes
+<details><summary>
+Diagnosis Codes</summary>
+<p>
 
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
@@ -38,8 +40,12 @@ concept_id|concept_name|concept_code|vocabulary
 45542411|Contact with and (suspected) exposure to other viral communicable diseases|Z20.828|ICD10CM
 37311061|Disease caused by severe acute respiratory syndrome coronavirus 2|840539006|SNOMED
 
+</p>
+</details>
 
-#### Procedure/Lab Codes
+<details><summary>Procedure/Lab Codes</summary>
+<p>
+
 
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
@@ -51,6 +57,8 @@ concept_id|concept_name|concept_code|vocabulary
 706169|SARS Coronavirus 2 RNA panel - Unspecified specimen by NAA with probe detection|94306-8|LOINC
 706165|SARS coronavirus+SARS-like coronavirus+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94502-2|LOINC
 700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
+</p>
+</details>
 
 A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
 
