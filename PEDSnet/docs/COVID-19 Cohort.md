@@ -19,16 +19,7 @@ Patients should be included they were:
  <li>Tested for SARS-CoV-2 ***OR***</li>
  <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness or pnemonia (excluding exacerbation of known chronic conditions such as asthma)</li></ul>
 
-
-
-## Vocabulary Snapshot
-
-A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
-
-This is version [3.7.2](**coming soon**) of the vocabulary. 
-
-Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be *useful* in identifying the covid-19 cohort.
-
+**Codesets:**
 <details><summary>
 Diagnosis Codes</summary>
 <p>
@@ -60,7 +51,23 @@ concept_id|concept_name|concept_code|vocabulary
 </p>
 </details>
 
-A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
+<details><summary>Acute Respiratory Illness</summary>
+<p>
+
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+
+</p>
+</details>
+
+
+## Vocabulary Snapshot
+Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
+
+A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
+
+This is version [3.7.2](**coming soon**) of the vocabulary. 
 
 ## Data Submission
 
