@@ -27,12 +27,30 @@ Diagnosis Codes</summary>
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 45756093|Emergency use of U07.1 \| Disease caused by severe acute respiratory syndrome coronavirus 2|U07.1|ICD10
-45537785|	SARS-associated coronavirus as the cause of diseases classified elsewhere|	B97.21|ICD10CM
-1567458|	Coronavirus as the cause of diseases classified elsewhere|	B97.2|ICD10CM
-45600471|Other coronavirus as the cause of diseases classified elsewhere|B97.29|ICD10CM
+45585955|	Coronavirus infection, unspecified site	|B34.2|ICD10
 35205800|Coronavirus infection, unspecified|	B34.2|ICD10CM
+45590872|	Coronavirus as the cause of diseases classified to other chapters|B97.2|	ICD10
+1567458|	Coronavirus as the cause of diseases classified elsewhere|	B97.2|ICD10CM
+45537785|	SARS-associated coronavirus as the cause of diseases classified elsewhere|	B97.21|ICD10CM
+45600471|Other coronavirus as the cause of diseases classified elsewhere|B97.29|ICD10CM
+45567260|	Pneumonia due to SARS-associated coronavirus|	J12.81|	ICD10CM
+45756079|	Severe acute respiratory syndrome [SARS]|	U04|	ICD10
+45604597|	Severe acute respiratory syndrome [SARS], unspecified	|U04.9	|ICD10
 45542411|Contact with and (suspected) exposure to other viral communicable diseases|Z20.828|ICD10CM
-37311061|Disease caused by severe acute respiratory syndrome coronavirus 2|840539006|SNOMED
+45571329|Contact with and (suspected) exposure to other bacterial communicable diseases|Z20.818|ICD10CM
+439676	|Coronavirus infection	|186747009|SNOMED
+4092694	|Coronavirus as the cause of diseases classified to other chapters	|186758000	|SNOMED
+40380828|	Coronavirus as the cause of diseases classified to other chapters	|187587009|SNOMED
+4100065|	Disease due to Coronaviridae	|27619001|SNOMED
+320651|Severe acute respiratory syndrome	|398447004	|SNOMED
+4248811|	Healthcare associated severe acute respiratory syndrome	|408688009|SNOMED
+40479642|	Pneumonia due to Severe acute respiratory syndrome coronavirus|	441590008|SNOMED
+40479782|	Exposure to severe acute respiratory syndrome coronavirus|	444482005|SNOMED
+45763594|	Middle East respiratory syndrome|651000146102|SNOMED
+45765578|	Exposure to coronavirus infection	|702547000|SNOMED
+37016927|	Pneumonia caused by Human coronavirus|	713084008|SNOMED
+37396171|Severe acute respiratory syndrome of upper respiratory tract|	715882005|SNOMED
+44810278|	Exposure to coronavirus infection	|878171000000104|SNOMED
 
 </p>
 </details>
