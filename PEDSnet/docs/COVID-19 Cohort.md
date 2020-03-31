@@ -21,7 +21,7 @@ Patients should be included they were:
 
 
 
-## Vocabulary Updates and Snapshot
+## Vocabulary Snapshot
 
 Standaridized codes have been rapidly developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be useful in identifying the covid-19 cohort.
 
