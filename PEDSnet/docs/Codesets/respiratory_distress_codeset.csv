@@ -1,0 +1,19 @@
+concept_id,concept_name,concept_code,vocabulary_id
+1571990,Respiratory distress of newborn,P22,ICD10CM
+45606697,Respiratory distress of newborn,P22,ICD10
+45582613,Other respiratory distress of newborn,P22.8,ICD10
+35210486,Other respiratory distress of newborn,P22.8,ICD10CM
+35210487,"Respiratory distress of newborn, unspecified",P22.9,ICD10CM
+45597070,"Respiratory distress of newborn, unspecified",P22.9,ICD10
+1326788,Acute respiratory distress,R06.03,ICD10CM
+40273838,Acute respiratory distress,111281007,SNOMED
+40298515,"Acute respiratory distress, NEC -RETIRED-",13474005,SNOMED
+40322980,Respiratory distress syndrome of newborn,157107007,SNOMED
+40322988,Perinatal respiratory distress NOS,157114009,SNOMED
+4048463,Perinatal respiratory distress NOS,206322005,SNOMED
+4158346,Respiratory distress,271825005,SNOMED
+4147117,Perinatal respiratory distress,34681009,SNOMED
+4154698,Transient respiratory distress with sepsis,371044001,SNOMED
+4191650,Acute respiratory distress,373895009,SNOMED
+40555260,Idiopathic respiratory distress syndrome,3774009,SNOMED
+45772947,Acute respiratory distress in newborn,707540007,SNOMED
