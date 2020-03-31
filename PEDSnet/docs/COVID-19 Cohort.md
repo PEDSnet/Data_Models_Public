@@ -39,7 +39,7 @@ concept_id|concept_name|concept_code|vocabulary
 37311061|Disease caused by severe acute respiratory syndrome coronavirus 2|840539006|SNOMED
 
 
-#### Testing Codes
+#### Procedure/Lab Codes
 
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
