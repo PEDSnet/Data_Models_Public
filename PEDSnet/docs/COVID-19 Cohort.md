@@ -17,7 +17,7 @@ Patients should be included they were:
  
  <ul><li>Diagnosied with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
- <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness or pnemonia (excluding exacerbation of known chronic conditions such as asthma)</li></ul>
+ <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma)</li></ul>
 
 **Codesets:**
 <details><summary>
@@ -69,18 +69,21 @@ concept_id|concept_name|concept_code|vocabulary
 706169|SARS Coronavirus 2 RNA panel - Unspecified specimen by NAA with probe detection|94306-8|LOINC
 706165|SARS coronavirus+SARS-like coronavirus+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94502-2|LOINC
 700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
-</p>
-</details>
-
-<details><summary>Acute Respiratory Illness</summary>
-<p>
-
-
-concept_id|concept_name|concept_code|vocabulary
----|---|---|---
 
 </p>
 </details>
+
+Acute Respiratory Illness Categories:
+<ul>
+<li>[Acute Respiratory Distress Syndrome (ARDS)]()</li>
+<li>[Bronchitis]()</li>
+<li>[Bronchiolitis]()</li>
+<li>[Pnemonia]()</li>
+<li>[Respiratory Distress]()</li>
+<li>[Respiratory Failure]()</li>
+<li>[Influenza]()</li>
+<li>[Upper Respiratory Infections]()</li>
+</ul>
 
 
 ## Vocabulary Snapshot
