@@ -73,19 +73,26 @@ concept_id|concept_name|concept_code|vocabulary
 </p>
 </details>
 
+
 <details><summary>Acute Respiratory Illness Codes</summary>
-<p>
-<ul>
-<li>[Acute Respiratory Distress Syndrome (ARDS)](/Codesets/ards_codeset.csv)</li>
-<li>[Bronchitis]()</li>
-<li>[Bronchiolitis]()</li>
-<li>[Pnemonia]()</li>
-<li>[Respiratory Distress]()</li>
-<li>[Respiratory Failure]()</li>
-<li>[Influenza]()</li>
-<li>[Upper Respiratory Infections]()</li>
-</ul>
-</p>
+ 
+ 
+[Acute Respiratory Distress Syndrome (ARDS)](Codesets/ards_codeset.csv)
+
+[Bronchitis]()
+
+[Bronchiolitis]()
+
+[Pnemonia]()
+
+[Respiratory Distress]()
+
+[Respiratory Failure]()
+
+[Influenza]()
+
+[Upper Respiratory Infections]()
+
 </details>
 
 ## Vocabulary Snapshot
