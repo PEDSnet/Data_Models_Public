@@ -27,7 +27,7 @@ A **snapsho**t of the vocabulary (an update to the current vocabulary) is availa
 
 This is version [3.7.2](**coming soon**) of the vocabulary. 
 
-Standaridized codes have been rapidly developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be useful in identifying the covid-19 cohort.
+Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. Please see below highlighted codes that may be *useful* in identifying the covid-19 cohort.
 
 #### Diagnosis Codes
 
