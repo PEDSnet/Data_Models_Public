@@ -1,176 +1,75 @@
-concept_id,concept_name,concept_code,vocabulary_id,covid19_screen_include
-45562431,Acute nasopharyngitis [common cold],J00,ICD10,1
-35207921,Acute nasopharyngitis [common cold],J00,ICD10CM,1
-1569439,Acute sinusitis,J01,ICD10CM,0
-45548098,Acute sinusitis,J01,ICD10,0
-1569440,Acute maxillary sinusitis,J01.0,ICD10CM,0
-45601112,Acute maxillary sinusitis,J01.0,ICD10,0
-45576939,"Acute maxillary sinusitis, unspecified",J01.00,ICD10CM,0
-45581839,Acute recurrent maxillary sinusitis,J01.01,ICD10CM,0
-1569441,Acute frontal sinusitis,J01.1,ICD10CM,0
-45586656,Acute frontal sinusitis,J01.1,ICD10,0
-45533536,"Acute frontal sinusitis, unspecified",J01.10,ICD10CM,0
-45576940,Acute recurrent frontal sinusitis,J01.11,ICD10CM,0
-1569442,Acute ethmoidal sinusitis,J01.2,ICD10CM,0
-45548099,Acute ethmoidal sinusitis,J01.2,ICD10,0
-45538468,"Acute ethmoidal sinusitis, unspecified",J01.20,ICD10CM,0
-45548100,Acute recurrent ethmoidal sinusitis,J01.21,ICD10CM,0
-1569443,Acute sphenoidal sinusitis,J01.3,ICD10CM,0
-45552875,Acute sphenoidal sinusitis,J01.3,ICD10,0
-45538469,"Acute sphenoidal sinusitis, unspecified",J01.30,ICD10CM,0
-45596274,Acute recurrent sphenoidal sinusitis,J01.31,ICD10CM,0
-45605879,Acute pansinusitis,J01.4,ICD10,0
-1569444,Acute pansinusitis,J01.4,ICD10CM,0
-45557614,"Acute pansinusitis, unspecified",J01.40,ICD10CM,0
-45601113,Acute recurrent pansinusitis,J01.41,ICD10CM,0
-45586657,Other acute sinusitis,J01.8,ICD10,0
-1569445,Other acute sinusitis,J01.8,ICD10CM,0
-45581840,Other acute sinusitis,J01.80,ICD10CM,0
-45576941,Other acute recurrent sinusitis,J01.81,ICD10CM,0
-1569446,"Acute sinusitis, unspecified",J01.9,ICD10CM,0
-45543252,"Acute sinusitis, unspecified",J01.9,ICD10,0
-45538470,"Acute sinusitis, unspecified",J01.90,ICD10CM,0
-45538471,"Acute recurrent sinusitis, unspecified",J01.91,ICD10CM,0
-45557615,Acute pharyngitis,J02,ICD10,1
-1569447,Acute pharyngitis,J02,ICD10CM,1
-35207922,Streptococcal pharyngitis,J02.0,ICD10CM,0
-45533537,Streptococcal pharyngitis,J02.0,ICD10,0
-45562432,Acute pharyngitis due to other specified organisms,J02.8,ICD10,1
-35207923,Acute pharyngitis due to other specified organisms,J02.8,ICD10CM,1
-45538472,"Acute pharyngitis, unspecified",J02.9,ICD10,1
-35207924,"Acute pharyngitis, unspecified",J02.9,ICD10CM,1
-45552876,Acute tonsillitis,J03,ICD10,0
-1569448,Acute tonsillitis,J03,ICD10CM,0
-45601114,Streptococcal tonsillitis,J03.0,ICD10,0
-1569449,Streptococcal tonsillitis,J03.0,ICD10CM,0
-45543253,"Acute streptococcal tonsillitis, unspecified",J03.00,ICD10CM,0
-45552877,Acute recurrent streptococcal tonsillitis,J03.01,ICD10CM,0
-1569450,Acute tonsillitis due to other specified organisms,J03.8,ICD10CM,0
-45562433,Acute tonsillitis due to other specified organisms,J03.8,ICD10,0
-45591539,Acute tonsillitis due to other specified organisms,J03.80,ICD10CM,0
-45605880,Acute recurrent tonsillitis due to other specified organisms,J03.81,ICD10CM,0
-1569451,"Acute tonsillitis, unspecified",J03.9,ICD10CM,0
-45576942,"Acute tonsillitis, unspecified",J03.9,ICD10,0
-45538473,"Acute tonsillitis, unspecified",J03.90,ICD10CM,0
-45591540,"Acute recurrent tonsillitis, unspecified",J03.91,ICD10CM,0
-45572157,Acute laryngitis and tracheitis,J04,ICD10,1
-1569452,Acute laryngitis and tracheitis,J04,ICD10CM,1
-35207925,Acute laryngitis,J04.0,ICD10CM,1
-45533538,Acute laryngitis,J04.0,ICD10,1
-1569453,Acute tracheitis,J04.1,ICD10CM,1
-45576943,Acute tracheitis,J04.1,ICD10,1
-45533539,Acute tracheitis without obstruction,J04.10,ICD10CM,1
-45533540,Acute tracheitis with obstruction,J04.11,ICD10CM,1
-35207926,Acute laryngotracheitis,J04.2,ICD10CM,1
-45562434,Acute laryngotracheitis,J04.2,ICD10,1
-1569454,"Supraglottitis, unspecified",J04.3,ICD10CM,0
-45562435,"Supraglottitis, unspecified, without obstruction",J04.30,ICD10CM,0
-45572158,"Supraglottitis, unspecified, with obstruction",J04.31,ICD10CM,0
-45755448,Acute obstructive laryngitis [croup] and epiglottitis,J05,ICD10,0
-1569455,Acute obstructive laryngitis [croup] and epiglottitis,J05,ICD10CM,0
-45567258,Acute obstructive laryngitis [croup],J05.0,ICD10,1
-35207927,Acute obstructive laryngitis [croup],J05.0,ICD10CM,1
-45538474,Acute epiglottitis,J05.1,ICD10,0
-1569456,Acute epiglottitis,J05.1,ICD10CM,0
-45533541,Acute epiglottitis without obstruction,J05.10,ICD10CM,0
-45601115,Acute epiglottitis with obstruction,J05.11,ICD10CM,0
-45601116,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10,1
-1569457,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10CM,1
-35207928,Acute laryngopharyngitis,J06.0,ICD10CM,1
-45562436,Acute laryngopharyngitis,J06.0,ICD10,1
-45533542,Other acute upper respiratory infections of multiple sites,J06.8,ICD10,1
-45562437,"Acute upper respiratory infection, unspecified",J06.9,ICD10,1
-35207929,"Acute upper respiratory infection, unspecified",J06.9,ICD10CM,1
-45538472,"Acute pharyngitis, unspecified",J02.9,ICD10,1
-45538478,Chronic pharyngitis,J31.2,ICD10,1
-45533537,Streptococcal pharyngitis,J02.0,ICD10,0
-45533542,Other acute upper respiratory infections of multiple sites,J06.8,ICD10,1
-45542552,Enteroviral vesicular pharyngitis,B08.5,ICD10,0
-45562431,Acute nasopharyngitis [common cold],J00,ICD10,1
-45562432,Acute pharyngitis due to other specified organisms,J02.8,ICD10,1
-45562436,Acute laryngopharyngitis,J06.0,ICD10,1
-45562437,"Acute upper respiratory infection, unspecified",J06.9,ICD10,1
-45557615,Acute pharyngitis,J02,ICD10,1
-45600426,Gonococcal pharyngitis,A54.5,ICD10,0
-45601116,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10,1
-45601126,Chronic nasopharyngitis,J31.1,ICD10,1
-45755453,"Chronic rhinitis, nasopharyngitis and pharyngitis",J31,ICD10,1
-45537728,Early congenital syphilitic pharyngitis,A50.03,ICD10CM,0
-35205597,Gonococcal pharyngitis,A54.5,ICD10CM,0
-35205756,Enteroviral vesicular pharyngitis,B08.5,ICD10CM,1
-35207921,Acute nasopharyngitis [common cold],J00,ICD10CM,1
-35207922,Streptococcal pharyngitis,J02.0,ICD10CM,0
-35207923,Acute pharyngitis due to other specified organisms,J02.8,ICD10CM,1
-35207924,"Acute pharyngitis, unspecified",J02.9,ICD10CM,1
-35207928,Acute laryngopharyngitis,J06.0,ICD10CM,1
-35207929,"Acute upper respiratory infection, unspecified",J06.9,ICD10CM,1
-35207975,Chronic nasopharyngitis,J31.1,ICD10CM,1
-35207976,Chronic pharyngitis,J31.2,ICD10CM,1
-1569447,Acute pharyngitis,J02,ICD10CM,1
-1569457,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10CM,1
-1569474,"Chronic rhinitis, nasopharyngitis and pharyngitis",J31,ICD10CM,1
-44820880,Chronic pharyngitis and nasopharyngitis,472,ICD9CM,1
-44823137,Acute nasopharyngitis [common cold],460,ICD9CM,1
-44826662,Acute laryngopharyngitis,465.0,ICD9CM,1
-44825460,Chronic nasopharyngitis,472.2,ICD9CM,1
-44829001,Acute upper respiratory infections of other multiple sites,465.8,ICD9CM,1
-44833596,Acute pharyngitis,462,ICD9CM,1
-44833599,Chronic pharyngitis,472.1,ICD9CM,1
-44830105,Acute upper respiratory infections of multiple or unspecified sites,465,ICD9CM,1
-44834764,Acute upper respiratory infections of unspecified site,465.9,ICD9CM,1
-23137,Chlamydial pharyngitis,232403001,SNOMED,0
-25297,Acute pharyngitis,363746003,SNOMED,1
-26711,Chronic pharyngitis,140004,SNOMED,1
-23798,Acute laryngopharyngitis,55355000,SNOMED,1
-257011,Acute upper respiratory infection,54398005,SNOMED,1
-258453,Acute upper respiratory infection of multiple sites,78337007,SNOMED,1
-441321,Chronic nasopharyngitis,47841006,SNOMED,1
-4035987,Viral pharyngitis,1532007,SNOMED,1
-4040469,O/E - granular pharyngitis,164260005,SNOMED,0
-4051491,Meningococcal pharyngitis,232402006,SNOMED,0
-4051490,Glandular fever pharyngitis,232401004,SNOMED,0
-4051493,Chronic ulcerative pharyngitis,232405008,SNOMED,0
-4048187,Acute herpes simplex pharyngitis,232399005,SNOMED,0
-4049232,Acute herpes zoster pharyngitis,232400003,SNOMED,0
-4085100,Viral upper respiratory tract infection,281794004,SNOMED,1
-4080772,Lymphonodular coxsackie pharyngitis,240547000,SNOMED,0
-4112500,Chronic follicular pharyngitis,195782000,SNOMED,0
-4112530,Pharyngitis keratosa,195779005,SNOMED,0
-4110358,Acute gangrenous pharyngitis,195655000,SNOMED,0
-4112499,Pharyngitis sicca,195780008,SNOMED,0
-4112006,Acute bacterial pharyngitis,195658003,SNOMED,1
-4112007,Acute pneumococcal pharyngitis,195659006,SNOMED,0
-4112008,Allergic pharyngitis,195663004,SNOMED,0
-4110479,Recurrent upper respiratory tract infection,195708003,SNOMED,1
-4110512,Influenza with pharyngitis,195924009,SNOMED,1
-4112342,Acute ulcerative pharyngitis,195657008,SNOMED,0
-4112343,Acute viral pharyngitis,195662009,SNOMED,1
-4109893,Acute phlegmonous pharyngitis,195656004,SNOMED,0
-4109894,Acute staphylococcal pharyngitis,195660001,SNOMED,0
-4131441,Exudative pharyngitis,126664009,SNOMED,0
-4126438,Chronic granular pharyngitis,2365002,SNOMED,0
-4170621,Vesicular pharyngitis,274102007,SNOMED,0
-4150370,Respiratory syncytial virus pharyngitis,31309002,SNOMED,1
-4193918,Parainfluenza virus pharyngitis,78911000,SNOMED,1
-4183609,Influenzal acute upper respiratory infection,43692000,SNOMED,1
-4181583,Upper respiratory infection,54150009,SNOMED,1
-4197268,Nasopharyngitis,51476001,SNOMED,1
-4207185,Bacterial upper respiratory infection,312118003,SNOMED,1
-4190176,Ulcerative pharyngitis,39271004,SNOMED,0
-4193318,Infective pharyngitis,312422001,SNOMED,1
-4226263,Pharyngitis,405737000,SNOMED,1
-4233054,Enteroviral lymphonodular pharyngitis,40766000,SNOMED,0
-4241328,Phlegmonous pharyngitis,59471009,SNOMED,0
-4240728,Suppurative pharyngitis,58031004,SNOMED,0
-4244268,Parainfluenza virus rhinopharyngitis,59221008,SNOMED,0
-4273688,Atrophic pharyngitis,63866002,SNOMED,0
-4247910,Gangrenous pharyngitis,72430001,SNOMED,0
-4301754,Adenoviral pharyngitis,78430008,SNOMED,1
-4297292,Pneumococcal pharyngitis,76651006,SNOMED,0
-4305659,Staphylococcal pharyngitis,82228008,SNOMED,0
-4337956,Hypertrophic pharyngitis,87326000,SNOMED,0
-4318117,Mycoplasmal pharyngitis,95885008,SNOMED,1
-46270122,Upper respiratory tract infection due to H1N1 influenza,142941000119109,SNOMED,1
-46273463,Upper respiratory tract infection due to Influenza,10685111000119102,SNOMED,1
-46270491,Upper respiratory tract infection due to Influenza A,328531000119104,SNOMED,1
-36714339,Candidiasis of upper respiratory tract co-occurrent with human immunodeficiency virus infection,719522009,SNOMED,0
+concept_id,concept_name,concept_code,vocabulary_id
+45562431,Acute nasopharyngitis [common cold],J00,ICD10
+35207921,Acute nasopharyngitis [common cold],J00,ICD10CM
+45557615,Acute pharyngitis,J02,ICD10
+1569447,Acute pharyngitis,J02,ICD10CM
+45562432,Acute pharyngitis due to other specified organisms,J02.8,ICD10
+35207923,Acute pharyngitis due to other specified organisms,J02.8,ICD10CM
+45538472,"Acute pharyngitis, unspecified",J02.9,ICD10
+35207924,"Acute pharyngitis, unspecified",J02.9,ICD10CM
+45572157,Acute laryngitis and tracheitis,J04,ICD10
+1569452,Acute laryngitis and tracheitis,J04,ICD10CM
+35207925,Acute laryngitis,J04.0,ICD10CM
+45533538,Acute laryngitis,J04.0,ICD10
+1569453,Acute tracheitis,J04.1,ICD10CM
+45576943,Acute tracheitis,J04.1,ICD10
+45533539,Acute tracheitis without obstruction,J04.10,ICD10CM
+45533540,Acute tracheitis with obstruction,J04.11,ICD10CM
+35207926,Acute laryngotracheitis,J04.2,ICD10CM
+45562434,Acute laryngotracheitis,J04.2,ICD10
+45567258,Acute obstructive laryngitis [croup],J05.0,ICD10
+35207927,Acute obstructive laryngitis [croup],J05.0,ICD10CM
+45601116,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10
+1569457,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10CM
+35207928,Acute laryngopharyngitis,J06.0,ICD10CM
+45562436,Acute laryngopharyngitis,J06.0,ICD10
+45533542,Other acute upper respiratory infections of multiple sites,J06.8,ICD10
+45562437,"Acute upper respiratory infection, unspecified",J06.9,ICD10
+35207929,"Acute upper respiratory infection, unspecified",J06.9,ICD10CM
+45538472,"Acute pharyngitis, unspecified",J02.9,ICD10
+45538478,Chronic pharyngitis,J31.2,ICD10
+45533542,Other acute upper respiratory infections of multiple sites,J06.8,ICD10
+45562431,Acute nasopharyngitis [common cold],J00,ICD10
+45562432,Acute pharyngitis due to other specified organisms,J02.8,ICD10
+45562436,Acute laryngopharyngitis,J06.0,ICD10
+45562437,"Acute upper respiratory infection, unspecified",J06.9,ICD10
+45557615,Acute pharyngitis,J02,ICD10
+45601116,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10
+45601126,Chronic nasopharyngitis,J31.1,ICD10
+45755453,"Chronic rhinitis, nasopharyngitis and pharyngitis",J31,ICD10
+35205756,Enteroviral vesicular pharyngitis,B08.5,ICD10CM
+35207921,Acute nasopharyngitis [common cold],J00,ICD10CM
+35207923,Acute pharyngitis due to other specified organisms,J02.8,ICD10CM
+35207924,"Acute pharyngitis, unspecified",J02.9,ICD10CM
+35207928,Acute laryngopharyngitis,J06.0,ICD10CM
+35207929,"Acute upper respiratory infection, unspecified",J06.9,ICD10CM
+35207975,Chronic nasopharyngitis,J31.1,ICD10CM
+35207976,Chronic pharyngitis,J31.2,ICD10CM
+1569447,Acute pharyngitis,J02,ICD10CM
+1569457,Acute upper respiratory infections of multiple and unspecified sites,J06,ICD10CM
+1569474,"Chronic rhinitis, nasopharyngitis and pharyngitis",J31,ICD10CM
+25297,Acute pharyngitis,363746003,SNOMED
+26711,Chronic pharyngitis,140004,SNOMED
+23798,Acute laryngopharyngitis,55355000,SNOMED
+257011,Acute upper respiratory infection,54398005,SNOMED
+258453,Acute upper respiratory infection of multiple sites,78337007,SNOMED
+441321,Chronic nasopharyngitis,47841006,SNOMED
+4035987,Viral pharyngitis,1532007,SNOMED
+4085100,Viral upper respiratory tract infection,281794004,SNOMED
+4112006,Acute bacterial pharyngitis,195658003,SNOMED
+4110479,Recurrent upper respiratory tract infection,195708003,SNOMED
+4110512,Influenza with pharyngitis,195924009,SNOMED
+4112343,Acute viral pharyngitis,195662009,SNOMED
+4150370,Respiratory syncytial virus pharyngitis,31309002,SNOMED
+4193918,Parainfluenza virus pharyngitis,78911000,SNOMED
+4183609,Influenzal acute upper respiratory infection,43692000,SNOMED
+4181583,Upper respiratory infection,54150009,SNOMED
+4197268,Nasopharyngitis,51476001,SNOMED
+4207185,Bacterial upper respiratory infection,312118003,SNOMED
+4193318,Infective pharyngitis,312422001,SNOMED
+4226263,Pharyngitis,405737000,SNOMED
+4301754,Adenoviral pharyngitis,78430008,SNOMED
+4318117,Mycoplasmal pharyngitis,95885008,SNOMED
+46270122,Upper respiratory tract infection due to H1N1 influenza,1.42941E+14,SNOMED
+46273463,Upper respiratory tract infection due to Influenza,1.06851E+16,SNOMED
+46270491,Upper respiratory tract infection due to Influenza A,3.28531E+14,SNOMED
