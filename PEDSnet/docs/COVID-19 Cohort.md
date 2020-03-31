@@ -63,12 +63,33 @@ concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 40218805|Testing for SARS-CoV-2 in CDC laboratory|U0001|HCPCS
 40218804|Testing for SARS-CoV-2 in non-CDC laboratory|U0002|HCPCS
+700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
 706163|SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|LOINC
 706170|SARS coronavirus 2 RNA [Presence] in Unspecified specimen by NAA with probe detection|94309-2|LOINC
 706158|SARS Coronavirus 2 RNA panel - Respiratory specimen by NAA with probe detection|94531-1|LOINC
 706169|SARS Coronavirus 2 RNA panel - Unspecified specimen by NAA with probe detection|94306-8|LOINC
 706165|SARS coronavirus+SARS-like coronavirus+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94502-2|LOINC
-700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
+706160|SARS coronavirus 2 RdRp gene [Presence] in Respiratory specimen by NAA with probe detection	|94534-5|	LOINC
+706161|SARS coronavirus 2 N gene [Presence] in Respiratory specimen by NAA with probe detection	|94533-7|	LOINC
+706159|SARS-related coronavirus+MERS coronavirus RNA [Presence] in Respiratory specimen by NAA with probe detection	|94532-9|	LOINC
+706171|SARS-like coronavirus N gene [Presence] in Unspecified specimen by NAA with probe detection	|94310-0|	LOINC
+706168|SARS coronavirus 2 ORF1ab region [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94511-3	|LOINC
+706172|SARS-like coronavirus N gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94313-4	|LOINC
+706173|SARS coronavirus 2 RdRp gene [Presence] in Unspecified specimen by NAA with probe detection|	94314-2	|LOINC
+706166|SARS coronavirus 2 E gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94509-7|	LOINC
+706155|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by Nucleic acid amplification using primer-probe set N2|94312-6|	LOINC
+706157|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by Nucleic acid amplification using primer-probe set N1|94311-8	|LOINC
+706157|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection|	94510-5|	LOINC
+706154|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by Nucleic acid amplification using primer-probe set N2	|94308-4	|LOINC
+706156|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by Nucleic acid amplification using primer-probe set N1	|94307-6	|LOINC
+706175|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by NAA with probe detection	|94316-7|	LOINC
+706181|SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Rapid immunoassay	|94507-1|	LOINC
+706177|SARS coronavirus 2 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay	|94505-5|	LOINC
+706180|SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Rapid immunoassay	|94508-9|	LOINC
+706178|SARS coronavirus 2 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay|	94506-3|	LOINC
+0|SARS coronavirus 2 IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay	|94547-7	|LOINC
+706176|SARS coronavirus 2 IgG and IgM panel - Serum or Plasma Qualitative by Rapid immunoassay	|94503-0|	LOINC
+706179|SARS coronavirus 2 IgG and IgM panel - Serum or Plasma by Immunoassay|	94504-8	|LOINC
 
 </p>
 </details>
