@@ -155,11 +155,22 @@ person_id|inclusion_criterion
 9020|ED Admission and Respiratory Diagnosis
 2424|Inpatient Admission and Respiratory Diagnosis
 
+### Healthcare Workers
 
+To capture health care workers, create a record in the observation table using the following concept_ids:
 
+observation_concept_id: `756083: Suspected exposure to severe acute respiratory syndrome coronavirus 2 `
+value_as_concept_id:`756046: Person Employed as a Healthcare Worker`
 
+Please see the example below for formatting guidelines (with required fields):
 
-
+observation table field|value
+---|---
+person_id| `1234`
+observation_concept_id| `756083`
+osbervation_date| `Date of suspected exposure`
+observation_type_concept_id| `38000280`
+value_as_concept_id|`756046`
 
 ### Lab Mapping
 
