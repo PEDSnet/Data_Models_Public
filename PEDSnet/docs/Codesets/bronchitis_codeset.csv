@@ -21,6 +21,14 @@ concept_id,concept_name,concept_code,vocabulary_id
 35208013,"Bronchitis, not specified as acute or chronic",J40,ICD10CM
 45755455,Simple and mucopurulent chronic bronchitis,J41,ICD10
 1569485,Simple and mucopurulent chronic bronchitis,J41,ICD10CM
+35208014,Simple chronic bronchitis,J41.0,ICD10CM
+35208015,Mucopurulent chronic bronchitis,J41.1,ICD10CM
+35208017,Unspecified chronic bronchitis,J42,ICD10CM
+35208052,"Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors",J68.0,ICD10CM
+35208108,Other specified respiratory disorders,J98.8,ICD10CM
+35207970,Unspecified acute lower respiratory infection,J22,ICD10CM
+35208023,Chronic obstructive pulmonary disease with (acute) lower respiratory infection,J44.0,ICD10CM
+45562458,Bronchiectasis with acute lower respiratory infection,J47.0,ICD10CM
 45586671,Mixed simple and mucopurulent chronic bronchitis,J41.8,ICD10
 35208016,Mixed simple and mucopurulent chronic bronchitis,J41.8,ICD10CM
 260139,Acute bronchitis,10509002,SNOMED
