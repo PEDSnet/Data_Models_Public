@@ -17,3 +17,6 @@ concept_id,concept_name,concept_code,vocabulary_id
 4191650,Acute respiratory distress,373895009,SNOMED
 40555260,Idiopathic respiratory distress syndrome,3774009,SNOMED
 45772947,Acute respiratory distress in newborn,707540007,SNOMED
+35210484,Respiratory distress syndrome of newborn,P22.0,ICD10CM
+45577700,Resorption atelectasis without respiratory distress syndrome,P28.11,ICD10CM
+1326788,Acute respiratory distress,R06.03,ICD10CM
