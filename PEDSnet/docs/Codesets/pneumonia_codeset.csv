@@ -52,6 +52,33 @@ concept_id,concept_name,concept_code,vocabulary_id
 45543274,Idiopathic interstitial pneumonia,J84.11,ICD10
 45601135,"Idiopathic interstitial pneumonia, not otherwise specified",J84.111,ICD10
 45552902,Ventilator associated pneumonia,J95.851,ICD10
+35210488,Congenital pneumonia due to viral agent,P23.0,ICD10CM
+45556887,Typhoid pneumonia,A01.03,ICD10CM
+45532808,Salmonella pneumonia,A02.22,ICD10CM
+45600409,Whooping cough due to Bordetella pertussis with pneumonia,A37.01,ICD10CM
+45542528,Whooping cough due to Bordetella parapertussis with pneumonia,A37.11,ICD10CM
+45542529,Whooping cough due to other Bordetella species with pneumonia,A37.81,ICD10CM
+45556897,"Whooping cough, unspecified species with pneumonia",A37.91,ICD10CM
+45556911,Gonococcal pneumonia,A54.84,ICD10CM
+35205735,Varicella pneumonia,B01.2,ICD10CM
+35205746,Measles complicated by pneumonia,B05.2,ICD10CM
+45581145,Rubella pneumonia,B06.81,ICD10CM
+45571459,HIV disease resulting in Pneumocystis jirovecii pneumonia,B20.6,ICD10
+45552235,Ascariasis pneumonia,B77.81,ICD10CM
+35207941,Pneumonia due to Pseudomonas,J15.1,ICD10CM
+1569467,Pneumonia due to staphylococcus,J15.2,ICD10CM
+45601122,"Pneumonia due to staphylococcus, unspecified",J15.20,ICD10CM
+45567261,Pneumonia due to staphylococcus aureus,J15.21,ICD10CM
+45533545,Pneumonia due to Methicillin susceptible Staphylococcus aureus,J15.211,ICD10CM
+45557620,Pneumonia due to Methicillin resistant Staphylococcus aureus,J15.212,ICD10CM
+45591550,Pneumonia due to other staphylococcus,J15.29,ICD10CM
+45591551,Pneumonia in bacterial diseases classified elsewhere,J17.0,ICD10CM
+45572163,Pneumonia in mycoses,J17.2,ICD10
+45548106,Pneumonia in parasitic diseases,J17.3,ICD10
+45567274,Cryptogenic organizing pneumonia,J84.116,ICD10CM
+45562465,Desquamative interstitial pneumonia,J84.117,ICD10CM
+45586680,Lymphoid interstitial pneumonia,J84.2,ICD10CM
+35208076,Abscess of lung with pneumonia,J85.1,ICD10CM
 46269693,Chronic pneumonia,102361000119104,SNOMED
 4021760,Non-infectious pneumonia,105977003,SNOMED
 46269708,Bronchopneumonia due to anaerobic bacteria,10625031000119100,SNOMED
