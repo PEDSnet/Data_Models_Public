@@ -25,8 +25,11 @@ Diagnosis Codes</summary>
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 45756093|Emergency use of U07.1 \| Disease caused by severe acute respiratory syndrome coronavirus 2|U07.1|ICD10
+0|COVID-19, virus not identified|U07.2|
 45585955|	Coronavirus infection, unspecified site	|B34.2|ICD10
 35205800|Coronavirus infection, unspecified|	B34.2|ICD10CM
+35205804|Viral infection, unspecified|	B34.9|ICD10CM
+45605229|Viral infection, unspecified|	B34.9|ICD10
 45590872|	Coronavirus as the cause of diseases classified to other chapters|B97.2|	ICD10
 1567458|	Coronavirus as the cause of diseases classified elsewhere|	B97.2|ICD10CM
 45537785|	SARS-associated coronavirus as the cause of diseases classified elsewhere|	B97.21|ICD10CM
