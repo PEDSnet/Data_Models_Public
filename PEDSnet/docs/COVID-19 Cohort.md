@@ -173,6 +173,9 @@ When making a note of the inclusion criterion met please use the following value
 <li>COVID-19 Test Positive</li>
 <li>COVID-19 Test Negative</li>
 <li>COVID-19 Test Result Unknown</li>
+<li>HCW-COVID-19 Test Positive</li>
+<li>HCW-COVID-19 Test Negative</li>
+<li>HCW-COVID-19 Test Result Unknown</li>
 <li>ED Admission and Respiratory Diagnosis</li>
 <li>Inpatient Admission and Respiratory Diagnosis</li></ul>
 
@@ -191,10 +194,13 @@ person_id|inclusion_criterion
 6789|COVID-19 Test Result Unknown
 9020|ED Admission and Respiratory Diagnosis
 2424|Inpatient Admission and Respiratory Diagnosis
+1294|HCW-COVID-19 Test Positive
+2325|HCW-COVID-19 Test Negative
+6749|HCW-COVID-19 Test Result Unknown
 
 ### Healthcare Workers
 
-To capture health care workers, create a record in the observation table using the following concept_ids:
+To capture health care workers (HCW), create a record in the observation table using the following concept_ids:
 
 observation_concept_id: `756083: Suspected exposure to severe acute respiratory syndrome coronavirus 2 `
 value_as_concept_id:`756046: Person Employed as a Healthcare Worker`
