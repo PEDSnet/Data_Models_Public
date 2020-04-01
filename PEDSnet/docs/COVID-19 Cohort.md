@@ -15,7 +15,7 @@ Patients should be included they were:
  
  <ul><li>Diagnosied with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
- <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma)</li></ul>
+ <li>Any visit since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
 
 **Codesets:**
 <details><summary>
@@ -112,6 +112,40 @@ concept_id|concept_name|concept_code|vocabulary
 
 [Upper Respiratory Infections](Codesets/uri_codeset.csv)
 
+</details>
+
+<details><summary>Fever</summary>
+<p>
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+35211386|Other specified fever|	R50.8| ICD10CM
+35211385|Drug induced fever|	R50.2| ICD10CM
+45597190|Febrile nonhemolytic transfusion reaction|	R50.84| ICD10CM
+35211387|Fever, unspecified|	R50.9| ICD10CM
+45577799|Simple febrile convulsion|	R56.00| ICD10CM
+
+</p>
+</details>
+
+<details><summary>Dyspnea</summary>
+<p>
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+45534422|Shortness of breath|R06.02|ICD10CM
+
+</p>
+</details>
+
+<details><summary>Cough</summary>
+<p>
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+35211275|Cough|R05|ICD10CM
+
+</p>
 </details>
 
 ## Vocabulary Snapshot
