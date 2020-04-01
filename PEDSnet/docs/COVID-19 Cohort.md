@@ -18,8 +18,7 @@ Patients should be included they were:
  <li>Any visit since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
 
 **Codesets:**
-<details><summary>
-Diagnosis Codes</summary>
+<details><summary>Diagnosis Codes</summary>
 <p>
 
 concept_id|concept_name|concept_code|vocabulary
