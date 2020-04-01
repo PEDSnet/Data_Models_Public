@@ -1,4 +1,48 @@
 concept_id,concept_name,concept_code,vocabulary_id
+35205797,Other specified viral diseases,B33.8,ICD10CM
+35205803,Other viral infections of unspecified site,B34.8,ICD10CM
+45561778,Other viral agents as the cause of diseases classified elsewhere,B97.89,ICD10CM
+1569454,"Supraglottitis, unspecified",J04.3,ICD10CM
+45562435,"Supraglottitis, without obstruction",J04.30,ICD10CM
+45572158,"Supraglottitis, with obstruction",J04.31,ICD10CM
+1569456,Acute epiglottitis,J05.1,ICD10CM
+45533541,Acute epiglottitis without obstruction,J05.10,ICD10CM
+45601115,Acute epiglottitis with obstruction,J05.11,ICD10CM
+35208011,Other specified diseases of upper respiratory tract,J39.8,ICD10CM
+35208012,"Disease of upper respiratory tract, unspecified",J39.9,ICD10CM
+35211275,Pain in throat,R05,ICD10CM
+1569440,Acute maxillary sinusitis,J01.0,ICD10CM
+45576939,"Acute maxillary sinusitis, unspecified",J01.00,ICD10CM
+45581839,Acute recurrent maxillary sinusitis,J01.01,ICD10CM
+1569441,Acute frontal sinusitis,J01.1,ICD10CM
+45533536,"Acute frontal sinusitis, unspecfied",J01.10,ICD10CM
+45576940,Acute recurrent frontal sinusitis,J01.11,ICD10CM
+1569442,Acute ethmoidal sinusitis,J01.2,ICD10CM
+45538468,"Acute ethmoidal sinusitis, unspecfied",J01.20,ICD10CM
+45548100,Acute ethmoidal frontal sinusitis,J02.21,ICD10CM
+1569443,Acute sphenoidal sinusitis,J01.3,ICD10CM
+45538469,"Acute sphenoidal sinusitis, unspecified",J01.30,ICD10CM
+45596274,Acute recurrent sphenoidal sinusitis,J01.31,ICD10CM
+1569444,Acute pansinusitis,J01.4,ICD10CM
+45557614,"Acute pansinusitis, unspecified",J01.40,ICD10CM
+45601113,Acute recurrent pansinusitis,J01.41,ICD10CM
+1569445,Other acute sinusitis,J01.8,ICD10CM
+45581840,"Other acute sinusitis, unspecified",J01.80,ICD10CM
+45576941,Other acute recurrent sinusitis,J01.81,ICD10CM
+1569446,"Acute sinusitis, unspecified",J01.9,ICD10CM
+45538470,"Acute sinusitis, unspecified",J01.90,ICD10CM
+45538471,"Acute recurrent sinusitis, unspecified",J01.91,ICD10CM
+35207922,Streptococcal pharyngitis,J02.0,ICD10CM
+35207923,Acute pharyngitis due to other specified organisms,J02.8,ICD10CM
+1569448,Acute tonsillitis,J03,ICD10CM
+1569449,Streptococcal tonsillitis,J03.0,ICD10CM
+45543253,"Acute streptococcal tonsillitis, unspecified",J03.00,ICD10CM
+45552877,Acute recurrent streptococcal tonsillitis,J03.01,ICD10CM
+1569450,Acute tonsillitis due to other specified organisms,J03.8,ICD10CM
+45591539,Acute tonsillitis due to other specified organisms,J03.80,ICD10CM
+1569451,"Acute tonsillitis, unspecified",J03.9,ICD10CM
+45538473,"Acute tonsillitis, unspecified",J03.90,ICD10CM
+45591540,"Acute recurrent tonsillitis, unspecified",J03.91,ICD10CM
 45562431,Acute nasopharyngitis [common cold],J00,ICD10
 35207921,Acute nasopharyngitis [common cold],J00,ICD10CM
 45557615,Acute pharyngitis,J02,ICD10
@@ -70,6 +114,6 @@ concept_id,concept_name,concept_code,vocabulary_id
 4226263,Pharyngitis,405737000,SNOMED
 4301754,Adenoviral pharyngitis,78430008,SNOMED
 4318117,Mycoplasmal pharyngitis,95885008,SNOMED
-46270122,Upper respiratory tract infection due to H1N1 influenza,1.42941E+14,SNOMED
-46273463,Upper respiratory tract infection due to Influenza,1.06851E+16,SNOMED
-46270491,Upper respiratory tract infection due to Influenza A,3.28531E+14,SNOMED
+46270122,Upper respiratory tract infection due to H1N1 influenza,142941000000000,SNOMED
+46273463,Upper respiratory tract infection due to Influenza,10685100000000000,SNOMED
+46270491,Upper respiratory tract infection due to Influenza A,328531000000000,SNOMED
