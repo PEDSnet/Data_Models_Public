@@ -168,7 +168,7 @@ observation table field|value
 ---|---
 person_id| `1234`
 observation_concept_id| `756083`
-osbervation_date| `Date of suspected exposure`
+osbervation_date| `Date of suspected exposure (if known) or best estimate`
 observation_type_concept_id| `38000280`
 value_as_concept_id|`756046`
 
