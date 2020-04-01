@@ -1,7 +1,5 @@
 # COVID-19 Cohort ETL Guidance 
 
-**\**DRAFT - VERSION\****
-
 ## Background
 
 The COVID-19 pandemic presents a “100 year” challenge to public health, threatening mortality into the hundreds of thousands and severe socioeconomic dislocation.  Although children as a group appear to be less severely affected than older patients, but many important questions remain unanswered.  Little is known about risk factors for severe illness, particularly in young infants, immunocompromised children, and children with chronic pulmonary disease.  Moreover, the role children with mild infection play in transmission, both in the community and in the pediatric workforce, is not well understood.
@@ -119,9 +117,9 @@ concept_id|concept_name|concept_code|vocabulary
 ## Vocabulary Snapshot
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
 
-A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
+A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38). 
 
-This is version [3.7.2](**coming soon**) of the vocabulary. 
+This is version [3.7.2](https://chop.sharefile.com/d-s2642eb37ee04ea38) of the vocabulary. 
 
 ## Data Submission
 
