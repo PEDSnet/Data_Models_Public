@@ -7,6 +7,19 @@ concept_id,concept_name,concept_code,vocabulary_id
 45591542,Influenza due to identified avian influenza virus with unspecified type of pneumonia,J09.019,ICD10
 45548101,Influenza due to identified avian influenza virus with other respiratory manifestations,J09.02,ICD10
 45596275,Influenza due to identified avian influenza virus with gastrointestinal manifestations,J09.03,ICD10
+45548102,Influenza due to identified avian influenza virus with encephalopathy,J09.090,ICD10
+45591543,Influenza due to identified avian influenza virus with myocarditis,J09.091,ICD10
+45586658,Influenza due to identified avian influenza virus with otitis media,J09.092,ICD10
+45562439,Influenza due to identified novel H1N1 influenza virus with gastrointestinal manifestations,J09.13,ICD10
+45552878,Influenza due to identified novel H1N1 influenza virus with encephalopathy,J09.190,ICD10
+45591544,Influenza due to identified novel H1N1 influenza virus with myocarditis,J09.191,ICD10
+45548104,Influenza due to identified novel H1N1 influenza virus with otitis media,J09.192,ICD10
+45586659,Influenza due to other identified influenza virus with encephalopathy,J10.81,ICD10
+45591546,Influenza due to other identified influenza virus with myocarditis,J10.82,ICD10
+45601121,Influenza due to other identified influenza virus with otitis media,J10.83,ICD10
+45581844,Influenza due to unidentified influenza virus with encephalopathy,J11.81,ICD10
+45543255,Influenza due to unidentified influenza virus with myocarditis,J11.82,ICD10
+45538475,Influenza due to unidentified influenza virus with otitis media,J11.83,ICD10
 45601117,Influenza due to identified avian influenza virus with other manifestations,J09.098,ICD10
 920134,Influenza due to identified novel H1N1 influenza virus with respiratory manifestations,J09.11,ICD10
 45548103,Influenza due to identified novel H1N1 influenza virus with identified novel H1N1 influenza pneumonia,J09.110,ICD10
