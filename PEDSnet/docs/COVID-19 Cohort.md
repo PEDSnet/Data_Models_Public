@@ -1,7 +1,5 @@
 # COVID-19 Cohort ETL Guidance 
 
-**\**DRAFT - VERSION\****
-
 ## Background
 
 The COVID-19 pandemic presents a “100 year” challenge to public health, threatening mortality into the hundreds of thousands and severe socioeconomic dislocation.  Although children as a group appear to be less severely affected than older patients, but many important questions remain unanswered.  Little is known about risk factors for severe illness, particularly in young infants, immunocompromised children, and children with chronic pulmonary disease.  Moreover, the role children with mild infection play in transmission, both in the community and in the pediatric workforce, is not well understood.
@@ -17,7 +15,7 @@ Patients should be included they were:
  
  <ul><li>Diagnosied with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
- <li>Seen in the Emergency Department (ED) or inpatient setting since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma)</li></ul>
+ <li>Any visit since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
 
 **Codesets:**
 <details><summary>
@@ -27,8 +25,11 @@ Diagnosis Codes</summary>
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 45756093|Emergency use of U07.1 \| Disease caused by severe acute respiratory syndrome coronavirus 2|U07.1|ICD10
+0|COVID-19, virus not identified|U07.2|
 45585955|	Coronavirus infection, unspecified site	|B34.2|ICD10
 35205800|Coronavirus infection, unspecified|	B34.2|ICD10CM
+35205804|Viral infection, unspecified|	B34.9|ICD10CM
+45605229|Viral infection, unspecified|	B34.9|ICD10
 45590872|	Coronavirus as the cause of diseases classified to other chapters|B97.2|	ICD10
 1567458|	Coronavirus as the cause of diseases classified elsewhere|	B97.2|ICD10CM
 45537785|	SARS-associated coronavirus as the cause of diseases classified elsewhere|	B97.21|ICD10CM
@@ -63,12 +64,33 @@ concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 40218805|Testing for SARS-CoV-2 in CDC laboratory|U0001|HCPCS
 40218804|Testing for SARS-CoV-2 in non-CDC laboratory|U0002|HCPCS
+700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
 706163|SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|LOINC
 706170|SARS coronavirus 2 RNA [Presence] in Unspecified specimen by NAA with probe detection|94309-2|LOINC
 706158|SARS Coronavirus 2 RNA panel - Respiratory specimen by NAA with probe detection|94531-1|LOINC
 706169|SARS Coronavirus 2 RNA panel - Unspecified specimen by NAA with probe detection|94306-8|LOINC
 706165|SARS coronavirus+SARS-like coronavirus+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94502-2|LOINC
-700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
+706160|SARS coronavirus 2 RdRp gene [Presence] in Respiratory specimen by NAA with probe detection	|94534-5|	LOINC
+706161|SARS coronavirus 2 N gene [Presence] in Respiratory specimen by NAA with probe detection	|94533-7|	LOINC
+706159|SARS-related coronavirus+MERS coronavirus RNA [Presence] in Respiratory specimen by NAA with probe detection	|94532-9|	LOINC
+706171|SARS-like coronavirus N gene [Presence] in Unspecified specimen by NAA with probe detection	|94310-0|	LOINC
+706168|SARS coronavirus 2 ORF1ab region [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94511-3	|LOINC
+706172|SARS-like coronavirus N gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94313-4	|LOINC
+706173|SARS coronavirus 2 RdRp gene [Presence] in Unspecified specimen by NAA with probe detection|	94314-2	|LOINC
+706166|SARS coronavirus 2 E gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94509-7|	LOINC
+706155|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by Nucleic acid amplification using primer-probe set N2|94312-6|	LOINC
+706157|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by Nucleic acid amplification using primer-probe set N1|94311-8	|LOINC
+706157|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection|	94510-5|	LOINC
+706154|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by Nucleic acid amplification using primer-probe set N2	|94308-4	|LOINC
+706156|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by Nucleic acid amplification using primer-probe set N1	|94307-6	|LOINC
+706175|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by NAA with probe detection	|94316-7|	LOINC
+706181|SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Rapid immunoassay	|94507-1|	LOINC
+706177|SARS coronavirus 2 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay	|94505-5|	LOINC
+706180|SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Rapid immunoassay	|94508-9|	LOINC
+706178|SARS coronavirus 2 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay|	94506-3|	LOINC
+0|SARS coronavirus 2 IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay	|94547-7	|LOINC
+706176|SARS coronavirus 2 IgG and IgM panel - Serum or Plasma Qualitative by Rapid immunoassay	|94503-0|	LOINC
+706179|SARS coronavirus 2 IgG and IgM panel - Serum or Plasma by Immunoassay|	94504-8	|LOINC
 
 </p>
 </details>
@@ -95,12 +117,46 @@ concept_id|concept_name|concept_code|vocabulary
 
 </details>
 
+<details><summary>Fever</summary>
+<p>
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+35211386|Other specified fever|	R50.8| ICD10CM
+35211385|Drug induced fever|	R50.2| ICD10CM
+45597190|Febrile nonhemolytic transfusion reaction|	R50.84| ICD10CM
+35211387|Fever, unspecified|	R50.9| ICD10CM
+45577799|Simple febrile convulsion|	R56.00| ICD10CM
+
+</p>
+</details>
+
+<details><summary>Dyspnea</summary>
+<p>
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+45534422|Shortness of breath|R06.02|ICD10CM
+
+</p>
+</details>
+
+<details><summary>Cough</summary>
+<p>
+
+concept_id|concept_name|concept_code|vocabulary
+---|---|---|---
+35211275|Cough|R05|ICD10CM
+
+</p>
+</details>
+
 ## Vocabulary Snapshot
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
 
-A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](**coming soon**). 
+A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38). 
 
-This is version [3.7.2](**coming soon**) of the vocabulary. 
+This is version [3.7.2](https://chop.sharefile.com/d-s2642eb37ee04ea38) of the vocabulary. 
 
 ## Data Submission
 
@@ -136,11 +192,22 @@ person_id|inclusion_criterion
 9020|ED Admission and Respiratory Diagnosis
 2424|Inpatient Admission and Respiratory Diagnosis
 
+### Healthcare Workers
 
+To capture health care workers, create a record in the observation table using the following concept_ids:
 
+observation_concept_id: `756083: Suspected exposure to severe acute respiratory syndrome coronavirus 2 `
+value_as_concept_id:`756046: Person Employed as a Healthcare Worker`
 
+Please see the example below for formatting guidelines (with required fields):
 
-
+observation table field|value
+---|---
+person_id| `1234`
+observation_concept_id| `756083`
+osbervation_date| `Date of suspected exposure (if known) or best estimate`
+observation_type_concept_id| `38000280`
+value_as_concept_id|`756046`
 
 ### Lab Mapping
 
