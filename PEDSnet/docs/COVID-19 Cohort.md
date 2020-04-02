@@ -159,7 +159,7 @@ This is version [3.7.2](https://chop.sharefile.com/d-s2642eb37ee04ea38) of the v
 
 ## Data Submission
 
-### Initial Patient List
+### Initial Patient List (Due April 3rd, 2020)
 
 To begin to understand the population, we ask that each site generate a patient list for patients meeting the aforementioned criteira.
 
@@ -194,6 +194,15 @@ person_id|inclusion_criterion
 2325|HCW-COVID-19 Test Negative
 6749|HCW-COVID-19 Test Result Unknown
 
+### Weekly Submission (Starting April 10th, 2020)
+Using the data resource, we will maintain up to date **(weekly)** descriptions of the demographics and major clinical characteristics of COVID-19 cohorts, as well as an overall picture of health care utilization, to inform public health and health system responses.
+
+Please utilize the PEDSnet data submission resource **transfer2.chop.edu** to submit the covid-19 cohort for your site. 
+
+Please use the following convention for submission:
+
+[Site_Name]\_Covid-19\_[Submission_date].extension
+
 ### Healthcare Workers
 
 To capture health care workers (HCW), create a record in the observation table using the following concept_ids:
@@ -222,11 +231,3 @@ SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Immunoassay|94507-1|7
 SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Immunoassay|94508-9|706180
 
 
-### Weekly Submission
-Using the data resource, we will maintain up to date **(weekly)** descriptions of the demographics and major clinical characteristics of COVID-19 cohorts, as well as an overall picture of health care utilization, to inform public health and health system responses.
-
-Please utilize the PEDSnet data submission resource **transfer2.chop.edu** to submit the covid-19 cohort for your site. 
-
-Please use the following convention for submission:
-
-[Site_Name]\_Covid-19\_[Submission_date].extension
