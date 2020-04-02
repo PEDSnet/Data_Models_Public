@@ -13,7 +13,7 @@ Both clinical diagnostics and data collection regarding COVID-19 is in flux. In 
 
 Patients should be included they were:
  
- <ul><li>Diagnosied with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
+ <ul><li>Diagnosed with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
  <li>Any visit since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
 
@@ -175,7 +175,7 @@ When making a note of the inclusion criterion met please use the following value
 <li>HCW-COVID-19 Test Positive</li>
 <li>HCW-COVID-19 Test Negative</li>
 <li>HCW-COVID-19 Test Result Unknown</li>
-<li>Visit with Diagnosis</li>
+<li>Visit with Diagnosis List Code</li>
 
 Additional Notes:
 - For patients meeting multiple criteria, include multiple rows.
@@ -189,7 +189,7 @@ person_id|inclusion_criterion
 1234|COVID-19 Test Positive
 2345|COVID-19 Test Negative
 6789|COVID-19 Test Result Unknown
-9020|Visit with Diagnosis
+9020|Visit with Diagnosis List Code
 1294|HCW-COVID-19 Test Positive
 2325|HCW-COVID-19 Test Negative
 6749|HCW-COVID-19 Test Result Unknown
