@@ -175,7 +175,7 @@ When making a note of the inclusion criterion met please use the following value
 <li>HCW-COVID-19 Test Positive</li>
 <li>HCW-COVID-19 Test Negative</li>
 <li>HCW-COVID-19 Test Result Unknown</li>
-<li>Visit with Diagnosis List Code</li>
+<li>Visit with Diagnosis List Code</li></ul>
 
 Additional Notes:
 - For patients meeting multiple criteria, include multiple rows.
