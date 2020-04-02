@@ -175,12 +175,10 @@ When making a note of the inclusion criterion met please use the following value
 <li>HCW-COVID-19 Test Positive</li>
 <li>HCW-COVID-19 Test Negative</li>
 <li>HCW-COVID-19 Test Result Unknown</li>
-<li>ED Admission and Respiratory Diagnosis</li>
-<li>Inpatient Admission and Respiratory Diagnosis</li></ul>
+<li>Visit with Diagnosis</li>
 
 Additional Notes:
 - For patients meeting multiple criteria, include multiple rows.
-- For ED->Inpatient visits with a respiratory diagnosis use the `Inpatient Admission and Respiratory Diagnosis` criterion.
 - If you are unable to determine a positive or negative result for the COVID-19 test, use the `COVID-19 Test Result Unknown` criterion.
 
 Please see the example below for formatting guidelines:
@@ -191,8 +189,7 @@ person_id|inclusion_criterion
 1234|COVID-19 Test Positive
 2345|COVID-19 Test Negative
 6789|COVID-19 Test Result Unknown
-9020|ED Admission and Respiratory Diagnosis
-2424|Inpatient Admission and Respiratory Diagnosis
+9020|Visit with Diagnosis
 1294|HCW-COVID-19 Test Positive
 2325|HCW-COVID-19 Test Negative
 6749|HCW-COVID-19 Test Result Unknown
