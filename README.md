@@ -7,6 +7,7 @@ The `master` branch may contain changes that do not apply to the latest released
 
 PEDSnet Release | ETL Conventions Document
 --------|--------------------------
+[COVID-19 ETL Guidance](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)|[COVID-19 ETL Guidance](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
 [v3.7 branch](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.7.0_1/) |[v3.7 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.7.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)
 [v3.6 branch](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.6.0_1/) |[v3.6 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.6.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) 
 [v3.5 branch](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.5.0_1/) |[v3.5 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) 
