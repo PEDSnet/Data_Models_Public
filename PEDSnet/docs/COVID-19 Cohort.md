@@ -229,6 +229,12 @@ osbervation_date| `Date of suspected exposure (if known) or best estimate`
 observation_type_concept_id| `38000280`
 value_as_concept_id|`756046`
 
+### COVID-19 Patients identified outside of EHR
+
+Patients may be identified as having COVID-19 using outside sources (e.g. a site registry, outside lab testing). Because of this diagnosis or testing data may not be available during the ETL.
+
+Guidance on how to capture these patients ***COMING SOON***
+
 ### Lab Mapping
 
 In an effort to standardize the way the COVID-19 test appear in the network, we have chosen conical mappings for the lab tests. Please include mappings to these in the [PEDSnet Lab Mapping File](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_Labs_Site_Mappings.csv) in the data submission.
