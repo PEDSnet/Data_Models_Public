@@ -11,7 +11,7 @@ Recognizing this need, PEDSnet is committing to a rapid response that creates th
 
 Both clinical diagnostics and data collection regarding COVID-19 is in flux. In order to capture patients, we will define this cohort with a focus on sensitivity.
 
-Sites have the option of using the `PCORNet` or `Date Based` inclusion criteira based on what is most feasible.
+Sites have the option of using the `PCORNet` or `Date Based` inclusion criteira based on what is most feasible. Please indicate to the DCC the option your site is using.
 
 ### PCORnet Inclusion Criteira
 Patients are included if they were:
