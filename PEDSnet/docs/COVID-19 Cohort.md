@@ -11,11 +11,14 @@ Recognizing this need, PEDSnet is committing to a rapid response that creates th
 
 Both clinical diagnostics and data collection regarding COVID-19 is in flux. In order to capture patients, we will define this cohort with a focus on sensitivity.
 
-Patients should be included they were:
+Sites have the option of using the `PCORNet` or `Date Based` inclusion criteira based on what is most feasible.
+
+### PCORnet Inclusion Criteira
+Patients are included if they were:
  
  <ul><li>Diagnosed with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
- <li>Any visit since Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
+ <li>Seen at any visit on or after Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
 
 **Codesets:**
 <details><summary>Diagnosis Codes</summary>
@@ -149,6 +152,12 @@ concept_id|concept_name|concept_code|vocabulary
 
 </p>
 </details>
+
+### Date Based Inclusion Criteira
+
+Patients are included if they were:
+</ul>
+<li>Seen at any visit on or after Jan 01, 2020</li></ul>
 
 ## Vocabulary Snapshot
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
