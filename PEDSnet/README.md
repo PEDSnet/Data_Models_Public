@@ -1,3 +1,19 @@
+## COVID-19 ETL
+
+PEDSnet has committed to a rapid response that creates the data substrate for COVID-19 analyses and for pragmatic research, and that builds a pediatric research effort to complement current efforts in basic and adult clinical domains.
+
+### ETL Conventions 
+For ETL Guidance, please use the documentation [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md).
+
+### Vocabulary Data
+There has been a speical release to the vocabulary as a result of new standards and terms. It is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38).
+
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
+
+***
+***
+***
+
 ## PEDSnet CDM V3.7
 
 The PEDSnet common data model version 3.7 is an update to version 3.6. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.7 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v3.7.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.7 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
