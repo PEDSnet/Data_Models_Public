@@ -233,7 +233,18 @@ value_as_concept_id|`756046`
 
 Patients may be identified as having COVID-19 using outside sources (e.g. a site registry, outside lab testing). Because of this diagnosis or testing data may not be available during the ETL.
 
-Guidance on how to capture these patients ***COMING SOON***
+To identify these patients, create a record in the observation table using the following concept_ids:
+
+observation_concept_id: `756083: Suspected exposure to severe acute respiratory syndrome coronavirus 2 `
+value_as_concept_id:`44802454:	Information external to care setting`
+
+observation table field|value
+---|---
+person_id| `1234`
+observation_concept_id| `756083`
+osbervation_date| `Date of suspected exposure (if known) or best estimate`
+observation_type_concept_id| `38000280`
+value_as_concept_id|`44802454`
 
 ### Lab Mapping
 
