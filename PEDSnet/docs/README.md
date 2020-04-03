@@ -1,3 +1,7 @@
+# COVID-19 ETL Gudiance
+
+ETL Guidance for COVID-19 availble [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
+
 # PEDSnet CDM V3.7 DDL and Documentation
 
 ### DDL files
