@@ -143,6 +143,7 @@ concept_id|concept_name|concept_code|vocabulary
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 45534422|Shortness of breath|R06.02|ICD10CM
+312437 | Dyspnea      | 267036007    | SNOMED
 
 </p>
 </details>
@@ -153,6 +154,8 @@ concept_id|concept_name|concept_code|vocabulary
 concept_id|concept_name|concept_code|vocabulary
 ---|---|---|---
 35211275|Cough|R05|ICD10CM
+254761 | Cough        | 49727002     | SNOMED
+
 
 </p>
 </details>
