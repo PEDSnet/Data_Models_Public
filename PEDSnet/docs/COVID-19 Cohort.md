@@ -129,6 +129,10 @@ concept_id|concept_name|concept_code|vocabulary
 45597190|Febrile nonhemolytic transfusion reaction|	R50.84| ICD10CM
 35211387|Fever, unspecified|	R50.9| ICD10CM
 45577799|Simple febrile convulsion|	R56.00| ICD10CM
+4249735 | Febrile transfusion reaction | 73301000     | SNOMED
+437663 | Fever                        | 386661006    | SNOMED
+377101 | Simple febrile seizure       | 432354000    | SNOMED
+4226022 | Drug-induced hyperpyrexia    | 405543000    | SNOMED
 
 </p>
 </details>
