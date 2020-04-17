@@ -3,7 +3,7 @@
 PEDSnet has committed to a rapid response that creates the data substrate for COVID-19 analyses and for pragmatic research, and that builds a pediatric research effort to complement current efforts in basic and adult clinical domains.
 
 ### ETL Conventions 
-For ETL Guidance, please use the documentation [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md).
+For ETL Guidance, please use the documentation [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md).
 
 ### Vocabulary Data
 There has been a speical release to the vocabulary as a result of new standards and terms. It is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38).
