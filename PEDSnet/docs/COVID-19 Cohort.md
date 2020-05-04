@@ -20,42 +20,25 @@ Patients are included if they were:
  <li>Tested for SARS-CoV-2 ***OR***</li>
  <li>Seen at any visit on or after Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
 
+Please use the following codesets to assist with identifying patients in your source data. Please continue to include any code (diagnosis, procedure or lab) you know is in institutional use that meet these categories, as we know that some of the source data mappings may not be so straightforward.
+
 **Codesets:**
 <details><summary>Diagnosis Codes</summary>
-<p>
+ 
+ 
+ - The codeset below contains both ICD10 and SNOMED codes that may be in use at your institution to identify covid patients:
+   
+   [COVID-19 Related](Codesets/covid_dx_etl_helpers_codeset.csv)
+   
+ 
+- Some of the codes included in the above codeset are codes were adapted to capture COVID-19 before the creation of a COVID-19 specific code. Because of this, the DCC has observed that there is a lack of specificity in identifying patients. To better capture patients with a COVID-19 diagnosis,the following categories will be used:
 
-concept_id|concept_name|concept_code|vocabulary
----|---|---|---
-45756093|Emergency use of U07.1 \| Disease caused by severe acute respiratory syndrome coronavirus 2|U07.1|ICD10
-0|COVID-19, virus not identified|U07.2|
-45585955|	Coronavirus infection, unspecified site	|B34.2|ICD10
-35205800|Coronavirus infection, unspecified|	B34.2|ICD10CM
-35205804|Viral infection, unspecified|	B34.9|ICD10CM
-45605229|Viral infection, unspecified|	B34.9|ICD10
-45590872|	Coronavirus as the cause of diseases classified to other chapters|B97.2|	ICD10
-1567458|	Coronavirus as the cause of diseases classified elsewhere|	B97.2|ICD10CM
-45537785|	SARS-associated coronavirus as the cause of diseases classified elsewhere|	B97.21|ICD10CM
-45600471|Other coronavirus as the cause of diseases classified elsewhere|B97.29|ICD10CM
-45567260|	Pneumonia due to SARS-associated coronavirus|	J12.81|	ICD10CM
-45756079|	Severe acute respiratory syndrome [SARS]|	U04|	ICD10
-45604597|	Severe acute respiratory syndrome [SARS], unspecified	|U04.9	|ICD10
-45542411|Contact with and (suspected) exposure to other viral communicable diseases|Z20.828|ICD10CM
-45571329|Contact with and (suspected) exposure to other bacterial communicable diseases|Z20.818|ICD10CM
-439676	|Coronavirus infection	|186747009|SNOMED
-4092694	|Coronavirus as the cause of diseases classified to other chapters	|186758000	|SNOMED
-40380828|	Coronavirus as the cause of diseases classified to other chapters	|187587009|SNOMED
-4100065|	Disease due to Coronaviridae	|27619001|SNOMED
-320651|Severe acute respiratory syndrome	|398447004	|SNOMED
-4248811|	Healthcare associated severe acute respiratory syndrome	|408688009|SNOMED
-40479642|	Pneumonia due to Severe acute respiratory syndrome coronavirus|	441590008|SNOMED
-40479782|	Exposure to severe acute respiratory syndrome coronavirus|	444482005|SNOMED
-45763594|	Middle East respiratory syndrome|651000146102|SNOMED
-45765578|	Exposure to coronavirus infection	|702547000|SNOMED
-37016927|	Pneumonia caused by Human coronavirus|	713084008|SNOMED
-37396171|Severe acute respiratory syndrome of upper respiratory tract|	715882005|SNOMED
-44810278|	Exposure to coronavirus infection	|878171000000104|SNOMED
+   [COVID-19 Specific (Diagnosis and Exposure)](Codesets/covid_dx_specific_codeset.csv)
 
-</p>
+   [COVID-19 Provisional](Codesets/covid_dx_provisional_codeset.csv)
+   
+   *Note: These codesets are used as a reference for the Table 1 reporting.*
+
 </details>
 
 <details><summary>Procedure/Lab Codes</summary>
@@ -262,5 +245,3 @@ Lab name|pedsnet_loinc_code|pedsnet_concept_id
 SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|706163
 SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Immunoassay|94507-1|706181
 SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Immunoassay|94508-9|706180
-
-
