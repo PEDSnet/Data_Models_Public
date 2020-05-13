@@ -149,12 +149,12 @@ Patients are included if they were:
 </ul>
 <li>Seen at any visit on or after Jan 01, 2020</li></ul>
 
-## Vocabulary Snapshot
+## Vocabulary Snapshot -- Latest update May 11,2020
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
 
 A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38). 
 
-This is version [3.7.2](https://chop.sharefile.com/d-s2642eb37ee04ea38) of the vocabulary. 
+This is version [3.7.3](https://chop.sharefile.com/d-sbeb43cefe594305b) of the vocabulary. 
 
 ## Data Submission
 
@@ -245,3 +245,64 @@ Lab name|pedsnet_loinc_code|pedsnet_concept_id
 SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|706163
 SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Immunoassay|94507-1|706181
 SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Immunoassay|94508-9|706180
+
+## NEW Data Elements
+
+### FiO2
+To record FiO2 vitals for the patient, please use the following conventions to insert a record into the **measurement** table:
+
+measurement_concept_id|concept_code|concept_name|
+---|---|---
+4353936|	250774007|	Inspired oxygen concentration
+
+### Peripheral oxygen saturation (SpO2)/fraction of inspired oxygen (FiO2) 
+
+To record SpO2/FiO2 vitals for the patient, please use the following conventions to insert a record into the **measurement** table:
+
+measurement_concept_id|concept_code|concept_name|
+---|---|---
+2000001422|SpO2/FiO2|	Peripheral oxygen saturation/fraction of inspired oxygen
+
+### Chief Complaint
+
+The cheif complaint is often a free text or non-structured field in source systems without any standard terminology. To record this kind of chief complaint for the patient, please use the following **observation_concept_id** to insert a record into the **observation** table:
+
+observaton_concept_id|concept_name
+---|---
+42894222| EHR Chief Complaint
+
+Please make an effort to redact any potential PHI.
+
+We recognize that chief complaint as defined above may not be available. If reporting admission diagnosis, please use on the following **condition_type_concept_id** (depending where this information is coming from in the source system) to insert a record into the **condition_occurrence** table:
+
+condition_type_concept_id|concept_name
+---|---
+ 2000001423 | Admission Diagnosis - Order
+ 2000001424 | Admission Diagnosis - Billing
+ 2000001425 | Admission Diagnosis - Claim
+
+### Vaping Status
+
+To record the vaping smoking status for the patient, please use the following conventions to insert a record into the **observation** table:
+
+Concept Name	|Observation concept ID|	Value as concept ID	|Concept description|	Vocab ID
+---|---|---|---|---
+Electronic cigarette user|	36716478|42536422| Electronic cigarette liquid containing nicotine| SNOMED
+Electronic cigarette user|	36716478|42536421| Electronic cigarette liquid without nicotine| SNOMED
+Electronic cigarette user|	36716478|42536420| Electronic cigarette liquid (if nicotine type is not known)|SNOMED
+
+### Mechanical Ventilation
+To record the mechanical ventilation status for the patient, please use the following conventions to insert a record into the **device_exposure** table:
+
+device_concept_id|concept_code|concept_name|ventilation type
+---|---|---|---
+4044008|	129121000|	Tracheostomy tube|invasive
+4097216|	26412008|	Endotracheal tube|invasive
+4138614|	425826004	|BiPAP oxygen nasal cannula| non-invasive
+45761494|	467645007|	CPAP nasal oxygen cannula| non-invasive
+4224038|336623009|Oxygen nasal cannula| non-invasive
+4139525|426854004|High flow oxygen nasal cannula| non-invasive
+45768222|	706226000	|Continuous positive airway pressure/Bilevel positive airway pressure mask| non-invasive
+4222966|	336602003|	Oxygen mask|non-invasive
+40493026|	449071006|	Mechanical ventilator (if unable to distinguish the type)| N/A
+
