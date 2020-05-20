@@ -6,7 +6,7 @@ PEDSnet has committed to a rapid response that creates the data substrate for CO
 For ETL Guidance, please use the documentation [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md).
 
 ### Vocabulary Data
-There has been a speical release to the vocabulary as a result of new standards and terms. It is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38).
+There has been a speical release to the vocabulary as a result of new standards and terms. Please contact the DCC for more information.
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
@@ -48,7 +48,7 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.7.0` as argu
 
 ### Vocabulary Data
 
-- v3.7.0 Core Vocabulary: [here](https://chop.sharefile.com/d-s7368dbdfa9b45348)
+- v3.7.0 Core Vocabulary: Please contact the DCC for more information.
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
@@ -91,7 +91,7 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.6.0` as argu
 
 ### Vocabulary Data
 
-- v3.6.0 Core Vocabulary: [here](https://chop.sharefile.com/d-sba41255401a46699)
+- v3.6.0 Core Vocabulary: lease contact the DCC for more information.
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
@@ -133,7 +133,7 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.5.0` as argu
 
 ### Vocabulary Data
 
-- v3.5.0 Core Vocabulary: [here](https://chop.sharefile.com/d-s7209ccb882241138)
+- v3.5.0 Core Vocabulary: Please contact the DCC for more information.
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
@@ -175,7 +175,7 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.4.0` as argu
 
 ### Vocabulary Data
 
-- v3.4.0 Core Vocabulary: [here](https://chop.sharefile.com/d-sd2a007ed8774c4aa)
+- v3.4.0 Core Vocabulary: Please contact the DCC for more information.
 
 If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
 
