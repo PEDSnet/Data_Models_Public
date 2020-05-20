@@ -152,9 +152,7 @@ Patients are included if they were:
 ## Vocabulary Snapshot -- Latest update May 11,2020
 Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
 
-A **snapsho**t of the vocabulary (an update to the current vocabulary) is available [here](https://chop.sharefile.com/d-s2642eb37ee04ea38). 
-
-This is version [3.7.3](https://chop.sharefile.com/d-sbeb43cefe594305b) of the vocabulary. 
+A **snapshot** of the vocabulary (an update to the current vocabulary) is available. Please contact the DCC for more information.
 
 ## Data Submission
 
