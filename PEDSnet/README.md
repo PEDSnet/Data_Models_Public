@@ -1,3 +1,35 @@
+## PEDSnet CDM V3.8
+
+The PEDSnet common data model version 3.8 is an update to version 3.7 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.8 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v3.8.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.8 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+
+### ETL Conventions for Version 3.8
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.8 ETL Conventions](https://github.com/PEDSnet/Data_Models/blob/pedsnet_v3.8.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here(https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! Find advice and instructions for contributing (or maintaining a separate version with your own annotations) [here](CONTRIBUTING.md).
+
+### Changes from Version 3.8
+
+Please see the applicable change document for changes and additions for the v3.8 data model [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.7_CDM3.8_diff.md)
+
+## Site Responsibility for Version 3.8
+
+### Stable Identifiers
+
+For PEDSNet CDMv3.8, sites are responsible for creating and storing a mapping from both `person_id`,`visit_occurrence_id` and `provider_id` to stable local identifiers. These `person_id` , `visit_occurrence_id` and `provider_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id`, `visit_occurrence_id` and `provider_id` values to the same person, visit and provider entities. The mappings should not be sent to the DCC.
+
+### Data Validation
+
+Sites are responsible for using the data validation tool on all CSV files before sending them to the DCC. You can download the tool [here](https://github.com/chop-dbhi/data-models-validator/releases/tag/1.0.0) and read about its usage and see sample output [here](https://github.com/chop-dbhi/data-models-validator). This should help to reduce data cycle time by allowing sites to fix most data formatting and type errors before transmission to the DCC.
+
+To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.8.0` as arguments when running the validator. 
+
+## Reference Materials for Version 3.8
+
+### Data Model DDL
+
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.8.0/ddl/postgresql/)
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.8.0/ddl/oracle/)
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.8.0/ddl/mssql/)
+
 ## COVID-19 ETL
 
 PEDSnet has committed to a rapid response that creates the data substrate for COVID-19 analyses and for pragmatic research, and that builds a pediatric research effort to complement current efforts in basic and adult clinical domains.
