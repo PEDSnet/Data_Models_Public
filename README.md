@@ -8,14 +8,15 @@ The `master` branch may contain changes that do not apply to the latest released
  ETL Conventions Documents|
 --------------------------|
 [COVID-19 ETL Guidance](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)|
-[v3.7 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.7.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)|
-[v3.6 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.6.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)|
-[v3.5 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.5.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)| 
-[v3.4 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.4.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)| 
-[v3.3 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.3.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)| 
-[v3.2 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.2.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)| 
-[v3.1 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.1.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)| 
-[v3.0 ETL Conventions](https://github.com/PEDSnet/Data_Models/tree/pedsnet_v3.0.0_1/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md)| 
+[v3.8 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.8_PEDSnet_CDM_ETL_Conventions.md)|
+[v3.7 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.7_PEDSnet_CDM_ETL_Conventions.md)|
+[v3.6 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.6_PEDSnet_CDM_ETL_Conventions.md)|
+[v3.5 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.5_PEDSnet_CDM_ETL_Conventions.md)| 
+[v3.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.4_PEDSnet_CDM_ETL_Conventions.md)| 
+[v3.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.3_PEDSnet_CDM_ETL_Conventions.md)| 
+[v3.2 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.2_PEDSnet_CDM_ETL_Conventions.md)| 
+[v3.1 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.1_PEDSnet_CDM_ETL_Conventions.md)| 
+[v3.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.0_PEDSnet_CDM_ETL_Conventions.md)| 
 
 Please find all PDF verions of the conventions documents [here](https://github.com/PEDSnet/Data_Models_Public/tree/master/PEDSnet/docs/Conventions%20PDFs).
 
