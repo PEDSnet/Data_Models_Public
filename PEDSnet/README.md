@@ -183,7 +183,7 @@ The PEDSnet common data model version 3.4 is an update to version 3.3. A full de
 
 ### ETL Conventions for Version 3.4
 
-The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.4 ETL Conventions](https://github.com/PEDSnetData_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.4_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! 
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.4_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! 
 
 ### Changes from Version 3.4
 
