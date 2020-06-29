@@ -6,9 +6,9 @@ The CDM V3.8 DDL scripts are organized by DBMS. Within each DBMS-specific direct
 
 ### Documentation
 
-CDM documentation, including the conventions document, are available in the [docs](docs) folder.
+CDM documentation, including the conventions document, are available in the [docs](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs) folder.
 
 
 # COVID-19 ETL Gudiance
 
-ETL Guidance for COVID-19 availble [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
+ETL Guidance for COVID-19 availble [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
