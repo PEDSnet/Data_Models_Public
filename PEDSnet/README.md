@@ -30,6 +30,10 @@ To verify PEDSnet-format data, use `-model pedsnet` and `-version 3.8.0` as argu
 - Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.8.0/ddl/oracle/)
 - Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/3.8.0/ddl/mssql/)
 
+***
+***
+***
+
 ## COVID-19 ETL
 
 PEDSnet has committed to a rapid response that creates the data substrate for COVID-19 analyses and for pragmatic research, and that builds a pediatric research effort to complement current efforts in basic and adult clinical domains.
