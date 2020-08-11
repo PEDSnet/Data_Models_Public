@@ -3,7 +3,7 @@
 
 ## Continued Data Quality Focus for PEDSnet Key Data Elements
 
-Please continue to work on refining and improving the quality of data for the following domains and fields associated with the [PEDSnet Key Data Elements](docs/PEDSnet%20Key%20Data%20Elements.md):
+Please continue to work on refining and improving the quality of data for the following domains and fields associated with the [PEDSnet Key Data Elements](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/PEDSnet%20Key%20Data%20Elements.md):
 
 - `person.birth_datetime`
 - `person.location_id`
@@ -37,7 +37,7 @@ Please continue to work on refining and improving the quality of data for the fo
 - `measurement_organism.organism_concept_id`
 - `immunization.immunization_concept_id`
 
-More information can be found [here.](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet%20Key%20Data%20Elements.md)
+More information can be found [here.](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/PEDSnet%20Key%20Data%20Elements.md)
 
 #### The DCC will be reaching out for site-focused DQA over the next month, particularly with issues around PCORnet.
 
