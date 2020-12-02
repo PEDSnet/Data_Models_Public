@@ -6,17 +6,17 @@ As of v4.0 of PEDSnet, `care_site_id` is now required to be a stable identifier 
 
 ## Datavant v3.5 Software Links
 
-It is recommended that the DCC and all PEDSnet sites use v3.5 of the Datavant Software to ensure we are all following the same tokenization process. The download link for all platforms (Windows/Linux/Unix) is available [here](https://wetransfer.com/downloads/d8ffa82a3e5ca614fc7b7fc812d4da7120201105230725/4f0c9e009c5b590530a394e487f75e4f20201105230725/991331).
+It is recommended that the DCC and all PEDSnet sites use v3.5 of the Datavant Software to ensure we are all following the same tokenization process. Please contact the DCC for the download link for all platforms (Windows/Linux/Unix).
 
 Please note, there was a v3.6 software available on the Datavant portal that was released on November 2020. As we align ourselves with the Datavant release process, the DCC will announce when it is necessary to upgrade to a newer version and provide release links when possible.
 
 ## Submission Metadata and ETL Changes Documentation
 
-Please document submission metadata and any ETL changes for version 4.0 in the [REDCap Project](https://redcap.chop.edu/redcap_v10.3.2/DataEntry/record_status_dashboard.php?pid=38566).
+Please document submission metadata and any ETL changes for version 4.0 in the PEDSnet Metadata Project. Please contact the DCC for more information.
 
 ## Sites submitting COVID data with v4.0 submission
 
-For sites submiiting COVID data along with the v4.0 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
+For sites submiiting COVID data along with the v4.0 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. 
 
 When making a note of the inclusion criterion met please use the following valueset:
 
@@ -111,7 +111,7 @@ Potassium|	<li>Urine<li>Blood\/Serum
   - Any **manual or automated assertions** of LOINC/CPT in ETL process (source_to_concept_map or other ETL mapping tables)
   - The **top 10 most frequent** LOINC/CPT or lab/procedure name to measurement_concept_id mappings (i.e., the most frequent source value to measurement_concept_id mappings by number of measurements)
 - For any mismapping issues, please prioritize fixes which generalize across labs where possible
-- Document lab mapping ETL work using the ["Lab Mapping" instrument of the PEDSnet Metadata REDCap form](https://redcap.chop.edu/redcap_v10.3.2/DataEntry/record_status_dashboard.php?pid=38566), which will ask for information about:
+- Document lab mapping ETL work using the "Lab Mapping" instrument of the PEDSnet Metadata REDCap form, which will ask for information about:
   - Which components have been checked
   - All measurement_concept_ids identified for each component and specimen
   - Any ETL fixes (including the source and the resolution)
