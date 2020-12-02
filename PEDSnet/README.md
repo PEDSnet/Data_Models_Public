@@ -47,7 +47,7 @@ The PEDSnet common data model version 3.9 is an update to version 3.8 and includ
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.9 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.9_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
 
-### Changes from Version 3.9
+### Changes from Version 3.8
 
 Please see the applicable change document for changes and additions for the v3.9 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.8_CDM3.9_diff.md)
 
@@ -89,7 +89,7 @@ The PEDSnet common data model version 3.8 is an update to version 3.7 and includ
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.8 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.8_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
 
-### Changes from Version 3.8
+### Changes from Version 3.7
 
 Please see the applicable change document for changes and additions for the v3.8 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.7_CDM3.8_diff.md)
 
@@ -146,7 +146,7 @@ The PEDSnet common data model version 3.7 is an update to version 3.6. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.7 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.7_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
 
-### Changes from Version 3.7
+### Changes from Version 3.6
 
 Please see the applicable change document for changes and additions for the v3.7 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.6_CDM3.7_diff.md)
 
@@ -189,7 +189,7 @@ The PEDSnet common data model version 3.6 is an update to version 3.5. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.6 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.6_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing! 
 
-### Changes from Version 3.6
+### Changes from Version 3.5
 
 Please see the applicable change document for changes and additions for the v3.6 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.5_CDM3.6_diff.md)
 
@@ -231,7 +231,7 @@ The PEDSnet common data model version 3.5 is an update to version 3.4. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.5 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.5_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing!
 
-### Changes from Version 3.5
+### Changes from Version 3.4
 
 Please see the applicable change document for changes and additions for the v3.5 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.4_CDM3.5_diff.md)
 
@@ -273,7 +273,7 @@ The PEDSnet common data model version 3.4 is an update to version 3.3. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.4_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models/issues). Please also consider contributing! 
 
-### Changes from Version 3.4
+### Changes from Version 3.3
 
 Please see the applicable change document for changes and additions for the v3.4 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.3_CDM3.4_diff.md)
 
@@ -311,7 +311,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 The PEDSnet common data model version 3.3 is an update to version 3.2. A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.3_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.3 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
-### ETL Conventions for Version 3.3
+### ETL Conventions for Version 3.2
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.3_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
 
@@ -357,7 +357,7 @@ The PEDSnet common data model version 3.2 is an update to version 3.0. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.2 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.2_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
 
-### Changes from Version 3.2
+### Changes from Version 3.1
 
 Please see the applicable change document for changes and additions for the v3.2 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.1_CDM3.2_diff.md)
 
@@ -399,7 +399,7 @@ The PEDSnet common data model version 3.1 is an update to version 3.0. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.1 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.1_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing! 
 
-### Changes from Version 3.1
+### Changes from Version 3.0
 
 Please see the applicable change document for changes and additions for the v3.1 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM3.0_CDM3.1_diff.md)
 
@@ -441,7 +441,7 @@ The PEDSnet common data model version 3.0 is an update to version 2.9. A full de
 
 The PEDSnet ETL conventions are described in the [PEDSnet CDM V3.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.0_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
 
-### Changes from Version 3.0
+### Changes from Version 2.9
 
 Please see the applicable change document for changes and additions for the v3.0 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/Pedsnet_CDM2.9_CDM3.0_diff.md)
 
