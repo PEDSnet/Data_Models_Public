@@ -2,7 +2,7 @@
 
 ## **** NEW in PEDSnet CDM v4.1 ****
 
-### [1.9 Observation](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#19-observation-1)
+### 1.9 Observation
 
 #### Improve Care Now (ICN) Data Elements
 
@@ -16,21 +16,19 @@ The elements correspond to the following outcomes:
 - Chron's Disease Phenotype
 - Extent of Macroscopic Lower GI Disease
 
-Guidance can be found in the docs folder [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/ICN%20Survey%20Concept%20Mapping.md).
+Guidance can be found in the docs folder.
 
-### [1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
+### 1.12 Measurement
 
 #### Body Surface Area
 
 We will now record Body Surface Area in the `measurement` table. If your site is already providing height and weight, the DCC will derive the body surface area.
 
-### [1.19 Device Exposure](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#118-device-exposure)
+### 1.19 Device Exposure
 
 #### NEST Cardiac Data Elements
 
-We would like to include various cardiac stent devices in the PEDSnet `device_exposure` table to support the NEST Cardiac Studies. Guidance can be found in the docs folder [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/NEST/NEST-CardiacStents.md).
-
-The original device lists provided by each site can be found in the [Site - Cardiac Stents](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/NEST/NEST-CardiacStents.md) folder.
+We would like to include various cardiac stent devices in the PEDSnet `device_exposure` table to support the NEST Cardiac Studies. Guidance can be found in the docs folder.
 
 ## **** Reminders ****
 
@@ -40,7 +38,7 @@ Please document submission metadata and any ETL changes for version 4.1 in the [
 
 ### Sites submitting COVID data with v4.1 submission
 
-For sites submiiting COVID data along with the v4.1 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
+For sites submiiting COVID data along with the v4.1 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original COVID Inclusion List format. We have included it below for reference.
 
 When making a note of the inclusion criterion met please use the following valueset:
 
