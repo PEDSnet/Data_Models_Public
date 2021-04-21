@@ -1,8 +1,8 @@
-# PEDSnet CDM V4.0 DDL and Documentation
+# PEDSnet CDM V4.2 DDL and Documentation
 
 ### DDL files
 
-The CDM V4.0 DDL scripts are organized by DBMS. Within each DBMS-specific directory, there are separate scripts to create tables, constraints, and indexes, as well as load the vocabulary data (which can be downloaded seperately.
+The CDM V4.2 DDL scripts are organized by DBMS. Within each DBMS-specific directory, there are separate scripts to create tables, constraints, and indexes, as well as load the vocabulary data (which can be downloaded seperately.
 
 ### Documentation
 
