@@ -22,6 +22,6 @@ The `master` branch may contain changes that do not apply to the latest released
 [v3.1 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.1_PEDSnet_CDM_ETL_Conventions.md)| 
 [v3.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.0_PEDSnet_CDM_ETL_Conventions.md)| 
 
-Please find all PDF verions of the conventions documents [here](https://github.com/PEDSnet/Data_Models_Public/tree/master/PEDSnet/docs/Conventions%20PDFs).
+Please find all PDF versions of the conventions documents [here](https://github.com/PEDSnet/Data_Models_Public/tree/master/PEDSnet/docs/Conventions%20PDFs).
 
 The [data models DDL service](http://data-models-sqlalchemy.research.chop.edu/) generates official network DDL automatically from the authoritative [definitions for the data models](https://github.com/chop-dbhi/data-models).  Of more esoteric interest is the [intermediate models service](http://data-models-service.research.chop.edu/) that serves the model definitions, mostly to other services.
