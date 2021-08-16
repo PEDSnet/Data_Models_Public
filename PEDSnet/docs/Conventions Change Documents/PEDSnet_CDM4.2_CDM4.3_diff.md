@@ -2,7 +2,7 @@
 
 ## **** NEW in PEDSnet CDM v4.3 ****
 
-### [1.12 Measurement](../docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
+### [1.12 Measurement](https://github.com/PEDSnet/Data_Models_Public/tree/master/PEDSnet/docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
 - Update of `Note 5` for instructions on how to populate the range_low_operator_concept_id and range_high_operator_concept_id for **Numerical** LAB Values.
 
 
