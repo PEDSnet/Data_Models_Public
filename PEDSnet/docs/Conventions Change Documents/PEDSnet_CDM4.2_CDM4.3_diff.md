@@ -10,7 +10,7 @@
 ---|---|---|---
 Numerical value Examples: 7,8.2,100|	Numerical Value Examples: 7,8.2,100|	Numerical value Examples: 7,8.2,100	|**4172703** *(Previously 0)*
 
-### [1.18 Device Exposure](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#118-device_exposure)
+### [1.18 Device Exposure](https://github.com/PEDSnet/Data_Models_Public/tree/master/PEDSnet/docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md#118-device_exposure)
 - Addition of `placement_concept_id` and `placement_source_value`  columns to capture device body site placement location of devices.
 
 ### Vocabulary Tables
@@ -25,10 +25,9 @@ Numerical value Examples: 7,8.2,100|	Numerical Value Examples: 7,8.2,100|	Numeri
 ### PEDSnet Vocabulary Distribution
 
 - CHOP has discontinued the use of ShareFile.
-- The PEDSnet Vocabulary is now available on [OneDrive](https://chop365-my.sharepoint.com/:u:/g/personal/burrowse_chop_edu/EbuII2aRJE5Pj3mRP3QQl8AB8HyVAhFNrl0O6bRC5-qROA?e=y0onIm). 
-- Please use your CHOP AD credentials to log in and access the download.
+- The PEDSnet Vocabulary is now available on [OneDrive]. Please contact the DCC for more information.
 
-### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
+### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models_Public/tree/master/PEDSnet/docs/COVID-19%20Cohort.md)
 
 #### COVID-19 Vaccine Mapping
 
