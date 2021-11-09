@@ -1,0 +1,11 @@
+﻿concept_id,concept_name,concept_code,vocabulary_id
+700360,"Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique",87635,CPT4
+40218805,Testing for SARS-CoV-2 in CDC laboratory,U0001,HCPCS
+40218804,Testing for SARS-CoV-2 in non-CDC laboratory,U0002,HCPCS
+742224,"Infectious agent antigen detection by immunoassay technique, qualitative or semiquantitative, multiple-step method; severe acute respiratory syndrome coronavirus (eg, SARS-CoV, SARS-CoV-2 [COVID-19]) (Coronavirus disease [COVID-19])",87426,CPT4
+742220,"Antibody, severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), includes titer(s), when performed",0224U,CPT4
+742218,"Infectious disease (bacterial or viral respiratory tract infection), pathogen-specific nucleic acid (DNA or RNA), 22 targets including severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), qualitative RT-PCR, nasopharyngeal swab",0202U,CPT4
+742219,"Infectious disease (bacterial or viral respiratory tract infection), pathogen-specific nucleic acid (DNA or RNA), 22 targets including severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), qualitative RT-PCR, nasopharyngeal swab",0223U,CPT4
+742223,"Immunoassay for infectious agent antibody(ies), qualitative or semiquantitative, single step method (eg, reagent strip); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19])",86328,CPT4
+704059,"Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique, making use of high throughput technologies as described by CMS-2020-01-R",U0003,HCPCS
+704058,"2019-nCoV Coronavirus, SARS-CoV-2/2019-nCoV (COVID-19), any technique, multiple types or subtypes (includes all targets), non-CDC, making use of high throughput technologies as described by CMS-2020-01-R",U0004,HCPCS

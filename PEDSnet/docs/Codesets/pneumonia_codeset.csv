@@ -1,256 +1,296 @@
-concept_id,concept_name,concept_code,vocabulary_id
-1569465,"Viral pneumonia, not elsewhere classified",J12,ICD10
-45552879,"Viral pneumonia, not elsewhere classified",J12,ICD10
-45591547,Adenoviral pneumonia,J12.0,ICD10
-35207932,Adenoviral pneumonia,J12.0,ICD10
-35207933,Respiratory syncytial virus pneumonia,J12.1,ICD10
-45543256,Respiratory syncytial virus pneumonia,J12.1,ICD10
-35207934,Parainfluenza virus pneumonia,J12.2,ICD10
-45557618,Parainfluenza virus pneumonia,J12.2,ICD10
-45557619,Human metapneumovirus pneumonia,J12.3,ICD10
-35207935,Human metapneumovirus pneumonia,J12.3,ICD10
-45538476,Other viral pneumonia,J12.8,ICD10
-35207936,Other viral pneumonia,J12.8,ICD10
-45567260,Pneumonia due to SARS-associated coronavirus,J12.81,ICD10
-45572161,Other viral pneumonia,J12.89,ICD10
-45552880,"Viral pneumonia, unspecified",J12.9,ICD10
-35207937,"Viral pneumonia, unspecified",J12.9,ICD10
-45586662,Pneumonia due to Streptococcus pneumoniae,J13,ICD10
-35207938,Pneumonia due to Streptococcus pneumoniae,J13,ICD10
-1569466,"Bacterial pneumonia, not elsewhere classified",J15,ICD10
-45581847,"Bacterial pneumonia, not elsewhere classified",J15,ICD10
-35207942,"Pneumonia due to streptococcus, group B",J15.3,ICD10
-45543258,"Pneumonia due to streptococcus, group B",J15.3,ICD10
-45562441,Pneumonia due to other streptococci,J15.4,ICD10
-35207943,Pneumonia due to other streptococci,J15.4,ICD10
-45543260,Pneumonia due to Mycoplasma pneumoniae,J15.7,ICD10
-35207946,Pneumonia due to Mycoplasma pneumoniae,J15.7,ICD10
-45572162,Other bacterial pneumonia,J15.8,ICD10
-35207947,Pneumonia due to other specified bacteria,J15.8,ICD10
-35207948,Unspecified bacterial pneumonia,J15.9,ICD10
-45557621,"Bacterial pneumonia, unspecified",J15.9,ICD10
-45755452,"Pneumonia due to other infectious organisms, not elsewhere classified",J16,ICD10
-1569468,"Pneumonia due to other infectious organisms, not elsewhere classified",J16,ICD10
-45552881,Pneumonia due to other specified infectious organisms,J16.8,ICD10
-35207950,Pneumonia due to other specified infectious organisms,J16.8,ICD10
-45533546,Pneumonia in diseases classified elsewhere,J17,ICD10
-35207951,Pneumonia in diseases classified elsewhere,J17,ICD10
-45586663,Pneumonia in viral diseases classified elsewhere,J17.1,ICD10
-45591552,Pneumonia in other diseases classified elsewhere,J17.8,ICD10
-1569469,"Pneumonia, unspecified organism",J18,ICD10
-45548107,"Pneumonia, organism unspecified",J18,ICD10
-45572164,"Bronchopneumonia, unspecified",J18.0,ICD10
-35207952,"Bronchopneumonia, unspecified organism",J18.0,ICD10
-35207953,"Lobar pneumonia, unspecified organism",J18.1,ICD10
-45562442,"Lobar pneumonia, unspecified",J18.1,ICD10
-45562443,"Hypostatic pneumonia, unspecified",J18.2,ICD10
-35207954,"Hypostatic pneumonia, unspecified organism",J18.2,ICD10
-35207955,"Other pneumonia, unspecified organism",J18.8,ICD10
-45605883,"Other pneumonia, organism unspecified",J18.8,ICD10
-45601123,"Pneumonia, unspecified",J18.9,ICD10
-35207956,"Pneumonia, unspecified organism",J18.9,ICD10
-45543274,Idiopathic interstitial pneumonia,J84.11,ICD10
-45601135,"Idiopathic interstitial pneumonia, not otherwise specified",J84.111,ICD10
-45552902,Ventilator associated pneumonia,J95.851,ICD10
-35210488,Congenital pneumonia due to viral agent,P23.0,ICD10CM
-45556887,Typhoid pneumonia,A01.03,ICD10CM
-45532808,Salmonella pneumonia,A02.22,ICD10CM
-45600409,Whooping cough due to Bordetella pertussis with pneumonia,A37.01,ICD10CM
-45542528,Whooping cough due to Bordetella parapertussis with pneumonia,A37.11,ICD10CM
-45542529,Whooping cough due to other Bordetella species with pneumonia,A37.81,ICD10CM
-45556897,"Whooping cough, unspecified species with pneumonia",A37.91,ICD10CM
-45556911,Gonococcal pneumonia,A54.84,ICD10CM
-35205735,Varicella pneumonia,B01.2,ICD10CM
-35205746,Measles complicated by pneumonia,B05.2,ICD10CM
-45581145,Rubella pneumonia,B06.81,ICD10CM
-45571459,HIV disease resulting in Pneumocystis jirovecii pneumonia,B20.6,ICD10
-45552235,Ascariasis pneumonia,B77.81,ICD10CM
-35207941,Pneumonia due to Pseudomonas,J15.1,ICD10CM
-1569467,Pneumonia due to staphylococcus,J15.2,ICD10CM
-45601122,"Pneumonia due to staphylococcus, unspecified",J15.20,ICD10CM
-45567261,Pneumonia due to staphylococcus aureus,J15.21,ICD10CM
-45533545,Pneumonia due to Methicillin susceptible Staphylococcus aureus,J15.211,ICD10CM
-45557620,Pneumonia due to Methicillin resistant Staphylococcus aureus,J15.212,ICD10CM
-45591550,Pneumonia due to other staphylococcus,J15.29,ICD10CM
-45591551,Pneumonia in bacterial diseases classified elsewhere,J17.0,ICD10CM
-45572163,Pneumonia in mycoses,J17.2,ICD10
-45548106,Pneumonia in parasitic diseases,J17.3,ICD10
-45567274,Cryptogenic organizing pneumonia,J84.116,ICD10CM
-45562465,Desquamative interstitial pneumonia,J84.117,ICD10CM
-45586680,Lymphoid interstitial pneumonia,J84.2,ICD10CM
-35208076,Abscess of lung with pneumonia,J85.1,ICD10CM
-46269693,Chronic pneumonia,102361000119104,SNOMED
-4021760,Non-infectious pneumonia,105977003,SNOMED
-46269708,Bronchopneumonia due to anaerobic bacteria,10625031000119100,SNOMED
-46269709,Bronchopneumonia due to bacteria,10625071000119100,SNOMED
-46269711,Bronchopneumonia due to Group A Streptococcus,10625151000119100,SNOMED
-46269712,Bronchopneumonia due to Group B Streptococcus,10625191000119100,SNOMED
-46269714,Bronchopneumonia due to Human metapneumovirus,10625271000119100,SNOMED
-46269718,Bronchopneumonia due to Mycoplasma pneumoniae,10625431000119100,SNOMED
-46269721,Bronchopneumonia due to respiratory syncytial virus,10625551000119100,SNOMED
-46269724,Bronchopneumonia due to Streptococcus,10625671000119100,SNOMED
-46269725,Bronchopneumonia due to Streptococcus pneumoniae,10625711000119100,SNOMED
-46269726,Bronchopneumonia due to virus,10625751000119100,SNOMED
-36685503,Infection caused by Streptococcus pneumoniae,1098401000000100,SNOMED
-40276913,AIDS with pneumonia,111885006,SNOMED
-4048517,Acute bronchopneumonia,123587001,SNOMED
-4048518,Confluent bronchopneumonia with abscess formation,123588006,SNOMED
-4048052,Necrotizing bronchopneumonia,123589003,SNOMED
-4046011,Focal pneumonia,123590007,SNOMED
-4048519,Confluent pneumonia,123591006,SNOMED
-4049279,Acute mucous pneumonia,123592004,SNOMED
-36712839,Idiopathic pneumonia syndrome,12381000132107,SNOMED
-46274035,Pneumonia due to methicillin susceptible Staphylococcus aureus,128711000119106,SNOMED
-4045227,Respiratory bronchiolitis associated interstitial lung disease,129451001,SNOMED
-4044215,Nonspecific interstitial pneumonia,129452008,SNOMED
-40316514,Pneumonia and influenza &/or pneumonia,155548002,SNOMED
-40316515,Viral pneumonia,155549005,SNOMED
-40316516,Pneumonia: [lobar] or [pneumococcal],155550005,SNOMED
-40316518,Bronchopneumonia,155551009,SNOMED
-40316519,Pneumonia NOS,155552002,SNOMED
-40316520,Bacterial pneumonia NOS,155553007,SNOMED
-40316521,Mycoplasmal pneumonia,155554001,SNOMED
-40316525,Pneumonia NOS,155558003,SNOMED
-40316532,Pneumonia or influenza NOS,155564005,SNOMED
-40316593,Hypostatic bronchopneumonia,155619002,SNOMED
-4043934,AIDS with viral pneumonia,16810008,SNOMED
-40376581,Cytomegalovirus pneumonia,186696008,SNOMED
-40376608,HIV disease resulting in Pneumocystis carinii pneumonia,186720004,SNOMED
-256723,Pneumonia and influenza,195878008,SNOMED
-40395474,Viral pneumonia,195880002,SNOMED
-436145,Pneumonia due to respiratory syncytial virus,195881003,SNOMED
-4112818,Viral pneumonia NEC,195882005,SNOMED
-4112654,Viral pneumonia NOS,195883000,SNOMED
-40395479,Chest infection - pneumococcal pneumonia,195884006,SNOMED
-4110505,Chest infection - other bacterial pneumonia,195885007,SNOMED
-252655,Group B streptococcal pneumonia,195886008,SNOMED
-4112819,Pneumonia due to other specified bacteria,195887004,SNOMED
-4112656,Pneumonia due to bacteria NOS,195891009,SNOMED
-4112657,Bacterial pneumonia NOS,195892002,SNOMED
-4112658,Chest infection - pneumonia organism OS,195893007,SNOMED
-40395490,Mycoplasmal pneumonia,195894001,SNOMED
-40395491,Mycoplasmal pneumonia,195895000,SNOMED
-4110506,Pneumonia due to pleuropneumonia-like organism,195896004,SNOMED
-4110038,Pneumonia due to specified organism NOS,195898003,SNOMED
-40395495,Pneumonia with infectious diseases EC,195899006,SNOMED
-4112659,Pneumonia with other infectious diseases EC,195907003,SNOMED
-4112660,Pneumonia with other infectious diseases EC NOS,195912002,SNOMED
-4110041,Pneumonia with infectious diseases EC NOS,195913007,SNOMED
-40395513,Bronchopneumonia: [unspecified organism] or [chest infection - unspecified],195914001,SNOMED
-4112661,Pneumonia due to unspecified organism,195915000,SNOMED
-4112823,Lobar pneumonia due to unspecified organism,195916004,SNOMED
-40395517,Basal pneumonia due to unspecified organism,195918003,SNOMED
-40395518,Postoperative pneumonia,195919006,SNOMED
-4112662,"Influenza with pneumonia, influenza virus identified",195920000,SNOMED
-40395533,Atypical pneumonia,195932001,SNOMED
-4112665,Other specified pneumonia or influenza,195933006,SNOMED
-4112825,Pneumonia or influenza NOS,195934000,SNOMED
-40396931,[X]Other viral pneumonia,196204006,SNOMED
-40396933,[X]Other bacterial pneumonia,196206008,SNOMED
-40396934,[X]Pneumonia due to other specified infectious organisms,196207004,SNOMED
-40396935,[X]Pneumonia in bacterial diseases classified elsewhere,196208009,SNOMED
-40396936,[X]Pneumonia in viral diseases classified elsewhere,196209001,SNOMED
-40396937,[X]Pneumonia in mycoses classified elsewhere,196210006,SNOMED
-40396940,[X]Pneumonia in other diseases classified elsewhere,196212003,SNOMED
-40396941,"[X]Other pneumonia, organism unspecified",196213008,SNOMED
-4309160,Other aspiration pneumonia as a complication of care,213224009,SNOMED
-255848,Pneumonia,233604007,SNOMED
-40435884,Pneumonia due to other specified organisms,233605008,SNOMED
-4050869,Atypical pneumonia,233606009,SNOMED
-258785,Pneumococcal pneumonia,233607000,SNOMED
-4051333,Neonatal chlamydial pneumonia,233610007,SNOMED
-40435891,Fetal pneumonia,233611006,SNOMED
-4051337,Neonatal pneumonia,233619008,SNOMED
-4052548,Mononuclear interstitial pneumonia,233623000,SNOMED
-4341520,Acute interstitial pneumonia,236302005,SNOMED
-4141619,Pneumococcal lobar pneumonia,266350000,SNOMED
-259849,Pneumonia with infectious diseases EC,266351001,SNOMED
-4144102,Bronchopneumonia due to unspecified organism,266352008,SNOMED
-40345753,Pneumonia and influenza &/or pneumonia,266391003,SNOMED
-40345754,Lobar -pneumococcal -pneumonia,266392005,SNOMED
-4170622,Pneumonia NOS,274103002,SNOMED
-4171251,Acquired neonatal pneumonia,276694004,SNOMED
-4080883,Neonatal aspiration pneumonia,276695003,SNOMED
-4133224,Lobar pneumonia,278516003,SNOMED
-4116487,Basal pneumonia,300999006,SNOMED
-4116488,Left lower zone pneumonia,301000005,SNOMED
-4117114,Right lower zone pneumonia,301001009,SNOMED
-4114030,Left upper zone pneumonia,301002002,SNOMED
-4102253,Right middle zone pneumonia,301003007,SNOMED
-4114031,Right upper zone pneumonia,301004001,SNOMED
-4141404,Basal pneumonia due to unspecified organism,307763005,SNOMED
-4204819,Secondary bacterial pneumonia,308906005,SNOMED
-135183,Septicemia due to streptococcus pneumoniae,310668004,SNOMED
-443410,Infective pneumonia,312342009,SNOMED
-4200891,Postoperative pneumonia,314978007,SNOMED
-4135197,Hypostatic bronchopneumonia,31561003,SNOMED
-4138244,Pulmonary actinobacillosis,32204007,SNOMED
-261324,Pneumonia due to Streptococcus,34020007,SNOMED
-40527956,Respiratory syncytial virus pneumonia,34050004,SNOMED
-46270510,Acute aspiration pneumonia,35031000119100,SNOMED
-4148529,Primary atypical interstitial pneumonia,35037009,SNOMED
-40553892,AIDS with pneumococcal pneumonia,37721008,SNOMED
-4293463,Community acquired pneumonia,385093006,SNOMED
-4245828,Lobular pneumonia,396284006,SNOMED
-256722,Bronchopneumonia,396285007,SNOMED
-4245006,Bilateral bronchopneumonia,396286008,SNOMED
-4231983,Infection due to Mycoplasma pneumoniae,406595002,SNOMED
-4236311,Bilateral pneumonia,407671000,SNOMED
-4237183,Healthcare associated pneumonia,408679000,SNOMED
-4248807,Healthcare associated bacterial pneumonia,408680002,SNOMED
-4256894,Healthcare associated Legionnaires' disease,408681003,SNOMED
-4256236,Pneumonia due to aerobic bacteria,409665004,SNOMED
-254677,Adenoviral pneumonia,41207000,SNOMED
-4223032,Bacterial pneumonia associated with AIDS,420544002,SNOMED
-4221503,Pneumococcal pneumonia associated with AIDS,420787001,SNOMED
-4225318,Viral pneumonia associated with AIDS,421508002,SNOMED
-4228277,Pneumonia associated with AIDS,421671002,SNOMED
-4143092,Hospital acquired pneumonia,425464007,SNOMED
-4138769,Bilateral basal pneumonia,425996009,SNOMED
-4145369,Lingular pneumonia,426696003,SNOMED
-259992,Ventilator associated pneumonia,429271009,SNOMED
-4334649,Recurrent aspiration pneumonia,430969000,SNOMED
-44797302,[X]Pneumonia in bacterial diseases classified elsewhere,432151000000100,SNOMED
-4203846,Postoperative aspiration pneumonia,438764004,SNOMED
-40479642,Pneumonia due to Severe acute respiratory syndrome coronavirus,441590008,SNOMED
-40481335,Pneumonia due to infection by Streptococcus pyogenes,441942006,SNOMED
-44813169,[X]Pneumonia in other diseases classified elsewhere,442341000000102,SNOMED
-40482061,Pneumonia due to Human metapneumovirus,445096001,SNOMED
-4195452,Aspiration pneumonia resulting from a procedure,44549008,SNOMED
-432352,Idiopathic interstitial pneumonia,45157009,SNOMED
-440431,Mycoplasma pneumonia,46970008,SNOMED
-43020558,Cavitary pneumonia,471272001,SNOMED
-40490793,Aspiration pneumonia,47839005,SNOMED
-4175598,Catarrhal pneumonia,50804000,SNOMED
-257315,Bacterial pneumonia,53084003,SNOMED
-40605924,Pneumococcal pneumonia,54339004,SNOMED
-4205578,Peribronchial pneumonia,55679008,SNOMED
-4212120,Unresolved pneumonia,57702005,SNOMED
-4240452,Adenoviral bronchopneumonia,58890000,SNOMED
-40614339,Pneumonia,60363000,SNOMED
-4245499,Pleurobronchopneumonia,60485005,SNOMED
-40607612,AIDS with bacterial pneumonia,60696005,SNOMED
-4273378,Interstitial pneumonia,64667001,SNOMED
-4276663,Terminal bronchopneumonia,64703005,SNOMED
-4274802,Parainfluenza virus bronchopneumonia,64880000,SNOMED
-439857,Parainfluenza virus pneumonia,64917006,SNOMED
-4280213,Unresolved lobar pneumonia,66429007,SNOMED
-40620562,Bronchopneumonia,67814005,SNOMED
-4284985,Organized pneumonia,68409003,SNOMED
-44782989,Recurrent pneumonia,699014000,SNOMED
-45765951,Streptococcus acidominimus or Streptococcus pneumoniae or Streptococcus morbillorum,703018008,SNOMED
-45767051,Chronic interstitial pneumonia,704345008,SNOMED
-37016927,Pneumonia caused by Human coronavirus,713084008,SNOMED
-37017277,Recurrent bacterial pneumonia,713525001,SNOMED
-37017278,Recurrent bacterial pneumonia co-occurrent with human immunodeficiency virus infection,713526000,SNOMED
-37019058,Bacterial pneumonia co-occurrent with human immunodeficiency virus infection,713544008,SNOMED
-37017354,Drug resistant Streptococcus pneumoniae disease,713614001,SNOMED
-37397157,Gemella species or Streptococcus pneumoniae,717202002,SNOMED
-37397158,Gemella morbillorum or Streptococcus acidominimus or Streptococcus pneumoniae,717203007,SNOMED
-37397168,Streptococcus pneumoniae or Streptococcus viridans group,717216007,SNOMED
-36714118,Cryptogenic organizing pneumonia,719218000,SNOMED
-4215807,Infective pneumonia acquired prenatally,71926009,SNOMED
-37116366,Pneumonia caused by Gram positive bacteria,733051000,SNOMED
-261326,Viral pneumonia,75570004,SNOMED
-252949,Cytomegaloviral pneumonia,7678002,SNOMED
-4310964,Hypostatic pneumonia,85469005,SNOMED
+"concept_id","concept_name","concept_code","vocabulary_id"
+45572163,"Pneumonia in mycoses","J17.2","ICD10"
+44813169,"[X]Pneumonia in other diseases classified elsewhere","442341000000102","SNOMED"
+45567274,"Cryptogenic organizing pneumonia","J84.116","ICD10CM"
+45552902,"Ventilator associated pneumonia","J95.851","ICD10"
+35207952,"Bronchopneumonia, unspecified organism","J18.0","ICD10"
+4154776,"Whooping cough-like syndrome","271567008","SNOMED"
+4110041,"Pneumonia with infectious diseases EC NOS","195913007","SNOMED"
+4110510,"Chickenpox pneumonia","195911009","SNOMED"
+45538476,"Other viral pneumonia","J12.8","ICD10"
+46269708,"Bronchopneumonia due to anaerobic bacteria","10625031000119100","SNOMED"
+4190647,"Pneumocystosis pneumonia","415125002","SNOMED"
+45548107,"Pneumonia, organism unspecified","J18","ICD10"
+4145369,"Lingular pneumonia","426696003","SNOMED"
+40553892,"AIDS with pneumococcal pneumonia","37721008","SNOMED"
+45548106,"Pneumonia in parasitic diseases","J17.3","ICD10"
+4141404,"Basal pneumonia due to unspecified organism","307763005","SNOMED"
+40614339,"Pneumonia","60363000","SNOMED"
+45562441,"Pneumonia due to other streptococci","J15.4","ICD10"
+40479642,"Pneumonia due to Severe acute respiratory syndrome coronavirus","441590008","SNOMED"
+40376581,"Cytomegalovirus pneumonia","186696008","SNOMED"
+40396941,"[X]Other pneumonia, organism unspecified","196213008","SNOMED"
+46269726,"Bronchopneumonia due to virus","10625751000119106","SNOMED"
+35207951,"Pneumonia in diseases classified elsewhere","J17","ICD10"
+4203846,"Postoperative aspiration pneumonia","438764004","SNOMED"
+45586662,"Pneumonia due to Streptococcus pneumoniae","J13","ICD10"
+40276913,"AIDS with pneumonia","111885006","SNOMED"
+4334649,"Recurrent aspiration pneumonia","430969000","SNOMED"
+37016927,"Pneumonia caused by Human coronavirus","713084008","SNOMED"
+4116487,"Basal pneumonia","300999006","SNOMED"
+1569467,"Pneumonia due to staphylococcus","J15.2","ICD10CM"
+4052548,"Mononuclear interstitial pneumonia","233623000","SNOMED"
+4051337,"Neonatal pneumonia","233619008","SNOMED"
+40316593,"Hypostatic bronchopneumonia","155619002","SNOMED"
+45542528,"Whooping cough due to Bordetella parapertussis with pneumonia","A37.11","ICD10CM"
+254677,"Adenoviral pneumonia","41207000","SNOMED"
+45552879,"Viral pneumonia, not elsewhere classified","J12","ICD10"
+45543256,"Respiratory syncytial virus pneumonia","J12.1","ICD10"
+35207938,"Pneumonia due to Streptococcus pneumoniae","J13","ICD10"
+4110038,"Pneumonia due to specified organism NOS","195898003","SNOMED"
+40316525,"Pneumonia NOS","155558003","SNOMED"
+4237183,"Healthcare associated pneumonia","408679000","SNOMED"
+4256894,"Healthcare associated Legionnaires' disease","408681003","SNOMED"
+40395474,"Viral pneumonia","195880002","SNOMED"
+436145,"Pneumonia due to respiratory syncytial virus","195881003","SNOMED"
+135183,"Septicemia due to streptococcus pneumoniae","310668004","SNOMED"
+46269708,"Bronchopneumonia due to anaerobic bacteria","10625031000119102","SNOMED"
+4245006,"Bilateral bronchopneumonia","396286008","SNOMED"
+40489912,"Sepsis due to Streptococcus pneumoniae","448421008","SNOMED"
+4231983,"Infection due to Mycoplasma pneumoniae","406595002","SNOMED"
+4293463,"Community acquired pneumonia","385093006","SNOMED"
+4280213,"Unresolved lobar pneumonia","66429007","SNOMED"
+45562443,"Hypostatic pneumonia, unspecified","J18.2","ICD10"
+35207936,"Other viral pneumonia","J12.8","ICD10"
+4311555,"Desquamative interstitial pneumonia","8549006","SNOMED"
+4226502,"Pneumocystosis associated with AIDS","420403001","SNOMED"
+45605883,"Other pneumonia, organism unspecified","J18.8","ICD10"
+45542529,"Whooping cough due to other Bordetella species with pneumonia","A37.81","ICD10CM"
+45591551,"Pneumonia in bacterial diseases classified elsewhere","J17.0","ICD10CM"
+35207933,"Respiratory syncytial virus pneumonia","J12.1","ICD10"
+4171251,"Acquired neonatal pneumonia","276694004","SNOMED"
+4080883,"Neonatal aspiration pneumonia","276695003","SNOMED"
+37017278,"Recurrent bacterial pneumonia co-occurrent with human immunodeficiency virus infection","713526000","SNOMED"
+46269726,"Bronchopneumonia due to virus","10625751000119100","SNOMED"
+252351,"Pneumonia due to Pseudomonas","41381004","SNOMED"
+45562442,"Lobar pneumonia, unspecified","J18.1","ICD10"
+40490793,"Aspiration pneumonia","47839005","SNOMED"
+4045227,"Respiratory bronchiolitis associated interstitial lung disease","129451001","SNOMED"
+40345753,"Pneumonia and influenza &/or pneumonia","266391003","SNOMED"
+46269721,"Bronchopneumonia due to respiratory syncytial virus","10625551000119100","SNOMED"
+44782989,"Recurrent pneumonia","699014000","SNOMED"
+4221503,"Pneumococcal pneumonia associated with AIDS","420787001","SNOMED"
+36714118,"Cryptogenic organizing pneumonia","719218000","SNOMED"
+4112659,"Pneumonia with other infectious diseases EC","195907003","SNOMED"
+261326,"Viral pneumonia","75570004","SNOMED"
+45601123,"Pneumonia, unspecified","J18.9","ICD10"
+258333,"Salmonella pneumonia","2523007","SNOMED"
+35210488,"Congenital pneumonia due to viral agent","P23.0","ICD10CM"
+35207941,"Pneumonia due to Pseudomonas","J15.1","ICD10CM"
+35207935,"Human metapneumovirus pneumonia","J12.3","ICD10"
+4306082,"Aspiration pneumonitis","155597006","SNOMED"
+4135197,"Hypostatic bronchopneumonia","31561003","SNOMED"
+4044215,"Nonspecific interstitial pneumonia","129452008","SNOMED"
+40396937,"[X]Pneumonia in mycoses classified elsewhere","196210006","SNOMED"
+35207954,"Hypostatic pneumonia, unspecified organism","J18.2","ICD10"
+45601122,"Pneumonia due to staphylococcus, unspecified","J15.20","ICD10CM"
+35207955,"Other pneumonia, unspecified organism","J18.8","ICD10"
+4048518,"Confluent bronchopneumonia with abscess formation","123588006","SNOMED"
+40376608,"HIV disease resulting in Pneumocystis carinii pneumonia","186720004","SNOMED"
+45586680,"Lymphoid interstitial pneumonia","J84.2","ICD10CM"
+40395490,"Mycoplasmal pneumonia","195894001","SNOMED"
+45755452,"Pneumonia due to other infectious organisms, not elsewhere classified","J16","ICD10"
+45763750,"Idiopathic pulmonary fibrosis","700250006","SNOMED"
+45533545,"Pneumonia due to Methicillin susceptible Staphylococcus aureus","J15.211","ICD10CM"
+4049279,"Acute mucous pneumonia","123592004","SNOMED"
+4112661,"Pneumonia due to unspecified organism","195915000","SNOMED"
+40395479,"Chest infection - pneumococcal pneumonia","195884006","SNOMED"
+37017277,"Recurrent bacterial pneumonia","713525001","SNOMED"
+40395491,"Mycoplasmal pneumonia","195895000","SNOMED"
+4215807,"Infective pneumonia acquired prenatally","71926009","SNOMED"
+4112823,"Lobar pneumonia due to unspecified organism","195916004","SNOMED"
+45586663,"Pneumonia in viral diseases classified elsewhere","J17.1","ICD10"
+4309106,"Aspiration pneumonia","422588002","SNOMED"
+46269725,"Bronchopneumonia due to Streptococcus pneumoniae","10625711000119105","SNOMED"
+46269709,"Bronchopneumonia due to bacteria","10625071000119104","SNOMED"
+4112656,"Pneumonia due to bacteria NOS","195891009","SNOMED"
+4273378,"Interstitial pneumonia","64667001","SNOMED"
+45572162,"Other bacterial pneumonia","J15.8","ICD10"
+46269714,"Bronchopneumonia due to Human metapneumovirus","10625271000119109","SNOMED"
+46269711,"Bronchopneumonia due to Group A Streptococcus","10625151000119107","SNOMED"
+45591550,"Pneumonia due to other staphylococcus","J15.29","ICD10CM"
+4051333,"Neonatal chlamydial pneumonia","233610007","SNOMED"
+4112657,"Bacterial pneumonia NOS","195892002","SNOMED"
+46269724,"Bronchopneumonia due to Streptococcus","10625671000119100","SNOMED"
+4245499,"Pleurobronchopneumonia","60485005","SNOMED"
+35205735,"Varicella pneumonia","B01.2","ICD10CM"
+45591547,"Adenoviral pneumonia","J12.0","ICD10"
+45770900,"Rubella pneumonia","1092361000119109","SNOMED"
+45581847,"Bacterial pneumonia, not elsewhere classified","J15","ICD10"
+259992,"Ventilator associated pneumonia","429271009","SNOMED"
+4114030,"Left upper zone pneumonia","301002002","SNOMED"
+4236311,"Bilateral pneumonia","407671000","SNOMED"
+40481335,"Pneumonia due to infection by Streptococcus pyogenes","441942006","SNOMED"
+45567260,"Pneumonia due to SARS-associated coronavirus","J12.81","ICD10"
+46270510,"Acute aspiration pneumonia","35031000119100","SNOMED"
+4112665,"Other specified pneumonia or influenza","195933006","SNOMED"
+35207934,"Parainfluenza virus pneumonia","J12.2","ICD10"
+37116366,"Pneumonia caused by Gram positive bacteria","733051000","SNOMED"
+40316519,"Pneumonia NOS","155552002","SNOMED"
+4341520,"Acute interstitial pneumonia","236302005","SNOMED"
+35207932,"Adenoviral pneumonia","J12.0","ICD10"
+4223032,"Bacterial pneumonia associated with AIDS","420544002","SNOMED"
+40395518,"Postoperative pneumonia","195919006","SNOMED"
+440431,"Mycoplasma pneumonia","46970008","SNOMED"
+35207953,"Lobar pneumonia, unspecified organism","J18.1","ICD10"
+4195014,"Lymphoid interstitial pneumonia","44274007","SNOMED"
+1569468,"Pneumonia due to other infectious organisms, not elsewhere classified","J16","ICD10"
+45552881,"Pneumonia due to other specified infectious organisms","J16.8","ICD10"
+261324,"Pneumonia due to Streptococcus","34020007","SNOMED"
+40435884,"Pneumonia due to other specified organisms","233605008","SNOMED"
+4245828,"Lobular pneumonia","396284006","SNOMED"
+40395517,"Basal pneumonia due to unspecified organism","195918003","SNOMED"
+4049965,"Fungal pneumonia","233613009","SNOMED"
+37017248,"Infection caused by Pneumocystis co-occurrent with human immunodeficiency virus infection","713490002","SNOMED"
+4195452,"Aspiration pneumonia resulting from a procedure","44549008","SNOMED"
+259852,"Staphylococcal pneumonia","22754005","SNOMED"
+35207948,"Unspecified bacterial pneumonia","J15.9","ICD10"
+4116488,"Left lower zone pneumonia","301000005","SNOMED"
+256722,"Bronchopneumonia","396285007","SNOMED"
+4205578,"Peribronchial pneumonia","55679008","SNOMED"
+45556897,"Whooping cough, unspecified species with pneumonia","A37.91","ICD10CM"
+40605924,"Pneumococcal pneumonia","54339004","SNOMED"
+4240452,"Adenoviral bronchopneumonia","58890000","SNOMED"
+40607612,"AIDS with bacterial pneumonia","60696005","SNOMED"
+40316518,"Bronchopneumonia","155551009","SNOMED"
+45562465,"Desquamative interstitial pneumonia","J84.117","ICD10CM"
+40435891,"Fetal pneumonia","233611006","SNOMED"
+443410,"Infective pneumonia","312342009","SNOMED"
+4110039,"Measles pneumonia","195900001","SNOMED"
+4276663,"Terminal bronchopneumonia","64703005","SNOMED"
+35207942,"Pneumonia due to streptococcus, group B","J15.3","ICD10"
+45543258,"Pneumonia due to streptococcus, group B","J15.3","ICD10"
+4117114,"Right lower zone pneumonia","301001009","SNOMED"
+45552880,"Viral pneumonia, unspecified","J12.9","ICD10"
+45572161,"Other viral pneumonia","J12.89","ICD10"
+45543274,"Idiopathic interstitial pneumonia","J84.11","ICD10"
+4050869,"Atypical pneumonia","233606009","SNOMED"
+4141619,"Pneumococcal lobar pneumonia","266350000","SNOMED"
+40316520,"Bacterial pneumonia NOS","155553007","SNOMED"
+46269714,"Bronchopneumonia due to Human metapneumovirus","10625271000119100","SNOMED"
+432352,"Idiopathic interstitial pneumonia","45157009","SNOMED"
+46274035,"Pneumonia due to methicillin susceptible Staphylococcus aureus","128711000119106","SNOMED"
+40395513,"Bronchopneumonia: [unspecified organism] or [chest infection - unspecified]","195914001","SNOMED"
+4170622,"Pneumonia NOS","274103002","SNOMED"
+4148529,"Primary atypical interstitial pneumonia","35037009","SNOMED"
+35207947,"Pneumonia due to other specified bacteria","J15.8","ICD10"
+257315,"Bacterial pneumonia","53084003","SNOMED"
+45532808,"Salmonella pneumonia","A02.22","ICD10CM"
+35207943,"Pneumonia due to other streptococci","J15.4","ICD10"
+40396934,"[X]Pneumonia due to other specified infectious organisms","196207004","SNOMED"
+40482061,"Pneumonia due to Human metapneumovirus","445096001","SNOMED"
+4043934,"AIDS with viral pneumonia","16810008","SNOMED"
+45533546,"Pneumonia in diseases classified elsewhere","J17","ICD10"
+40345754,"Lobar -pneumococcal -pneumonia","266392005","SNOMED"
+46269709,"Bronchopneumonia due to bacteria","10625071000119100","SNOMED"
+1569465,"Viral pneumonia, not elsewhere classified","J12","ICD10"
+45556911,"Gonococcal pneumonia","A54.84","ICD10CM"
+46269712,"Bronchopneumonia due to Group B Streptococcus","10625191000119100","SNOMED"
+4175598,"Catarrhal pneumonia","50804000","SNOMED"
+45543260,"Pneumonia due to Mycoplasma pneumoniae","J15.7","ICD10"
+45757206,"Pneumonia due to Ascaris","1082721000119101","SNOMED"
+4050872,"Pneumonia due to parasitic infestation","233620002","SNOMED"
+252949,"Cytomegaloviral pneumonia","7678002","SNOMED"
+35205746,"Measles complicated by pneumonia","B05.2","ICD10CM"
+37019058,"Bacterial pneumonia co-occurrent with human immunodeficiency virus infection","713544008","SNOMED"
+35207946,"Pneumonia due to Mycoplasma pneumoniae","J15.7","ICD10"
+4225318,"Viral pneumonia associated with AIDS","421508002","SNOMED"
+35207956,"Pneumonia, unspecified organism","J18.9","ICD10"
+45591552,"Pneumonia in other diseases classified elsewhere","J17.8","ICD10"
+4138244,"Pulmonary actinobacillosis","32204007","SNOMED"
+45765951,"Streptococcus acidominimus or Streptococcus pneumoniae or Streptococcus morbillorum","703018008","SNOMED"
+45552235,"Ascariasis pneumonia","B77.81","ICD10CM"
+4112660,"Pneumonia with other infectious diseases EC NOS","195912002","SNOMED"
+439857,"Parainfluenza virus pneumonia","64917006","SNOMED"
+45572164,"Bronchopneumonia, unspecified","J18.0","ICD10"
+4204819,"Secondary bacterial pneumonia","308906005","SNOMED"
+40620562,"Bronchopneumonia","67814005","SNOMED"
+46269724,"Bronchopneumonia due to Streptococcus","10625671000119106","SNOMED"
+255848,"Pneumonia","233604007","SNOMED"
+45571459,"HIV disease resulting in Pneumocystis jirovecii pneumonia","B20.6","ICD10"
+43020558,"Cavitary pneumonia","471272001","SNOMED"
+4112818,"Viral pneumonia NEC","195882005","SNOMED"
+46269712,"Bronchopneumonia due to Group B Streptococcus","10625191000119102","SNOMED"
+37397158,"Gemella morbillorum or Streptococcus acidominimus or Streptococcus pneumoniae","717203007","SNOMED"
+4256236,"Pneumonia due to aerobic bacteria","409665004","SNOMED"
+4166072,"Pneumonia in typhoid fever","45312009","SNOMED"
+40396940,"[X]Pneumonia in other diseases classified elsewhere","196212003","SNOMED"
+36685503,"Infection caused by Streptococcus pneumoniae","1098401000000100","SNOMED"
+36712839,"Idiopathic pneumonia syndrome","12381000132107","SNOMED"
+40480033,"Pneumonia due to Staphylococcus aureus","441658007","SNOMED"
+46270027,"Pneumonia due to methicillin resistant Staphylococcus aureus","124691000119101","SNOMED"
+4025165,"Abscess of lung with pneumonia","196112005","SNOMED"
+4110505,"Chest infection - other bacterial pneumonia","195885007","SNOMED"
+40395533,"Atypical pneumonia","195932001","SNOMED"
+258785,"Pneumococcal pneumonia","233607000","SNOMED"
+4048519,"Confluent pneumonia","123591006","SNOMED"
+45556887,"Typhoid pneumonia","A01.03","ICD10CM"
+35208076,"Abscess of lung with pneumonia","J85.1","ICD10CM"
+4112825,"Pneumonia or influenza NOS","195934000","SNOMED"
+4124677,"Infectious disorder of bronchus","233795005","SNOMED"
+4048052,"Necrotizing bronchopneumonia","123589003","SNOMED"
+4133224,"Lobar pneumonia","278516003","SNOMED"
+4112819,"Pneumonia due to other specified bacteria","195887004","SNOMED"
+252655,"Group B streptococcal pneumonia","195886008","SNOMED"
+40395495,"Pneumonia with infectious diseases EC","195899006","SNOMED"
+4284985,"Organized pneumonia","68409003","SNOMED"
+35207937,"Viral pneumonia, unspecified","J12.9","ICD10"
+4310964,"Hypostatic pneumonia","85469005","SNOMED"
+40316515,"Viral pneumonia","155549005","SNOMED"
+46269954,"Pneumonia due to Bordetella parapertussis","1092951000119106","SNOMED"
+37017354,"Drug resistant Streptococcus pneumoniae disease","713614001","SNOMED"
+45757250,"Gonococcal pneumonia","1087061000119106","SNOMED"
+4174308,"Congenital viral pneumonia","276692000","SNOMED"
+40316521,"Mycoplasmal pneumonia","155554001","SNOMED"
+4248807,"Healthcare associated bacterial pneumonia","408680002","SNOMED"
+37397168,"Streptococcus pneumoniae or Streptococcus viridans group","717216007","SNOMED"
+40396931,"[X]Other viral pneumonia","196204006","SNOMED"
+45557618,"Parainfluenza virus pneumonia","J12.2","ICD10"
+37397157,"Gemella species or Streptococcus pneumoniae","717202002","SNOMED"
+45601135,"Idiopathic interstitial pneumonia, not otherwise specified","J84.111","ICD10"
+4200891,"Postoperative pneumonia","314978007","SNOMED"
+44797302,"[X]Pneumonia in bacterial diseases classified elsewhere","432151000000100","SNOMED"
+4138769,"Bilateral basal pneumonia","425996009","SNOMED"
+45581145,"Rubella pneumonia","B06.81","ICD10CM"
+4274802,"Parainfluenza virus bronchopneumonia","64880000","SNOMED"
+4212120,"Unresolved pneumonia","57702005","SNOMED"
+4143092,"Hospital acquired pneumonia","425464007","SNOMED"
+46269693,"Chronic pneumonia","102361000119104","SNOMED"
+40316532,"Pneumonia or influenza NOS","155564005","SNOMED"
+45567261,"Pneumonia due to staphylococcus aureus","J15.21","ICD10CM"
+40527956,"Respiratory syncytial virus pneumonia","34050004","SNOMED"
+4112658,"Chest infection - pneumonia organism OS","195893007","SNOMED"
+45763749,"Idiopathic interstitial pneumonia","700249006","SNOMED"
+4112654,"Viral pneumonia NOS","195883000","SNOMED"
+46269721,"Bronchopneumonia due to respiratory syncytial virus","10625551000119103","SNOMED"
+45557621,"Bacterial pneumonia, unspecified","J15.9","ICD10"
+46269718,"Bronchopneumonia due to Mycoplasma pneumoniae","10625431000119105","SNOMED"
+256723,"Pneumonia and influenza","195878008","SNOMED"
+1569466,"Bacterial pneumonia, not elsewhere classified","J15","ICD10"
+46269711,"Bronchopneumonia due to Group A Streptococcus","10625151000119100","SNOMED"
+4046011,"Focal pneumonia","123590007","SNOMED"
+253235,"Pneumonia in pertussis","59475000","SNOMED"
+4114031,"Right upper zone pneumonia","301004001","SNOMED"
+45600409,"Whooping cough due to Bordetella pertussis with pneumonia","A37.01","ICD10CM"
+4102253,"Right middle zone pneumonia","301003007","SNOMED"
+4144102,"Bronchopneumonia due to unspecified organism","266352008","SNOMED"
+46269718,"Bronchopneumonia due to Mycoplasma pneumoniae","10625431000119100","SNOMED"
+45557619,"Human metapneumovirus pneumonia","J12.3","ICD10"
+4110506,"Pneumonia due to pleuropneumonia-like organism","195896004","SNOMED"
+1569469,"Pneumonia, unspecified organism","J18","ICD10"
+40396933,"[X]Other bacterial pneumonia","196206008","SNOMED"
+40396936,"[X]Pneumonia in viral diseases classified elsewhere","196209001","SNOMED"
+4309160,"Other aspiration pneumonia as a complication of care","213224009","SNOMED"
+40316516,"Pneumonia: [lobar] or [pneumococcal]","155550005","SNOMED"
+259849,"Pneumonia with infectious diseases EC","266351001","SNOMED"
+40316514,"Pneumonia and influenza &/or pneumonia","155548002","SNOMED"
+4048517,"Acute bronchopneumonia","123587001","SNOMED"
+4021760,"Non-infectious pneumonia","105977003","SNOMED"
+46269725,"Bronchopneumonia due to Streptococcus pneumoniae","10625711000119100","SNOMED"
+40396935,"[X]Pneumonia in bacterial diseases classified elsewhere","196208009","SNOMED"
+45767051,"Chronic interstitial pneumonia","704345008","SNOMED"
+4112662,"Influenza with pneumonia, influenza virus identified","195920000","SNOMED"
+35207950,"Pneumonia due to other specified infectious organisms","J16.8","ICD10"
+45557620,"Pneumonia due to Methicillin resistant Staphylococcus aureus","J15.212","ICD10CM"
+36685503,"Infection caused by Streptococcus pneumoniae","1098401000000106","SNOMED"
+4228277,"Pneumonia associated with AIDS","421671002","SNOMED"
