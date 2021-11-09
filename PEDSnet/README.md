@@ -1,6 +1,48 @@
+## PEDSnet CDM V4.4
+
+The PEDSnet common data model version 4.4 is an update to version 4.3 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.4 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+
+### ETL Conventions for Version 4.4
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V4.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
+
+### Changes from Version 4.3
+
+Please see the applicable change document for changes and additions for the v4.4 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/PEDSnet_CDM4.3_CDM4.4_diff.md)
+
+## Site Responsibility for Version 4.4
+
+### Stable Identifiers
+
+For PEDSNet CDMv4.4, sites are responsible for creating and storing a mapping from both `person_id`,`visit_occurrence_id`, `provider_id` and `care_site_id` to stable local identifiers. These `person_id` , `visit_occurrence_id` and `provider_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. `Care_site_id` was added as a stable requirement in November 2020. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id`, `visit_occurrence_id`, `provider_id` and `care_site_id` values to the same person, visit, provider and care site entities. The mappings should not be sent to the DCC.
+
+### Data Validation
+
+Sites are responsible for using the data validation tool on all CSV files before sending them to the DCC. You can download the tool [here](https://github.com/chop-dbhi/data-models-validator/releases/tag/1.0.0) and read about its usage and see sample output [here](https://github.com/chop-dbhi/data-models-validator). This should help to reduce data cycle time by allowing sites to fix most data formatting and type errors before transmission to the DCC.
+
+To verify PEDSnet-format data, use `-model pedsnet` and `-version 4.4.0` as arguments when running the validator. 
+
+## Reference Materials for Version 4.4
+
+### Data Model DDL
+
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/4.4.0/ddl/postgresql/)
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/4.4.0/ddl/oracle/)
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/4.4.0/ddl/mssql/)
+
+### Vocabulary Data
+
+- v4.4.0 Core Vocabulary: Please contact the DCC for more information.
+
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
+
+***
+***
+***
+
 ## PEDSnet CDM V4.3
 
-The PEDSnet common data model version 4.3 is an update to version 4.2 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.3 is an update to version 4.2 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.3 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.3
 
@@ -10,7 +52,7 @@ The PEDSnet ETL conventions are described in the [PEDSnet CDM V4.3 ETL Conventio
 
 Please see the applicable change document for changes and additions for the v4.3 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/PEDSnet_CDM4.2_CDM4.3_diff.md)
 
-## Site Responsibility for Version 4.2
+## Site Responsibility for Version 4.3
 
 ### Stable Identifiers
 
