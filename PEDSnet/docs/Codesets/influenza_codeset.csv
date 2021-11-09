@@ -1,157 +1,170 @@
-concept_id,concept_name,concept_code,vocabulary_id
-35207930,Influenza due to certain identified influenza viruses,J09,ICD10
-45755449,Influenza due to identified zoonotic or pandemic influenza virus,J09,ICD10
-920133,Influenza due to identified avian influenza virus with respiratory manifestations,J09.01,ICD10
-45605881,Influenza due to identified avian influenza virus with identified avian influenza pneumonia,J09.010,ICD10
-45591541,Influenza due to identified avian influenza virus with other specified type of pneumonia,J09.018,ICD10
-45591542,Influenza due to identified avian influenza virus with unspecified type of pneumonia,J09.019,ICD10
-45548101,Influenza due to identified avian influenza virus with other respiratory manifestations,J09.02,ICD10
-45596275,Influenza due to identified avian influenza virus with gastrointestinal manifestations,J09.03,ICD10
-45548102,Influenza due to identified avian influenza virus with encephalopathy,J09.090,ICD10
-45591543,Influenza due to identified avian influenza virus with myocarditis,J09.091,ICD10
-45586658,Influenza due to identified avian influenza virus with otitis media,J09.092,ICD10
-45562439,Influenza due to identified novel H1N1 influenza virus with gastrointestinal manifestations,J09.13,ICD10
-45552878,Influenza due to identified novel H1N1 influenza virus with encephalopathy,J09.190,ICD10
-45591544,Influenza due to identified novel H1N1 influenza virus with myocarditis,J09.191,ICD10
-45548104,Influenza due to identified novel H1N1 influenza virus with otitis media,J09.192,ICD10
-45586659,Influenza due to other identified influenza virus with encephalopathy,J10.81,ICD10
-45591546,Influenza due to other identified influenza virus with myocarditis,J10.82,ICD10
-45601121,Influenza due to other identified influenza virus with otitis media,J10.83,ICD10
-45581844,Influenza due to unidentified influenza virus with encephalopathy,J11.81,ICD10
-45543255,Influenza due to unidentified influenza virus with myocarditis,J11.82,ICD10
-45538475,Influenza due to unidentified influenza virus with otitis media,J11.83,ICD10
-45601117,Influenza due to identified avian influenza virus with other manifestations,J09.098,ICD10
-920134,Influenza due to identified novel H1N1 influenza virus with respiratory manifestations,J09.11,ICD10
-45548103,Influenza due to identified novel H1N1 influenza virus with identified novel H1N1 influenza pneumonia,J09.110,ICD10
-45576944,Influenza due to identified novel H1N1 influenza virus with other specified type of pneumonia,J09.118,ICD10
-45605882,Influenza due to identified novel H1N1 influenza virus with unspecified type of pneumonia,J09.119,ICD10
-45562438,Influenza due to identified novel H1N1 influenza virus with other respiratory manifestations,J09.12,ICD10
-45557616,Influenza due to identified novel H1N1 influenza virus with other manifestations,J09.198,ICD10
-1569458,Influenza due to identified novel influenza A virus,J09.X,ICD10
-45596276,Influenza due to identified novel influenza A virus with pneumonia,J09.X1,ICD10
-45562440,Influenza due to identified novel influenza A virus with other respiratory manifestations,J09.X2,ICD10
-45601118,Influenza due to identified novel influenza A virus with gastrointestinal manifestations,J09.X3,ICD10
-45581841,Influenza due to identified novel influenza A virus with other manifestations,J09.X9,ICD10
-1569459,Influenza due to other identified influenza virus,J10,ICD10
-45755450,influenza due to identified seasonal influenza virus,J10,ICD10
-1569460,Influenza due to other identified influenza virus with pneumonia,J10.0,ICD10
-45601119,"Influenza with pneumonia, seasonal influenza virus identified",J10.0,ICD10
-45567259,Influenza due to other identified influenza virus with unspecified type of pneumonia,J10.00,ICD10
-45543254,Influenza due to other identified influenza virus with the same other identified influenza virus pneumonia,J10.01,ICD10
-45591545,Influenza due to other identified influenza virus with other specified pneumonia,J10.08,ICD10
-45601120,"Influenza with other respiratory manifestations, seasonal influenza virus identified",J10.1,ICD10
-35207931,Influenza due to other identified influenza virus with other respiratory manifestations,J10.1,ICD10
-45576945,Influenza due to other identified influenza virus with gastrointestinal manifestations,J10.2,ICD10
-45572159,"Influenza with other manifestations, seasonal influenza virus identified",J10.8,ICD10
-1569461,Influenza due to other identified influenza virus with other manifestations,J10.8,ICD10
-45586660,Influenza due to other identified influenza virus with other manifestations,J10.89,ICD10
-45755451,"Influenza, virus not identified",J11,ICD10
-1569462,Influenza due to unidentified influenza virus,J11,ICD10
-1569463,Influenza due to unidentified influenza virus with pneumonia,J11.0,ICD10
-45533544,"Influenza with pneumonia, virus not identified",J11.0,ICD10
-45586661,Influenza due to unidentified influenza virus with unspecified type of pneumonia,J11.00,ICD10
-45581842,Influenza due to unidentified influenza virus with specified pneumonia,J11.08,ICD10
-45557617,"Influenza with other respiratory manifestations, virus not identified",J11.1,ICD10
-8689,Influenza due to unidentified influenza virus with other respiratory manifestations,J11.1,ICD10
-45572160,Influenza due to unidentified influenza virus with gastrointestinal manifestations,J11.2,ICD10
-1569464,Influenza due to unidentified influenza virus with other manifestations,J11.8,ICD10
-45581843,"Influenza with other manifestations, virus not identified",J11.8,ICD10
-45581845,Influenza due to unidentified influenza virus with other manifestations,J11.89,ICD10
-37394476,Influenza due to zoonotic influenza virus,1033051000000100,SNOMED
-37394477,Influenza due to pandemic influenza virus,1033071000000100,SNOMED
-37394478,Influenza due to seasonal influenza virus,1033091000000100,SNOMED
-37394479,Influenza with pneumonia due to seasonal influenza virus,1033111000000100,SNOMED
-46269741,Bronchiolitis caused by influenza virus,10629191000119100,SNOMED
-46273463,Upper respiratory tract infection due to Influenza,10685111000119100,SNOMED
-40276903,Influenza due to other Influenza virus,111876006,SNOMED
-40303821,Influenza-like symptoms,139168000,SNOMED
-46270120,Upper respiratory tract infection due to avian influenza,142921000119103,SNOMED
-46270121,Pneumonia due to H1N1 influenza,142931000119100,SNOMED
-46270122,Upper respiratory tract infection due to H1N1 influenza,142941000119109,SNOMED
-46270123,Myocarditis due to Influenza A virus subtype H1N1,142951000119106,SNOMED
-46270128,Pneumonia due to avian influenza,143111000119103,SNOMED
-40316514,Pneumonia and influenza &/or pneumonia,155548002,SNOMED
-40316526,Influenza,155559006,SNOMED
-40316527,Influenzal pneumonia,155560001,SNOMED
-40316530,Influenza NOS,155562009,SNOMED
-40316532,Pneumonia or influenza NOS,155564005,SNOMED
-40325150,Influenza-like symptoms,161913008,SNOMED
-46270318,Pneumonia due to influenza,16311000119108,SNOMED
-45757528,Influenza A virus present,181000124108,SNOMED
-40389698,Encephalitis due to influenza,192691003,SNOMED
-40389700,Encephalitis due to influenza-virus identified,192693000,SNOMED
-256723,Pneumonia and influenza,195878008,SNOMED
-4112662,"Influenza with pneumonia, influenza virus identified",195920000,SNOMED
-4110511,Influenza with pneumonia NOS,195921001,SNOMED
-4112663,Influenza with other respiratory manifestation,195922008,SNOMED
-4112664,Influenza with laryngitis,195923003,SNOMED
-4110512,Influenza with pharyngitis,195924009,SNOMED
-4110042,Influenza with respiratory manifestations NOS,195925005,SNOMED
-4110634,Influenza with other manifestations,195927002,SNOMED
-4110043,Influenza with other manifestations NOS,195930009,SNOMED
-40395532,Influenza like illness,195931008,SNOMED
-4112665,Other specified pneumonia or influenza,195933006,SNOMED
-4112825,Pneumonia or influenza NOS,195934000,SNOMED
-4080680,"Influenza due to Influenza virus, type B",24662006,SNOMED
-4144103,Influenza NOS,266353003,SNOMED
-40345753,Pneumonia and influenza &/or pneumonia,266391003,SNOMED
-40345755,Influenza NOS,266393000,SNOMED
-40365652,Influenzal laryngitis,28105000,SNOMED
-40375021,Influenza-like illness,285342006,SNOMED
-4153160,Influenza-like symptoms,315642008,SNOMED
-46270491,Upper respiratory tract infection due to Influenza A,328531000119104,SNOMED
-4237779,Influenza of the central nervous system,406588006,SNOMED
-4186568,Influenzal bronchopneumonia,41269000,SNOMED
-4176911,"Influenza due to influenza virus type A, avian, H5N1 strain",427873006,SNOMED
-40468330,Primary influenza virus pneumonia,42964004,SNOMED
-763011,Pneumonia due to Influenza A virus,434921000124108,SNOMED
-763012,Pneumonia due to Influenza A virus subtype H1N1,434931000124106,SNOMED
-765607,Influenza due to Influenza A virus with upper respiratory signs,435051000124104,SNOMED
-4183609,Influenzal acute upper respiratory infection,43692000,SNOMED
-4235537,Influenza A virus subtype H2 present,440927002,SNOMED
-4208931,Influenza A virus subtype H1 present,441043003,SNOMED
-4207452,Influenza A virus subtype H3 present,441049004,SNOMED
-4262073,Influenza A virus subtype H5 present,441343005,SNOMED
-4262075,Influenza B virus present,441345003,SNOMED
-40483537,Influenza due to Influenza A virus,442438000,SNOMED
-40484544,Influenza due to Influenza A virus subtype H1N1,442696006,SNOMED
-42872723,Influenza due to Influenza A virus subtype H7,450715004,SNOMED
-42872724,Influenza due to Influenza A virus subtype H9,450716003,SNOMED
-765646,Influenza virus not isolated,453931000124108,SNOMED
-4261801,"Influenza due to Influenza virus, type A, porcine",46171006,SNOMED
-314979,Avian influenza,55604004,SNOMED
-4266367,Influenza,6142004,SNOMED
-312664,Influenza with respiratory manifestation other than pneumonia,63039003,SNOMED
-44783879,Influenza A virus untyped strain present,699872005,SNOMED
-45765521,Influenza A H1N1 virus 2009 pandemic strain present,702482001,SNOMED
-45768913,Influenza due to Influenza A virus subtype H7N9,707448003,SNOMED
-45771050,Influenza A virus subtype H7 present,708119004,SNOMED
-45773008,Influenza A virus subtype H9 present,708120005,SNOMED
-46271784,Exposure to Influenzavirus,710034000,SNOMED
-46272714,"Influenza due to influenza virus type A, avian, H3N2 strain",711128004,SNOMED
-46272887,Influenza A virus subtype H1N1 detected,711330007,SNOMED
-46273956,Influenza A virus H1N1 subtype not detected,711334003,SNOMED
-37016926,Influenza caused by Influenza A virus subtype H5,713083002,SNOMED
-36714388,Influenza caused by seasonal influenza virus,719590007,SNOMED
-36714570,Influenza caused by pandemic influenza virus,719865001,SNOMED
-42537960,Influenza with CNS disorder,738276008,SNOMED
-4252885,Influenza with encephalopathy,74644004,SNOMED
-36676221,Influenza caused by Influenza A virus subtype H3N2,772810003,SNOMED
-36676233,Influenza caused by Influenza A virus subtype H5N1,772828001,SNOMED
-36676238,Pneumonia caused by Influenza A virus,772839003,SNOMED
-4301755,"Influenza due to Influenza virus, type A, human",78431007,SNOMED
-4304374,"Influenza due to Influenza virus, type C",81524006,SNOMED
-40642055,Influenza with involvement of gastrointestinal tract,83440004,SNOMED
-4223225,Swine influenza,84037004,SNOMED
-40636737,Influenzal pharyngitis,84512003,SNOMED
-764938,Influenza A virus not detected,881000124104,SNOMED
-4338956,Equine influenza,88152000,SNOMED
-764942,Influenza A virus subtype H1 not detected,891000124101,SNOMED
-764950,Influenza A virus subtype H1 2009 pandemic strain not detected,901000124102,SNOMED
-764960,Influenza A virus inconclusive,921000124107,SNOMED
-764962,Influenza A virus subtype H1 inconclusive,931000124105,SNOMED
-45770619,At risk of influenza related complication,932221000000103,SNOMED
-764964,Influenza A virus subtype H1 2009 pandemic strain inconclusive,941000124100,SNOMED
-765125,Influenza A virus subtype H5 inconclusive,951000124103,SNOMED
-4319159,Influenza-like illness,95891005,SNOMED
-764967,Influenza A virus subtype H5 asian strain inconclusive,961000124101,SNOMED
+"concept_id","concept_name","concept_code","vocabulary_id"
+37394478,"Influenza due to seasonal influenza virus","1033091000000109","SNOMED"
+763012,"Pneumonia due to Influenza A virus subtype H1N1","434931000124106","SNOMED"
+40303821,"Influenza-like symptoms","139168000","SNOMED"
+45543255,"Influenza due to unidentified influenza virus with myocarditis","J11.82","ICD10"
+4237779,"Influenza of the central nervous system","406588006","SNOMED"
+4266367,"Influenza","6142004","SNOMED"
+45557617,"Influenza with other respiratory manifestations, virus not identified","J11.1","ICD10"
+764967,"Influenza A virus subtype H5 asian strain inconclusive","961000124101","SNOMED"
+45601117,"Influenza due to identified avian influenza virus with other manifestations","J09.098","ICD10"
+765125,"Influenza A virus subtype H5 inconclusive","951000124103","SNOMED"
+764942,"Influenza A virus subtype H1 not detected","891000124101","SNOMED"
+4223225,"Swine influenza","84037004","SNOMED"
+37016926,"Influenza caused by Influenza A virus subtype H5","713083002","SNOMED"
+42872723,"Influenza due to Influenza A virus subtype H7","450715004","SNOMED"
+4110043,"Influenza with other manifestations NOS","195930009","SNOMED"
+45581845,"Influenza due to unidentified influenza virus with other manifestations","J11.89","ICD10"
+4110634,"Influenza with other manifestations","195927002","SNOMED"
+4299935,"Myocarditis due to influenza virus","78046005","SNOMED"
+46273463,"Upper respiratory tract infection due to Influenza","10685111000119102","SNOMED"
+36714570,"Influenza caused by pandemic influenza virus","719865001","SNOMED"
+45757528,"Influenza A virus present","181000124108","SNOMED"
+45548102,"Influenza due to identified avian influenza virus with encephalopathy","J09.090","ICD10"
+45548103,"Influenza due to identified novel H1N1 influenza virus with identified novel H1N1 influenza pneumonia","J09.110","ICD10"
+40345753,"Pneumonia and influenza &/or pneumonia","266391003","SNOMED"
+4183609,"Influenzal acute upper respiratory infection","43692000","SNOMED"
+45581841,"Influenza due to identified novel influenza A virus with other manifestations","J09.X9","ICD10"
+42872724,"Influenza due to Influenza A virus subtype H9","450716003","SNOMED"
+4110511,"Influenza with pneumonia NOS","195921001","SNOMED"
+764950,"Influenza A virus subtype H1 2009 pandemic strain not detected","901000124102","SNOMED"
+45586660,"Influenza due to other identified influenza virus with other manifestations","J10.89","ICD10"
+45770619,"At risk of influenza related complication","932221000000103","SNOMED"
+36676238,"Pneumonia caused by Influenza A virus","772839003","SNOMED"
+45591541,"Influenza due to identified avian influenza virus with other specified type of pneumonia","J09.018","ICD10"
+920133,"Influenza due to identified avian influenza virus with respiratory manifestations","J09.01","ICD10"
+40365652,"Influenzal laryngitis","28105000","SNOMED"
+40395532,"Influenza like illness","195931008","SNOMED"
+4338956,"Equine influenza","88152000","SNOMED"
+46272714,"Influenza due to influenza virus type A, avian, H3N2 strain","711128004","SNOMED"
+45768913,"Influenza due to Influenza A virus subtype H7N9","707448003","SNOMED"
+40316526,"Influenza","155559006","SNOMED"
+4176911,"Influenza due to influenza virus type A, avian, H5N1 strain","427873006","SNOMED"
+40325150,"Influenza-like symptoms","161913008","SNOMED"
+40484544,"Influenza due to Influenza A virus subtype H1N1","442696006","SNOMED"
+40483537,"Influenza due to Influenza A virus","442438000","SNOMED"
+765607,"Influenza due to Influenza A virus with upper respiratory signs","435051000124104","SNOMED"
+46270122,"Upper respiratory tract infection due to H1N1 influenza","142941000119109","SNOMED"
+45605882,"Influenza due to identified novel H1N1 influenza virus with unspecified type of pneumonia","J09.119","ICD10"
+37394476,"Influenza due to zoonotic influenza virus","1033051000000101","SNOMED"
+45605881,"Influenza due to identified avian influenza virus with identified avian influenza pneumonia","J09.010","ICD10"
+45755450,"influenza due to identified seasonal influenza virus","J10","ICD10"
+45576944,"Influenza due to identified novel H1N1 influenza virus with other specified type of pneumonia","J09.118","ICD10"
+45533544,"Influenza with pneumonia, virus not identified","J11.0","ICD10"
+4112824,"Influenza with gastrointestinal tract involvement","195929004","SNOMED"
+45596276,"Influenza due to identified novel influenza A virus with pneumonia","J09.X1","ICD10"
+45576945,"Influenza due to other identified influenza virus with gastrointestinal manifestations","J10.2","ICD10"
+46269706,"Otitis media due to influenza","10624951000119108","SNOMED"
+40389698,"Encephalitis due to influenza","192691003","SNOMED"
+45586658,"Influenza due to identified avian influenza virus with otitis media","J09.092","ICD10"
+45755449,"Influenza due to identified zoonotic or pandemic influenza virus","J09","ICD10"
+1569459,"Influenza due to other identified influenza virus","J10","ICD10"
+46270318,"Pneumonia due to influenza","16311000119108","SNOMED"
+4262075,"Influenza B virus present","441345003","SNOMED"
+4080680,"Influenza due to Influenza B virus","24662006","SNOMED"
+45581844,"Influenza due to unidentified influenza virus with encephalopathy","J11.81","ICD10"
+764938,"Influenza A virus not detected","881000124104","SNOMED"
+46272887,"Influenza A virus subtype H1N1 detected","711330007","SNOMED"
+37394479,"Influenza with pneumonia due to seasonal influenza virus","1033111000000104","SNOMED"
+4112665,"Other specified pneumonia or influenza","195933006","SNOMED"
+45538475,"Influenza due to unidentified influenza virus with otitis media","J11.83","ICD10"
+4112664,"Influenza with laryngitis","195923003","SNOMED"
+45581842,"Influenza due to unidentified influenza virus with specified pneumonia","J11.08","ICD10"
+45548104,"Influenza due to identified novel H1N1 influenza virus with otitis media","J09.192","ICD10"
+44783879,"Influenza A virus untyped strain present","699872005","SNOMED"
+4080680,"Influenza due to Influenza virus, type B","24662006","SNOMED"
+45586661,"Influenza due to unidentified influenza virus with unspecified type of pneumonia","J11.00","ICD10"
+1569463,"Influenza due to unidentified influenza virus with pneumonia","J11.0","ICD10"
+40636737,"Influenzal pharyngitis","84512003","SNOMED"
+46271784,"Exposure to Influenzavirus","710034000","SNOMED"
+45765521,"Influenza A H1N1 virus 2009 pandemic strain present","702482001","SNOMED"
+4301755,"Influenza due to Influenza virus, type A, human","78431007","SNOMED"
+1569464,"Influenza due to unidentified influenza virus with other manifestations","J11.8","ICD10"
+45591544,"Influenza due to identified novel H1N1 influenza virus with myocarditis","J09.191","ICD10"
+46273956,"Influenza A virus H1N1 subtype not detected","711334003","SNOMED"
+45601121,"Influenza due to other identified influenza virus with otitis media","J10.83","ICD10"
+45548101,"Influenza due to identified avian influenza virus with other respiratory manifestations","J09.02","ICD10"
+37394477,"Influenza due to pandemic influenza virus","1033071000000100","SNOMED"
+314979,"Avian influenza","55604004","SNOMED"
+763011,"Pneumonia due to Influenza A virus","434921000124108","SNOMED"
+4110512,"Influenza with pharyngitis","195924009","SNOMED"
+4146943,"Encephalitis due to influenza","309789002","SNOMED"
+36676221,"Influenza caused by Influenza A virus subtype H3N2","772810003","SNOMED"
+45601118,"Influenza due to identified novel influenza A virus with gastrointestinal manifestations","J09.X3","ICD10"
+4186568,"Influenzal bronchopneumonia","41269000","SNOMED"
+45562439,"Influenza due to identified novel H1N1 influenza virus with gastrointestinal manifestations","J09.13","ICD10"
+46270121,"Pneumonia due to H1N1 influenza","142931000119100","SNOMED"
+40375021,"Influenza-like illness","285342006","SNOMED"
+4153160,"Influenza-like symptoms","315642008","SNOMED"
+4304374,"Influenza due to Influenza virus, type C","81524006","SNOMED"
+4319159,"Influenza-like illness","95891005","SNOMED"
+45596275,"Influenza due to identified avian influenza virus with gastrointestinal manifestations","J09.03","ICD10"
+45557616,"Influenza due to identified novel H1N1 influenza virus with other manifestations","J09.198","ICD10"
+4112663,"Influenza with other respiratory manifestation","195922008","SNOMED"
+45572159,"Influenza with other manifestations, seasonal influenza virus identified","J10.8","ICD10"
+4144103,"Influenza NOS","266353003","SNOMED"
+764964,"Influenza A virus subtype H1 2009 pandemic strain inconclusive","941000124100","SNOMED"
+920134,"Influenza due to identified novel H1N1 influenza virus with respiratory manifestations","J09.11","ICD10"
+46273463,"Upper respiratory tract infection due to Influenza","10685111000119100","SNOMED"
+45773008,"Influenza A virus subtype H9 present","708120005","SNOMED"
+255848,"Pneumonia","233604007","SNOMED"
+45591543,"Influenza due to identified avian influenza virus with myocarditis","J09.091","ICD10"
+45586659,"Influenza due to other identified influenza virus with encephalopathy","J10.81","ICD10"
+4235537,"Influenza A virus subtype H2 present","440927002","SNOMED"
+45572160,"Influenza due to unidentified influenza virus with gastrointestinal manifestations","J11.2","ICD10"
+42537960,"Influenza with CNS disorder","738276008","SNOMED"
+40468330,"Primary influenza virus pneumonia","42964004","SNOMED"
+764960,"Influenza A virus inconclusive","921000124107","SNOMED"
+320752,"Influenza with non-respiratory manifestation","61700007","SNOMED"
+45601119,"Influenza with pneumonia, seasonal influenza virus identified","J10.0","ICD10"
+35207931,"Influenza due to other identified influenza virus with other respiratory manifestations","J10.1","ICD10"
+4112825,"Pneumonia or influenza NOS","195934000","SNOMED"
+46270491,"Upper respiratory tract infection due to Influenza A","328531000119104","SNOMED"
+45591542,"Influenza due to identified avian influenza virus with unspecified type of pneumonia","J09.019","ICD10"
+37394478,"Influenza due to seasonal influenza virus","1033091000000100","SNOMED"
+40276903,"Influenza due to other Influenza virus","111876006","SNOMED"
+764962,"Influenza A virus subtype H1 inconclusive","931000124105","SNOMED"
+4262073,"Influenza A virus subtype H5 present","441343005","SNOMED"
+4261801,"Influenza due to Influenza virus, type A, porcine","46171006","SNOMED"
+45543254,"Influenza due to other identified influenza virus with the same other identified influenza virus pneumonia","J10.01","ICD10"
+35207930,"Influenza due to certain identified influenza viruses","J09","ICD10"
+45562438,"Influenza due to identified novel H1N1 influenza virus with other respiratory manifestations","J09.12","ICD10"
+45591546,"Influenza due to other identified influenza virus with myocarditis","J10.82","ICD10"
+4304374,"Influenza due to Influenza C virus","81524006","SNOMED"
+46269741,"Bronchiolitis caused by influenza virus","10629191000119100","SNOMED"
+36714388,"Influenza caused by seasonal influenza virus","719590007","SNOMED"
+46270128,"Pneumonia due to avian influenza","143111000119103","SNOMED"
+37394476,"Influenza due to zoonotic influenza virus","1033051000000100","SNOMED"
+36676233,"Influenza caused by Influenza A virus subtype H5N1","772828001","SNOMED"
+765646,"Influenza virus not isolated","453931000124108","SNOMED"
+312664,"Influenza with respiratory manifestation other than pneumonia","63039003","SNOMED"
+40316532,"Pneumonia or influenza NOS","155564005","SNOMED"
+4110042,"Influenza with respiratory manifestations NOS","195925005","SNOMED"
+45601120,"Influenza with other respiratory manifestations, seasonal influenza virus identified","J10.1","ICD10"
+1569462,"Influenza due to unidentified influenza virus","J11","ICD10"
+45562440,"Influenza due to identified novel influenza A virus with other respiratory manifestations","J09.X2","ICD10"
+4208931,"Influenza A virus subtype H1 present","441043003","SNOMED"
+1569461,"Influenza due to other identified influenza virus with other manifestations","J10.8","ICD10"
+4207452,"Influenza A virus subtype H3 present","441049004","SNOMED"
+40316530,"Influenza NOS","155562009","SNOMED"
+37394477,"Influenza due to pandemic influenza virus","1033071000000105","SNOMED"
+40642055,"Influenza with involvement of gastrointestinal tract","83440004","SNOMED"
+40389700,"Encephalitis due to influenza-virus identified","192693000","SNOMED"
+256723,"Pneumonia and influenza","195878008","SNOMED"
+45591545,"Influenza due to other identified influenza virus with other specified pneumonia","J10.08","ICD10"
+45755451,"Influenza, virus not identified","J11","ICD10"
+37394479,"Influenza with pneumonia due to seasonal influenza virus","1033111000000100","SNOMED"
+8689,"Influenza due to unidentified influenza virus with other respiratory manifestations","J11.1","ICD10"
+45552878,"Influenza due to identified novel H1N1 influenza virus with encephalopathy","J09.190","ICD10"
+45771050,"Influenza A virus subtype H7 present","708119004","SNOMED"
+1569458,"Influenza due to identified novel influenza A virus","J09.X","ICD10"
+40316514,"Pneumonia and influenza &/or pneumonia","155548002","SNOMED"
+45581843,"Influenza with other manifestations, virus not identified","J11.8","ICD10"
+40345755,"Influenza NOS","266393000","SNOMED"
+1569460,"Influenza due to other identified influenza virus with pneumonia","J10.0","ICD10"
+46270120,"Upper respiratory tract infection due to avian influenza","142921000119103","SNOMED"
+4252885,"Influenza with encephalopathy","74644004","SNOMED"
+4112662,"Influenza with pneumonia, influenza virus identified","195920000","SNOMED"
+46270123,"Myocarditis due to Influenza A virus subtype H1N1","142951000119106","SNOMED"
+45567259,"Influenza due to other identified influenza virus with unspecified type of pneumonia","J10.00","ICD10"
+40316527,"Influenzal pneumonia","155560001","SNOMED"

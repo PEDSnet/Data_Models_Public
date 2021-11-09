@@ -1,5 +1,7 @@
 # COVID-19 Cohort ETL Guidance 
 
+*Last Updated: 11-01-2021*
+
 ## Background
 
 The COVID-19 pandemic presents a “100 year” challenge to public health, threatening mortality into the hundreds of thousands and severe socioeconomic dislocation.  Although children as a group appear to be less severely affected than older patients, but many important questions remain unanswered.  Little is known about risk factors for severe illness, particularly in young infants, immunocompromised children, and children with chronic pulmonary disease.  Moreover, the role children with mild infection play in transmission, both in the community and in the pediatric workforce, is not well understood.
@@ -18,7 +20,9 @@ Patients are included if they were:
  
  <ul><li>Diagnosed with COVID-19 (determined by institutional mechanisms) ***OR*** </li>
  <li>Tested for SARS-CoV-2 ***OR***</li>
- <li>Seen at any visit on or after Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li></ul>
+ <li>Seen at any visit on or after Jan 01, 2020 with acute respiratory illness(excluding exacerbation of known chronic conditions such as asthma) *OR* fever *OR* cough *OR* dyspnea</li>***OR***
+ <li>Have Received a COVID-19 Vaccine</li>
+ </ul>
 
 Please use the following codesets to assist with identifying patients in your source data. Please continue to include any code (diagnosis, procedure or lab) you know is in institutional use that meet these categories, as we know that some of the source data mappings may not be so straightforward.
 
@@ -42,42 +46,12 @@ Please use the following codesets to assist with identifying patients in your so
 </details>
 
 <details><summary>Procedure/Lab Codes</summary>
-<p>
+
+[COVID-19 Tests](Codesets/covid_test_codeset.csv)
+
+[COVID-19 Serology Tests](Codesets/covid_test_serology_codeset.csv)
 
 
-concept_id|concept_name|concept_code|vocabulary
----|---|---|---
-40218805|Testing for SARS-CoV-2 in CDC laboratory|U0001|HCPCS
-40218804|Testing for SARS-CoV-2 in non-CDC laboratory|U0002|HCPCS
-700360|Infectious agent detection by nucleic acid (DNA or RNA); severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) (Coronavirus disease [COVID-19]), amplified probe technique|87635|CPT-4
-706163|SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|LOINC
-706170|SARS coronavirus 2 RNA [Presence] in Unspecified specimen by NAA with probe detection|94309-2|LOINC
-706158|SARS Coronavirus 2 RNA panel - Respiratory specimen by NAA with probe detection|94531-1|LOINC
-706169|SARS Coronavirus 2 RNA panel - Unspecified specimen by NAA with probe detection|94306-8|LOINC
-706165|SARS coronavirus+SARS-like coronavirus+SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94502-2|LOINC
-706160|SARS coronavirus 2 RdRp gene [Presence] in Respiratory specimen by NAA with probe detection	|94534-5|	LOINC
-706161|SARS coronavirus 2 N gene [Presence] in Respiratory specimen by NAA with probe detection	|94533-7|	LOINC
-706159|SARS-related coronavirus+MERS coronavirus RNA [Presence] in Respiratory specimen by NAA with probe detection	|94532-9|	LOINC
-706171|SARS-like coronavirus N gene [Presence] in Unspecified specimen by NAA with probe detection	|94310-0|	LOINC
-706168|SARS coronavirus 2 ORF1ab region [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94511-3	|LOINC
-706172|SARS-like coronavirus N gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94313-4	|LOINC
-706173|SARS coronavirus 2 RdRp gene [Presence] in Unspecified specimen by NAA with probe detection|	94314-2	|LOINC
-706166|SARS coronavirus 2 E gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection	|94509-7|	LOINC
-706155|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by Nucleic acid amplification using primer-probe set N2|94312-6|	LOINC
-706157|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by Nucleic acid amplification using primer-probe set N1|94311-8	|LOINC
-706157|SARS coronavirus 2 N gene [Cycle Threshold #] in Unspecified specimen by NAA with probe detection|	94510-5|	LOINC
-706154|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by Nucleic acid amplification using primer-probe set N2	|94308-4	|LOINC
-706156|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by Nucleic acid amplification using primer-probe set N1	|94307-6	|LOINC
-706175|SARS coronavirus 2 N gene [Presence] in Unspecified specimen by NAA with probe detection	|94316-7|	LOINC
-706181|SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Rapid immunoassay	|94507-1|	LOINC
-706177|SARS coronavirus 2 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay	|94505-5|	LOINC
-706180|SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Rapid immunoassay	|94508-9|	LOINC
-706178|SARS coronavirus 2 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay|	94506-3|	LOINC
-0|SARS coronavirus 2 IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay	|94547-7	|LOINC
-706176|SARS coronavirus 2 IgG and IgM panel - Serum or Plasma Qualitative by Rapid immunoassay	|94503-0|	LOINC
-706179|SARS coronavirus 2 IgG and IgM panel - Serum or Plasma by Immunoassay|	94504-8	|LOINC
-
-</p>
 </details>
 
 
@@ -143,22 +117,35 @@ concept_id|concept_name|concept_code|vocabulary
 </p>
 </details>
 
+
+<details><summary>COVID-19 Vaccination</summary>
+
+Procedure_concept_id|	Procedure_concept_code|	Procedure Vocabulary|	Drug_concept_id|	Drug Concept Name|	Drug Vocabulary|	immunization_concept Id |Immunization Concept Name	|immunization_concept_code	|Immunization Vocabulary
+---|---|---|---|---|---|---|---|---|---
+Pfizer-Biontech|	766238|	91300|	CPT4|	37003436	|SARS-CoV-2 (COVID-19) vaccine, mRNA-BNT162b2 0.1 MG/ML Injectable Suspension|	RxNorm	|724907	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose|	208|	CVX
+Moderna |	766239|	91301|	CPT4	|37003518|	SARS-CoV-2 (COVID-19) vaccine, mRNA-1273 0.2 MG/ML Injectable Suspension|	RxNorm	|724906|	SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 100 mcg/0.5mL dose	|207|	CVX
+AstraZeneca |	766240|	91302|	CPT4|	1230962|	AZD1222 Astrazeneca COVID-19 vaccine, DNA, spike protein, chimpanzee adenovirus Oxford 1 (ChAdOx1) vector, preservative free, 5x1010 viral particles/0.5mL dosage, for intramuscular use|	NDC	|724905	|SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-ChAdOx1, preservative free, 0.5 mL|	210|	CVX
+Janssen|766241|	91303|	CPT4	|739906|	SARS-COV-2 (COVID-19) vaccine, vector - Ad26 100000000000 UNT/ML Injectable Suspension|	RxNorm|	702866|	SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-Ad26, preservative free, 0.5 mL	|212|	CVX
+Novavax|759735|91304|CPT4	|36119721	|COVID-19 vaccine, recombinant, full-length nanoparticle spike (S) protein, adjuvanted with Matrix-M Injectable Suspension	|RxNorm Extension|0|	SARS-COV-2 (COVID-19) vaccine, Subunit, recombinant spike protein-nanoparticle+Matrix-M1 Adjuvant, preservative free, 0.5mL per dose|211|	CVX
+COVID -19 Vaccine (Unknown/Not Specified) |||		|	|	||724904|	SARS-COV-2 (COVID-19) vaccine, UNSPECIFIED	|213|	CVX
+
+</details>
+   
+
 ### Date Based Inclusion Criteira
 
 Patients are included if they were:
 </ul>
 <li>Seen at any visit on or after Jan 01, 2020</li></ul>
 
-## Vocabulary Snapshot -- Latest update May 11,2020
-Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. A full listing can be found in the official OHDSI [COVID-19 Vocabulary Release](https://github.com/OHDSI/Covid-19/wiki/Release).
+## Vocabulary Snapshot 
+Standaridized codes have been *rapidly* developed to support the identification and coding of covid-19 realted diagnosis, outcomes and testing. 
 
-A **snapshot** of the vocabulary (an update to the current vocabulary) is available. Please contact the DCC for more information.
+The most recent version of the vocabulary is version 4.4. 
 
 ## Data Submission
 
-### Initial Patient List (Due April 3rd, 2020)
-
-To begin to understand the population, we ask that each site generate a patient list for patients meeting the aforementioned criteira.
+To characterize the population, we ask that each site generate a patient list for patients meeting the aforementioned criteira.
 
 We recognize that these patients may not currently exist in the PEDSnet cohort for your site. In this case, please create a *new stable* `person_id` for these patients so that they may be included in the subsequent full data submission.
 
@@ -169,9 +156,17 @@ When making a note of the inclusion criterion met please use the following value
 <li>COVID-19 Test Positive</li>
 <li>COVID-19 Test Negative</li>
 <li>COVID-19 Test Result Unknown</li>
+<li>COVID-19 Test Serology Positive</li>
+<li>COVID-19 Test Serology Negative</li>
+<li>COVID-19 Test Serology Result Unknown</li>
+<li>COVID-19 Vaccination</li>
 <li>HCW-COVID-19 Test Positive</li>
 <li>HCW-COVID-19 Test Negative</li>
 <li>HCW-COVID-19 Test Result Unknown</li>
+<li>HCW-COVID-19 Test Serology Positive</li>
+<li>HCW-COVID-19 Test Serology Negative</li>
+<li>HCW-COVID-19 Test Serology Result Unknown</li>
+<li>HCW-COVID-19 Vaccination</li>
 <li>Visit with Diagnosis List Code</li></ul>
 
 Additional Notes:
@@ -185,14 +180,16 @@ person_id|inclusion_criterion
 1234|COVID-19 Diagnosis
 1234|COVID-19 Test Positive
 2345|COVID-19 Test Negative
+2345|COVID-19 Vaccination
 6789|COVID-19 Test Result Unknown
 9020|Visit with Diagnosis List Code
 1294|HCW-COVID-19 Test Positive
 2325|HCW-COVID-19 Test Negative
+2325|HCW-COVID-19 Vaccination
 6749|HCW-COVID-19 Test Result Unknown
 
-### Weekly Submission (Starting April 10th, 2020)
-Using the data resource, we will maintain up to date **(weekly)** descriptions of the demographics and major clinical characteristics of COVID-19 cohorts, as well as an overall picture of health care utilization, to inform public health and health system responses.
+### Bi- Weekly Submission
+Using the data resource, we will maintain up to date **(bi-weekly)** descriptions of the demographics and major clinical characteristics of COVID-19 cohorts, as well as an overall picture of health care utilization, to inform public health and health system responses.
 
 Please utilize the PEDSnet data submission resource **transfer2.chop.edu** to submit the covid-19 cohort for your site. 
 
@@ -211,11 +208,11 @@ Please see the example below for formatting guidelines (with required fields):
 
 observation table field|value
 ---|---
-person_id| `1234`
-observation_concept_id| `756083`
-osbervation_date| `Date of suspected exposure (if known) or best estimate`
-observation_type_concept_id| `38000280`
-value_as_concept_id|`756046`
+`person_id`| `1234`
+`observation_concept_id`| `756083`
+`osbervation_date`| `Date of suspected exposure (if known) or best estimate`
+`observation_type_concept_id`| `38000280`
+`value_as_concept_id`|`756046`
 
 ### COVID-19 Patients identified outside of EHR
 
@@ -228,11 +225,11 @@ value_as_concept_id:`44802454:	Information external to care setting`
 
 observation table field|value
 ---|---
-person_id| `1234`
-observation_concept_id| `756083`
-osbervation_date| `Date of suspected exposure (if known) or best estimate`
-observation_type_concept_id| `38000280`
-value_as_concept_id|`44802454`
+`person_id`| `1234`
+`observation_concept_id`| `756083`
+`osbervation_date`| `Date of suspected exposure (if known) or best estimate`
+`observation_type_concept_id`| `38000280`
+`value_as_concept_id`|`44802454`
 
 ### Lab Mapping
 
@@ -304,3 +301,15 @@ device_concept_id|concept_code|concept_name|ventilation type
 4222966|	336602003|	Oxygen mask|non-invasive
 40493026|	449071006|	Mechanical ventilator (if unable to distinguish the type)| N/A
 
+## COVID-19 Vaccines Mapping Guidance
+
+The following guidance can be used to assist with mapping procedures, medications and immunization records in the CDM for COVID-19 Vaccines. As a reference, this gudiance has been adapted from the [CDC Guidance](https://www.cdc.gov/vaccines/programs/iis/COVID-19-related-codes.html).
+
+Vaccine|	`Procedure_concept_id`|	`Procedure_concept_code`|	Procedure Vocabulary|	`Drug_concept_id`|	Drug Concept Name|	Drug Vocabulary|	`immunization_concept_Id` |Immunization Concept Name	|`immunization_concept_code`	|Immunization Vocabulary
+---|---|---|---|---|---|---|---|---|---|---|
+Pfizer-Biontech|	766238|	91300|	CPT4|	37003436	|SARS-CoV-2 (COVID-19) vaccine, mRNA-BNT162b2 0.1 MG/ML Injectable Suspension|	RxNorm	|724907	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose|	208|	CVX
+Moderna |	766239|	91301|	CPT4	|37003518|	SARS-CoV-2 (COVID-19) vaccine, mRNA-1273 0.2 MG/ML Injectable Suspension|	RxNorm	|724906|	SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 100 mcg/0.5mL dose	|207|	CVX
+AstraZeneca |	766240|	91302|	CPT4|	1230962|	AZD1222 Astrazeneca COVID-19 vaccine, DNA, spike protein, chimpanzee adenovirus Oxford 1 (ChAdOx1) vector, preservative free, 5x1010 viral particles/0.5mL dosage, for intramuscular use|	NDC	|724905	|SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-ChAdOx1, preservative free, 0.5 mL|	210|	CVX
+Janssen|766241|	91303|	CPT4	|739906|	SARS-COV-2 (COVID-19) vaccine, vector - Ad26 100000000000 UNT/ML Injectable Suspension|	RxNorm|	702866|	SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-Ad26, preservative free, 0.5 mL	|212|	CVX
+Novavax|759735|91304|CPT4		|36119721	|COVID-19 vaccine, recombinant, full-length nanoparticle spike (S) protein, adjuvanted with Matrix-M Injectable Suspension	|RxNorm Extension|0|	SARS-COV-2 (COVID-19) vaccine, Subunit, recombinant spike protein-nanoparticle+Matrix-M1 Adjuvant, preservative free, 0.5mL per dose|211|	CVX
+COVID -19 Vaccine (Unknown/Not Specified) |||		|	|	||724904|	SARS-COV-2 (COVID-19) vaccine, UNSPECIFIED	|213|	CVX

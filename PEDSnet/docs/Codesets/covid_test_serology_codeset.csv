@@ -1,0 +1,45 @@
+﻿concept_id,concept_name,concept_code,vocabulary_id
+706181,SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Rapid immunoassay,94507-1,LOINC
+706177,SARS coronavirus 2 IgG Ab [Units/volume] in Serum or Plasma by Immunoassay,94505-5,LOINC
+706180,SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Rapid immunoassay,94508-9,LOINC
+706178,SARS coronavirus 2 IgM Ab [Units/volume] in Serum or Plasma by Immunoassay,94506-3,LOINC
+706176,SARS coronavirus 2 IgG and IgM panel - Serum or Plasma Qualitative by Rapid immunoassay,94503-0,LOINC
+706179,SARS coronavirus 2 IgG and IgM panel - Serum or Plasma by Immunoassay,94504-8,LOINC
+723474,SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Immunoassay,94563-4,LOINC
+723459,SARS coronavirus 2 IgA Ab [Units/volume] in Serum or Plasma by Immunoassay,94720-0,LOINC
+723473,SARS coronavirus 2 IgA Ab [Presence] in Serum or Plasma by Immunoassay,94562-6,LOINC
+723479,SARS coronavirus 2 IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay,94547-7,LOINC
+723480,SARS-CoV-2 (COVID-19) Ab [Interpretation] in Serum or Plasma,94661-6,LOINC
+723475,SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Immunoassay,94564-2,LOINC
+586515,SARS-CoV-2 (COVID-19) Ab [Presence] in Serum or Plasma by Immunoassay,94762-2,LOINC
+586521,"SARS-CoV-2 (COVID-19) IgA Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay",94768-9,LOINC
+586522,SARS-CoV-2 (COVID-19) Ab [Units/volume] in Serum or Plasma by Immunoassay,94769-7,LOINC
+586527,SARS-CoV-2 (COVID-19) IgG Ab [Presence] in DBS by Immunoassay,94761-4,LOINC
+723479,SARS-CoV-2 (COVID-19) IgG+IgM Ab [Presence] in Serum or Plasma by Immunoassay,94547-7,LOINC
+757679,SARS-CoV-2 (COVID-19) neutralizing antibody [Titer] in Serum by pVNT,95410-7,LOINC
+757680,SARS-CoV-2 (COVID-19) neutralizing antibody [Presence] in Serum by pVNT,95411-5,LOINC
+757686,SARS-CoV-2 (COVID-19) IgA+IgM [Presence] in Serum or Plasma by Immunoassay,95125-1,LOINC
+36659631,SARS-CoV-2 (COVID-19) IgM Ab [Presence] in DBS by Immunoassay,95416-4,LOINC
+36660768,"SARS-CoV-2 (COVID-19) IgG | Serum, Plasma or Blood | Microbiology",LP418689-8,LOINC
+36660777,"SARS-CoV-2 (COVID-19) IgM | Serum, Plasma or Blood | Microbiology",LP418692-2,LOINC
+36660905,"SARS-CoV-2 (COVID-19) IgA | Serum, Plasma or Blood | Microbiology",LP418686-4,LOINC
+36660914,SARS-CoV-2 (COVID-19) IgG+IgM | Serum or Plasma | Microbiology,LP418690-6,LOINC
+36660931,SARS-CoV-2 (COVID-19) IgA | Serum or Plasma | Microbiology,LP418685-6,LOINC
+36661046,SARS-CoV-2 (COVID-19) IgG | Serum or Plasma | Microbiology,LP418688-0,LOINC
+36661053,SARS-CoV-2 (COVID-19) IgM | DBS | Microbiology,LP419433-0,LOINC
+36661105,SARS-CoV-2 (COVID-19) Ab panel | Serum or Plasma | Microbiology Panels,LP419286-2,LOINC
+36661216,SARS-CoV-2 (COVID-19) IgG | DBS | Microbiology,LP418687-2,LOINC
+36661221,SARS-CoV-2 (COVID-19) Ab | Serum or Plasma | Microbiology,LP418684-9,LOINC
+36661273,"SARS-CoV-2 (COVID-19) Ab panel | Serum, Plasma or Blood | Microbiology Panels",LP419413-2,LOINC
+36661274,SARS-CoV-2 (COVID-19) IgM | Serum or Plasma | Microbiology,LP418691-4,LOINC
+36661322,SARS-CoV-2 (COVID-19) neutralizing antibody | Serum | Microbiology,LP419447-0,LOINC
+36661369,"SARS-CoV-2 (COVID-19) IgG+IgM Ab [Presence] in Serum, Plasma or Blood by Rapid immunoassay",95542-7,LOINC
+36661372,SARS-CoV-2 (COVID-19) IgA Ab [Titer] in Serum or Plasma by Immunofluorescence,95427-1,LOINC
+36661373,SARS-CoV-2 (COVID-19) IgM Ab [Titer] in Serum or Plasma by Immunofluorescence,95428-9,LOINC
+36661374,SARS-CoV-2 (COVID-19) IgG Ab [Titer] in Serum or Plasma by Immunofluorescence,95429-7,LOINC
+36031197,SARS-CoV-2 (COVID-19) Ab [Presence] in DBS by Immunoassay,95825-6,LOINC
+36031734,SARS-CoV-2 (COVID-19) S protein RBD neutralizing antibody [Presence] in Serum or Plasma by Immunoassay,96603-6,LOINC
+36031944,SARS-CoV-2 (COVID-19) specific TCRB gene rearrangements [Presence] in Blood by Sequencing,95970-0,LOINC
+36031956,SARS CoV-2 stimulated gamma interferon release by T-cells [Units/volume] corrected for background in Blood,95972-6,LOINC
+36031969,SARS CoV-2 stimulated gamma interferon [Presence] in Blood,95971-8,LOINC
+36032309,SARS CoV-2 stimulated gamma interferon release by T-cells [Units/volume] in Blood,95973-4,LOINC

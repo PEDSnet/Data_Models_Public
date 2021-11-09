@@ -1,94 +1,110 @@
-concept_id,concept_name,concept_code,vocabulary_id
-45581849,Acute bronchitis,J20,ICD10
-1569470,Acute bronchitis,J20,ICD10CM
-45605884,Acute bronchitis due to Mycoplasma pneumoniae,J20.0,ICD10
-35207957,Acute bronchitis due to Mycoplasma pneumoniae,J20.0,ICD10CM
-35207959,Acute bronchitis due to streptococcus,J20.2,ICD10CM
-45543261,Acute bronchitis due to streptococcus,J20.2,ICD10
-45586664,Acute bronchitis due to parainfluenza virus,J20.4,ICD10
-35207961,Acute bronchitis due to parainfluenza virus,J20.4,ICD10CM
-45548108,Acute bronchitis due to respiratory syncytial virus,J20.5,ICD10
-35207962,Acute bronchitis due to respiratory syncytial virus,J20.5,ICD10CM
-35207963,Acute bronchitis due to rhinovirus,J20.6,ICD10CM
-45581850,Acute bronchitis due to rhinovirus,J20.6,ICD10
-45552883,Acute bronchitis due to echovirus,J20.7,ICD10
-35207964,Acute bronchitis due to echovirus,J20.7,ICD10CM
-45562444,Acute bronchitis due to other specified organisms,J20.8,ICD10
-35207965,Acute bronchitis due to other specified organisms,J20.8,ICD10CM
-35207966,"Acute bronchitis, unspecified",J20.9,ICD10CM
-45562445,"Acute bronchitis, unspecified",J20.9,ICD10
-45572167,"Bronchitis, not specified as acute or chronic",J40,ICD10
-35208013,"Bronchitis, not specified as acute or chronic",J40,ICD10CM
-45755455,Simple and mucopurulent chronic bronchitis,J41,ICD10
-1569485,Simple and mucopurulent chronic bronchitis,J41,ICD10CM
-35208014,Simple chronic bronchitis,J41.0,ICD10CM
-35208015,Mucopurulent chronic bronchitis,J41.1,ICD10CM
-35208017,Unspecified chronic bronchitis,J42,ICD10CM
-35208052,"Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors",J68.0,ICD10CM
-35208108,Other specified respiratory disorders,J98.8,ICD10CM
-35207970,Unspecified acute lower respiratory infection,J22,ICD10CM
-35208023,Chronic obstructive pulmonary disease with (acute) lower respiratory infection,J44.0,ICD10CM
-45562458,Bronchiectasis with acute lower respiratory infection,J47.0,ICD10CM
-45586671,Mixed simple and mucopurulent chronic bronchitis,J41.8,ICD10
-35208016,Mixed simple and mucopurulent chronic bronchitis,J41.8,ICD10CM
-260139,Acute bronchitis,10509002,SNOMED
-46269701,Chronic obstructive lung disease co-occurrent with acute bronchitis,106001000119101,SNOMED
-4008725,Adenoviral bronchitis,111849006,SNOMED
-4028970,Tracheobronchitis,13617004,SNOMED
-40316056,Acute laryngotracheobronchitis,155510007,SNOMED
-40316058,Acute bronchitis and bronchiolitis,155511006,SNOMED
-40316059,Acute: [bronchitis] or [chest infections] or [tracheobronchitis],155512004,SNOMED
-40316062,Acute bronchitis NOS,155515002,SNOMED
-40316590,Bronchitis NOS,155616009,SNOMED
-4058712,Viral bronchitis,16146001,SNOMED
-40394953,Acute laryngotracheobronchitis,195702002,SNOMED
-4110022,Acute bronchitis and/or bronchiolitis,195712009,SNOMED
-40394965,Subacute bronchitis,195713004,SNOMED
-40394976,Acute mycoplasmal bronchitis,195723008,SNOMED
-4112359,Acute parainfluenza virus bronchitis,195726000,SNOMED
-4110484,Acute respiratory syncytial virus bronchitis,195727009,SNOMED
-4112521,Acute bronchitis due to rhinovirus,195728004,SNOMED
-4110485,Acute echovirus bronchitis,195729007,SNOMED
-4110486,Subacute bronchitis unspecified,195730002,SNOMED
-4112360,Acute viral bronchitis unspecified,195731003,SNOMED
-4112522,Acute bacterial bronchitis unspecified,195732005,SNOMED
-4112523,Acute bronchitis NOS,195733000,SNOMED
-4112362,Acute bronchitis or bronchiolitis NOS,195743002,SNOMED
-40395537,Recurrent wheezy bronchitis,195936003,SNOMED
-4110044,Tracheobronchitis NOS,195937007,SNOMED
-40395539,Laryngotracheobronchitis,195938002,SNOMED
-40395540,Asthmatic bronchitis,195939005,SNOMED
-4110045,Bronchitis NOS,195940007,SNOMED
-40395854,Emphysematous bronchitis,195950008,SNOMED
-4112826,Mixed simple and mucopurulent chronic bronchitis,195953005,SNOMED
-4049963,Chest infection - unspecified bronchitis,233597004,SNOMED
-4049964,Acute bacterial bronchitis,233598009,SNOMED
-4051332,Acute mycoplasmal bronchitis,233599001,SNOMED
-4052543,Acute viral bronchitis,233601004,SNOMED
-4121456,Acute toxic tracheobronchitis,233799004,SNOMED
-4148123,Bronchitis unspecified,266354009,SNOMED
-40345740,Acute: [bronchitis] or [chest infections] or [tracheobronchitis],266380005,SNOMED
-4099911,Parainfluenza virus bronchitis,27475006,SNOMED
-4170144,Acute wheezy bronchitis,275499005,SNOMED
-40362681,Asthmatic bronchitis,278517007,SNOMED
-46270376,Acute exacerbation of chronic obstructive bronchitis,293241000119100,SNOMED
-4208807,Acute infective bronchitis,312371005,SNOMED
-4208810,Acute infective tracheobronchitis,312400008,SNOMED
-256451,Bronchitis,32398004,SNOMED
-4148204,Acute tracheobronchitis,35301006,SNOMED
-4146838,Parainfluenza virus laryngotracheobronchitis,35377009,SNOMED
-4270139,Subacute bronchitis,36426008,SNOMED
-4233784,Asthmatic bronchitis,405944004,SNOMED
-4233924,Pneumococcal bronchitis,40600002,SNOMED
-4137525,Acute exacerbation of chronic bronchitis,425748003,SNOMED
-40481763,Acute exacerbation of chronic asthmatic bronchitis,442025000,SNOMED
-4243199,Acute bronchitis with obstruction,5875001,SNOMED
-4322815,Adenoviral laryngotracheobronchitis,71255007,SNOMED
-37017003,Postoperative bronchitis,713175006,SNOMED
-37017852,Acute bronchitis co-occurrent with bronchiectasis,714203003,SNOMED
-4218289,Respiratory syncytial virus laryngotracheobronchitis,72204002,SNOMED
-4195736,Respiratory syncytial virus bronchitis,79479005,SNOMED
-4197404,Acute bronchitis with bronchospasm,80257001,SNOMED
-4312602,Laryngotracheobronchitis,85915003,SNOMED
-4232302,Catarrhal bronchitis,89549007,SNOMED
-4320830,Mycoplasmal tracheobronchitis,95886009,SNOMED
+"concept_id","concept_name","concept_code","vocabulary_id"
+4208807,"Acute infective bronchitis","312371005","SNOMED"
+257905,"Mucopurulent chronic bronchitis","74417001","SNOMED"
+35208015,"Mucopurulent chronic bronchitis","J41.1","ICD10CM"
+4028970,"Tracheobronchitis","13617004","SNOMED"
+40395537,"Recurrent wheezy bronchitis","195936003","SNOMED"
+4197404,"Acute bronchitis with bronchospasm","80257001","SNOMED"
+4112360,"Acute viral bronchitis unspecified","195731003","SNOMED"
+4112359,"Acute parainfluenza virus bronchitis","195726000","SNOMED"
+4233924,"Pneumococcal bronchitis","40600002","SNOMED"
+256451,"Bronchitis","32398004","SNOMED"
+40316059,"Acute: [bronchitis] or [chest infections] or [tracheobronchitis]","155512004","SNOMED"
+260125,"Acute bronchiolitis","5505005","SNOMED"
+46270376,"Acute exacerbation of chronic obstructive bronchitis","293241000119100","SNOMED"
+260139,"Acute bronchitis","10509002","SNOMED"
+37206139,"Acute bronchitis co-occurrent with wheeze","785745000","SNOMED"
+4232302,"Catarrhal bronchitis","89549007","SNOMED"
+40345740,"Acute: [bronchitis] or [chest infections] or [tracheobronchitis]","266380005","SNOMED"
+4049963,"Chest infection - unspecified bronchitis","233597004","SNOMED"
+35207965,"Acute bronchitis due to other specified organisms","J20.8","ICD10CM"
+4312602,"Laryngotracheobronchitis","85915003","SNOMED"
+45605884,"Acute bronchitis due to Mycoplasma pneumoniae","J20.0","ICD10"
+256449,"Bronchiectasis","12295008","SNOMED"
+45543261,"Acute bronchitis due to streptococcus","J20.2","ICD10"
+258780,"Emphysematous bronchitis","185086009","SNOMED"
+1569485,"Simple and mucopurulent chronic bronchitis","J41","ICD10CM"
+35207970,"Unspecified acute lower respiratory infection","J22","ICD10CM"
+4218289,"Respiratory syncytial virus laryngotracheobronchitis","72204002","SNOMED"
+4148123,"Bronchitis unspecified","266354009","SNOMED"
+4112826,"Mixed simple and mucopurulent chronic bronchitis","195953005","SNOMED"
+4320830,"Mycoplasmal tracheobronchitis","95886009","SNOMED"
+46269701,"Chronic obstructive lung disease co-occurrent with acute bronchitis","106001000119101","SNOMED"
+35208017,"Unspecified chronic bronchitis","J42","ICD10CM"
+317009,"Asthma","195967001","SNOMED"
+4051332,"Acute mycoplasmal bronchitis","233599001","SNOMED"
+4110485,"Acute echovirus bronchitis","195729007","SNOMED"
+35207964,"Acute bronchitis due to echovirus","J20.7","ICD10CM"
+4112362,"Acute bronchitis or bronchiolitis NOS","195743002","SNOMED"
+4233784,"Asthmatic bronchitis","405944004","SNOMED"
+45562445,"Acute bronchitis, unspecified","J20.9","ICD10"
+255841,"Chronic bronchitis","63480004","SNOMED"
+4110056,"Chronic obstructive pulmonary disease with acute lower respiratory infection","196001008","SNOMED"
+4110022,"Acute bronchitis and/or bronchiolitis","195712009","SNOMED"
+4322815,"Adenoviral laryngotracheobronchitis","71255007","SNOMED"
+4137525,"Acute exacerbation of chronic bronchitis","425748003","SNOMED"
+45586671,"Mixed simple and mucopurulent chronic bronchitis","J41.8","ICD10"
+40481763,"Acute exacerbation of chronic asthmatic bronchitis","442025000","SNOMED"
+4008725,"Adenoviral bronchitis","111849006","SNOMED"
+45572167,"Bronchitis, not specified as acute or chronic","J40","ICD10"
+35208014,"Simple chronic bronchitis","J41.0","ICD10CM"
+35207959,"Acute bronchitis due to streptococcus","J20.2","ICD10CM"
+439298,"Bronchitis and pneumonitis due to chemical fumes","196019004","SNOMED"
+35208023,"Chronic obstructive pulmonary disease with (acute) lower respiratory infection","J44.0","ICD10CM"
+40316590,"Bronchitis NOS","155616009","SNOMED"
+4121456,"Acute toxic tracheobronchitis","233799004","SNOMED"
+4112015,"Acute streptococcal bronchitis","195720006","SNOMED"
+40316056,"Acute laryngotracheobronchitis","155510007","SNOMED"
+40394953,"Acute laryngotracheobronchitis","195702002","SNOMED"
+4148204,"Acute tracheobronchitis","35301006","SNOMED"
+4110045,"Bronchitis NOS","195940007","SNOMED"
+45562444,"Acute bronchitis due to other specified organisms","J20.8","ICD10"
+40362681,"Asthmatic bronchitis","278517007","SNOMED"
+4270139,"Subacute bronchitis","36426008","SNOMED"
+37017852,"Acute bronchitis co-occurrent with bronchiectasis","714203003","SNOMED"
+4243199,"Acute bronchitis with obstruction","5875001","SNOMED"
+256448,"Chronic asthmatic bronchitis","195949008","SNOMED"
+45548108,"Acute bronchitis due to respiratory syncytial virus","J20.5","ICD10"
+261889,"Simple chronic bronchitis","61937009","SNOMED"
+45586664,"Acute bronchitis due to parainfluenza virus","J20.4","ICD10"
+35207961,"Acute bronchitis due to parainfluenza virus","J20.4","ICD10CM"
+4058712,"Viral bronchitis","16146001","SNOMED"
+40316062,"Acute bronchitis NOS","155515002","SNOMED"
+45755455,"Simple and mucopurulent chronic bronchitis","J41","ICD10"
+35207962,"Acute bronchitis due to respiratory syncytial virus","J20.5","ICD10CM"
+45562458,"Bronchiectasis with acute lower respiratory infection","J47.0","ICD10CM"
+40394976,"Acute mycoplasmal bronchitis","195723008","SNOMED"
+40316058,"Acute bronchitis and bronchiolitis","155511006","SNOMED"
+1569470,"Acute bronchitis","J20","ICD10CM"
+37017003,"Postoperative bronchitis","713175006","SNOMED"
+4112521,"Acute bronchitis due to rhinovirus","195728004","SNOMED"
+45581849,"Acute bronchitis","J20","ICD10"
+4110484,"Acute respiratory syncytial virus bronchitis","195727009","SNOMED"
+260134,"Croup","71186008","SNOMED"
+35207957,"Acute bronchitis due to Mycoplasma pneumoniae","J20.0","ICD10CM"
+4110486,"Subacute bronchitis unspecified","195730002","SNOMED"
+4052543,"Acute viral bronchitis","233601004","SNOMED"
+45552883,"Acute bronchitis due to echovirus","J20.7","ICD10"
+4208810,"Acute infective tracheobronchitis","312400008","SNOMED"
+4307774,"Acute lower respiratory tract infection","195742007","SNOMED"
+35207966,"Acute bronchitis, unspecified","J20.9","ICD10CM"
+40395854,"Emphysematous bronchitis","195950008","SNOMED"
+35208052,"Bronchitis and pneumonitis due to chemicals, gases, fumes and vapors","J68.0","ICD10CM"
+45581850,"Acute bronchitis due to rhinovirus","J20.6","ICD10"
+4112522,"Acute bacterial bronchitis unspecified","195732005","SNOMED"
+35208013,"Bronchitis, not specified as acute or chronic","J40","ICD10CM"
+35207963,"Acute bronchitis due to rhinovirus","J20.6","ICD10CM"
+4099911,"Parainfluenza virus bronchitis","27475006","SNOMED"
+40395540,"Asthmatic bronchitis","195939005","SNOMED"
+4049964,"Acute bacterial bronchitis","233598009","SNOMED"
+4112523,"Acute bronchitis NOS","195733000","SNOMED"
+4170144,"Acute wheezy bronchitis","275499005","SNOMED"
+4110044,"Tracheobronchitis NOS","195937007","SNOMED"
+4233477,"Allergic bronchitis","405720007","SNOMED"
+40395539,"Laryngotracheobronchitis","195938002","SNOMED"
+320136,"Disorder of respiratory system","50043002","SNOMED"
+40394965,"Subacute bronchitis","195713004","SNOMED"
+35208016,"Mixed simple and mucopurulent chronic bronchitis","J41.8","ICD10CM"
+4195736,"Respiratory syncytial virus bronchitis","79479005","SNOMED"
+35208108,"Other specified respiratory disorders","J98.8","ICD10CM"
+4146838,"Parainfluenza virus laryngotracheobronchitis","35377009","SNOMED"
