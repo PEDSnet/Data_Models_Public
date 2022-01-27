@@ -1,6 +1,6 @@
 # COVID-19 Cohort ETL Guidance 
 
-*Last Updated: 11-01-2021*
+*Last Updated: 01-25-2022*
 
 ## Background
 
@@ -123,6 +123,8 @@ concept_id|concept_name|concept_code|vocabulary
 Procedure_concept_id|	Procedure_concept_code|	Procedure Vocabulary|	Drug_concept_id|	Drug Concept Name|	Drug Vocabulary|	immunization_concept Id |Immunization Concept Name	|immunization_concept_code	|Immunization Vocabulary
 ---|---|---|---|---|---|---|---|---|---
 Pfizer-Biontech|	766238|	91300|	CPT4|	37003436	|SARS-CoV-2 (COVID-19) vaccine, mRNA-BNT162b2 0.1 MG/ML Injectable Suspension|	RxNorm	|724907	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose|	208|	CVX
+Pfizer-Biontech|	759736|	91305|	CPT4|	37003436	|Tris-sucrose formula, 30 mcg/0.3 mL for ages 12+|	RxNorm	|702677	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose, tris-sucrose formulation|	217|	CVX
+Pfizer-Biontech|	759738|	91307|	CPT4|	37003436	|Tris-sucrose formula, 10 mcg/0.2 mL for ages 5 yrs to < 12 yrs|	RxNorm	|702678	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 10 mcg/0.2mL dose, tris-sucrose formulation|	218|	CVX   
 Moderna |	766239|	91301|	CPT4	|37003518|	SARS-CoV-2 (COVID-19) vaccine, mRNA-1273 0.2 MG/ML Injectable Suspension|	RxNorm	|724906|	SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 100 mcg/0.5mL dose	|207|	CVX
 AstraZeneca |	766240|	91302|	CPT4|	1230962|	AZD1222 Astrazeneca COVID-19 vaccine, DNA, spike protein, chimpanzee adenovirus Oxford 1 (ChAdOx1) vector, preservative free, 5x1010 viral particles/0.5mL dosage, for intramuscular use|	NDC	|724905	|SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-ChAdOx1, preservative free, 0.5 mL|	210|	CVX
 Janssen|766241|	91303|	CPT4	|739906|	SARS-COV-2 (COVID-19) vaccine, vector - Ad26 100000000000 UNT/ML Injectable Suspension|	RxNorm|	702866|	SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-Ad26, preservative free, 0.5 mL	|212|	CVX
@@ -240,6 +242,20 @@ Lab name|pedsnet_loinc_code|pedsnet_concept_id
 SARS coronavirus 2 RNA [Presence] in Respiratory specimen by NAA with probe detection|94500-6|706163
 SARS coronavirus 2 IgG Ab [Presence] in Serum or Plasma by Immunoassay|94507-1|706181
 SARS coronavirus 2 IgM Ab [Presence] in Serum or Plasma by Immunoassay|94508-9|706180
+SARS coronavirus 2 IgA Ab [Presence] in Serum or Plasma by Immunoassay|94562-6|723473
+
+### COVID-19 Serology Test Mappings
+
+For the RECOVER/PASC studies there is a need to distinguish the type of protein assessed by COVID-19 Serology tests. LOINC has developed a pre-release that includes codes that would help to standardize the way these tests are represented. However, these concepts are not yet in the OMOP vocabulary. The PEDSnet team has developed temporary mappings to be able to identify the specific proteins assessed by the serology test. Please incorporate the following mappings in your ETL:
+
+concept_id|concept_name|LOINC short name|concept_code|vocabulary_id
+---|---|---|---|---
+2000001501|SARS-CoV-2 (COVID-19) N protein IgG Ab [Presence] in Serum or Plasma by Immunoassay|SARS coronavirus 2 nucleocapsid protein Ab.IgG|99596-9|LOINC
+2000001502|SARS-CoV-2 (COVID-19) S protein IgG Ab [Presence] in Serum or Plasma by Immunoassay|SARS coronavirus 2 spike protein Ab.IgG|99597-7|LOINC
+2000001512|SARS-CoV-2 (COVID-19) N protein IgM Ab [Presence] in Serum or Plasma by Immunoassay|SARS coronavirus 2 nucleocapsid protein Ab.IgM|PEDSnet Generated|LOINC
+2000001513|SARS-CoV-2 (COVID-19) S protein IgM Ab [Presence] in Serum or Plasma by Immunoassay|SARS coronavirus 2 spike protein Ab.IgM|PEDSnet Generated|LOINC
+2000001514|SARS-CoV-2 (COVID-19) N protein IgA Ab [Presence] in Serum or Plasma by Immunoassay|SARS coronavirus 2 nucleocapsid protein Ab.IgA|PEDSnet Generated|LOINC
+2000001515|SARS-CoV-2 (COVID-19) S protein IgA Ab [Presence] in Serum or Plasma by Immunoassay|SARS coronavirus 2 spike protein Ab.IgA|PEDSnet Generated|LOINC
 
 ## NEW Data Elements
 
@@ -308,6 +324,8 @@ The following guidance can be used to assist with mapping procedures, medication
 Vaccine|	`Procedure_concept_id`|	`Procedure_concept_code`|	Procedure Vocabulary|	`Drug_concept_id`|	Drug Concept Name|	Drug Vocabulary|	`immunization_concept_Id` |Immunization Concept Name	|`immunization_concept_code`	|Immunization Vocabulary
 ---|---|---|---|---|---|---|---|---|---|---|
 Pfizer-Biontech|	766238|	91300|	CPT4|	37003436	|SARS-CoV-2 (COVID-19) vaccine, mRNA-BNT162b2 0.1 MG/ML Injectable Suspension|	RxNorm	|724907	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose|	208|	CVX
+Pfizer-Biontech|	759736|	91305|	CPT4|	37003436	|Tris-sucrose formula, 30 mcg/0.3 mL for ages 12+|	RxNorm	|702677	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 30 mcg/0.3mL dose, tris-sucrose formulation|	217|	CVX
+Pfizer-Biontech|	759738|	91307|	CPT4|	37003436	|Tris-sucrose formula, 10 mcg/0.2 mL for ages 5 yrs to < 12 yrs|	RxNorm	|702678	|SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 10 mcg/0.2mL dose, tris-sucrose formulation|	218|	CVX  
 Moderna |	766239|	91301|	CPT4	|37003518|	SARS-CoV-2 (COVID-19) vaccine, mRNA-1273 0.2 MG/ML Injectable Suspension|	RxNorm	|724906|	SARS-COV-2 (COVID-19) vaccine, mRNA, spike protein, LNP, preservative free, 100 mcg/0.5mL dose	|207|	CVX
 AstraZeneca |	766240|	91302|	CPT4|	1230962|	AZD1222 Astrazeneca COVID-19 vaccine, DNA, spike protein, chimpanzee adenovirus Oxford 1 (ChAdOx1) vector, preservative free, 5x1010 viral particles/0.5mL dosage, for intramuscular use|	NDC	|724905	|SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-ChAdOx1, preservative free, 0.5 mL|	210|	CVX
 Janssen|766241|	91303|	CPT4	|739906|	SARS-COV-2 (COVID-19) vaccine, vector - Ad26 100000000000 UNT/ML Injectable Suspension|	RxNorm|	702866|	SARS-COV-2 (COVID-19) vaccine, vector non-replicating, recombinant spike protein-Ad26, preservative free, 0.5 mL	|212|	CVX
