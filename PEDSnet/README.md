@@ -1,3 +1,40 @@
+## PEDSnet CDM V5.4
+
+The PEDSnet common data model version 5.4 is an update to version 5.3. A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V5.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.4_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V5.4 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+
+### ETL Conventions for Version 5.4
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V5.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.4_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
+
+### Changes from Version 5.3
+
+Please see the applicable change document for changes and additions for the V5.4 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/PEDSnet_CDM5.3_CDM5.4_diff.md)
+
+## Site Responsibility for Version 5.4
+
+### Stable Identifiers
+
+For PEDSnet CDM V5.4, sites are responsible for creating and storing a mapping from both `person_id`,`visit_occurrence_id`, `provider_id` and `care_site_id` to stable local identifiers. These `person_id` , `visit_occurrence_id` and `provider_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. `Care_site_id` was added as a stable requirement in November 2020. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id`, `visit_occurrence_id`, `provider_id` and `care_site_id` values to the same person, visit, provider and care site entities. The mappings should not be sent to the DCC.
+
+## Reference Materials for Version 5.4
+
+### Data Model DDL
+
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.4.0/ddl/postgresql/)
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.4.0/ddl/oracle/)
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.4.0/ddl/mssql/)
+
+### Vocabulary Data
+
+- v5.4 Core Vocabulary: Please contact the DCC for more information.
+
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
+
+***
+***
+***
+
+
 ## PEDSnet CDM V5.3
 
 The PEDSnet common data model version 5.3 is an update to version 5.2. A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V5.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.3_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V5.3 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
@@ -109,7 +146,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V5.0
 
-The PEDSnet common data model version 5.0 is an update to version 4.9 and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/RECOVER%20Cohort.md) spcifications*). 
+The PEDSnet common data model version 5.0 is an update to version 4.9 and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md) spcifications*). 
 
 A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V5.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.0_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V5.0 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
@@ -149,7 +186,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V4.9
 
-The PEDSnet common data model version 4.9 is an update to version 4.8, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/RECOVER%20Cohort.md) spcifications*). 
+The PEDSnet common data model version 4.9 is an update to version 4.8, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md) spcifications*). 
 
 A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V4.9 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.9_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.9 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
@@ -189,7 +226,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V4.8
 
-The PEDSnet common data model version 4.8 is an update to version 4.7, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/RECOVER%20Cohort.md) spcifications*). 
+The PEDSnet common data model version 4.8 is an update to version 4.7, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md) spcifications*). 
 
 A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V4.8 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.8_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.8 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
@@ -229,7 +266,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V4.7
 
-The PEDSnet common data model version 4.7 is an update to version 4.6, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/RECOVER%20Cohort.md) spcifications*). 
+The PEDSnet common data model version 4.7 is an update to version 4.6, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md) spcifications*). 
 
 A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V4.7 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.7_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.7 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
@@ -273,7 +310,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V4.6
 
-The PEDSnet common data model version 4.6 is an update to version 4.5, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/RECOVER%20Cohort.md) spcifications*). 
+The PEDSnet common data model version 4.6 is an update to version 4.5, and includes addtional data elements developed as a part of the network's response to the **COVID-19** pandemic (*these additional data elements are detailed in our [COVID-19 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md) & [RECOVER Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md) spcifications*). 
 
 A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V4.6 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.6_PEDSnet_CDM_ETL_Conventions.md)file. The PEDSnet CDM V4.6 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
@@ -317,7 +354,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V4.5
 
-The PEDSnet common data model version 4.5 is an update to version 4.4 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.5 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.5_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.5 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.5 is an update to version 4.4 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.5 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.5_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.5 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.5
 
@@ -358,7 +395,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 ***
 ## PEDSnet CDM V4.4
 
-The PEDSnet common data model version 4.4 is an update to version 4.3 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.4 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.4 is an update to version 4.3 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.4 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.4 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.4
 
@@ -400,7 +437,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V4.3
 
-The PEDSnet common data model version 4.3 is an update to version 4.2 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.3 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.3 is an update to version 4.2 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.3_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.3 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.3
 
@@ -441,7 +478,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 ***
 ## PEDSnet CDM V4.2
 
-The PEDSnet common data model version 4.2 is an update to version 4.1 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.2 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.2_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.2 is an update to version 4.1 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.2 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.2_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.2 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.2
 
@@ -482,7 +519,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 ***
 ## PEDSnet CDM V4.1
 
-The PEDSnet common data model version 4.1 is an update to version 4.0 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.1 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.1_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.1 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.1 is an update to version 4.0 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.1 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.1_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.1 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.1
 
@@ -523,7 +560,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 ***
 ## PEDSnet CDM V4.0
 
-The PEDSnet common data model version 4.0 is an update to version 3.9 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.0_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.0 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 4.0 is an update to version 3.9 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V4.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.0_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V4.0 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 4.0
 
@@ -564,7 +601,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 ***
 ## PEDSnet CDM V3.9
 
-The PEDSnet common data model version 3.9 is an update to version 3.8 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.9 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.9_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.9 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 3.9 is an update to version 3.8 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.9 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.9_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.9 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 3.9
 
@@ -606,7 +643,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 
 ## PEDSnet CDM V3.8
 
-The PEDSnet common data model version 3.8 is an update to version 3.7 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.8 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.8_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.8 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+The PEDSnet common data model version 3.8 is an update to version 3.7 and includes addtional data elements developed as a part of the network's response to [COVID-19](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md). A full description of the data model and the ETL Conventions is available in the [PEDSnet CDM V3.8 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.8_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V3.8 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
 
 ### ETL Conventions for Version 3.8
 
@@ -650,7 +687,7 @@ If you have any questions, please do not hesitate to email pedsnetdcc@email.chop
 PEDSnet has committed to a rapid response that creates the data substrate for COVID-19 analyses and for pragmatic research, and that builds a pediatric research effort to complement current efforts in basic and adult clinical domains.
 
 ### ETL Conventions 
-For ETL Guidance, please use the documentation [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/COVID-19%20Cohort.md).
+For ETL Guidance, please use the documentation [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md).
 
 ### Vocabulary Data
 There has been a speical release to the vocabulary as a result of new standards and terms. Please contact the DCC for more information.

@@ -4,13 +4,13 @@
 
 ### New Guidance
 
-#### [1.6 VISIT_OCCURRENCE](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence)
+#### [1.6 VISIT_OCCURRENCE](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.6_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence)
 
 - Operating (aka Sugery) and Anesthesia encounters that occur as apart of an Inpatient stay should be rolled up into one Inpatient encounter.
     - This had been an optinal ETL step that we are now making a requirement.
 
 ### New Table
-#### [1.21 Specialty](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#121-specialty-1)
+#### [1.21 Specialty](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.6_PEDSnet_CDM_ETL_Conventions.md#121-specialty-1)
 - In order to better support certain study efforts, we are adding SPECIALTY table to our Data Model. This table will hold information about each of the specialty assocaited with a given provider or care site, and is intended to accomidate intances where a provider or care site has more than one specialty. 
 
 ### Expansion of "Codesets" for COVID-19 Cohort
@@ -53,7 +53,7 @@ See the links below to each of the different Cohort Codeset tables that have bee
  
 Additinally, see the link below to the full COVID Cohort Specs: 
 
-> [COVID Cohort Documenation](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#pcornet-inclusion-criteira)
+> [COVID Cohort Documenation](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#pcornet-inclusion-criteira)
 
 ### Addition of RECOVER Cohort Specifications
 
@@ -84,4 +84,4 @@ Please use the original [**RECOVER** Inclusion List format](https://github.com/P
 
 For sites submiiting COVID data along with the v4.6 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. 
 
-Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission). 
+Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission). 

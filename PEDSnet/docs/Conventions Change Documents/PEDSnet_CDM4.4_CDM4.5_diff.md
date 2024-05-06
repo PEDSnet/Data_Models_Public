@@ -13,7 +13,7 @@ This pilot will involve the following participating sites:
 
 For more information and conventions see the [CDM Ventilator Pilot Guidance](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/CDM%20Ventilator%20Pilot/Ventilator%20Pilot%20Guidance.md)
 
-### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
+### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md)
 
 #### COVID-19 Vaccine Mapping
 
@@ -55,7 +55,7 @@ Please document submission metadata and any ETL changes for version 4.5 in the [
 
 ### Sites submitting COVID data with v4.5 submission
 
-For sites submiiting COVID data along with the v4.5 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
+For sites submiiting COVID data along with the v4.5 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
 
 When making a note of the inclusion criterion met please use the following valueset:
 

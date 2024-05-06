@@ -2,7 +2,7 @@
 
 ## **** NEW in PEDSnet CDM v5.3 ****
 
-### 1. Updates to [1.8 Procedure Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#18-procedure-occurrence) Guidance:
+### 1. Updates to [1.8 Procedure Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.3_PEDSnet_CDM_ETL_Conventions.md#18-procedure-occurrence) Guidance:
 
 Change of guidance for populating `procedure_concept_id` and `procedure_source_concept_id`.
 
@@ -30,7 +30,7 @@ See details on how to represent procedure\_concept\_id, procedure\_source\_conce
 > Codes sourced from Ordered or Billed procedures using Custom Procedure Coding or Coding in a vocabulary outside of CPT-4, ICD-9-CM, ICD-10, HCPCS or OPCS-4. | If the code has a corresponding concept_id in the vocabulary that is both Standard and Valid, please use that concept\_id. If the code has a corresponding concept\_id but that concept is not standard and valid, utilize the concept\_relationship table's "Maps to" relationship\_id to map to a valid and standard concept\_id. If the code does not have a corresponding concept\_id, utilize local mappings used at your instituion for billing to get to a code with a concept in the Vocabulary and use the concept\_relationship table's "Maps to" relationship\_id to map to a valid and standard concept\_id. If none of the above are options for your code then utilize manual mapping logic to map the code to the most closely representative standard and valid concept. | Corresponding or most closely representave CPT-4, ICD-9-CM (Procedures),ICD-10 (Procedures), HCPCS or OPCS-4 concept\_id regardless of whether the concept\_id is both Standard and Valid. If no representative code exists then set equal to 0.  | Procedure Name \| Custom Procedure Code
 
 
-### 2. Update to [1.6 Visit Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence) Guidance:
+### 2. Update to [1.6 Visit Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.3_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence) Guidance:
 
 Additional data required for populating `visit_source_value`.
 
@@ -57,7 +57,7 @@ Additional data required for populating `visit_source_value`.
 
 
 
-### 3. Update to [1.23 Cohort](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#123-cohort-1) Data Model:
+### 3. Update to [1.23 Cohort](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.3_PEDSnet_CDM_ETL_Conventions.md#123-cohort-1) Data Model:
 
 Change in Cohort Table's Primary Key.
 
@@ -67,7 +67,7 @@ Change in Cohort Table's Primary Key.
 > 
 > This Data Model change will be reflected in the [PEDSnet v5.3 DDL](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.3.0/).
 
-### 4. Update to [1.24 Cohort Definition](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#18-procedure-occurrence) Guidance:
+### 4. Update to [1.24 Cohort Definition](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.3_PEDSnet_CDM_ETL_Conventions.md#18-procedure-occurrence) Guidance:
 
 Release of CSV file to populate the Cohort Definition Table Locally. 
 
@@ -76,7 +76,7 @@ Release of CSV file to populate the Cohort Definition Table Locally.
 > 
 > For consistency in updates and ease of use of sites populating, we will be distributing a `cohort_definition.csv` file within the quarterly Vocabulary Release for sites to populate their local tables with. 
 > 
-> The current list will also be kept in [Note 1 of the Cohort Table Conventions] (https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#124-cohort_definition).
+> The current list will also be kept in [Note 1 of the Cohort Table Conventions] (https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.3_PEDSnet_CDM_ETL_Conventions.md#124-cohort_definition).
 > 
 > \*** Note that `cohort_definition_id` is part of the primary key for the Cohort table and therefore needs to be populated in the Cohort_Definition to be properly referenced in Cohort. ***
 
@@ -89,10 +89,10 @@ Release of CSV file to populate the Cohort Definition Table Locally.
 
 For sites submiting RECOVER data along with the v5.3 submission, please provide a CSV of patients meeting the RECOVER inclusion criteria with an inclusion reason.
 
-Please use the original [**RECOVER** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/RECOVER%20Cohort.md#data-submission). 
+Please use the original [**RECOVER** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md#data-submission). 
 
 ### Sites submitting COVID data with v5.3 submission
 
 For sites submiiting COVID data along with the v5.3 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. 
 
-Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).

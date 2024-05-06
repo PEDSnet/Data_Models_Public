@@ -49,7 +49,7 @@ Some of the codes included in the above codeset are codes were adapted to captur
 
 > **Note**: Patients included in our cohort due to an occurence of any of these COVID-19 diagnosis codes can be assigned the inclusion reason `COVID-19 Diagnosis`.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details>
 
@@ -59,23 +59,23 @@ Some of the codes included in the above codeset are codes were adapted to captur
 
 > **Note**: Patients included in our cohort due to an occurence of a COVID-19 Test can be assigned the inclusion reasons `COVID-19 Test Positive`, `COVID-19 Test Negative`, or `COVID-19 Test Result Unknown`.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 - [COVID-19 Serology Tests](Codesets/covid_test_serology_codeset.csv)
 
 > **Note**: Patients included in our cohort due to an occurence of a COVID-19 Serology Test can be assigned the inclusion reasons `COVID-19 Test Serology Positive`, `COVID-19 Test Serology Negative`, or `COVID-19 Test Serology Result Unknown `.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details>
 
 <details><summary>COVID-19 - Vaccinations</summary>
 
-- [COVID-19 VACCINES MAPPING GUIDANCE](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#covid-19-vaccines-mapping-guidance)
+- [COVID-19 VACCINES MAPPING GUIDANCE](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#covid-19-vaccines-mapping-guidance)
 
 > **Note**: Patients included in our cohort due to a vaccination can be assigned the inclusion reason `COVID-19 Vaccination`.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details> 
  
@@ -99,7 +99,7 @@ Some of the codes included in the above codeset are codes were adapted to captur
 
 > **Note**: Patients included in our cohort due to an occurence of these diagnosis codes can be assigned the inclusion reason `Visit with Diagnosis List Code`.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details>
 
@@ -109,7 +109,7 @@ Some of the codes included in the above codeset are codes were adapted to captur
 
 > **Note**: Patients included in our cohort due to an occurence of these diagnosis codes can be assigned the inclusion reason `Visit with Diagnosis List Code`.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details>
 
@@ -119,7 +119,7 @@ Some of the codes included in the above codeset are codes were adapted to captur
 
 > **Note**: Patients included in our cohort due to an occurence of these diagnosis codes can be assigned the inclusion reason `Visit with Diagnosis List Code`.
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details>
 
@@ -129,7 +129,7 @@ Some of the codes included in the above codeset are codes were adapted to captur
 
 > **Note**: Patients included in our cohort due to an occurence of these diagnosis codes can be assigned the inclusion reason `Visit with Diagnosis List Code`. 
 > 
-> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+> More on these "Inclusion Criteria" Categories, linked [here](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
 
 </details>
    
@@ -290,19 +290,19 @@ COVID -19 Vaccine (Unknown/Not Specified) |||		|	|	||724904|	SARS-COV-2 (COVID-1
 
 To record FiO2 vitals for the patient, please use the following conventions to insert a record into the measurement table:
 
-> See **Note 1** in the [**MEASUREMENT**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) section of our ETL Conventions for Mapping Guidance on this `FiO2` information.
+> See **Note 1** in the [**MEASUREMENT**](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.0_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) section of our ETL Conventions for Mapping Guidance on this `FiO2` information.
 
 ### Peripheral oxygen saturation (SpO2)/fraction of inspired oxygen (FiO2)
 
 To record SpO2/FiO2 vitals for the patient, please use the following conventions to insert a record into the measurement table:
 
-> See **Note 1** in the [**MEASUREMENT**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) section of our ETL Conventions for Mapping Guidance on this `SpO2/FiO2` information.
+> See **Note 1** in the [**MEASUREMENT**](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.0_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) section of our ETL Conventions for Mapping Guidance on this `SpO2/FiO2` information.
 
 ### Chief Complaint
 
 The cheif complaint is often a free text or non-structured field in source systems without any standard terminology. To record this kind of chief complaint for the patient, please use the following observation_concept_id to insert a record into the observation table:
 
-> See **Note 8** in the [**OBSERVATION**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#19-observation-1) section of our ETL Conventions for Mapping Guidance on this information.
+> See **Note 8** in the [**OBSERVATION**](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.0_PEDSnet_CDM_ETL_Conventions.md#19-observation-1) section of our ETL Conventions for Mapping Guidance on this information.
 
 We recognize that chief complaint as defined above may not be available.
 
@@ -310,11 +310,11 @@ We recognize that chief complaint as defined above may not be available.
 
 To record the vaping smoking status for the patient, please use the following conventions to insert a record into the observation table:
 
-> See **Note 9** in the [**OBSERVATION**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#19-observation-1) section of our ETL Conventions for Mapping Guidance on this information.
+> See **Note 9** in the [**OBSERVATION**](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.0_PEDSnet_CDM_ETL_Conventions.md#19-observation-1) section of our ETL Conventions for Mapping Guidance on this information.
 
 
 ### Mechanical Ventilation
 
 To record the mechanical ventilation status for the patient, please use the following conventions to insert a record into the device_exposure table:
 
-> See **Note 1** at the top of the [**DEVICE_EXPOSURE**](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#118-device_exposure) section of our ETL Conventions for Mapping Guidance on this information.
+> See **Note 1** at the top of the [**DEVICE_EXPOSURE**](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.0_PEDSnet_CDM_ETL_Conventions.md#118-device_exposure) section of our ETL Conventions for Mapping Guidance on this information.

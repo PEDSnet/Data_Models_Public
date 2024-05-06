@@ -54,7 +54,7 @@ Please document submission metadata and any ETL changes for version 4.3 in the [
 
 ### Sites submitting COVID data with v4.3 submission
 
-For sites submiiting COVID data along with the v4.3 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
+For sites submiiting COVID data along with the v4.3 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
 
 When making a note of the inclusion criterion met please use the following valueset:
 

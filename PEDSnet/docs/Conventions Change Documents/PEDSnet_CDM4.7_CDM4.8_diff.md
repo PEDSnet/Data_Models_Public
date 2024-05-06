@@ -55,4 +55,4 @@ Please use the original [**RECOVER** Inclusion List format](https://github.com/P
 
 For sites submiiting COVID data along with the v4.8 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. 
 
-Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).

@@ -2,13 +2,13 @@
 
 ## **** NEW in PEDSnet CDM v4.2 ****
 
-### [All Tables](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#table-of-contents)
+### [All Tables](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.2_PEDSnet_CDM_ETL_Conventions.md#table-of-contents)
 - Update of all ***fact table*** primary and foreign keys to `Big Integer` from `Integer` to support the generation of unique keys for the growing volume of data.
 
-### [1.3 Location](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#13-location)
+### [1.3 Location](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.2_PEDSnet_CDM_ETL_Conventions.md#13-location)
 - Network Constraint for `County` field updated to `Provide when available` from `No`.
 
-### [1.9 Observation](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#19-observation-1)
+### [1.9 Observation](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.2_PEDSnet_CDM_ETL_Conventions.md#19-observation-1)
 - Updates for the following concepts:
 
 Current Concept | Current Concept Name| New Concept|New Concept Name
@@ -21,7 +21,7 @@ Current Concept | Current Concept Name| New Concept|New Concept Name
 ### [1.20 Hash Token](https://github.com/PEDSnet/Data_Models/blob/v4.2/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#120-hash_token)
 - Addition of `token_encryption_key` column.
 
-### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
+### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md)
 
 #### COVID-19 Codesets Updates
 
@@ -54,7 +54,7 @@ Please document submission metadata and any ETL changes for version 4.2 in the R
 
 ### Sites submitting COVID data with v4.2 submission
 
-For sites submiiting COVID data along with the v4.2 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
+For sites submiiting COVID data along with the v4.2 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
 
 When making a note of the inclusion criterion met please use the following valueset:
 

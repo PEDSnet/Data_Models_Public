@@ -8,7 +8,7 @@
 1. Please transmit **CITY** information to the DCC. Previously this field was noted as a "Do not transmit to the DCC" field.
 2. Please trasmit **9 digit zip codes** if available.
 
-#### [1.17 Immunization](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Pedsnet_CDM_ETL_Conventions.md#117-immunization-1)
+#### [1.17 Immunization](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v3.5_PEDSnet_CDM_ETL_Conventions.md#117-immunization-1)
 - The immunization table has been updated to include the following fieds:
 1. imm_recorded_date 
 2. imm_recorded_datetime

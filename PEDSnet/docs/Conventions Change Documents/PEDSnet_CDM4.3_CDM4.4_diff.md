@@ -2,29 +2,29 @@
 
 ## **** NEW in PEDSnet CDM v4.4 ****
 
-### [1.3 Location](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#13-location-1)
+### [1.3 Location](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md#13-location-1)
 - Addition of `country_concept_id` column
 - Addition of `country_source_value` column
 - Addition of `latitude` column
 - Addition of `longitude` column
 - Addition of `census_block_group` column
 
-### [1.6 Visit_Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence)
+### [1.6 Visit_Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence)
 - Rename of `discharge_to_concept_id` column to `discharged_to_concept_id`
 - Rename of `discharge_to_source_value` column to `discharged_to_source_value`
 
-### [1.8 Procedure_Occurrence](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#18-procedure_occurrence)
+### [1.8 Procedure_Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md#18-procedure_occurrence)
 - Addition of `procedure_end_date` column
 - Addition of `procedure_end_datetime` column
 - Update to `procedure_type_concept_id` column covention to record Primary and Secondary EHR/Order based procedures.
 
-### [1.9 Observation](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#19-observation-1)
+### [1.9 Observation](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md#19-observation-1)
 - Addition of `value_source_value` column
 
-### [1.12 Measurement](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
+### [1.12 Measurement](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
 - Addition of `unit_source_concept_id` column.
 
-### [1.18 Device Exposure](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#118-device_exposure)
+### [1.18 Device Exposure](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v4.4_PEDSnet_CDM_ETL_Conventions.md#118-device_exposure)
 - Addition of `production_id` column. (Corresponds to portion of unique device identifier)
 - Addition of `unit_concept_id` column.
 - Addition of `unit_source_concept_id` column.
@@ -33,7 +33,7 @@
 
 
 
-### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md)
+### [COVID- 19 Updates](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md)
 
 #### Inclusion Criteria Expansion
 
@@ -79,7 +79,7 @@ Please document submission metadata and any ETL changes for version 4.4 in the [
 
 ### Sites submitting COVID data with v4.4 submission
 
-For sites submiiting COVID data along with the v4.4 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
+For sites submiiting COVID data along with the v4.4 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. Please use the original [COVID Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#initial-patient-list-due-april-3rd-2020). We have included it below for reference.
 
 When making a note of the inclusion criterion met please use the following valueset:
 

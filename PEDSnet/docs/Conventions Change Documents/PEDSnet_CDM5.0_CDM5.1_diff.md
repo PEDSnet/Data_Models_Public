@@ -10,10 +10,10 @@ There are no changes to this version of the CDM.
 
 For sites submiting RECOVER data along with the v5.1 submission, please provide a CSV of patients meeting the RECOVER inclusion criteria with an inclusion reason.
 
-Please use the original [**RECOVER** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/RECOVER%20Cohort.md#data-submission). 
+Please use the original [**RECOVER** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/RECOVER%20Cohort.md#data-submission). 
 
 ### Sites submitting COVID data with v5.1 submission
 
 For sites submiiting COVID data along with the v5.1 submission, please provide a CSV of patients meeting the COVID inclusion criteria with an inclusion reason. 
 
-Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/COVID-19%20Cohort.md#data-submission).
+Please use the original [**COVID** Inclusion List format](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/Study%20Cohorts/COVID-19%20Cohort.md#data-submission).
