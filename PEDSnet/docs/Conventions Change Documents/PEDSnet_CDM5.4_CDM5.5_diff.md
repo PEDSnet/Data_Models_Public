@@ -2,7 +2,7 @@
 
 ## **** NEW in PEDSnet CDM v5.5 ****
 
-### 1. Additional Guidance for [1.11 Drug Exposure](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.5_PEDSnet_CDM_ETL_Conventions.md#111-drug-exposure):
+### 1. Additional Guidance for [1.11 Drug Exposure](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.5_PEDSnet_CDM_ETL_Conventions.md#111-drug_exposure):
 
 For Patient Reported Drugs records in source EHR system, PEDSnet version 5.5 is now allowing a new drug_type_concept_id option `drug_type_concept_id = 32865 "Patient self-report"` in the drug exposure table. 
 
