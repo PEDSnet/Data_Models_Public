@@ -2,7 +2,7 @@
 
 ## **** NEW in PEDSnet CDM v5.7 ****
 
-### (1) Update to [1.6 Visit_Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence) Guidance
+### (1) Update to [1.6 Visit_Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence) Guidance
 
 Beginning in version 5.7, the PEDSnet data model will now allow visits marked as **cancelled** in source EHR systems if the following conditions are held:
 
@@ -59,16 +59,16 @@ In order for the PEDSnet DCC to derive total administered volumes for continuous
 If your institution has begun collecting race and ethnicity information utilizing the [updated OMB categories](https://www.census.gov/about/our-research/race-ethnicity/standards-updates.html), to align with [OHDSI guidelines](https://forums.ohdsi.org/t/dealing-with-multiple-races-and-other-exceptions/20091/27), please utilize the following guidance for modeling these categories in the PEDSnet Data Model:
 
 - If a patient has a single Race category:
-> - Utilize corresponding `race_concept_id` options in the [`person`](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#11-person-1) table.
+> - Utilize corresponding `race_concept_id` options in the [`person`](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#11-person-1) table.
 > - Addition of new `race_concept_id` option for "Middle Eastern or North African" `concept_id` = `38003615`.
 
 - If a patient has multiple Race categories:
-> - set `race_concept_id` = `44814659` "Multiple Races" in the [`person`](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#11-person-1) table.
-> - Insert 1 record for each selected race category into the [`Observation`](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#19-observation-1) table where `observation_concept_id` = `3050381` ("Race or Ethnicity") and `value_as_concept_id` equals the concept_id representing the individual category.
+> - set `race_concept_id` = `44814659` "Multiple Races" in the [`person`](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#11-person-1) table.
+> - Insert 1 record for each selected race category into the [`Observation`](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#19-observation-1) table where `observation_concept_id` = `3050381` ("Race or Ethnicity") and `value_as_concept_id` equals the concept_id representing the individual category.
 > - Accepted concepts can be found in the concept table where `vocabulary_id in ("Race","Ethnicity")`.
 > - If date of encounter is available for the race and ethnicity information, use that date to populate `observation_date`. Otherwise, set `observation_date` = patient's birth date
 
 
-### (4) Update to [1.12 Measurement](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) Guidance 
+### (4) Update to [1.12 Measurement](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) Guidance 
 
 To align the vocabulary of the `measurement_concept_id` used for "Inspired Oxygen Concentration" to LOINC, we ask to change the `measurement_concept_id` used from the SNOMED `concept_id` = `4353936` "Inspired oxygen concentration" to the LOINC `concept_id` = `3020716` "Inhaled oxygen concentration".
