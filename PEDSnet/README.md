@@ -1,3 +1,39 @@
+## PEDSnet CDM V5.7
+
+The PEDSnet common data model version 5.7 is an update to version 5.6. A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V5.7 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V5.7 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
+
+### ETL Conventions for Version 5.7
+
+The PEDSnet ETL conventions are described in the [PEDSnet CDM V5.7 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md) file and should be followed as much as possible when extracting data from source systems into the PEDSnet CDM, in order to improve data quality and consistency across the network. These conventions were developed collaboratively and represent the best solutions for existing use cases across PEDSnet, but are still works-in-progress. Please submit any comments [here](https://github.com/PEDSnet/Data_Models_Public/issues). Please also consider contributing!
+
+### Changes from Version 5.6
+
+Please see the applicable change document for changes and additions for the V5.7 data model [here](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Change%20Documents/PEDSnet_CDM5.6_CDM5.7_diff.md)
+
+## Site Responsibility for Version 5.7
+
+### Stable Identifiers
+
+For PEDSnet CDM V5.7, sites are responsible for creating and storing a mapping from both `person_id`,`visit_occurrence_id`, `provider_id` and `care_site_id` to stable local identifiers. These `person_id` , `visit_occurrence_id` and `provider_id` values **DO NOT** need to be consistent with the values from data transmissions prior to Nov 2015. However, they **DO** have to remain consistent from February 2016 onward. `Care_site_id` was added as a stable requirement in November 2020. This means that for future data cycles, sites will need to reference the mappings in order to assign the same `person_id`, `visit_occurrence_id`, `provider_id` and `care_site_id` values to the same person, visit, provider and care site entities. The mappings should not be sent to the DCC.
+
+## Reference Materials for Version 5.7
+
+### Data Model DDL
+
+- Postgres: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.7.0/ddl/postgresql/)
+- Oracle: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.7.0/ddl/oracle/)
+- Microsoft SQL Server: [here](https://data-models-sqlalchemy.research.chop.edu/pedsnet/5.7.0/ddl/mssql/)
+
+### Vocabulary Data
+
+- v5.7 Core Vocabulary: Please contact the DCC for more information.
+
+If you have any questions, please do not hesitate to email pedsnetdcc@email.chop.edu.
+
+***
+***
+***
+
 ## PEDSnet CDM V5.6
 
 The PEDSnet common data model version 5.6 is an update to version 5.5. A full description of the data model and the ETL Conventions for this release are available in the [PEDSnet CDM V5.6 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.6_PEDSnet_CDM_ETL_Conventions.md) file. The PEDSnet CDM V5.6 documentation covers the tables from OMOP which have been part of PEDSnet operation up to this point,including custom tables and columns but the data definition language files include all of the OMOP tables.
