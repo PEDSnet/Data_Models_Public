@@ -2,7 +2,7 @@
 
 ## **** NEW in PEDSnet CDM v5.7 ****
 
-### (1) Update to [1.6 Visit_Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence) Guidance
+### (1) Update to [1.6 Visit_Occurrence](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#16-visit_occurrence) Guidance
 
 Beginning in version 5.7, the PEDSnet data model will now allow visits marked as **cancelled** in source EHR systems if the following conditions are held:
 
@@ -69,6 +69,6 @@ If your institution has begun collecting race and ethnicity information utilizin
 > - If date of encounter is available for the race and ethnicity information, use that date to populate `observation_date`. Otherwise, set `observation_date` = patient's birth date
 
 
-### (4) Update to [1.12 Measurement](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) Guidance 
+### (4) Update to [1.12 Measurement](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) Guidance 
 
 To align the vocabulary of the `measurement_concept_id` used for "Inspired Oxygen Concentration" to LOINC, we ask to change the `measurement_concept_id` used from the SNOMED `concept_id` = `4353936` "Inspired oxygen concentration" to the LOINC `concept_id` = `3020716` "Inhaled oxygen concentration".
