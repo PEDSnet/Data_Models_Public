@@ -1,0 +1,65 @@
+concept_id,concept_name,concept_code,vocabulary_id,dx_class
+320651,Severe acute respiratory syndrome,398447004,SNOMED,dx
+37016927,Pneumonia caused by Human coronavirus,713084008,SNOMED,dx
+37310254,Otitis media caused by 2019 novel coronavirus,1.24E+15,SNOMED,dx
+37310260,Close exposure to 2019 novel coronavirus infection,1.24E+15,SNOMED,exp
+37310283,Gastroenteritis caused by 2019 novel coronavirus,1.24E+15,SNOMED,dx
+37310284,Encephalopathy caused by 2019 novel coronavirus,1.24E+15,SNOMED,dx
+37310285,Pneumonia caused by 2019 novel coronavirus,1.24E+15,SNOMED,dx
+37310286,Infection of upper respiratory tract caused by 2019 novel coronavirus,1.24E+15,SNOMED,dx
+37310287,Myocarditis caused by 2019 novel coronavirus,1.24E+15,SNOMED,dx
+37311059,Exposure to severe acute respiratory syndrome coronavirus 2,840546002,SNOMED,exp
+37311061,Disease caused by severe acute respiratory syndrome coronavirus 2,840539006,SNOMED,dx
+37396171,Severe acute respiratory syndrome of upper respiratory tract,715882005,SNOMED,dx
+40479642,Pneumonia due to Severe acute respiratory syndrome coronavirus,441590008,SNOMED,dx
+40479782,Exposure to severe acute respiratory syndrome coronavirus,444482005,SNOMED,exp
+4100065,Disease due to Coronaviridae,27619001,SNOMED,dx
+4248811,Healthcare associated severe acute respiratory syndrome,408688009,SNOMED,dx
+439676,Coronavirus infection,186747009,SNOMED,dx
+45763594,Middle East respiratory syndrome,6.51E+11,SNOMED,dx
+45765578,Exposure to coronavirus infection,702547000,SNOMED,exp
+756022,Exposure to patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873948,OMOP Extension,exp
+756023,Acute bronchitis caused by severe acute respiratory syndrome coronavirus 2,OMOP4873906,OMOP Extension,dx
+756027,Healthcare contact with patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873964,OMOP Extension,exp
+756031,Bronchitis caused by severe acute respiratory syndrome coronavirus 2,OMOP4873909,OMOP Extension,dx
+756035,Healthcare contact of Patient with another patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873949,OMOP Extension,exp
+756037,Presence in a laboratory handling suspected or confirmed cases samples of disease caused by severe acute respiratory syndrome coronavirus 2,OMOP4873953,OMOP Extension,exp
+756039,Respiratory infection caused by severe acute respiratory syndrome coronavirus 2,OMOP4873907,OMOP Extension,dx
+756041,Close contact with symptomatic patient with confirmed or presumptive/probable case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873957,OMOP Extension,exp
+756044,Acute respiratory distress syndrome (ARDS) caused by severe acute respiratory syndrome coronavirus 2,OMOP4873911,OMOP Extension,dx
+756045,Household contact with patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873954,OMOP Extension,exp
+756047,Healthcare contact of Healthcare worker with patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873958,OMOP Extension,exp
+756050,Exposure to patient with severe acute lower respiratory distress (SARS) of unknown etiology,OMOP4873947,OMOP Extension,exp
+756061,Asymptomatic infection caused by severe acute respiratory syndrome coronavirus 2,OMOP4873910,OMOP Extension,dx
+756062,Community contact with patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873951,OMOP Extension,exp
+756064,Suspected exposure (but ruled out after evaluation) to severe acute respiratory syndrome coronavirus 2,OMOP4873946,OMOP Extension,exp
+756068,Close contact with patient with presumptive/probable (then not confirmed) case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873950,OMOP Extension,exp
+756069,Close contact with patient with confirmed or presumptive/probable case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873959,OMOP Extension,exp
+756072,Presence in a healthcare facility where disease caused by severe acute respiratory syndrome coronavirus 2 has been managed,OMOP4873956,OMOP Extension,exp
+756075,Exposure to patient with presumptive/probable case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873952,OMOP Extension,exp
+756076,Close contact with patient with presumptive/probable case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873961,OMOP Extension,exp
+756077,Close contact with patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873960,OMOP Extension,exp
+756079,Healthcare contact of Visitor with patient with confirmed case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873955,OMOP Extension,exp
+756081,Infection of lower respiratory tract caused by severe acute respiratory syndrome coronavirus 2,OMOP4873908,OMOP Extension,dx
+756082,Exposure to patient with presumptive/probable (then not confirmed) case caused by severe acute respiratory syndrome coronavirus 2,OMOP4873963,OMOP Extension,exp
+756083,Suspected exposure to severe acute respiratory syndrome coronavirus 2,OMOP4873962,OMOP Extension,exp
+37311060,Suspected disease caused by 2019-nCoV,840544004,SNOMED,dx
+37311065,2019-nCoV,840533007,SNOMED,dx
+704996,Patient meets COVID-19 laboratory diagnostic criteria,OMOP4912978,SNOMED,dx
+713856,Multisystem inflammatory syndrome (MIS),M35.81,ICD10CM,dx
+703578,Multisystem inflammatory syndrome (MIS),OMOP5042964,OMOP Extension,dx
+3661405,Acute bronchitis caused by SARS-CoV-2,1.38389E+17,SNOMED,dx
+3661406,Acute respiratory distress syndrome due to disease caused by Severe acute respiratory syndrome coronavirus 2,6.74814E+17,SNOMED,dx
+3661408,Pneumonia caused by SARS-CoV-2,8.82785E+17,SNOMED,dx
+3662381,Asymptomatic SARS-CoV-2,1.89486E+17,SNOMED,dx
+3663281,Lower respiratory infection caused by SARS-CoV-2,8.8053E+17,SNOMED,dx
+3655975,Sepsis due to disease caused by Severe acute respiratory syndrome coronavirus 2,870588003,SNOMED,dx
+3655976,Acute hypoxemic respiratory failure due to disease caused by Severe acute respiratory syndrome coronavirus 2,870590002,SNOMED,dx
+3655977,Rhabdomyolysis due to disease caused by Severe acute respiratory syndrome coronavirus 2,870591003,SNOMED,dx
+3656667,Cardiomyopathy due to disease caused by Severe acute respiratory syndrome coronavirus 2,1.19731E+14,SNOMED,dx
+3656668,Conjunctivitis due to disease caused by Severe acute respiratory syndrome coronavirus 2,1.19741E+14,SNOMED,dx
+3656669,Dyspnea caused by Severe acute respiratory syndrome coronavirus 2,1.19981E+14,SNOMED,dx
+3661632,Thrombocytopenia due to Severe acute respiratory syndrome coronavirus 2,866152006,SNOMED,dx
+3661748,Acute kidney injury due to disease caused by Severe acute respiratory syndrome coronavirus 2,870589006,SNOMED,dx
+3661885,Fever caused by Severe acute respiratory syndrome coronavirus 2,1.19751E+14,SNOMED,dx
+710706,"Post COVID-19 condition, unspecified",U09.9,ICD10,dx
