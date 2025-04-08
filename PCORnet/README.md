@@ -1,6 +1,6 @@
 ## PCORnet CDM
 
-Version 6.1 of the PCORnet common data model has been released by PCORI in April 2023 in both PDF and "parseable" MS Excel formats, but without database definition language for specific implementation. The DDL contained here represents an interpretation of the released materials, translated into several database dialects for the use of PEDSnet members. The full released documentation on the PCORnet CDM can be found in the [docs](docs) directory.
+Version 7.0 of the PCORnet common data model has been released by PCORI in April 2023 in both PDF and "parseable" MS Excel formats, but without database definition language for specific implementation. The DDL contained here represents an interpretation of the released materials, translated into several database dialects for the use of PEDSnet members. The full released documentation on the PCORnet CDM can be found in the [docs](docs) directory.
 
 ### Database Dialects
 
