@@ -7,6 +7,7 @@ The `master` branch may contain changes that do not apply to the latest released
 
  ETL Conventions Documents|
 --------------------------|
+[v5.8 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.8_PEDSnet_CDM_ETL_Conventions.md)|
 [v5.7 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.7_PEDSnet_CDM_ETL_Conventions.md)|
 [v5.6 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.6_PEDSnet_CDM_ETL_Conventions.md)|
 [v5.5 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v5.5_PEDSnet_CDM_ETL_Conventions.md)|
