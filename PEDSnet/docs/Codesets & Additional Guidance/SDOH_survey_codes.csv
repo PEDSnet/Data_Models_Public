@@ -2,16 +2,16 @@
 Alcohol Use,Alcohol Use Disorder Identification Test - Consumption [AUDIT-C],68518-0,How often do you have a drink containing alcohol?,R FLO 1572879836,"cl_qquest.quest_id in ('66022','61071') or ip_flo_gp_data.flo_meas_id in ('1572879836')",Standard Flow Sheet,1572879836 R AUDIT ALCOHOL FREQUENCY
 Alcohol Use,Alcohol Use Disorder Identification Test - Consumption [AUDIT-C],68519-8,How many drinks containing alcohol do you have on a typical day when you are drinking?,R FLO 157287983,"cl_qquest.quest_id in ('66020','61072') or ip_flo_gp_data.flo_meas_id in ('1572879837')",,1572879837 R AUDIT ALCOHOL STD DRINKS
 Alcohol Use,Alcohol Use Disorder Identification Test - Consumption [AUDIT-C],68520-6,How often do you have six or more drinks on one occasion?,R FLO 157287983,"cl_qquest.quest_id in ('66021','61073') or ip_flo_gp_data.flo_meas_id in ('1572879838')",,1572879838 R AUDIT ALCOHOL BINGE
-Depression,PHQ-9,44260-8 ,"Thoughts that you would be better off dead, or of hurting yourself in some way",,,"Flo 29567,65831, 1570000024,70429",
+Depression,PHQ-9,44260-8,"Thoughts that you would be better off dead, or of hurting yourself in some way",,,"Flo 29567,65831, 1570000024,70429",
 Depression,PHQ-9,69722-7,"How difficult have these problems made it for you to do your work, take care of things at home, or get along with other people? ",,Calculated Manually from Individual Questions,,3883 R TCP PHQ-9 Q11
-Depression,"PHQ-9, PHQ-8",44251-7 ,Poor appetite or overeating ,,,"FLO 29557,1570000020",
-Depression,"PHQ-9, PHQ-8",44252-5 ,"Trouble concentrating on things, such as reading the newspaper or watching television",,,"FLO 65830, 1570000022, 29561",
-Depression,"PHQ-9, PHQ-8",44253-3 ,Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual,,,Flo 1570000023,
-Depression,"PHQ-9, PHQ-8",44254-1 ,Feeling tired or having little energy ,,,,
-Depression,"PHQ-9, PHQ-8",44258-2 ,Feeling bad about yourself - or that you are a failure or have let yourself or your family down,,,FLO 1570000021,
-Depression,"PHQ-9, PHQ-8",44259-0 ,"Trouble falling or staying asleep, or sleeping too much",,,"FLO 29555,1570000018,65847,1570400742",
+Depression,"PHQ-9, PHQ-8",44251-7,Poor appetite or overeating ,,,"FLO 29557,1570000020",
+Depression,"PHQ-9, PHQ-8",44252-5,"Trouble concentrating on things, such as reading the newspaper or watching television",,,"FLO 65830, 1570000022, 29561",
+Depression,"PHQ-9, PHQ-8",44253-3,Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual,,,Flo 1570000023,
+Depression,"PHQ-9, PHQ-8",44254-1,Feeling tired or having little energy ,,,,
+Depression,"PHQ-9, PHQ-8",44258-2,Feeling bad about yourself - or that you are a failure or have let yourself or your family down,,,FLO 1570000021,
+Depression,"PHQ-9, PHQ-8",44259-0,"Trouble falling or staying asleep, or sleeping too much",,,"FLO 29555,1570000018,65847,1570400742",
 Depression,"PHQ-9, PHQ-8, PHQ-2",44250-9,Little interest or pleasure in doing things,,"cl_qquest.quest_id in ('109667','330040448','127616')",R FLO 29553,1570000014 R PHQ-2/9 Q1 LITTLE INTEREST OR PLEASURE IN DOING THINGS
-Depression,"PHQ-9, PHQ-8, PHQ-2",44255-8 ,"Feeling down, depressed or hopeless",,,R FLO 29554,
+Depression,"PHQ-9, PHQ-8, PHQ-2",44255-8,"Feeling down, depressed or hopeless",,,R FLO 29554,
 Depression,PHQ-2,55758-7,Patient Health Questionnaire 2 item (PHQ-2) total score,,Calculated Manually from Individual Questions,FLO 43021,1570000016 R PHQ-2/9 PHQ-2 SCORE
 Depression,PHQ-8,94328-2,Patient Health Questionnaire 8 item (PHQ-8) total score,,Calculated Manually from Individual Questions,,
 Depression,PHQ-9 for teens,89204-2,Patient Health Questionnaire-9: Modified for Teens total score,,Calculated Manually from Individual Questions,,1570000025 Patient Health Questionnaire-9 Score
@@ -69,4 +69,5 @@ Substance Use,AHC HRSN Substance Use,68524-8,How many times in the past year hav
 Substance Use,AHC HRSN Substance Use,95530-2,How many times in the past year have you used prescription drugs for non-medical reasons?,R FLO 1570000094,,,
 Substance Use,AHC HRSN Substance Use,96842-0,"How many times in the past 12 months have you used tobacco products (like cigarettes, cigars, snuff, chew, electronic cigarettes)?",R FLO 1570000095,,,
 Transportation Needs,AHC HRSN Transportation,93030-5,"In the past 12 months, has lack of reliable transportation kept you from medical appointments, meetings, work or from getting things needed for daily living?",R FLO 1570000068,,,
+
 Utilities,AHC HRSN Utilities,96779-4,"In the past 12 months has the electric, gas, oil, or water company threatened to shut off services in your home?",R FLO 1570000075,"cl_qquest.quest_id in ('61098','125837')",,1570000075 R AHC HRSN UTILITIES
