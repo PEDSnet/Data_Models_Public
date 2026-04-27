@@ -20,6 +20,14 @@ A clarification has been added for sites that use IMO (Intelligent Medical Objec
 
 This is a convention clarification only; no vocabulary or schema changes are required.
 
+### 2. New Cohort Definition — [COHORT_DEFINITION](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#124-cohort_definition)
+
+A new cohort definition has been added to the DCC-maintained `cohort_definition` table:
+
+| cohort_definition_id | cohort_definition_name | cohort_definition_description | definition_type_concept_id | cohort_initiation_date |
+|---|---|---|---|---|
+| 2000001561 | USDHub v1 | Meets inclusion criteria for v1 USDHub cohort | 44807982 (Cohort) | 9/1/2025 |
+
 ---
 
 # **** Reminders ****
