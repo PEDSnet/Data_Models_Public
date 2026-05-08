@@ -28,6 +28,21 @@ A new cohort definition has been added to the DCC-maintained `cohort_definition`
 |---|---|---|---|---|
 | 2000001561 | USDHub v1 | Meets inclusion criteria for v1 USDHub cohort | 44807982 (Cohort) | 9/1/2025 |
 
+
+### 3. Pain Scale Inclusion — [MEASUREMENT](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
+
+Starting in v6.2, sites will pilot the inclusion of pain scales in the measurement table with intent to refine in the following cycles. This request is driven by the INSPIRE study, which is focused on identifying patients with pediatric chronic primary pain. 
+
+The study team is interested in the following pain scales: 
+- Numeric pain score 
+- FLACC (Face, Legs, Activity, Cry, Consolability) total score 
+- FLACC component scores, if available 
+- (Wong-Baker) FACES pain scale 
+
+For v6.2, we are only requesting the scales listed above for all visits where available. As this is a pilot and to simplify ETL, we are not asking that sites standardize result values unless the numeric score is easily extractable. All pain scores are expected to have something in value_source_value, which could be a numeric value (even if the value is 0), a numeric value with an operator, and/or a string. 
+
+Please see **Note 8** under the [Measurement](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) table for specific guidance on how to populate the Measurement table with pain scale data.
+
 ---
 
 # **** Reminders ****
