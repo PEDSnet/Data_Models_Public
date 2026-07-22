@@ -1,12 +1,13 @@
-Data_Models
+Data_Models_Public
 ===========
 
 The home for usage standards for the network's data models: PEDSnet/OMOP and PCORnet for PEDSnet.
 
-The `master` branch may contain changes that do not apply to the latest released PEDSnet version. For convenience, the DCC will maintain an up-to-date list of release branch and ETL document links here:
+The `master` branch may contain changes that do not apply to the latest released PEDSnet version. For convenience, the DCC will maintain an up-to-date list of ETL document links here:
 
  ETL Conventions Documents|
 --------------------------|
+[v6.3 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v6.3_PEDSnet_CDM_ETL_Conventions.md)|
 [v6.2 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v6.2_PEDSnet_CDM_ETL_Conventions.md)|
 [v6.1 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v6.1_PEDSnet_CDM_ETL_Conventions.md)|
 [v6.0 ETL Conventions](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/Conventions%20Docs/v6.0_PEDSnet_CDM_ETL_Conventions.md)|
