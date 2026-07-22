@@ -3,7 +3,7 @@
 # **** NEW in PEDSnet CDM v6.3 ****
 
 
-## 1. condition_type_concept_id — [CONDITION_OCCURRENCE](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#12-condition_occurrence-1)
+## 1. condition_type_concept_id — [CONDITION_OCCURRENCE](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v6.3_PEDSnet_CDM_ETL_Conventions.md#12-condition_occurrence-1)
 
 In PEDSnet v6.2 and prior, the `condition_type_concept_id` holds 3 dimensions: care setting, priority, and type of diagnosis.
 
@@ -31,7 +31,7 @@ Starting in v6.3, **care setting** should be removed from `condition_type_concep
 
 > The DCC will add a step to standardize this in the pipeline in the event sites are unable to make this change in their ETL process.
 
-## 2. Pain Scale Inclusion — [MEASUREMENT](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
+## 2. Pain Scale Inclusion — [MEASUREMENT](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v6.3_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1)
 
 Starting in v6.3, all sites are expected to include pain scales in the measurement table. This request is driven by the INSPIRE study, which is focused on identifying patients with pediatric chronic primary pain. 
 
@@ -44,7 +44,7 @@ The study team is interested in the following pain scales:
 
  All pain scores are expected to have something in `value_source_value`, which could be a numeric value (even if the value is 0), a numeric value with an operator, and/or a string. 
 
-Please see **Note 8** under the [Measurement](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) table for specific guidance on how to populate the Measurement table with pain scale data.
+Please see **Note 8** under the [Measurement](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v6.3_PEDSnet_CDM_ETL_Conventions.md#112-measurement-1) table for specific guidance on how to populate the Measurement table with pain scale data.
 
 
 # **** Convention Clarifications/Reminders ****
@@ -55,11 +55,11 @@ Datetime fields in particular have a datatype of 'TIMESTAMP WITHOUT TIME ZONE', 
 
 ## 2. Domain_id fields should contain a string in sentence case
 
-The `domain_id` field in the [specialty](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#121-specialty-1) and [location_history](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#119-location_history) tables should be a string value, not numeric. We are also requesting that sites use sentence case (first letter capitalized only) to better align with OMOP. For example: 'Person', 'Provider', 'Care site'
+The `domain_id` field in the [specialty](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v6.3_PEDSnet_CDM_ETL_Conventions.md#121-specialty-1) and [location_history](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v6.3_PEDSnet_CDM_ETL_Conventions.md#119-location_history) tables should be a string value, not numeric. We are also requesting that sites use sentence case (first letter capitalized only) to better align with OMOP. For example: 'Person', 'Provider', 'Care site'
 
 > The DCC will add a step to standardize this in the pipeline in the event sites are unable to make this change in their ETL process.
 
-## 3. Drug Metadata Priorities — [DRUG_EXPOSURE](https://github.com/PEDSnet/Data_Models/blob/master/PEDSnet/docs/PEDSnet_CDM_ETL_Conventions.md#111-drug-exposure)
+## 3. Drug Metadata Priorities — [DRUG_EXPOSURE](https://github.com/PEDSnet/Data_Models_Public/blob/master/PEDSnet/docs/v6.3_PEDSnet_CDM_ETL_Conventions.md#111-drug-exposure)
 
 Sites should continue to prioritize the following drug metadata fields for the v6.3 submission cycle if not yet fully implemented:
 
