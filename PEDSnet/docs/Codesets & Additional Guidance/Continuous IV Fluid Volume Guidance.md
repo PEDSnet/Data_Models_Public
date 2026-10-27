@@ -3,14 +3,14 @@
 ## Background
 PEDSnet has been receiving more study related requests about the volume of IV fluids that patients receive while admitted to the hospital (particularly in the ED and ICU settings) for projects on sepsis and kidney function. 
 
-Up until PEDSnet version 5.8 (June 2025), in the drug_exposure table, the `effective_drug_dose` field for IV fluid administrations only captured information about the total dose ordered rather than the volume actually administered into a patient. 
+Up until PEDSnet version 5.8 (June 2025), in the drug_exposure table, the `effective_drug_dose` field for IV administrations only captured information about the total dose ordered rather than the volume actually administered into a patient. 
 
-To that end, beginning in PEDSnet version 5.9 (Sept 2025), we are asking sites to extract **all individual MAR actions for all intravenous fluid administrations (particularly for continuous infusions and boluses)** and load them into the `drug_exposure` table so that the DCC can derive total fluid volume administered as:
+To that end, beginning in PEDSnet version 5.9 (Sept 2025), we are asking sites to extract **all individual MAR actions for all intravenous administrations (particularly for continuous infusions and boluses)** and load them into the `drug_exposure` table so that the DCC can derive total fluid volume administered as:
 
 `(elapsed time between subsequent MAR actions on the same order)` X `(infusion rate)` X `(conversion factor to align time units)`
 
 ## Site Implementation - Extraction
-### Please extract **all MAR Actions**, including **stops** and **pauses**, for **intravenous fluid administrations**, particularly for **continuous infusions and boluses**.
+### Please extract **all MAR Actions**, including **stops** and **pauses**, for **intravenous administrations**, particularly for **continuous infusions and boluses**.
  
 In particular, extract **ALL** MAR actions from administrations that have an intravenous route and a frequency that would be used at your site for a continuous infusion or bolus.
 > * Examples of fluids of interest include normal saline (e.g. D5 NS, D5 1/2 NS, etc) and crystalloid fluids (e.g. Lactated Ringers, Hartmann's solution).
@@ -28,7 +28,7 @@ Please ensure during the extraction you are including the following information 
 ## Site Implementation - Transformation & Loading
 Please transform and load the extracted MAR action records to the `drug_exposure` table such that no MAR actions are filtered out and there is one record for each MAR action on the order.
 
-* To specify which `drug_exposure` records represent a MAR action of an intravenous fluid administration versus other inpatient administrations, we have created a new `concept_id` - `2000001594` "MAR Action of inpatient intravenous fluid administration".
+* To specify which `drug_exposure` records represent a MAR action of an intravenous administration versus other inpatient administrations, we have created a new `concept_id` - `2000001594` "MAR Action of inpatient intravenous administration".
 
 * For each MAR Action record, please set `drug_type_concept_id` = `2000001594` so that the DCC can identify which MAR actions should be grouped to derive total adminstered fluid volumes.
 
